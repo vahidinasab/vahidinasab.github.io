@@ -1,9 +1,9 @@
 # Contact
 
-Address: Real-time Power and Control System (RPCS) Lab, School of Electronic Engineering and Computer Science, Queen Mary University of London, Mile End Road, London, E1 4NS
+Address: 3.049, Urban Sciences Building, Newcastle University, Newcastle upon Tyne, NE4 5TG, United Kingdom
 
-Email: [s.alavi@qmul.ac.uk](mailto:s.alavi@qmul.ac.uk)
+Email: [vahid.vahidinasab@newcastle.ac.uk](mailto:vahid.vahidinasab@newcastle.ac.uk)
 
-LinkedIn: [https://www.linkedin.com/in/seyed-amir-alavi/](https://www.linkedin.com/in/seyed-amir-alavi/)
+LinkedIn: [https://www.linkedin.com/in/vahid-vahidinasab-a2b286a3/](https://www.linkedin.com/in/vahid-vahidinasab-a2b286a3/)
 
-University Website: [http://eecs.qmul.ac.uk/profiles/alaviseyedamir.html](http://eecs.qmul.ac.uk/profiles/alaviseyedamir.html)
+University Website: [https://www.ncl.ac.uk/engineering/staff/profile/vahidvahidinasab](https://www.ncl.ac.uk/engineering/staff/profile/vahidvahidinasab)
