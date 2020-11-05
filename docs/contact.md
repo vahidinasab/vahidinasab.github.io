@@ -4,6 +4,6 @@ Address: 3.049, Urban Sciences Building, Newcastle University, Newcastle upon Ty
 
 Email: [vahid.vahidinasab@newcastle.ac.uk](mailto:vahid.vahidinasab@newcastle.ac.uk)
 
-LinkedIn: [https://www.linkedin.com/in/vahid-vahidinasab-a2b286a3/](https://www.linkedin.com/in/vahid-vahidinasab-a2b286a3/)
+LinkedIn: [https://www.linkedin.com/in/vahid-vahidinasab/](https://www.linkedin.com/in/vahid-vahidinasab/)
 
 University Website: [https://www.ncl.ac.uk/engineering/staff/profile/vahidvahidinasab](https://www.ncl.ac.uk/engineering/staff/profile/vahidvahidinasab)
