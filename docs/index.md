@@ -7,9 +7,12 @@ I am a senior researcher in the School of Engineering at Newcastle University. M
  
 ## NEWS
 
-o July 2020: Our White Paper for EU H2020 inteGRIDy project published. LINK TO THE WHITE PAPER
-o   MAY 2020: I serve as the Editor of a new Springer book on Active Buildings entitled: Active Building Energy Systems: Operation and Control. LINK TO THE CALL FOR BOOK CHAPTERS
+o July 2020: Our White Paper for EU H2020 inteGRIDy project published.
+
+o   MAY 2020: I serve as the Editor of a new Springer book on Active Buildings entitled: Active Building Energy Systems: Operation and Control.
+
 o  APRIL 2020: Our paper acknowledged as the Top Downloaded Paper of by WILEY International Journal of Electrical and Energy Systems in 2018-2019.
+
 o   JANUARY 2020: I started my collaboration with the Active Buiding Centre (ABC) as a senior researcher.
 
  
