@@ -1,0 +1,39 @@
+site_name: Seyed Amir Alavi
+site_author: Seyed Amir Alavi
+site_url: https://samiralavi.github.io/
+theme:
+  name: material
+  icon:
+    logo: material/contacts
+  favicon: images/favicon.png
+  palette:
+    primary: purple
+    accent: deep orange
+  features:
+    - navigation.instant
+    - navigation.tabs
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/samiralavi
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/seyed-amir-alavi/
+markdown_extensions:
+  - attr_list
+plugins:
+  - search # necessary for search to work
+
+nav:
+  - index.md
+  - cv.md
+  - activities.md
+  - interests.md
+  - publications.md
+  - teaching.md
+  - contact.md
+  - Blog:
+    - blog/blog.md
+
+google_analytics:
+  - UA-181389079-1
+  - auto
