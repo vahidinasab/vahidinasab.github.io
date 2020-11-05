@@ -7,7 +7,7 @@ theme:
     logo: material/contacts
   favicon: images/favicon.png
   palette:
-    primary: purple
+    primary: navy
     accent: deep orange
   features:
     - navigation.instant
