@@ -2,7 +2,7 @@
 
 ## RESEARCH IMPACTS
 
-1260 (h-index: 18 & i10-index: 27) in Google Scholar
+### 1260 (h-index: 18 & i10-index: 27) in Google Scholar
 
 ## LINK TO MY PROFILES 
 
