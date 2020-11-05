@@ -8,4 +8,4 @@ LinkedIn: [https://www.linkedin.com/in/vahid-vahidinasab/](https://www.linkedin.
 
 University Website: [https://www.ncl.ac.uk/engineering/staff/profile/vahidvahidinasab](https://www.ncl.ac.uk/engineering/staff/profile/vahidvahidinasab)
 
-Twitter: [@vahidinasab] (https://twitter.com/vahidinasab)
+Twitter: [https://www.linkedin.com/in/vahid-vahidinasab/](https://twitter.com/vahidinasab)
