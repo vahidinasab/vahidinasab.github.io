@@ -1,5 +1,26 @@
 # PUBLICATIONS
 
+RESEARCH IMPACTS
+
+1176 (h-index: 17 & i10-index: 25) in Google Scholar
+
+LINK TO MY PROFILES 
+
+[https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en](Google Scholar)
+
+[http://orcid.org/0000-0002-0779-8727](ORCiD: 0000-0002-0779-8727)
+
+[https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp](RG: F-3602-2014) 
+
+[https://www.scopus.com/authid/detail.uri?authorId=23483160600](Scopus Author: 23483160600)
+
+[https://publons.com/researcher/1492696/vahid-vahidinasab/](Publons: a/1492696) 
+
+[https://www.linkedin.com/in/vahid-vahidinasab/](Linked-in: vahid-vahidinasab-a2b286a3)
+
+[https://publons.com/researcher/1492696/vahid-vahidinasab/](WoS ResearcherID: F-3602-2014)
+
+
 Book Chapters
 
 1) S. M. Hashemi (PhD Student), V. Vahidinasab, Energy Management Systems for Grid-Connected and Autonomous Operation, Microgrids: Advances in Operation, Control, and Protection, Springer, Accepted September 2019, Final Draft is Under Review.
@@ -203,7 +224,3 @@ V. Vahidinasab (from my PhD Thesis) and S. Jadid, “ANN Based Day-Ahead Peak Lo
 V. Vahidinasab (from my PhD Thesis) and S. Jadid, “Bayesian Neural Networks for Electricity Price Forecasting in the Electricity Markets,” Proceedings of Australasian Universities Power Engineering Conference, AUPEC’07, Perth, Australia, Dec. 2007.
 
 Kiani, S. Jadid, R. Fekri, and V. Vahidinasab, “Examining the Impact of Deregulation on Generation Capacity Growth in Economies in Transition by System Dynamics Modeling,” Proceedings of IEEE International Symposium on Industrial Electronics, ISIE'06, Montreal, Canada, Jul. 2006.
-
- 
-
- 
