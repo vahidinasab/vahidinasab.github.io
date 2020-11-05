@@ -17,7 +17,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/vahidinasab
     - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/seyed-amir-alavi/
+      link: https://www.linkedin.com/in/vahid-vahidinasab/
 markdown_extensions:
   - attr_list
 plugins:
@@ -26,7 +26,6 @@ plugins:
 nav:
   - index.md
   - cv.md
-  - activities.md
   - interests.md
   - publications.md
   - teaching.md
