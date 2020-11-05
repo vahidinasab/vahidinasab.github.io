@@ -7,11 +7,17 @@
 ## LINK TO MY PROFILES 
 
 Google Scholar: [https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en](https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en)
+
 ORCiD: [ORCiD: 0000-0002-0779-8727](http://orcid.org/0000-0002-0779-8727)
-ResearchGate:[https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp](https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp)  
+
+ResearchGate:[https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp](https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp)
+
 Scopus: [https://www.scopus.com/authid/detail.uri?authorId=23483160600](https://www.scopus.com/authid/detail.uri?authorId=23483160600)
+
 Publons: [https://publons.com/researcher/1492696/vahid-vahidinasab/](https://publons.com/researcher/1492696/vahid-vahidinasab/)
+
 Linked-in: [https://www.linkedin.com/in/vahid-vahidinasab/](https://www.linkedin.com/in/vahid-vahidinasab/)
+
 WoS ResearcherID: [https://publons.com/researcher/1492696/vahid-vahidinasab/](https://publons.com/researcher/1492696/vahid-vahidinasab/)
 
 
