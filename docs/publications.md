@@ -6,7 +6,7 @@ RESEARCH IMPACTS
 
 LINK TO MY PROFILES 
 
-[https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en](Google Scholar)
+[https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en] (Google Scholar)
 
 [ORCiD: 0000-0002-0779-8727] (http://orcid.org/0000-0002-0779-8727)
 
