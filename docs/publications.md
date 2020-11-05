@@ -1,33 +1,27 @@
 # PUBLICATIONS
 
-RESEARCH IMPACTS
+## RESEARCH IMPACTS
 
 1260 (h-index: 18 & i10-index: 27) in Google Scholar
 
-LINK TO MY PROFILES 
+## LINK TO MY PROFILES 
 
-[https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en] (Google Scholar)
-
-[ORCiD: 0000-0002-0779-8727] (http://orcid.org/0000-0002-0779-8727)
-
-[RG: F-3602-2014] (https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp)  
-
-[Scopus Author: 23483160600] (https://www.scopus.com/authid/detail.uri?authorId=23483160600)
-
-[Publons: a/1492696] (https://publons.com/researcher/1492696/vahid-vahidinasab/)
-
-[Linked-in: vahid-vahidinasab] (https://www.linkedin.com/in/vahid-vahidinasab/)
-
-[WoS ResearcherID: F-3602-2014] (https://publons.com/researcher/1492696/vahid-vahidinasab/)
+Google Scholar: [https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en](https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en)
+ORCiD: [ORCiD: 0000-0002-0779-8727](http://orcid.org/0000-0002-0779-8727)
+ResearchGate:[https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp](https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp)  
+Scopus: [https://www.scopus.com/authid/detail.uri?authorId=23483160600](https://www.scopus.com/authid/detail.uri?authorId=23483160600)
+Publons: [https://publons.com/researcher/1492696/vahid-vahidinasab/](https://publons.com/researcher/1492696/vahid-vahidinasab/)
+Linked-in: [https://www.linkedin.com/in/vahid-vahidinasab/](https://www.linkedin.com/in/vahid-vahidinasab/)
+WoS ResearcherID: [https://publons.com/researcher/1492696/vahid-vahidinasab/](https://publons.com/researcher/1492696/vahid-vahidinasab/)
 
 
-Book Chapters
+## Book Chapters
 
 1) S. M. Hashemi (PhD Student), V. Vahidinasab, Energy Management Systems for Grid-Connected and Autonomous Operation, Microgrids: Advances in Operation, Control, and Protection, Springer, Accepted September 2019, Final Draft is Under Review.
 
 2) H. Nezamabadi (PhD Student), V. Vahidinasab, Saeed Salarkheili, Vahid Hossein-Nejad, Hamidreza Arasteh, Game theory application for finding optimal operating point of multi-production system under fluctuations of renewable and various load levels, Springer, Final Draft is Under Review. 
 
-Peer-Reviewed Journal Papers
+## Peer-Reviewed Journal Papers
 
 3)    N. Olfatinejad (MSc Student), V. Vahidinasab, H. Arasteh, M. Ahmadian, J. Aghaei, K. Mehran “A Flexible Two-Stage Robust Model for Moving the Transmission and Reactive Power Infrastructures Expansion Planning toward Power System Integration of Renewables,” IET Renewable Power Generation, Accepted, May 2020.
 
@@ -145,7 +139,7 @@ Peer-Reviewed Journal Papers
 
  
 
-Technical Reports and Industrial Outcomes
+## Technical Reports and Industrial Outcomes
 
 60) V. Vahidinasab, Damian Giaouris., inteGRIDy Deliverable D5.4, inteGRIDy is an EU Horizon 2020 project being financed by the European Commission under Grant agreement 731268.
 
@@ -171,8 +165,7 @@ Technical Reports and Industrial Outcomes
 
  
 
-Selected Conference Papers
-
+## Selected Conference Papers
 Author of more than 55 peer-reviewed papers in national/international conferences including:
 
 R. Aghapour, H. Arasteh, M. S. Sepasian, V. Vahidinasab, J. P. S. Catalao, Probabilistic Planning of Electric Vehicles Charging Stations in an Integrated Electricity/Transport System, 21st Power Systems Computation Conference (PSCC), June 29 - July 3, 2020, Porto, Portugal (ACCEPTED).
