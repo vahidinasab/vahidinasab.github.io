@@ -10,7 +10,7 @@ Google Scholar: [https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en](h
 
 ORCiD: [ORCiD: 0000-0002-0779-8727](http://orcid.org/0000-0002-0779-8727)
 
-ResearchGate:[https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp](https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp)
+ResearchGate:[https://www.researchgate.net/profile/Vahid_Vahidinasab](https://www.researchgate.net/profile/Vahid_Vahidinasab)
 
 Scopus: [https://www.scopus.com/authid/detail.uri?authorId=23483160600](https://www.scopus.com/authid/detail.uri?authorId=23483160600)
 
