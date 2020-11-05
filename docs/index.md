@@ -1,27 +1,15 @@
 # Home
 
-1. SHORT BIO
+## SHORT BIO
 
 I am a senior researcher in the School of Engineering at Newcastle University. My research interests are threefold: (1) Integrated Energy Systems Operation and Planning; (2) Energy Markets and Transactive Energy, (3) Energy Systems Integration. Before joining Newcastle University, I have been a faculty member (A/Professor) in the Department of Electrical Engineering, Shahid Beheshti University for 10 years. I was a post-doctoral researcher at the school of Engineering of Newcastle University. I received my PhD degree (with High Distinction) in electrical engineering from Iran University of Science and Technology. With >150 research outcomes and publications in top rank journals and conferences and >1100 citations (h-index=17, i10-index=23), I am a research scientist with more than 15 years of experience and have worked with international researchers on various interdisciplinary problems in power and energy systems, economics, operation research, and control theory. I am the recipient of several International, National, and Institutional Prizes. I am the recipient of the Iranian Young Professors Prize of the Vice-Presidency for Science and Technology-National Elites Foundation. I was also endorsed as an Exceptional Talent in Electrical Engineering and received the prize from the Vice-Presidency for Science and Technology-National Elites Foundation. I have won several other awards and honours, including the Best Thesis Award in Electrical Engineering (as a supervisor) from Iranian Smart Homes Festival, Acknowledged Thesis Award in Electrical Engineering (as a supervisor) from the Iranian Society of Smart Grids, Distinguished Researcher of the Year in electrical engineering from Iran University of Science and Technology, and placing in the Top 0.1% of the nationwide the universities entrance exam of Iran Ministry of Science, Research and Technology. I am a Senior Member of the IEEE. I am a Member of Editorial Board and Associate Editor of the IET Generation, Transmission & Distribution as well as the IET Smart Grid, and also serve on the Steering Committees and Technical Program Committees of several international conferences in power and energy.
 
  
-
- 
-
- 
-
-2. NEWS
+## NEWS
 
 o July 2020: Our White Paper for EU H2020 inteGRIDy project published. LINK TO THE WHITE PAPER
-
 o   MAY 2020: I serve as the Editor of a new Springer book on Active Buildings entitled: Active Building Energy Systems: Operation and Control. LINK TO THE CALL FOR BOOK CHAPTERS
-
- 
-
 o  APRIL 2020: Our paper acknowledged as the Top Downloaded Paper of by WILEY International Journal of Electrical and Energy Systems in 2018-2019.
-
- 
-
 o   JANUARY 2020: I started my collaboration with the Active Buiding Centre (ABC) as a senior researcher.
 
  
@@ -30,7 +18,7 @@ o   JANUARY 2020: I started my collaboration with the Active Buiding Centre (ABC
 
  
 
-3. LINK TO MY PROFILES
+## LINK TO MY PROFILES
 
 Google Scholar: LINK
 
