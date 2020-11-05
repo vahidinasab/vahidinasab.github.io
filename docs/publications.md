@@ -8,17 +8,17 @@ LINK TO MY PROFILES
 
 [https://scholar.google.com/citations?user=Dh-12v4AAAAJ&hl=en](Google Scholar)
 
-[http://orcid.org/0000-0002-0779-8727](ORCiD: 0000-0002-0779-8727)
+[ORCiD: 0000-0002-0779-8727] (http://orcid.org/0000-0002-0779-8727)
 
-[https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp](RG: F-3602-2014) 
+[RG: F-3602-2014] (https://www.researchgate.net/profile/Vahid_Vahidinasab?ev=hdr_xprf&_sg=JivWefiMGWouFAxPqlWnOnVGBcfofXqD6c4OzI7Q942I-AUGXwB3hqmd4N1RmqgkPeE01I-YSGC0_v3s7TNOOPMp)  
 
-[https://www.scopus.com/authid/detail.uri?authorId=23483160600](Scopus Author: 23483160600)
+[Scopus Author: 23483160600] (https://www.scopus.com/authid/detail.uri?authorId=23483160600)
 
-[https://publons.com/researcher/1492696/vahid-vahidinasab/](Publons: a/1492696) 
+[Publons: a/1492696] (https://publons.com/researcher/1492696/vahid-vahidinasab/)
 
-[https://www.linkedin.com/in/vahid-vahidinasab/](Linked-in: vahid-vahidinasab-a2b286a3)
+[Linked-in: vahid-vahidinasab] (https://www.linkedin.com/in/vahid-vahidinasab/)
 
-[https://publons.com/researcher/1492696/vahid-vahidinasab/](WoS ResearcherID: F-3602-2014)
+[WoS ResearcherID: F-3602-2014] (https://publons.com/researcher/1492696/vahid-vahidinasab/)
 
 
 Book Chapters
