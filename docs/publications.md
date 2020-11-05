@@ -223,3 +223,4 @@ V. Vahidinasab (from my PhD Thesis) and S. Jadid, “ANN Based Day-Ahead Peak Lo
 V. Vahidinasab (from my PhD Thesis) and S. Jadid, “Bayesian Neural Networks for Electricity Price Forecasting in the Electricity Markets,” Proceedings of Australasian Universities Power Engineering Conference, AUPEC’07, Perth, Australia, Dec. 2007.
 
 Kiani, S. Jadid, R. Fekri, and V. Vahidinasab, “Examining the Impact of Deregulation on Generation Capacity Growth in Economies in Transition by System Dynamics Modeling,” Proceedings of IEEE International Symposium on Industrial Electronics, ISIE'06, Montreal, Canada, Jul. 2006.
+
