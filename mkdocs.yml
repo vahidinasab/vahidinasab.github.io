@@ -1,6 +1,6 @@
-site_name: Seyed Amir Alavi
-site_author: Seyed Amir Alavi
-site_url: https://samiralavi.github.io/
+site_name: Vahid Vahidinasab
+site_author: Vahid Vahidinasab
+site_url: https://vahidinasab.github.io/
 theme:
   name: material
   icon:
@@ -15,7 +15,7 @@ theme:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/samiralavi
+      link: https://github.com/vahidinasab
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/seyed-amir-alavi/
 markdown_extensions:
@@ -33,7 +33,3 @@ nav:
   - contact.md
   - Blog:
     - blog/blog.md
-
-google_analytics:
-  - UA-181389079-1
-  - auto
