@@ -25,11 +25,10 @@ plugins:
 
 nav:
   - index.md
-  - cv.md
+  - RM.md
   - interests.md
   - publications.md
   - teaching.md
-  - postgraduate-research.md
   - contact.md
   - Blog:
     - blog/blog.md
