@@ -1,6 +1,7 @@
 # Contact
 
-Address: 3.049, Urban Sciences Building, Newcastle University, Newcastle upon Tyne, NE4 5TG, United Kingdom
+[CV - Vahid Vahidinasab CV, PDF (last updated at November 2020)](downloads/cv.pdf)
+
 
 Email: [vahid.vahidinasab@newcastle.ac.uk](mailto:vahid.vahidinasab@newcastle.ac.uk)
 
