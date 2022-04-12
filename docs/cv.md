@@ -1,4 +1,4 @@
-# My CV
+# Postgraduate Research: A Step-by-Step Training-by-Doing Approach
 
 You can view the latest version of my CV at the following link:
 
