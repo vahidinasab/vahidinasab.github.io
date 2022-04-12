@@ -1,6 +1,6 @@
 # Postgraduate Research
 
-# Postgraduate Research: A Step-by-Step Training-by-Doing Approach
+### Postgraduate Research: A Step-by-Step Training-by-Doing Approach
 
 This page is to share the related files and information of the Postgraduate Research Methodology module prepared by
 
