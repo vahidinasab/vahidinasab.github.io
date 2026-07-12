@@ -1,350 +1,806 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Prof. Vahid Vahidinasab | Bio</title>
-  <meta name="description" content="Professor Vahid Vahidinasab — Chair in Sustainability at the University of Salford. Bio, photo, social links, academic profiles, CV, and GitHub repositories." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23d71920'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='64' fill='white' font-family='Arial, Helvetica, sans-serif'%3EV%3C/text%3E%3C/svg%3E" />
-  
-  <style>
-    /* === Brand tokens (University of Salford aligned) === */
-    :root {
-      --salford-red: #d71920;   /* Primary */
-      --salford-navy: #013149;  /* Primary */
-      --salford-blue: #006891;  /* Secondary */
-      --salford-teal: #2eb895;  /* Secondary */
-      --salford-yellow: #fece17;/* Secondary */
-      --salford-grey: #f8f8f8;  /* Neutrals */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vahid Vahidinasab · Professor and Chair in Sustainability</title>
+<meta name="description" content="Vahid Vahidinasab, Professor and Chair in Sustainability at the University of Salford. Research and leadership in power systems, electricity markets, smart grids and net zero.">
 
-      --bg: #ffffff;
-      --text: #111418;          /* near-black for readability */
-      --muted: #5d6773;         /* mid grey for descriptions */
-      --card: #ffffff;
-      --card-border: #e6e6e6;
-      --link: var(--salford-navy);
-      --link-hover: var(--salford-red);
-      --focus: #2e7dd7;
-    }
-    
-    /* Dark theme overrides */
-    [data-theme="dark"] {
-      --bg: #0c1116;
-      --text: #e8eef4;
-      --muted: #a0acb8;
-      --card: #0f151b;
-      --card-border: #1c2430;
-      --link: #8cc3ff;
-      --link-hover: #ff8a94; /* soft tint of red for hover */
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-    /* Respect system preference unless user toggles */
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme]) { color-scheme: dark; }
-      :root:not([data-theme]) {
-        --bg: #0c1116;
-        --text: #e8eef4;
-        --muted: #a0acb8;
-        --card: #0f151b;
-        --card-border: #1c2430;
-        --link: #8cc3ff;
-        --link-hover: #ff8a94;
-      }
-    }
+<style>
+  /* ============ TOKENS ============ */
+  :root{
+    --bg:#0A0D14;
+    --bg-2:#0C1018;
+    --surface:#111621;
+    --surface-2:#151C29;
+    --line:rgba(255,255,255,.09);
+    --line-strong:rgba(255,255,255,.16);
+    --text:#EDF0F5;
+    --muted:#9AA3B2;
+    --muted-2:#6B7484;
+    --accent:#FFB43D;      /* single electric accent: amber */
+    --accent-soft:#FFD98A; /* gradient partner: heated gold */
+    --accent-deep:#F59021; /* depth */
+    --glow:rgba(255,180,61,.16);
 
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: "Replica Pro", Arial, Helvetica, system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", "Ubuntu", sans-serif;
-      background: radial-gradient(1200px 800px at 85% -10%, rgba(215,25,32,0.12), transparent 60%), var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+    --display:'Archivo',sans-serif;
+    --body:'IBM Plex Sans',sans-serif;
+    --mono:'IBM Plex Mono',monospace;
 
-    .container { max-width: 980px; margin: 0 auto; padding: 24px; }
+    --maxw:1160px;
+    --pad:clamp(1.25rem,5vw,2.5rem);
+  }
 
-    /* Header */
-    header {
-      display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px;
-      padding: 16px 24px; position: sticky; top: 0; backdrop-filter: saturate(1.2) blur(6px);
-      background: color-mix(in srgb, var(--bg) 88%, transparent);
-      border-bottom: 1px solid var(--card-border);
-      z-index: 10;
-    }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
-    .brand {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .brand-title { font-weight: 700; letter-spacing: 0.2px; }
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    font-size:1.02rem;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
 
-    .uos-logo {
-      height: 36px; width: auto; object-fit: contain;
-    }
+  /* faint grid + glow behind everything */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 80%);
+    -webkit-mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 80%);
+  }
+  body::after{
+    content:"";position:fixed;top:-20%;left:50%;transform:translateX(-50%);
+    width:120vw;height:70vh;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse at center,var(--glow),transparent 62%);
+    filter:blur(10px);
+  }
 
-    .actions { display: flex; align-items: center; gap: 8px; }
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#0A0D14}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
-    .btn {
-      appearance: none; border: 1px solid var(--card-border); background: var(--card);
-      color: var(--text); padding: 8px 12px; border-radius: 10px; cursor: pointer;
-      font-weight: 600; transition: transform .06s ease, border-color .2s ease;
-    }
-    .btn:hover { border-color: var(--salford-red); }
-    .btn:active { transform: translateY(1px); }
-    .btn[aria-pressed="true"] { outline: 2px solid var(--salford-red); }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);position:relative;z-index:1}
 
-    /* Hero */
-    .hero {
-      display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: center; margin-top: 24px;
-      padding: 24px; border: 1px solid var(--card-border); border-radius: 16px; background: var(--card);
-    }
-    .avatar {
-      width: 160px; height: 160px; border-radius: 14px; object-fit: cover; border: 2px solid var(--card-border);
-      background: var(--salford-grey);
-    }
-    h1 { font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.4rem); line-height: 1.2; margin: 0 0 6px; }
-    .role { color: var(--muted); font-weight: 600; margin-bottom: 8px; }
-    .meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
-    .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 999px; border: 1px solid var(--card-border); background: var(--bg); font-size: 0.95rem; }
+  /* ============ NAV ============ */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:linear-gradient(to bottom,rgba(10,13,20,.85),rgba(10,13,20,.55));
+    border-bottom:1px solid var(--line);
+  }
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--mono);font-weight:600;letter-spacing:.04em;font-size:.92rem;color:var(--text)}
+  .brand b{color:var(--accent)}
+  .nav-links{display:flex;gap:1.4rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--muted)}
+  .nav-links a{transition:color .2s}
+  .nav-links a:hover{color:var(--accent)}
+  .nav-links .idx{color:var(--accent);opacity:.7}
+  @media(max-width:760px){.nav-links{display:none}}
 
-    .summary { margin-top: 12px; }
+  /* ============ HERO ============ */
+  .hero{position:relative;padding-top:clamp(4rem,11vh,7rem);padding-bottom:clamp(3.5rem,8vh,6rem);min-height:88vh;display:flex;align-items:center}
+  .hero-trace{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+  .hero-trace svg{position:absolute;bottom:8%;left:0;width:100%;height:56%;opacity:.85}
+  .trace-line{fill:none;stroke:url(#traceGrad);stroke-width:2;stroke-linejoin:round;stroke-linecap:round;filter:drop-shadow(0 0 8px rgba(255,180,61,.55))}
+  .trace-fill{fill:url(#traceFill);opacity:.5}
+  .trace-dot{fill:var(--accent-soft);filter:drop-shadow(0 0 10px rgba(255,217,138,.9))}
 
-    /* Quick links */
-    .grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); margin-top: 28px; }
-    .card {
-      border: 1px solid var(--card-border); background: var(--card); border-radius: 14px; padding: 14px 14px;
-      transition: border-color .2s ease, transform .06s ease;
-    }
-    .card:hover { border-color: var(--salford-red); transform: translateY(-1px); }
-    .card a { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-    .card svg { flex-shrink: 0; width: 22px; height: 22px; }
-    .card .label { font-weight: 700; }
-    .card .hint { color: var(--muted); font-size: 0.95rem; }
+  .eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:.6rem}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);opacity:.6}
 
-    /* Repos */
-    .repos { margin-top: 36px; }
-    .repos h2 { font-size: clamp(1.25rem, 1.1rem + .6vw, 1.6rem); margin: 0 0 10px; }
-    .repo-list { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); }
-    .repo { border: 1px solid var(--card-border); background: var(--card); border-radius: 14px; padding: 14px; }
-    .repo h3 { margin: 0 0 6px; font-size: 1.05rem; }
-    .repo p { margin: 0; color: var(--muted); font-size: 0.95rem; }
-    .repo .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-    .tag { border: 1px dashed var(--card-border); padding: 2px 8px; border-radius: 999px; font-size: 0.85rem; color: var(--muted); }
+  .hero h1{
+    font-family:var(--display);font-weight:900;line-height:.95;letter-spacing:-.03em;
+    font-size:clamp(3rem,9vw,6.6rem);margin:1.1rem 0 .4rem;
+    background:linear-gradient(180deg,#FFFFFF 0%,#FFFFFF 42%,var(--accent-soft) 78%,var(--accent) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero .role{font-family:var(--mono);font-size:clamp(.9rem,1.7vw,1.05rem);letter-spacing:.02em;color:var(--text)}
+  .hero .role span{color:var(--accent)}
+  .hero .position{max-width:52ch;margin-top:1.5rem;color:var(--muted);font-size:clamp(1.02rem,1.7vw,1.22rem);line-height:1.6}
+  .hero .position b{color:var(--text);font-weight:600}
 
-    /* Footer */
-    footer { color: var(--muted); font-size: 0.95rem; margin: 40px 0 20px; text-align: center; }
-    footer a { color: var(--link); }
+  .hero-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .hero-photo{display:flex;justify-content:center}
+  .photo-frame{position:relative;width:clamp(220px,30vw,340px);aspect-ratio:1/1;border-radius:22px;overflow:hidden;
+    border:1px solid var(--line-strong);
+    box-shadow:0 0 0 1px rgba(255,180,61,.14), 0 30px 70px -30px rgba(255,180,61,.45), inset 0 0 60px rgba(255,180,61,.05)}
+  .photo-frame::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(160deg,transparent 55%,rgba(255,180,61,.18));mix-blend-mode:screen;pointer-events:none}
+  .photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center 18%;
+    filter:grayscale(.35) contrast(1.04) brightness(.96);transition:filter .5s}
+  .photo-frame:hover img{filter:grayscale(0) contrast(1.02) brightness(1)}
+  @media(max-width:820px){
+    .hero-grid{grid-template-columns:1fr}
+    .hero-photo{justify-content:flex-start;order:-1}
+    .photo-frame{width:clamp(150px,42vw,220px);border-radius:18px}
+  }
 
-    /* Utilities */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    a { color: var(--link); }
-    a:hover { color: var(--link-hover); }
-    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+  .cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.1rem}
+  .btn{font-family:var(--mono);font-size:.82rem;letter-spacing:.05em;padding:.72rem 1.25rem;border-radius:6px;transition:transform .18s,box-shadow .18s,border-color .18s,background .18s;display:inline-flex;align-items:center;gap:.5rem}
+  .btn-primary{background:var(--accent);color:#0A0D14;font-weight:600}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(255,180,61,.5)}
+  .btn-ghost{border:1px solid var(--line-strong);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 
-    @media (max-width: 680px) {
-      .hero { grid-template-columns: 1fr; }
-      .avatar { width: 120px; height: 120px; }
-    }
-  </style>
+  /* ============ STAT COUNTERS ============ */
+  .stats{margin-top:3.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .stat{background:var(--bg-2);padding:1.5rem 1.35rem}
+  .stat .num{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1;letter-spacing:-.02em;
+    background:linear-gradient(180deg,#fff,var(--accent-soft));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--muted);margin-top:.7rem;text-transform:uppercase;line-height:1.4}
+  .stats-note{font-family:var(--mono);font-size:.7rem;color:var(--muted-2);margin-top:.9rem;letter-spacing:.03em}
+  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  /* ============ SECTIONS ============ */
+  section{position:relative;z-index:1}
+  .band{padding:clamp(4.5rem,11vh,8rem) 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:1rem;margin-bottom:2.8rem;flex-wrap:wrap}
+  .sec-idx{font-family:var(--mono);color:var(--accent);font-size:.9rem;letter-spacing:.1em}
+  .sec-title{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.05}
+  .sec-sub{color:var(--muted);max-width:60ch;margin-top:-1.6rem;margin-bottom:2.6rem;font-size:1.05rem}
+
+  .about-band .eyebrow{margin-bottom:1.6rem}
+  .bio{max-width:60ch;font-size:clamp(1.15rem,2.1vw,1.5rem);line-height:1.6;color:var(--text);font-weight:400;letter-spacing:-.01em}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* ============ FOCUS CARDS ============ */
+  .grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+  @media(max-width:900px){.grid-cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.grid-cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.6rem;transition:border-color .22s,transform .22s,background .22s;position:relative;overflow:hidden}
+  .card::after{content:"";position:absolute;inset:0;background:radial-gradient(400px 200px at var(--mx,50%) 0%,var(--glow),transparent 70%);opacity:0;transition:opacity .3s;pointer-events:none}
+  .card:hover{border-color:var(--line-strong);transform:translateY(-4px)}
+  .card:hover::after{opacity:1}
+  .card .k{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.1em}
+  .card h3{font-family:var(--display);font-weight:700;font-size:1.24rem;margin:.7rem 0 .55rem;letter-spacing:-.01em}
+  .card p{color:var(--muted);font-size:.96rem;line-height:1.62}
+
+  /* ============ TIMELINE ============ */
+  .timeline{position:relative;margin-left:.4rem}
+  .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:1px;background:linear-gradient(var(--accent),var(--line) 70%)}
+  .tl-item{position:relative;padding:0 0 2.2rem 2.4rem}
+  .tl-item::before{content:"";position:absolute;left:0;top:5px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 0 4px rgba(255,180,61,.1)}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-when{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--accent)}
+  .tl-item h3{font-family:var(--display);font-weight:700;font-size:1.15rem;margin:.25rem 0 .1rem;letter-spacing:-.01em}
+  .tl-org{color:var(--text);font-weight:500;font-size:.96rem}
+  .tl-item p{color:var(--muted);font-size:.94rem;margin-top:.45rem;max-width:66ch}
+
+  /* ============ PUBLICATIONS ============ */
+  .pub-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .pub{background:var(--surface);padding:1.35rem 1.5rem;display:flex;gap:1.2rem;align-items:flex-start;transition:background .2s}
+  .pub:hover{background:var(--surface-2)}
+  .pub .yr{font-family:var(--mono);font-size:.8rem;color:var(--accent);flex:0 0 3.2rem;padding-top:.15rem}
+  .pub .body{flex:1;min-width:0}
+  .pub .title{font-weight:500;color:var(--text);font-size:1.02rem;line-height:1.45}
+  .pub .venue{font-family:var(--mono);font-size:.76rem;color:var(--muted);margin-top:.35rem;letter-spacing:.02em}
+  .pub .doi{font-family:var(--mono);font-size:.74rem;color:var(--accent);white-space:nowrap;align-self:center;border:1px solid var(--line-strong);padding:.3rem .6rem;border-radius:5px;transition:border-color .2s,background .2s}
+  .pub .doi:hover{border-color:var(--accent);background:rgba(255,180,61,.08)}
+  .pub .doi[href="#"]{color:var(--muted-2);border-style:dashed}
+  @media(max-width:600px){.pub{flex-wrap:wrap}.pub .doi{align-self:flex-start;margin-top:.2rem}}
+  .pub-more{margin-top:1.4rem;font-family:var(--mono);font-size:.82rem;color:var(--muted)}
+  .pub-more a{color:var(--accent);border-bottom:1px solid transparent;transition:border-color .2s}
+  .pub-more a:hover{border-color:var(--accent)}
+
+  /* books */
+  .books-block{margin-top:3.4rem;padding-top:2.6rem;border-top:1px solid var(--line)}
+  .books-head{display:flex;align-items:baseline;gap:.9rem;margin-bottom:1.8rem}
+  .books-head .sec-idx{font-size:.8rem}
+  .books-title{font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:clamp(1.3rem,2.6vw,1.9rem)}
+  .books-gallery{display:grid;grid-template-columns:repeat(7,1fr);gap:clamp(.7rem,1.6vw,1.1rem)}
+  .bookc{display:flex;flex-direction:column;gap:.7rem}
+  .bookc-img{display:block;border-radius:6px;overflow:hidden;border:1px solid var(--line-strong);
+    box-shadow:0 18px 40px -22px rgba(0,0,0,.85);transition:transform .25s,box-shadow .25s;aspect-ratio:2/3}
+  .bookc-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .bookc:hover .bookc-img{transform:translateY(-6px);box-shadow:0 26px 50px -20px rgba(255,180,61,.4)}
+  .bookc-cap{display:flex;flex-direction:column;gap:.15rem;font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.02em;line-height:1.35}
+  .bookc-cap b{color:var(--text);font-weight:600;font-family:var(--body);font-size:.82rem;line-height:1.25}
+  @media(max-width:900px){.books-gallery{grid-template-columns:repeat(4,1fr)}}
+  @media(max-width:560px){.books-gallery{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:380px){.books-gallery{grid-template-columns:repeat(2,1fr)}}
+
+  /* ============ PROJECTS ============ */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+  @media(max-width:760px){.proj-grid{grid-template-columns:1fr}}
+  .proj{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.7rem;transition:border-color .22s,transform .22s}
+  .proj:hover{border-color:var(--line-strong);transform:translateY(-3px)}
+  .proj .tag{font-family:var(--mono);font-size:.7rem;letter-spacing:.09em;color:var(--accent);text-transform:uppercase}
+  .proj h3{font-family:var(--display);font-weight:700;font-size:1.28rem;margin:.6rem 0 .5rem;letter-spacing:-.01em}
+  .proj p{color:var(--muted);font-size:.95rem;line-height:1.6}
+  .proj .role{font-family:var(--mono);font-size:.74rem;color:var(--muted-2);margin-top:.9rem;letter-spacing:.03em}
+
+  /* ============ RECOGNITION ============ */
+  .rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+  @media(max-width:820px){.rec-grid{grid-template-columns:1fr}}
+  .rec-col h3{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:1.1rem;padding-bottom:.7rem;border-bottom:1px solid var(--line)}
+  .rec-col ul{list-style:none;display:flex;flex-direction:column;gap:.85rem}
+  .rec-col li{color:var(--muted);font-size:.95rem;line-height:1.5;padding-left:1.1rem;position:relative}
+  .rec-col li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;border-radius:1px;background:var(--accent);transform:rotate(45deg)}
+  .rec-col li b{color:var(--text);font-weight:600}
+  .edu-strip{margin-top:3rem;padding-top:2.2rem;border-top:1px solid var(--line)}
+  .edu-label{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:1.2rem}
+  .edu-pills{display:flex;flex-wrap:wrap;gap:.7rem}
+  .edu-pills span{font-family:var(--mono);font-size:.78rem;color:var(--muted);border:1px solid var(--line-strong);border-radius:100px;padding:.5rem 1rem;line-height:1.3;transition:border-color .2s,color .2s}
+  .edu-pills span:hover{border-color:var(--accent);color:var(--text)}
+
+  /* ============ CONTACT ============ */
+  .contact{text-align:center}
+  .contact .big{font-family:var(--display);font-weight:800;font-size:clamp(1.9rem,5vw,3.4rem);letter-spacing:-.02em;line-height:1.05;margin:.6rem auto 1.3rem;max-width:18ch;
+    background:linear-gradient(180deg,#fff,var(--accent-soft));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .contact .email{font-family:var(--mono);font-size:clamp(1rem,2.4vw,1.35rem);color:var(--accent);letter-spacing:.02em;border-bottom:1px solid rgba(255,180,61,.35);padding-bottom:.2rem}
+  .contact .email:hover{border-color:var(--accent)}
+  .contact .loc{color:var(--muted);font-family:var(--mono);font-size:.82rem;margin-top:1.4rem;letter-spacing:.03em}
+  .links{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:2rem}
+  .links a{font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;border:1px solid var(--line-strong);color:var(--muted);padding:.6rem 1rem;border-radius:6px;transition:all .2s}
+  .links a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+
+  /* ============ FOOTER ============ */
+  footer{border-top:1px solid var(--line);padding:2.2rem 0}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.74rem;color:var(--muted-2);letter-spacing:.03em}
+  .vision{color:var(--accent);opacity:.85}
+</style>
 </head>
 <body>
-  <header>
-    <div class="brand">
-      <span class="brand-title">Professor Vahid Vahidinasab</span>
-    </div>
-    <div class="actions">
-      <!-- University of Salford logo: positioned to the right per brand guidance -->
-      <img class="uos-logo" src="assets/salford_logo.png" alt="University of Salford logo" />
-      <button id="themeToggle" class="btn" type="button" aria-pressed="false" aria-label="Toggle dark or light theme">Dark/Light Appearance</button>
-    </div>
-  </header>
 
-  <main class="container">
-    <!-- Hero -->
-    <section class="hero" aria-labelledby="profile">
-      <img class="avatar" src="assets/profile.jpg" alt="Portrait of Professor Vahid Vahidinasab" />
-      <div>
-        <h1 id="profile">Professor Vahid Vahidinasab</h1>
-        <div class="role">Full Professor and Chair in Sustainability, University of Salford</div>
-        <div class="meta">
-          <span class="pill" title="Location">📍 Peel Park Campus, Salford, Manchester, UK</span>
-          <!-- <a class="pill" href="mailto:v.vahidinasab@salford.ac.uk" title="Email">✉️ v.vahidinasab@salford.ac.uk</a> -->
-          <!-- <a class="pill" href="assets/Vahidinasab_CV.pdf" title="Download CV">📄 CV</a> -->
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="wrap">
+    <div class="brand">V<b>·</b>Vahidinasab</div>
+    <div class="nav-links">
+      <a href="#focus"><span class="idx">01</span> Research</a>
+      <a href="#career"><span class="idx">02</span> Leadership</a>
+      <a href="#work"><span class="idx">03</span> Publications</a>
+      <a href="#projects"><span class="idx">04</span> Projects</a>
+      <a href="#recognition"><span class="idx">05</span> Recognition</a>
+      <a href="#contact"><span class="idx">06</span> Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-trace" aria-hidden="true">
+    <svg viewBox="0 0 1200 320" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="traceGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#F59021" stop-opacity="0"/>
+          <stop offset="12%" stop-color="#F59021"/>
+          <stop offset="60%" stop-color="#FFB43D"/>
+          <stop offset="100%" stop-color="#FFD98A"/>
+        </linearGradient>
+        <linearGradient id="traceFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#FFB43D" stop-opacity=".22"/>
+          <stop offset="100%" stop-color="#FFB43D" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <path class="trace-fill" id="traceFillPath" d=""/>
+      <path class="trace-line" id="tracePath" d=""/>
+      <circle class="trace-dot" id="traceDot" r="4" cx="0" cy="0" style="opacity:0"/>
+    </svg>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Power Systems · Electricity Markets · Net Zero</span>
+        <h1>Vahid<br>Vahidinasab</h1>
+        <p class="role">Professor and Chair in Sustainability <span>/</span> University of Salford</p>
+        <p class="position">I build the models, <b>markets</b> and tools that make clean energy systems work, and lead the research groups, <b>labs</b> and national programmes that turn them into practice.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#work">View selected work</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
         </div>
-        <p class="summary">Professor and Chair in Sustainability at the University of Salford, leading interdisciplinary research at the intersection of energy systems, policy, markets, and communities. Focus on self‑sustaining, resilient neighbourhoods that are fair, affordable, and inclusive. Leads UKRI and Horizon Europe projects advancing flexibility markets and decentralised systems.</p>
       </div>
-    </section>
 
-    <!-- Quick links grid -->
-    <section class="grid" aria-label="Key links">
-      <div class="card">
-        <a href="https://www.linkedin.com/in/vahid-vahidinasab/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4zM8.5 8.5h3.8v2.1h.1c.5-1 1.8-2.1 3.7-2.1 3.9 0 4.6 2.6 4.6 6V24h-4v-7c0-1.7 0-3.8-2.3-3.8s-2.6 1.8-2.6 3.7V24h-4V8.5z"/></svg>
-          <div>
-            <div class="label">LinkedIn</div>
-            <div class="hint">/vahid-vahidinasab</div>
-          </div>
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <img src="vahid.jpg" alt="Vahid Vahidinasab" width="720" height="720" loading="eager">
+        </div>
+      </div>
+    </div>
+
+    <div class="stats" id="stats">
+      <div class="stat"><div class="num" data-target="5259">0</div><div class="lab">Citations</div></div>
+      <div class="stat"><div class="num" data-target="39">0</div><div class="lab">h-index</div></div>
+      <div class="stat"><div class="num" data-target="22">0</div><div class="lab">Years in power &amp; energy</div></div>
+      <div class="stat"><div class="num" data-target="12" data-prefix="£" data-suffix="M+">0</div><div class="lab">Research funding, PI / Co-I</div></div>
+    </div>
+    <p class="stats-note">Bibliometrics: Google Scholar, June 2026 &nbsp;·&nbsp; h-index 39, i10-index 95</p>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= ABOUT / BIO ================= -->
+<section class="band about-band" id="about">
+  <div class="wrap">
+    <span class="eyebrow reveal">Profile</span>
+    <p class="bio reveal">Vahid Vahidinasab is Professor and Chair in Sustainability at the University of Salford, working where energy systems, markets, policy and people meet. Across more than twenty years in academia, industry and national research leadership, he has built the models, markets and tools that help clean energy systems run, and led the teams, labs and programmes that put them to work. His research centres on self-sustaining, resilient communities that are fair and affordable, spanning smart grids, local flexibility markets, electric vehicles and whole-energy systems. He is an IEEE Senior Member, an author of seven books, and an editor of leading international journals.</p>
+  </div>
+</section>
+
+<!-- ================= 01 RESEARCH FOCUS ================= -->
+<section class="band" id="focus">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-idx">[01]</span>
+      <h2 class="sec-title">Research focus</h2>
+    </div>
+    <p class="sec-sub reveal">Building the tools that make energy markets fair, resilient and open to everyone.</p>
+
+    <div class="grid-cards">
+      <article class="card reveal">
+        <div class="k">// SMART GRIDS</div>
+        <h3>Smart grids &amp; microgrids</h3>
+        <p>Designing resilient, self-sustaining local energy systems that keep power flowing when the wider grid is under stress.</p>
+      </article>
+      <article class="card reveal">
+        <div class="k">// COMMUNITIES</div>
+        <h3>Local energy communities</h3>
+        <p>Giving neighbourhoods the flexibility and control to run their own energy, and put people at the centre of the net-zero shift.</p>
+      </article>
+      <article class="card reveal">
+        <div class="k">// MARKETS</div>
+        <h3>Electricity markets &amp; P2P trading</h3>
+        <p>Market designs that let households and communities trade energy directly, securely and privately, and get paid fairly for flexibility.</p>
+      </article>
+      <article class="card reveal">
+        <div class="k">// MOBILITY</div>
+        <h3>EVs &amp; vehicle-to-grid</h3>
+        <p>Turning mass electric-vehicle uptake into an asset for the grid through smart charging and vehicle-to-everything (V2X) technology.</p>
+      </article>
+      <article class="card reveal">
+        <div class="k">// AI</div>
+        <h3>AI forecasting &amp; optimisation</h3>
+        <p>Autonomous forecasting and control of generation, demand and storage, tuned to what real households and operators actually need.</p>
+      </article>
+      <article class="card reveal">
+        <div class="k">// WHOLE SYSTEM</div>
+        <h3>Whole-energy systems</h3>
+        <p>Bridging electricity, gas and hydrogen networks through sector coupling, power-to-gas and green hydrogen for a flexible low-carbon system.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 02 CAREER & LEADERSHIP ================= -->
+<section class="band" id="career">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-idx">[02]</span>
+      <h2 class="sec-title">Career &amp; leadership</h2>
+    </div>
+    <p class="sec-sub reveal">Two decades of research and senior leadership across UK and international energy institutions.</p>
+
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-when">Dec 2024 – Present</div>
+        <h3>Professor and Chair in Sustainability</h3>
+        <div class="tl-org">Salford Business School, University of Salford, Manchester</div>
+        <p>Leading sustainability research and strategy across the business school, working at the intersection of energy systems, policy, markets and people.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">2021 – Dec 2024</div>
+        <h3>Reader in Sustainable Power &amp; Energy Systems · Founder of NTU-GridLab</h3>
+        <div class="tl-org">Nottingham Trent University</div>
+        <p>Founded and directed NTU-GridLab, led the Sustainable Energy Research Group, and served as School Research Impact Champion, overseeing impact case studies for the REF submission in Computer Science and Engineering.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">Oct 2018 – Feb 2021</div>
+        <h3>Senior Research Associate</h3>
+        <div class="tl-org">EPSRC National Centre for Energy Systems Integration (CESI), Newcastle University</div>
+        <p>Delivered flagship EPSRC and EU energy programmes on smart distribution grids, active buildings and vector-coupling storage.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">2016 – 2018</div>
+        <h3>Pro Vice-Chancellor for Management &amp; Resources Development and Directorate</h3>
+        <div class="tl-org">Niroo Research Institute, Iran's national electric power research institute · on secondment from Shahid Beheshti University</div>
+        <p>Designed a first-of-its-kind national research programme with 20 leading universities and a lasting industry-funded research scheme still in use, leading a team of around 100 staff and six directors.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">2014 – 2016</div>
+        <h3>Associate Pro Vice-Chancellor for Research</h3>
+        <div class="tl-org">Niroo Research Institute, Iran's national electric power research institute · on secondment from Shahid Beheshti University</div>
+        <p>Restructured the country's largest electric power research institute into 20 research departments, each with industry and academia oversight built around equality, diversity and inclusion.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">Aug 2010 – Sep 2018</div>
+        <h3>Assistant Professor of Power &amp; Energy Systems · Founder of the Soha Smart Energy Systems Lab</h3>
+        <div class="tl-org">Shahid Beheshti University, Tehran</div>
+        <p>First permanent academic post: built a research and teaching profile in smart grids, power markets and AI for energy, supervising 80+ theses and projects, and founded a smart-energy laboratory that remains active today.</p>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-when">2004 – 2010</div>
+        <h3>Research Assistant, Energy &amp; Electricity Research Centres</h3>
+        <div class="tl-org">Niroo Research Institute &amp; Iran University of Science and Technology, Tehran</div>
+        <p>Where it started: built AI-based load and electricity-price forecasting and optimal bidding tools for national grid and regional electricity companies, several still in operational use.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 03 SELECTED PUBLICATIONS ================= -->
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-idx">[03]</span>
+      <h2 class="sec-title">Selected publications</h2>
+    </div>
+    <p class="sec-sub reveal">A curated highlight from a body of 200+ books, articles and technical reports.</p>
+
+    <div class="pub-list">
+      <div class="pub reveal">
+        <div class="yr">2025</div>
+        <div class="body">
+          <div class="title">Peer-to-peer energy management of distributed ledgers in renewable smart energy systems</div>
+          <div class="venue">Electric Power Systems Research</div>
+        </div>
+        <a class="doi" href="https://doi.org/10.1016/j.epsr.2025.111451" target="_blank" rel="noopener">DOI ↗</a>
+      </div>
+
+      <div class="pub reveal">
+        <div class="yr">2024</div>
+        <div class="body">
+          <div class="title">Enhancing smart city operation management: integrating energy systems with a subway synergism hub</div>
+          <div class="venue">Sustainable Cities and Society</div>
+        </div>
+        <a class="doi" href="https://doi.org/10.1016/j.scs.2024.105446" target="_blank" rel="noopener">DOI ↗</a>
+      </div>
+
+      <div class="pub reveal">
+        <div class="yr">2023</div>
+        <div class="body">
+          <div class="title">Optimal nanogrid planning at building level</div>
+          <div class="venue">International Journal of Electrical Power &amp; Energy Systems</div>
+        </div>
+        <a class="doi" href="https://doi.org/10.1016/j.ijepes.2023.109409" target="_blank" rel="noopener">DOI ↗</a>
+      </div>
+
+      <div class="pub reveal">
+        <div class="yr">2022</div>
+        <div class="body">
+          <div class="title">Tree-partitioning as an emergency measure to contain cascading line failures</div>
+          <div class="venue">IEEE Transactions on Power Systems</div>
+        </div>
+        <a class="doi" href="https://doi.org/10.1109/TPWRS.2021.3087601" target="_blank" rel="noopener">DOI ↗</a>
+      </div>
+
+      <div class="pub reveal">
+        <div class="yr">2022</div>
+        <div class="body">
+          <div class="title">A new false data injection attack resilient model for energy forecasting</div>
+          <div class="venue">IEEE Transactions on Industrial Informatics</div>
+        </div>
+        <a class="doi" href="https://doi.org/10.1109/TII.2022.3151748" target="_blank" rel="noopener">DOI ↗</a>
+      </div>
+
+      <!-- DOI placeholder: replace href="#" with the real DOI link -->
+      <div class="pub reveal">
+        <div class="yr">2021</div>
+        <div class="body">
+          <div class="title">Value of a hybrid bridging-operational framework in integrated electricity and gas networks</div>
+          <div class="venue">Applied Energy</div>
+        </div>
+        <a class="doi" href="#" rel="noopener">Add DOI</a>
+      </div>
+
+      <!-- DOI placeholder: replace href="#" with the real DOI link -->
+      <div class="pub reveal">
+        <div class="yr">2020</div>
+        <div class="body">
+          <div class="title">Microgrids arbitrage strategy between the day-ahead and transactive energy markets</div>
+          <div class="venue">IEEE Transactions on Sustainable Energy</div>
+        </div>
+        <a class="doi" href="#" rel="noopener">Add DOI</a>
+      </div>
+
+      <!-- DOI placeholder: replace href="#" with the real DOI link -->
+      <div class="pub reveal">
+        <div class="yr">2017</div>
+        <div class="body">
+          <div class="title">A review on demand-side tools in electricity market</div>
+          <div class="venue">Renewable and Sustainable Energy Reviews</div>
+        </div>
+        <a class="doi" href="#" rel="noopener">Add DOI</a>
+      </div>
+    </div>
+
+    <p class="pub-more reveal">Full publication record on
+      <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a> and
+      <a href="https://orcid.org/0000-0002-0779-8727" target="_blank" rel="noopener">ORCID</a>.
+    </p>
+
+    <!-- ---- BOOKS ---- -->
+    <div class="books-block reveal">
+      <div class="books-head">
+        <span class="sec-idx">Books</span>
+        <h3 class="books-title">Authored &amp; edited books</h3>
+      </div>
+      <div class="books-gallery">
+        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-030-87653-1" target="_blank" rel="noopener">
+          <span class="bookc-img"><img src="whole-energy-systems.jpg" alt="Whole Energy Systems" loading="lazy"></span>
+          <span class="bookc-cap"><b>Whole Energy Systems</b>Springer · 2021</span>
+        </a>
+        <a class="bookc" href="https://shop.elsevier.com/books/power-to-gas-bridging-the-electricity-and-gas-networks/mirzaei/978-0-323-90544-2" target="_blank" rel="noopener">
+          <span class="bookc-img"><img src="power-to-gas.jpg" alt="Power-to-Gas" loading="lazy"></span>
+          <span class="bookc-cap"><b>Power-to-Gas</b>Elsevier · 2023</span>
+        </a>
+        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-030-79742-3" target="_blank" rel="noopener">
+          <span class="bookc-img"><img src="active-building.jpg" alt="Active Building Energy Systems" loading="lazy"></span>
+          <span class="bookc-cap"><b>Active Building Energy Systems</b>Springer · 2022</span>
+        </a>
+        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-22186-6" target="_blank" rel="noopener">
+          <span class="bookc-img"><img src="energy-systems-transition.jpg" alt="Energy Systems Transition" loading="lazy"></span>
+          <span class="bookc-cap"><b>Energy Systems Transition</b>Springer · 2023</span>
+        </a>
+        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-05909-4" target="_blank" rel="noopener">
+          <span class="bookc-img"><img src="ev-smart-charging.jpg" alt="Electric Vehicle Integration via Smart Charging" loading="lazy"></span>
+          <span class="bookc-cap"><b>EV Integration via Smart Charging</b>Springer · 2022</span>
+        </a>
+        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-35233-1" target="_blank" rel="noopener">
+          <span class="bookc-img"><img src="demand-side-p2p.jpg" alt="Demand-Side Peer-to-Peer Energy Trading" loading="lazy"></span>
+          <span class="bookc-cap"><b>Demand-Side P2P Energy Trading</b>Springer · 2023</span>
+        </a>
+        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-52429-5" target="_blank" rel="noopener">
+          <span class="bookc-img"><img src="green-hydrogen.jpg" alt="Green Hydrogen in Power Systems" loading="lazy"></span>
+          <span class="bookc-cap"><b>Green Hydrogen in Power Systems</b>Springer · 2024</span>
         </a>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="card">
-        <a href="https://github.com/vahidinasab" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.87 3.16 9 7.55 10.45.55.1.75-.23.75-.52v-1.82c-3.07.67-3.72-1.32-3.72-1.32-.5-1.28-1.22-1.62-1.22-1.62-.99-.68.07-.66.07-.66 1.1.08 1.68 1.13 1.68 1.13.97 1.66 2.55 1.18 3.17.9.1-.7.38-1.18.7-1.46-2.45-.28-5.02-1.22-5.02-5.43 0-1.2.43-2.18 1.14-2.95-.12-.28-.5-1.42.1-2.97 0 0 .95-.3 3.12 1.13.9-.25 1.86-.37 2.82-.38.96 0 1.93.13 2.82.38 2.17-1.43 3.12-1.13 3.12-1.13.61 1.55.24 2.69.12 2.97.71.77 1.14 1.75 1.14 2.95 0 4.22-2.58 5.14-5.04 5.41.39.34.75 1.02.75 2.06v3.05c0 .29.19.63.76.52 4.38-1.45 7.53-5.58 7.53-10.45C23.1 5.33 18.27.5 12 .5z"/></svg>
-          <div>
-            <div class="label">GitHub</div>
-            <div class="hint">@vahidinasab</div>
-          </div>
-        </a>
+<!-- ================= 04 PROJECTS & PLATFORMS ================= -->
+<section class="band" id="projects">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-idx">[04]</span>
+      <h2 class="sec-title">Major projects &amp; platforms</h2>
+    </div>
+    <p class="sec-sub reveal">Research delivered at pilot and national scale, and the tools and labs it produced.</p>
+
+    <div class="proj-grid">
+      <article class="proj reveal">
+        <div class="tag">Horizon Europe · 2023–2026</div>
+        <h3>driVe2X</h3>
+        <p>New tools, models and technology for mass electric-vehicle deployment enabled by vehicle-to-everything (V2X): data-driven support for local communities, customer-centric flexibility markets and TSO-DSO flexibility.</p>
+        <div class="role">Work-package leader · UK pilot demonstrator lead</div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="tag">Research platform</div>
+        <h3>NTU-GridLab</h3>
+        <p>A laboratory founded to develop open, data-driven tools for local communities, design local flexibility markets, and coordinate flexibility between transmission and distribution operators.</p>
+        <div class="role">Founder &amp; Director</div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="tag">EPSRC · 2019–2021</div>
+        <h3>Active Building Centre Research Programme</h3>
+        <p>Control and optimisation of distributed energy (renewables, storage and EVs) at building and network level, making energy-positive buildings work economically while keeping occupants comfortable.</p>
+        <div class="role">Senior Research Associate</div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="tag">EU H2020 · 2018–2021</div>
+        <h3>inteGRIDy</h3>
+        <p>One of Europe's largest smart-distribution-grid projects, spanning 30 partners. Built an Integrated Simulation Environment that lets decision-makers test planning and operation strategies for future distribution networks.</p>
+        <div class="role">Project Manager &amp; Research Associate</div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="tag">EPSRC · 2018–2021</div>
+        <h3>National Centre for Energy Systems Integration</h3>
+        <p>Defined vector-coupling storage based on power-to-gas, linking the gas and electricity networks to give system operators greater flexibility.</p>
+        <div class="role">Senior Research Associate</div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="tag">EPSRC · 2018–2022</div>
+        <h3>Supergen Energy Networks Hub</h3>
+        <p>Showed how power-to-gas as a vector-coupling technology can relieve heavily constrained electricity networks and improve whole-system efficiency while cutting cost.</p>
+        <div class="role">Senior Research Associate</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 05 RECOGNITION ================= -->
+<section class="band" id="recognition">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-idx">[05]</span>
+      <h2 class="sec-title">Recognition</h2>
+    </div>
+
+    <div class="rec-grid">
+      <div class="rec-col reveal">
+        <h3>Awards &amp; honours</h3>
+        <ul>
+          <li><b>IEEE PES Outstanding Engineer Award</b>, UK &amp; Ireland, 2023</li>
+          <li><b>Vice-Chancellor Research Excellence Award</b>, 2023</li>
+          <li><b>Top 2% of world scientists</b> (Energy), Stanford University / Elsevier, 2021, 2022, 2023</li>
+          <li><b>Fellow of the Higher Education Academy</b> (FHEA)</li>
+          <li>Exceptional Talent Prize (2009) · Young Professors Prize (2011)</li>
+          <li>Outstanding Reviewer, IEEE Transactions on Power Systems (2020, 2021) and Sustainable Energy (2018)</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <a href="https://www.salford.ac.uk/our-staff/vahid-vahidinasab" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 4h18v2H3zm0 7h18v2H3zm0 7h18v2H3z"/></svg>
-          <div>
-            <div class="label">University Profile</div>
-            <div class="hint">salford.ac.uk</div>
-          </div>
-        </a>
+      <div class="rec-col reveal">
+        <h3>Editorial roles</h3>
+        <ul>
+          <li><b>Associate Editor</b>, IEEE Transactions on Power Systems (2024–present)</li>
+          <li><b>Associate Editor</b>, IEEE Power Engineering Letters (2024–present)</li>
+          <li><b>Editor-in-Chief</b>, Springer Smart Grids &amp; Sustainable Energy (2022–2025)</li>
+          <li><b>Subject Editor</b>, IET Smart Grid (2019–present)</li>
+          <li><b>Subject Editor</b>, IET Generation, Transmission &amp; Distribution (2019–present)</li>
+          <li>Associate editor across 30+ international journals</li>
+        </ul>
       </div>
 
-      <div class="card">
-        <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2L1 9l11 7 11-7-11-7zm0 9.2L4.5 7.5 12 3l7.5 4.5L12 11.2zM1 15l11 7 11-7" opacity=".25"/></svg>
-          <div>
-            <div class="label">Google Scholar</div>
-            <div class="hint">ID: Dh-12v4AAAAJ</div>
-          </div>
-        </a>
+      <div class="rec-col reveal">
+        <h3>Memberships &amp; service</h3>
+        <ul>
+          <li><b>IEEE Senior Member</b> · Member of the IET (MIET)</li>
+          <li><b>Co-Chair, IEEE PES Chapter Awards</b> (2025–present)</li>
+          <li>Panel member, <b>UKRI and Innovate UK</b> Panel of Assessors</li>
+          <li>Grant reviewer for EPSRC, EU and international funding bodies (30+ proposals)</li>
+          <li>Author of <b>7 books</b> with Springer Nature and Elsevier</li>
+          <li>Keynote speaker at international energy and smart-grid conferences</li>
+        </ul>
       </div>
+    </div>
 
-      <div class="card">
-        <a href="https://orcid.org/0000-0002-0779-8727" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".12"/><text x="12" y="16" text-anchor="middle" font-size="10" fill="currentColor" font-family="Arial, sans-serif">ORCID</text></svg>
-          <div>
-            <div class="label">ORCID</div>
-            <div class="hint">0000-0002-0779-8727</div>
-          </div>
-        </a>
+    <div class="edu-strip reveal">
+      <span class="edu-label">Education &amp; executive development</span>
+      <div class="edu-pills">
+        <span>PhD &amp; MSc, Electrical Power Systems · Iran University of Science and Technology</span>
+        <span>BSc, Electrical Engineering · K. N. Toosi University of Technology</span>
+        <span>Oxford Senior Executive Leadership Programme · University of Oxford</span>
+        <span>MBA · London School of Economics (LSE)</span>
+        <span>Negotiation · London School of Economics (LSE)</span>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="card">
-        <a href="https://www.scopus.com/authid/detail.uri?authorId=23483160600" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="currentColor" opacity=".12"/><path d="M8 12a4 4 0 1 0 8 0a4 4 0 0 0-8 0z" fill="currentColor"/></svg>
-          <div>
-            <div class="label">Scopus</div>
-            <div class="hint">Author ID: 23483160600</div>
-          </div>
-        </a>
-      </div>
+<!-- ================= 06 CONTACT ================= -->
+<section class="band contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">[06] Contact</span>
+    <p class="big">Let's build the energy system that comes next.</p>
+    <a class="email" href="mailto:v.vahidinasab@salford.ac.uk">v.vahidinasab@salford.ac.uk</a>
+    <p class="loc">Salford Business School · University of Salford · Manchester M5 4WT, UK</p>
+    <div class="links">
+      <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://orcid.org/0000-0002-0779-8727" target="_blank" rel="noopener">ORCID</a>
+      <a href="https://www.linkedin.com/in/vahid-vahidinasab/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.scopus.com/authid/detail.uri?authorId=23483160600" target="_blank" rel="noopener">Scopus</a>
+      <a href="https://www.webofscience.com/wos/author/record/1199634" target="_blank" rel="noopener">Web of Science</a>
+    </div>
+  </div>
+</section>
 
-      <div class="card">
-        <a href="https://ieeexplore.ieee.org/author/37294309700" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7 9h10M7 13h7" stroke="currentColor" stroke-width="2"/></svg>
-          <div>
-            <div class="label">IEEE Xplore</div>
-            <div class="hint">Author: 37294309700</div>
-          </div>
-        </a>
-      </div>
+</main>
 
-      <div class="card">
-        <a href="https://x.com/vahidinasab" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.9 2H21l-6.6 7.5L22 22h-7.6l-6-7.8L1.6 22H0l7.2-8.2L2 2h7.7l5.3 7.1L18.9 2zm-1.3 18h2.1L8.5 4H6.3l11.3 16z"/></svg>
-          <div>
-            <div class="label">X</div>
-            <div class="hint">@vahidinasab</div>
-          </div>
-        </a>
-      </div>
-    </section>
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Vahid Vahidinasab</span>
+    <span class="vision">Resilient energy systems · Fair markets · Net zero</span>
+  </div>
+</footer>
 
-    <!-- GitHub repositories -->
-    <section class="repos" aria-labelledby="repos">
-      <h2 id="repos">Recent GitHub repositories</h2>
-      <div id="repoList" class="repo-list" role="list"></div>
-      <p style="margin-top:12px"><a href="https://github.com/vahidinasab" target="_blank" rel="noopener">View all repositories on GitHub</a></p>
-    </section>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.getElementById('yr').textContent = new Date().getFullYear();
 
-    <footer>
-      <p>© <span id="year"></span> Vahid Vahidinasab.</p>
-    </footer>
-  </main>
-
-  <script>
-    // Theme toggle with localStorage persistence
-    (function() {
-      const btn = document.getElementById('themeToggle');
-      const root = document.documentElement;
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark' || saved === 'light') {
-        root.setAttribute('data-theme', saved);
-        btn.setAttribute('aria-pressed', saved === 'dark');
-      }
-      btn.addEventListener('click', () => {
-        const current = root.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        btn.setAttribute('aria-pressed', next === 'dark');
-      });
-    })();
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Fetch latest public repos for @vahidinasab
-    async function loadRepos() {
-      const api = 'https://api.github.com/users/vahidinasab/repos?sort=updated&per_page=8';
-      const list = document.getElementById('repoList');
-      try {
-        const res = await fetch(api);
-        if (!res.ok) throw new Error('GitHub API error');
-        const data = await res.json();
-        if (!Array.isArray(data) || !data.length) {
-          list.innerHTML = '<p>No repositories found.</p>';
-          return;
-        }
-        list.innerHTML = data.map(repo => {
-          const topics = (repo.topics || []).slice(0,4);
-          const lang = repo.language ? `<span class="tag" title="Language">${repo.language}</span>` : '';
-          const tags = topics.map(t => `<span class="tag">${t}</span>`).join('');
-          const desc = repo.description ? repo.description.replace(/</g,'&lt;').replace(/>/g,'&gt;') : 'No description available.';
-          return `
-            <article class="repo" role="listitem">
-              <h3><a href="${repo.html_url}" target="_blank" rel="noopener">${repo.name}</a></h3>
-              <p>${desc}</p>
-              <div class="tags">${lang}${tags}</div>
-            </article>
-          `;
-        }).join('');
-      } catch (e) {
-        list.innerHTML = '<p>Could not load repositories right now. Please try again later.</p>';
-      }
+  /* ---------- animated counters ---------- */
+  function animateCounter(el){
+    var target = parseFloat(el.getAttribute('data-target'));
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    if(reduce){ el.textContent = prefix + target.toLocaleString() + suffix; return; }
+    var dur = 1500, start = performance.now();
+    function frame(now){
+      var p = Math.min((now-start)/dur, 1);
+      var eased = 1 - Math.pow(1-p, 3);
+      var val = Math.round(target * eased);
+      el.textContent = prefix + val.toLocaleString() + suffix;
+      if(p < 1) requestAnimationFrame(frame);
     }
-    loadRepos();
-  </script>
-
-  <!-- Structured data for better search visibility -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Professor Vahid Vahidinasab",
-    "jobTitle": "Full Professor and Chair in EnergySustainability",
-    "affiliation": {"@type": "CollegeOrUniversity", "name": "University of Salford"},
-    "email": "mailto:v.vahidinasab@salford.ac.uk",
-    "url": "https://vahidinasab.github.io/",
-    "image": "https://raw.githubusercontent.com/USER/REPO/main/assets/profile.jpg",
-    "sameAs": [
-      "https://www.linkedin.com/in/vahid-vahidinasab/",
-      "https://www.salford.ac.uk/our-staff/vahid-vahidinasab",
-      "https://github.com/vahidinasab",
-      "https://scholar.google.com/citations?user=Dh-12v4AAAAJ",
-      "https://orcid.org/0000-0002-0779-8727",
-      "https://www.scopus.com/authid/detail.uri?authorId=23483160600",
-      "https://ieeexplore.ieee.org/author/37294309700",
-      "https://x.com/vahidinasab"
-    ]
+    requestAnimationFrame(frame);
   }
-  </script>
+  var statsBox = document.getElementById('stats');
+  var statsFired = false;
+  var statObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && !statsFired){
+        statsFired = true;
+        document.querySelectorAll('#stats .num').forEach(animateCounter);
+      }
+    });
+  }, {threshold:.4});
+  if(statsBox) statObs.observe(statsBox);
+
+  /* ---------- scroll reveal ---------- */
+  var revObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target); }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
+
+  /* ---------- card hover glow follows cursor ---------- */
+  document.querySelectorAll('.card').forEach(function(card){
+    card.addEventListener('pointermove', function(ev){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+    });
+  });
+
+  /* ---------- hero market/frequency trace ---------- */
+  var W = 1200, H = 320, pts = 46, base = H*0.60, amp = H*0.30;
+  var ys = [];
+  // deterministic-ish jagged curve resembling a settlement-period price / load trace
+  var seed = 7;
+  function rnd(){ seed = (seed*9301+49297) % 233280; return seed/233280; }
+  var trend = 0;
+  for(var i=0;i<=pts;i++){
+    trend += (rnd()-0.5)*0.5;
+    trend = Math.max(-1, Math.min(1, trend));
+    var spike = rnd() > 0.86 ? (rnd()-0.5)*1.4 : 0;
+    var wave = Math.sin(i/3.1)*0.35 + Math.sin(i/1.3)*0.18;
+    var v = base - (trend*0.55 + wave*0.5 + spike) * amp * 0.5;
+    ys.push(Math.max(H*0.12, Math.min(H*0.9, v)));
+  }
+  function xAt(i){ return (i/pts)*W; }
+  var d = 'M ' + xAt(0).toFixed(1) + ' ' + ys[0].toFixed(1);
+  for(var j=1;j<ys.length;j++){ d += ' L ' + xAt(j).toFixed(1) + ' ' + ys[j].toFixed(1); }
+  var path = document.getElementById('tracePath');
+  var fillPath = document.getElementById('traceFillPath');
+  var dot = document.getElementById('traceDot');
+  if(path){
+    path.setAttribute('d', d);
+    fillPath.setAttribute('d', d + ' L ' + W + ' ' + H + ' L 0 ' + H + ' Z');
+    if(!reduce){
+      var len = path.getTotalLength();
+      path.style.strokeDasharray = len;
+      path.style.strokeDashoffset = len;
+      path.animate(
+        [{strokeDashoffset:len},{strokeDashoffset:0}],
+        {duration:2200, easing:'cubic-bezier(.16,1,.3,1)', fill:'forwards'}
+      );
+      // travelling readout dot
+      var t0 = null, travel = 5200;
+      function moveDot(ts){
+        if(t0===null) t0 = ts;
+        var p = ((ts - t0) % travel) / travel;
+        var pt = path.getPointAtLength(p * len);
+        dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
+        dot.style.opacity = 1;
+        requestAnimationFrame(moveDot);
+      }
+      setTimeout(function(){ requestAnimationFrame(moveDot); }, 2000);
+    }
+  }
+})();
+</script>
 </body>
 </html>
