@@ -115,8 +115,11 @@
   .photo-frame{position:relative;width:clamp(220px,30vw,340px);aspect-ratio:1/1;border-radius:22px;overflow:hidden;
     border:1px solid var(--line-strong);
     box-shadow:0 0 0 1px rgba(255,180,61,.14), 0 30px 70px -30px rgba(255,180,61,.45), inset 0 0 60px rgba(255,180,61,.05)}
+  .photo-frame::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(160deg,transparent 55%,rgba(255,180,61,.18));mix-blend-mode:screen;pointer-events:none}
   .photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center 18%;
-    display:block}
+    filter:grayscale(.35) contrast(1.04) brightness(.96);transition:filter .5s}
+  .photo-frame:hover img{filter:grayscale(0) contrast(1.02) brightness(1)}
   @media(max-width:820px){
     .hero-grid{grid-template-columns:1fr}
     .hero-photo{justify-content:flex-start;order:-1}
@@ -190,7 +193,7 @@
   .pub .doi:hover{border-color:var(--accent);background:rgba(255,180,61,.08)}
   .pub .doi[href="#"]{color:var(--muted-2);border-style:dashed}
   @media(max-width:600px){.pub{flex-wrap:wrap}.pub .doi{align-self:flex-start;margin-top:.2rem}}
-  .pub-more{margin-top:1.4rem;font-family:var(--mono);font-size:.82rem;color:var(--muted)}
+  .pub-more{margin-top:1.6rem;font-family:var(--mono);font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
   .pub-more a{color:var(--accent);border-bottom:1px solid transparent;transition:border-color .2s}
   .pub-more a:hover{border-color:var(--accent)}
 
@@ -307,18 +310,18 @@
 
       <div class="hero-photo">
         <div class="photo-frame">
-          <img src="assets/vahid_profile.jpg" alt="Vahid Vahidinasab" width="3294" height="3294" loading="eager">
+          <img src="asset/vahid.jpg" alt="Vahid Vahidinasab" width="720" height="720" loading="eager">
         </div>
       </div>
     </div>
 
     <div class="stats" id="stats">
-      <div class="stat"><div class="num" data-target="5278">0</div><div class="lab">Citations</div></div>
+      <div class="stat"><div class="num" data-target="5311">0</div><div class="lab">Citations</div></div>
       <div class="stat"><div class="num" data-target="39">0</div><div class="lab">h-index</div></div>
       <div class="stat"><div class="num" data-target="22">0</div><div class="lab">Years in power &amp; energy</div></div>
       <div class="stat"><div class="num" data-target="12" data-prefix="£" data-suffix="M+">0</div><div class="lab">Research funding, PI / Co-I</div></div>
     </div>
-    <p class="stats-note">Bibliometrics: Google Scholar, June 2026 &nbsp;·&nbsp; h-index 39, i10-index 95</p>
+    <p class="stats-note">Bibliometrics: Google Scholar, 28 July 2026 &nbsp;·&nbsp; h-index 39, i10-index 95</p>
   </div>
 </header>
 
@@ -394,25 +397,25 @@
       </div>
       <div class="tl-item reveal">
         <div class="tl-when">2021 – Dec 2024</div>
-        <h3>Reader in Sustainable Power &amp; Energy Systems · Founder of NTU-GridLab</h3>
+        <h3>Senior Lecturer, then Reader in Sustainable Power &amp; Energy Systems · Founder of NTU-GridLab</h3>
         <div class="tl-org">Nottingham Trent University</div>
         <p>Founded and directed NTU-GridLab, led the Sustainable Energy Research Group, and served as School Research Impact Champion, overseeing impact case studies for the REF submission in Computer Science and Engineering.</p>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-when">Oct 2018 – Feb 2021</div>
-        <h3>Senior Research Associate</h3>
+        <div class="tl-when">2018 – 2021</div>
+        <h3>Postdoctoral, then Senior Research Associate · Project Manager</h3>
         <div class="tl-org">EPSRC National Centre for Energy Systems Integration (CESI), Newcastle University</div>
-        <p>Delivered flagship EPSRC and EU energy programmes on smart distribution grids, active buildings and vector-coupling storage.</p>
+        <p>Delivered flagship EPSRC and EU energy programmes on smart distribution grids, active buildings and vector-coupling storage, and managed the H2020 inteGRIDy project.</p>
       </div>
       <div class="tl-item reveal">
         <div class="tl-when">2016 – 2018</div>
-        <h3>Vice President for Management &amp; Resources Development and Directorate</h3>
-        <div class="tl-org">Niroo Research Institute, Iran's national electric power research institute · on secondment from Shahid Beheshti University</div>
-        <p>Designed a first-of-its-kind national research programme with 20 leading universities and a lasting industry-funded research scheme, leading a team of around 100 staff and six directors.</p>
+        <h3>Vice-President for Management &amp; Resources Development</h3>
+        <div class="tl-org">Niroo Research Institute, Iran's national electric power research institute · on secondment from Shahid Beheshti University · Pro Vice-Chancellor-equivalent in scope</div>
+        <p>Designed and launched a first-of-its-kind national research funding scheme (still in use), signed partnerships with 20 universities, and led a directorate of around 100 staff with six directors reporting.</p>
       </div>
       <div class="tl-item reveal">
         <div class="tl-when">2014 – 2016</div>
-        <h3>Associate Pro Vice-Chancellor for Research</h3>
+        <h3>Director of Research &amp; Secretary of the Research Council</h3>
         <div class="tl-org">Niroo Research Institute, Iran's national electric power research institute · on secondment from Shahid Beheshti University</div>
         <p>Restructured the country's largest electric power research institute into 20 research departments, each with industry and academia oversight built around equality, diversity and inclusion.</p>
       </div>
@@ -439,7 +442,7 @@
       <span class="sec-idx">[03]</span>
       <h2 class="sec-title">Selected publications</h2>
     </div>
-    <p class="sec-sub reveal">A curated highlight from a body of 200+ books, articles and technical reports.</p>
+    <p class="sec-sub reveal">A curated highlight from a record of 178 publications, including 105 journal papers and 7 books.</p>
 
     <div class="pub-list">
       <div class="pub reveal">
@@ -518,9 +521,11 @@
       </div>
     </div>
 
-    <p class="pub-more reveal">Full publication record on
+    <p class="pub-more reveal">
+      <a class="btn btn-primary" href="publications.html" style="text-decoration:none">View all 178 publications →</a>
+      <span style="display:inline-block;margin-left:.4rem">or browse
       <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a> and
-      <a href="https://orcid.org/0000-0002-0779-8727" target="_blank" rel="noopener">ORCID</a>.
+      <a href="https://orcid.org/0000-0002-0779-8727" target="_blank" rel="noopener">ORCID</a>.</span>
     </p>
 
     <!-- ---- BOOKS ---- -->
@@ -531,31 +536,31 @@
       </div>
       <div class="books-gallery">
         <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-030-87653-1" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/whole-energy-systems.jpg" alt="Whole Energy Systems" loading="lazy"></span>
+          <span class="bookc-img"><img src="asset/whole-energy-systems.jpg" alt="Whole Energy Systems" loading="lazy"></span>
           <span class="bookc-cap"><b>Whole Energy Systems</b>Springer · 2021</span>
         </a>
         <a class="bookc" href="https://shop.elsevier.com/books/power-to-gas-bridging-the-electricity-and-gas-networks/mirzaei/978-0-323-90544-2" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/power-to-gas.jpg" alt="Power-to-Gas" loading="lazy"></span>
+          <span class="bookc-img"><img src="asset/power-to-gas.jpg" alt="Power-to-Gas" loading="lazy"></span>
           <span class="bookc-cap"><b>Power-to-Gas</b>Elsevier · 2023</span>
         </a>
         <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-030-79742-3" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/active-building.jpg" alt="Active Building Energy Systems" loading="lazy"></span>
+          <span class="bookc-img"><img src="asset/active-building.jpg" alt="Active Building Energy Systems" loading="lazy"></span>
           <span class="bookc-cap"><b>Active Building Energy Systems</b>Springer · 2022</span>
         </a>
         <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-22186-6" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/energy-systems-transition.jpg" alt="Energy Systems Transition" loading="lazy"></span>
+          <span class="bookc-img"><img src="asset/energy-systems-transition.jpg" alt="Energy Systems Transition" loading="lazy"></span>
           <span class="bookc-cap"><b>Energy Systems Transition</b>Springer · 2023</span>
         </a>
         <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-05909-4" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/ev-smart-charging.jpg" alt="Electric Vehicle Integration via Smart Charging" loading="lazy"></span>
+          <span class="bookc-img"><img src="asset/ev-smart-charging.jpg" alt="Electric Vehicle Integration via Smart Charging" loading="lazy"></span>
           <span class="bookc-cap"><b>EV Integration via Smart Charging</b>Springer · 2022</span>
         </a>
         <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-35233-1" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/demand-side-p2p.jpg" alt="Demand-Side Peer-to-Peer Energy Trading" loading="lazy"></span>
+          <span class="bookc-img"><img src="asset/demand-side-p2p.jpg" alt="Demand-Side Peer-to-Peer Energy Trading" loading="lazy"></span>
           <span class="bookc-cap"><b>Demand-Side P2P Energy Trading</b>Springer · 2023</span>
         </a>
         <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-52429-5" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/green-hydrogen.jpg" alt="Green Hydrogen in Power Systems" loading="lazy"></span>
+          <span class="bookc-img"><img src="asset/green-hydrogen.jpg" alt="Green Hydrogen in Power Systems" loading="lazy"></span>
           <span class="bookc-cap"><b>Green Hydrogen in Power Systems</b>Springer · 2024</span>
         </a>
       </div>
@@ -574,10 +579,10 @@
 
     <div class="proj-grid">
       <article class="proj reveal">
-        <div class="tag">Horizon Europe · 2023–2026</div>
+        <div class="tag">Horizon Europe · 2023–present</div>
         <h3>driVe2X</h3>
-        <p>New tools, models and technology for mass electric-vehicle deployment enabled by vehicle-to-everything (V2X): data-driven support for local communities, customer-centric flexibility markets and TSO-DSO flexibility.</p>
-        <div class="role">Work-package leader · UK pilot demonstrator lead</div>
+        <p>Conceived the idea, built the consortium and wrote the proposal for a programme on mass electric-vehicle deployment enabled by vehicle-to-everything (V2X): customer-centric local flexibility markets, grid-impact analysis and real-world pilot demonstration. Led from Nottingham Trent and now delivered at the University of Salford.</p>
+        <div class="role">Principal Investigator · Work Package Leader · UK pilot lead</div>
       </article>
 
       <article class="proj reveal">
@@ -630,12 +635,12 @@
       <div class="rec-col reveal">
         <h3>Awards &amp; honours</h3>
         <ul>
-          <li><b>IEEE PES Outstanding Engineer Award</b>, UK &amp; Ireland, 2023</li>
-          <li><b>Vice-Chancellor Research Excellence Award</b>, 2023</li>
-          <li><b>Top 2% of world scientists</b> (Energy), Stanford University / Elsevier, 2021, 2022, 2023</li>
+          <li><b>IEEE Power &amp; Energy Society Chapter Outstanding Engineer Award</b>, 2023</li>
+          <li><b>Vice-Chancellor Research Excellence Award</b>, Nottingham Trent University, 2023</li>
+          <li><b>Top 2% of world scientists</b> (Energy), Stanford University / Elsevier, 2021 and 2022</li>
           <li><b>Fellow of the Higher Education Academy</b> (FHEA)</li>
-          <li>Exceptional Talent Prize (2009) · Young Professors Prize (2011)</li>
-          <li>Outstanding Reviewer, IEEE Transactions on Power Systems (2020, 2021) and Sustainable Energy (2018)</li>
+          <li>Exceptional Talent Prize (2010) · Young Professors Prize (2011)</li>
+          <li>Exceptional Reviewer, IEEE Transactions on Power Systems (2020, 2021)</li>
         </ul>
       </div>
 
@@ -644,10 +649,11 @@
         <ul>
           <li><b>Associate Editor</b>, IEEE Transactions on Power Systems (2024–present)</li>
           <li><b>Associate Editor</b>, IEEE Power Engineering Letters (2024–present)</li>
-          <li><b>Editor-in-Chief</b>, Springer Smart Grids &amp; Sustainable Energy (2022–2025)</li>
-          <li><b>Subject Editor</b>, IET Smart Grid (2019–present)</li>
-          <li><b>Subject Editor</b>, IET Generation, Transmission &amp; Distribution (2019–present)</li>
-          <li>Associate editor across 30+ international journals</li>
+          <li><b>Associate Editor</b>, IEEE Transactions on Industry Applications (2022–present)</li>
+          <li><b>Associate Editor</b>, Nature Scientific Reports (2022–present)</li>
+          <li><b>Associate Editor</b>, IEEE Access (2020–present)</li>
+          <li><b>Subject Editor</b>, IET Smart Grid and IET Generation, Transmission &amp; Distribution (2019–present)</li>
+          <li>Editor-in-Chief, Springer Smart Grids &amp; Sustainable Energy (2022–2025)</li>
         </ul>
       </div>
 
@@ -656,10 +662,11 @@
         <ul>
           <li><b>IEEE Senior Member</b> · Member of the IET (MIET)</li>
           <li><b>Co-Chair, IEEE PES Chapter Awards</b> (2025–present)</li>
-          <li>Panel member, <b>UKRI and Innovate UK</b> Panel of Assessors</li>
-          <li>Grant reviewer for EPSRC, EU and international funding bodies (30+ proposals)</li>
-          <li>Author of <b>7 books</b> with Springer Nature and Elsevier</li>
-          <li>Keynote speaker at international energy and smart-grid conferences</li>
+          <li>Vice Chair, IEEE Industry Applications Society, UK &amp; Ireland</li>
+          <li>Secretary, IEEE UK &amp; Ireland Diversity, Equity &amp; Inclusion Committee</li>
+          <li><b>Full Member, EPSRC Peer Review College</b> (2021–present)</li>
+          <li>Panel member, UKRI and Innovate UK Panels of Assessors</li>
+          <li>Author of 7 books · keynote speaker at international energy conferences</li>
         </ul>
       </div>
     </div>
