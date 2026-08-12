@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vahid Vahidinasab · Professor and Chair in Sustainability</title>
-<meta name="description" content="Vahid Vahidinasab, Professor and Chair in Sustainability at the University of Salford. Research and leadership in sustainable power and energy systems, electricity markets, smart grids and net zero.">
+<meta name="description" content="Vahid Vahidinasab, Professor and Chair in Sustainability at the University of Salford. Research and leadership in power systems, electricity markets, smart grids and net zero.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -210,6 +210,44 @@
   .bookc:hover .bookc-img{transform:translateY(-6px);box-shadow:0 26px 50px -20px rgba(255,180,61,.4)}
   .bookc-cap{display:flex;flex-direction:column;gap:.15rem;font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.02em;line-height:1.35}
   .bookc-cap b{color:var(--text);font-weight:600;font-family:var(--body);font-size:.82rem;line-height:1.25}
+
+  /* ===== carousel + art cards (Selected publications / Books) ===== */
+  .carousel{position:relative;margin-top:1.8rem}
+  .carousel-track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:.2rem .2rem 1rem;
+    -ms-overflow-style:none;scrollbar-width:none}
+  .carousel-track::-webkit-scrollbar{display:none}
+  .artcard{flex:0 0 clamp(230px,74vw,280px);scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);
+    border-radius:16px;border-bottom-right-radius:36px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;
+    transition:transform .22s,border-color .22s,box-shadow .22s}
+  .artcard:hover{transform:translateY(-6px);border-color:var(--line-strong);box-shadow:0 24px 50px -30px rgba(0,0,0,.8)}
+  .artcard-body{padding:1.3rem 1.3rem 1.15rem;display:flex;flex-direction:column;gap:.55rem;flex:1}
+  .artcard-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:.5rem}
+  .artcard-tag .mk{width:0;height:0;border-left:7px solid var(--accent);border-top:4px solid transparent;border-bottom:4px solid transparent;flex:0 0 auto}
+  .artcard-title{font-family:var(--display);font-weight:700;font-size:1.08rem;line-height:1.28;letter-spacing:-.01em;color:var(--text);
+    display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+  .artcard-meta{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:auto;letter-spacing:.03em}
+  .artcard.feat{background:var(--accent);border-color:var(--accent)}
+  .artcard.feat .artcard-tag,.artcard.feat .artcard-title{color:#0A0D14}
+  .artcard.feat .artcard-tag .mk{border-left-color:#0A0D14}
+  .artcard.feat .artcard-meta{color:rgba(10,13,20,.72)}
+  .artcard-media.pub{aspect-ratio:16/10;position:relative;overflow:hidden;display:grid;place-items:center;
+    background:radial-gradient(120% 120% at 78% 12%,rgba(255,180,61,.16),transparent 55%),linear-gradient(140deg,#0e131c,#181019)}
+  .artcard:nth-child(3n+2) .artcard-media.pub{background:radial-gradient(120% 120% at 20% 14%,rgba(255,180,61,.16),transparent 55%),linear-gradient(140deg,#101722,#181014)}
+  .artcard:nth-child(3n) .artcard-media.pub{background:radial-gradient(130% 130% at 50% 0%,rgba(255,180,61,.14),transparent 60%),linear-gradient(140deg,#0d1119,#15121c)}
+  .artcard-media.pub::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:24px 24px;opacity:.55;mask-image:linear-gradient(transparent,#000 95%);-webkit-mask-image:linear-gradient(transparent,#000 95%)}
+  .artcard-media.pub .glyph{width:40%;height:auto;color:var(--accent);opacity:.95;position:relative;filter:drop-shadow(0 0 10px rgba(255,180,61,.4))}
+  .artcard-media.book{aspect-ratio:2/3;overflow:hidden;background:#0b0f16}
+  .artcard-media.book img{width:100%;height:100%;object-fit:cover;display:block}
+  .carousel-foot{display:flex;align-items:center;gap:1.2rem;margin-top:1.2rem}
+  .carousel-prog{flex:1;height:3px;background:var(--line-strong);border-radius:3px;overflow:hidden}
+  .carousel-prog span{display:block;height:100%;width:25%;background:var(--accent);border-radius:3px;transition:width .2s ease,margin-left .2s ease}
+  .carousel-btns{display:flex;gap:.5rem}
+  .cbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:transparent;color:var(--text);cursor:pointer;
+    font-size:1.1rem;display:grid;place-items:center;transition:border-color .2s,color .2s,background .2s,opacity .2s}
+  .cbtn:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+  .cbtn.next{background:var(--accent);color:#0A0D14;border-color:var(--accent)}
+  .cbtn.next:hover:not(:disabled){filter:brightness(1.06);color:#0A0D14}
+  .cbtn:disabled{opacity:.3;cursor:default}
   @media(max-width:900px){.books-gallery{grid-template-columns:repeat(4,1fr)}}
   @media(max-width:560px){.books-gallery{grid-template-columns:repeat(3,1fr)}}
   @media(max-width:380px){.books-gallery{grid-template-columns:repeat(2,1fr)}}
@@ -262,12 +300,13 @@
   <div class="wrap">
     <div class="brand">V<b>·</b>Vahidinasab</div>
     <div class="nav-links">
-      <a href="#focus"><span class="idx">01</span> Research</a>
-      <a href="#career"><span class="idx">02</span> Leadership</a>
-      <a href="#work"><span class="idx">03</span> Publications</a>
-      <a href="#projects"><span class="idx">04</span> Projects</a>
-      <a href="#recognition"><span class="idx">05</span> Recognition</a>
-      <a href="#contact"><span class="idx">06</span> Contact</a>
+      <a href="#work">Publications</a>
+      <a href="#focus">Research</a>
+      <a href="#career">Leadership</a>
+      <a href="#books">Books</a>
+      <a href="#projects">Projects</a>
+      <a href="#recognition">Recognition</a>
+      <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
@@ -297,9 +336,10 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow">Energy Sustainability · Electricity Markets · Net Zero</span>
+        <span class="eyebrow">Power Systems · Electricity Markets · Net Zero</span>
         <h1>Vahid<br>Vahidinasab</h1>
-        <p class="role">Professor and Chair in Sustainability <span>/</span> University of Salford</p>
+        <p class="role">Full Professor and Chair in Sustainability <span>/</span> University of Salford</p>
+        <p class="role-sub">Energy systems &amp; electricity markets leader · Net zero, research &amp; knowledge exchange · Former VP · Horizon Europe &amp; UKRI PI</p>
         <p class="position">I build the models, <b>markets</b> and tools that make clean energy systems work, and lead the research groups, <b>labs</b> and national programmes that turn them into practice.</p>
 
         <div class="cta-row">
@@ -332,6 +372,123 @@
   <div class="wrap">
     <span class="eyebrow reveal">Profile</span>
     <p class="bio reveal">Vahid Vahidinasab is Professor and Chair in Sustainability at the University of Salford, working where energy systems, markets, policy and people meet. Across more than twenty years in academia, industry and national research leadership, he has built the models, markets and tools that help clean energy systems run, and led the teams, labs and programmes that put them to work. His research centres on self-sustaining, resilient communities that are fair and affordable, spanning smart grids, local flexibility markets, electric vehicles and whole-energy systems. He is an IEEE Senior Member, an author of seven books, and an editor of leading international journals.</p>
+  </div>
+</section>
+
+<!-- ================= SELECTED PUBLICATIONS (carousel) ================= -->
+<section class="band" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:1.4rem">
+      <span class="sec-idx">//</span>
+      <h2 class="sec-title">Selected publications</h2>
+    </div>
+    <p class="sec-sub reveal">A visual highlight from a record of 172 publications. Each card links to the paper.</p>
+
+    <div class="carousel reveal">
+      <div class="carousel-track">
+
+        <a class="artcard feat" href="https://doi.org/10.1109/TPWRS.2021.3087601" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>IEEE Trans. Power Systems</div>
+            <h3 class="artcard-title">Tree-partitioning as an emergency measure to contain cascading line failures</h3>
+            <div class="artcard-meta">2022 · DOI ↗</div>
+          </div>
+          <div class="artcard-media pub">
+            <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="13" y1="14" x2="24" y2="24"/><line x1="35" y1="12" x2="24" y2="24"/><line x1="24" y1="24" x2="16" y2="37"/><line x1="24" y1="24" x2="34" y2="35"/>
+              <circle cx="13" cy="14" r="3.4" fill="currentColor" stroke="none"/><circle cx="35" cy="12" r="3.4" fill="currentColor" stroke="none"/><circle cx="24" cy="24" r="4" fill="currentColor" stroke="none"/><circle cx="16" cy="37" r="3.4" fill="currentColor" stroke="none"/><circle cx="34" cy="35" r="3.4" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        </a>
+
+        <a class="artcard" href="https://doi.org/10.1016/j.epsr.2025.111451" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Electric Power Systems Research</div>
+            <h3 class="artcard-title">Peer-to-peer energy management of distributed ledgers in renewable smart energy systems</h3>
+            <div class="artcard-meta">2025 · DOI ↗</div>
+          </div>
+          <div class="artcard-media pub">
+            <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="13" cy="24" r="6"/><circle cx="35" cy="24" r="6"/>
+              <path d="M19 20 H31"/><path d="M28 17 L31 20 L28 23"/><path d="M29 28 H17"/><path d="M20 25 L17 28 L20 31"/>
+            </svg>
+          </div>
+        </a>
+
+        <a class="artcard" href="https://doi.org/10.1109/TSTE.2020.3045216" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>IEEE Trans. Sustainable Energy</div>
+            <h3 class="artcard-title">Arbitrage strategy of renewable-based microgrids via peer-to-peer energy trading</h3>
+            <div class="artcard-meta">2021 · DOI ↗</div>
+          </div>
+          <div class="artcard-media pub">
+            <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 40 V8 M9 40 H41"/>
+              <path d="M11 34 L19 27 L25 31 L31 17 L40 11"/>
+              <circle cx="31" cy="17" r="2.6" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        </a>
+
+        <a class="artcard" href="https://doi.org/10.1109/TII.2022.3151748" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>IEEE Trans. Industrial Informatics</div>
+            <h3 class="artcard-title">A new false data injection attack resilient model for energy forecasting</h3>
+            <div class="artcard-meta">2022 · DOI ↗</div>
+          </div>
+          <div class="artcard-media pub">
+            <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6 L38 12 V24 C38 33 32 39 24 42 C16 39 10 33 10 24 V12 Z"/>
+              <path d="M15 25 H20 L23 18 L27 32 L30 25 H34"/>
+            </svg>
+          </div>
+        </a>
+
+        <a class="artcard" href="https://doi.org/10.1016/j.scs.2024.105446" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Sustainable Cities and Society</div>
+            <h3 class="artcard-title">Enhancing smart city operation management with a subway synergism hub</h3>
+            <div class="artcard-meta">2024 · DOI ↗</div>
+          </div>
+          <div class="artcard-media pub">
+            <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="10" y="23" width="8" height="17"/><rect x="20" y="15" width="8" height="25"/><rect x="30" y="27" width="8" height="13"/>
+              <circle cx="24" cy="9" r="3.2" fill="currentColor" stroke="none"/><path d="M24 12 V15"/>
+            </svg>
+          </div>
+        </a>
+
+        <a class="artcard" href="https://doi.org/10.1016/j.rser.2017.01.020" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Renewable &amp; Sustainable Energy Reviews</div>
+            <h3 class="artcard-title">A review on demand-side tools in electricity market</h3>
+            <div class="artcard-meta">2017 · DOI ↗</div>
+          </div>
+          <div class="artcard-media pub">
+            <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 40 V8 M9 40 H41"/>
+              <rect x="14" y="28" width="5" height="12" fill="currentColor" stroke="none"/><rect x="22" y="20" width="5" height="20" fill="currentColor" stroke="none"/><rect x="30" y="24" width="5" height="16" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="carousel-foot">
+        <div class="carousel-prog"><span></span></div>
+        <div class="carousel-btns">
+          <button class="cbtn prev" aria-label="Previous">&#8592;</button>
+          <button class="cbtn next" aria-label="Next">&#8594;</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="pub-more reveal" style="margin-top:1.8rem">
+      <a class="btn btn-primary" href="publications.html">View all 172 publications →</a>
+    </p>
+    <p class="pub-more reveal" style="margin-top:.9rem">Browse the full record on
+      <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a> and
+      <a href="https://orcid.org/0000-0002-0779-8727" target="_blank" rel="noopener">ORCID</a>.</p>
   </div>
 </section>
 
@@ -442,129 +599,80 @@
 </section>
 
 <!-- ================= 03 SELECTED PUBLICATIONS ================= -->
-<section class="band" id="work">
+<!-- ================= 03 BOOKS (carousel) ================= -->
+<section class="band" id="books">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-idx">[03]</span>
-      <h2 class="sec-title">Selected publications</h2>
+      <h2 class="sec-title">Books</h2>
     </div>
-    <p class="sec-sub reveal">A curated highlight from a record of 172 publications, including 105 journal papers and 7 books.</p>
+    <p class="sec-sub reveal">Seven authored and edited volumes with Springer Nature and Elsevier.</p>
 
-    <div class="pub-cta reveal"><a class="btn btn-primary" href="publications.html">View all 172 publications →</a></div>
-
-    <div class="pub-list">
-      <div class="pub reveal">
-        <div class="yr">2025</div>
-        <div class="body">
-          <div class="title">Peer-to-peer energy management of distributed ledgers in renewable smart energy systems</div>
-          <div class="venue">Electric Power Systems Research</div>
-        </div>
-        <a class="doi" href="https://doi.org/10.1016/j.epsr.2025.111451" target="_blank" rel="noopener">DOI ↗</a>
-      </div>
-
-      <div class="pub reveal">
-        <div class="yr">2024</div>
-        <div class="body">
-          <div class="title">Enhancing smart city operation management: integrating energy systems with a subway synergism hub</div>
-          <div class="venue">Sustainable Cities and Society</div>
-        </div>
-        <a class="doi" href="https://doi.org/10.1016/j.scs.2024.105446" target="_blank" rel="noopener">DOI ↗</a>
-      </div>
-
-      <div class="pub reveal">
-        <div class="yr">2023</div>
-        <div class="body">
-          <div class="title">Optimal nanogrid planning at building level</div>
-          <div class="venue">International Journal of Electrical Power &amp; Energy Systems</div>
-        </div>
-        <a class="doi" href="https://doi.org/10.1016/j.ijepes.2023.109409" target="_blank" rel="noopener">DOI ↗</a>
-      </div>
-
-      <div class="pub reveal">
-        <div class="yr">2022</div>
-        <div class="body">
-          <div class="title">Tree-partitioning as an emergency measure to contain cascading line failures</div>
-          <div class="venue">IEEE Transactions on Power Systems</div>
-        </div>
-        <a class="doi" href="https://doi.org/10.1109/TPWRS.2021.3087601" target="_blank" rel="noopener">DOI ↗</a>
-      </div>
-
-      <div class="pub reveal">
-        <div class="yr">2022</div>
-        <div class="body">
-          <div class="title">A new false data injection attack resilient model for energy forecasting</div>
-          <div class="venue">IEEE Transactions on Industrial Informatics</div>
-        </div>
-        <a class="doi" href="https://doi.org/10.1109/TII.2022.3151748" target="_blank" rel="noopener">DOI ↗</a>
-      </div>
-
-      <div class="pub reveal">
-        <div class="yr">2021</div>
-        <div class="body">
-          <div class="title">Value of regional constraint management services of vector-bridging systems in a heavily constrained network</div>
-          <div class="venue">Applied Energy</div>
-        </div>
-        <a class="doi" href="https://doi.org/10.1016/j.apenergy.2021.117421" target="_blank" rel="noopener">DOI ↗</a>
-      </div>
-
-      <div class="pub reveal">
-        <div class="yr">2021</div>
-        <div class="body">
-          <div class="title">Arbitrage strategy of renewable-based microgrids via peer-to-peer energy trading</div>
-          <div class="venue">IEEE Transactions on Sustainable Energy</div>
-        </div>
-        <a class="doi" href="https://doi.org/10.1109/TSTE.2020.3045216" target="_blank" rel="noopener">DOI ↗</a>
-      </div>
-
-      <div class="pub reveal">
-        <div class="yr">2017</div>
-        <div class="body">
-          <div class="title">A review on demand-side tools in electricity market</div>
-          <div class="venue">Renewable and Sustainable Energy Reviews</div>
-        </div>
-        <a class="doi" href="https://doi.org/10.1016/j.rser.2017.01.020" target="_blank" rel="noopener">DOI ↗</a>
-      </div>
-    </div>
-
-    <p class="pub-more reveal">Browse the full record on
-      <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a> and
-      <a href="https://orcid.org/0000-0002-0779-8727" target="_blank" rel="noopener">ORCID</a>.</p>
-
-    <!-- ---- BOOKS ---- -->
-    <div class="books-block reveal">
-      <div class="books-head">
-        <span class="sec-idx">Books</span>
-        <h3 class="books-title">Authored &amp; edited books</h3>
-      </div>
-      <div class="books-gallery">
-        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-030-87653-1" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/whole-energy-systems.jpg" alt="Whole Energy Systems" loading="lazy"></span>
-          <span class="bookc-cap"><b>Whole Energy Systems</b>Springer · 2021</span>
+    <div class="carousel reveal">
+      <div class="carousel-track">
+        <a class="artcard" href="https://link.springer.com/book/10.1007/978-3-030-87653-1" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Book</div>
+            <h3 class="artcard-title">Whole Energy Systems</h3>
+            <div class="artcard-meta">Springer · 2021</div>
+          </div>
+          <div class="artcard-media book"><img src="assets/whole-energy-systems.jpg" alt="Whole Energy Systems" loading="lazy"></div>
         </a>
-        <a class="bookc" href="https://shop.elsevier.com/books/power-to-gas-bridging-the-electricity-and-gas-networks/mirzaei/978-0-323-90544-2" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/power-to-gas.jpg" alt="Power-to-Gas" loading="lazy"></span>
-          <span class="bookc-cap"><b>Power-to-Gas</b>Elsevier · 2023</span>
+        <a class="artcard" href="https://shop.elsevier.com/books/power-to-gas-bridging-the-electricity-and-gas-networks/mirzaei/978-0-323-90544-2" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Book</div>
+            <h3 class="artcard-title">Power-to-Gas</h3>
+            <div class="artcard-meta">Elsevier · 2023</div>
+          </div>
+          <div class="artcard-media book"><img src="assets/power-to-gas.jpg" alt="Power-to-Gas" loading="lazy"></div>
         </a>
-        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-030-79742-3" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/active-building.jpg" alt="Active Building Energy Systems" loading="lazy"></span>
-          <span class="bookc-cap"><b>Active Building Energy Systems</b>Springer · 2022</span>
+        <a class="artcard" href="https://link.springer.com/book/10.1007/978-3-030-79742-3" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Book</div>
+            <h3 class="artcard-title">Active Building Energy Systems</h3>
+            <div class="artcard-meta">Springer · 2022</div>
+          </div>
+          <div class="artcard-media book"><img src="assets/active-building.jpg" alt="Active Building Energy Systems" loading="lazy"></div>
         </a>
-        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-22186-6" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/energy-systems-transition.jpg" alt="Energy Systems Transition" loading="lazy"></span>
-          <span class="bookc-cap"><b>Energy Systems Transition</b>Springer · 2023</span>
+        <a class="artcard" href="https://link.springer.com/book/10.1007/978-3-031-22186-6" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Book</div>
+            <h3 class="artcard-title">Energy Systems Transition</h3>
+            <div class="artcard-meta">Springer · 2023</div>
+          </div>
+          <div class="artcard-media book"><img src="assets/energy-systems-transition.jpg" alt="Energy Systems Transition" loading="lazy"></div>
         </a>
-        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-05909-4" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/ev-smart-charging.jpg" alt="Electric Vehicle Integration via Smart Charging" loading="lazy"></span>
-          <span class="bookc-cap"><b>EV Integration via Smart Charging</b>Springer · 2022</span>
+        <a class="artcard" href="https://link.springer.com/book/10.1007/978-3-031-05909-4" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Book</div>
+            <h3 class="artcard-title">EV Integration via Smart Charging</h3>
+            <div class="artcard-meta">Springer · 2022</div>
+          </div>
+          <div class="artcard-media book"><img src="assets/ev-smart-charging.jpg" alt="EV Integration via Smart Charging" loading="lazy"></div>
         </a>
-        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-35233-1" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/demand-side-p2p.jpg" alt="Demand-Side Peer-to-Peer Energy Trading" loading="lazy"></span>
-          <span class="bookc-cap"><b>Demand-Side P2P Energy Trading</b>Springer · 2023</span>
+        <a class="artcard" href="https://link.springer.com/book/10.1007/978-3-031-35233-1" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Book</div>
+            <h3 class="artcard-title">Demand-Side P2P Energy Trading</h3>
+            <div class="artcard-meta">Springer · 2023</div>
+          </div>
+          <div class="artcard-media book"><img src="assets/demand-side-p2p.jpg" alt="Demand-Side P2P Energy Trading" loading="lazy"></div>
         </a>
-        <a class="bookc" href="https://link.springer.com/book/10.1007/978-3-031-52429-5" target="_blank" rel="noopener">
-          <span class="bookc-img"><img src="assets/green-hydrogen.jpg" alt="Green Hydrogen in Power Systems" loading="lazy"></span>
-          <span class="bookc-cap"><b>Green Hydrogen in Power Systems</b>Springer · 2024</span>
+        <a class="artcard" href="https://link.springer.com/book/10.1007/978-3-031-52429-5" target="_blank" rel="noopener">
+          <div class="artcard-body">
+            <div class="artcard-tag"><span class="mk"></span>Book</div>
+            <h3 class="artcard-title">Green Hydrogen in Power Systems</h3>
+            <div class="artcard-meta">Springer · 2024</div>
+          </div>
+          <div class="artcard-media book"><img src="assets/green-hydrogen.jpg" alt="Green Hydrogen in Power Systems" loading="lazy"></div>
         </a>
+      </div>
+      <div class="carousel-foot">
+        <div class="carousel-prog"><span></span></div>
+        <div class="carousel-btns">
+          <button class="cbtn prev" aria-label="Previous">&#8592;</button>
+          <button class="cbtn next" aria-label="Next">&#8594;</button>
+        </div>
       </div>
     </div>
   </div>
@@ -806,6 +914,28 @@
       setTimeout(function(){ requestAnimationFrame(moveDot); }, 2000);
     }
   }
+  /* ---------- carousels (Selected publications / Books) ---------- */
+  document.querySelectorAll('.carousel').forEach(function(car){
+    var track=car.querySelector('.carousel-track');
+    var prev=car.querySelector('.cbtn.prev'), next=car.querySelector('.cbtn.next');
+    var fill=car.querySelector('.carousel-prog span');
+    function step(){var c=track.querySelector('.artcard');return c?c.getBoundingClientRect().width+16:280;}
+    function update(){
+      var max=track.scrollWidth-track.clientWidth;
+      var ratio=max>0?track.scrollLeft/max:0;
+      var vis=track.scrollWidth>0?(track.clientWidth/track.scrollWidth):1;
+      var w=Math.max(14,Math.min(100,vis*100));
+      if(fill){fill.style.width=w+'%';fill.style.marginLeft=(ratio*(100-w))+'%';}
+      if(prev)prev.disabled=track.scrollLeft<=2;
+      if(next)next.disabled=track.scrollLeft>=max-2;
+    }
+    if(prev)prev.addEventListener('click',function(){track.scrollBy({left:-step(),behavior:'smooth'});});
+    if(next)next.addEventListener('click',function(){track.scrollBy({left:step(),behavior:'smooth'});});
+    track.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update);
+    update();
+  });
+
 })();
 </script>
 </body>
