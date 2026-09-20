@@ -1,0 +1,18 @@
+{
+ "verified": "2026-09-20",
+ "citations": 5410,
+ "h_index": 39,
+ "i10_index": 95,
+ "years_in_field": 22,
+ "funding_gbp_m": 12,
+ "counts": {
+  "journal": 106,
+  "conference": 36,
+  "book": 7,
+  "chapter": 16,
+  "public": 2,
+  "whitepaper": 2,
+  "preprint": 4
+ },
+ "total_itemised": 173
+}

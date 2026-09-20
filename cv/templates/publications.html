@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications · Vahid Vahidinasab</title>
+<meta name="description" content="Complete publication record of Professor Vahid Vahidinasab: journal papers, conference papers, books and book chapters in power systems, energy markets and net zero.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0D14;--bg-2:#0C1018;--surface:#111621;--surface-2:#151C29;
+    --line:rgba(255,255,255,.09);--line-strong:rgba(255,255,255,.16);
+    --text:#EDF0F5;--muted:#9AA3B2;--muted-2:#6B7484;
+    --accent:#FFB43D;--accent-soft:#FFD98A;--glow:rgba(255,180,61,.16);
+    --display:'Archivo',sans-serif;--body:'IBM Plex Sans',sans-serif;--mono:'IBM Plex Mono',monospace;
+    --maxw:1000px;--pad:clamp(1.25rem,5vw,2.5rem);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 80%);
+    -webkit-mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 80%)}
+  body::after{content:"";position:fixed;top:-25%;left:50%;transform:translateX(-50%);width:120vw;height:60vh;z-index:0;pointer-events:none;
+    background:radial-gradient(ellipse at center,var(--glow),transparent 62%);filter:blur(10px)}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#0A0D14}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);position:relative;z-index:1}
+
+  .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(10px);
+    background:linear-gradient(to bottom,rgba(10,13,20,.9),rgba(10,13,20,.6));border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .back{font-family:var(--mono);font-size:.85rem;letter-spacing:.03em;color:var(--muted);transition:color .2s}
+  .back:hover{color:var(--accent)}
+  .back b{color:var(--text)}
+  .nav .gs{font-family:var(--mono);font-size:.78rem;color:var(--accent);border:1px solid var(--line-strong);padding:.4rem .8rem;border-radius:6px;transition:border-color .2s}
+  .nav .gs:hover{border-color:var(--accent)}
+
+  header.head{padding:clamp(2.5rem,7vh,4.5rem) 0 1.5rem}
+  .eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+  header.head h1{font-family:var(--display);font-weight:900;letter-spacing:-.03em;line-height:1;font-size:clamp(2.4rem,7vw,4.2rem);margin:.8rem 0 1rem;
+    background:linear-gradient(180deg,#fff 45%,var(--accent-soft));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .coverage{font-family:var(--mono);font-size:.76rem;color:var(--muted-2);letter-spacing:.02em}
+
+  .metrics{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:1.8rem 0 .5rem}
+  .metric{background:var(--bg-2);padding:1rem 1.3rem;flex:1;min-width:120px}
+  .metric .n{font-family:var(--display);font-weight:800;font-size:clamp(1.4rem,3.5vw,2rem);line-height:1;
+    background:linear-gradient(180deg,#fff,var(--accent-soft));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .metric .l{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--muted);margin-top:.5rem;text-transform:uppercase}
+
+  .controls{position:sticky;top:60px;z-index:40;padding:1rem 0;background:linear-gradient(to bottom,var(--bg) 70%,transparent);margin-top:1rem}
+  .search{width:100%;font-family:var(--mono);font-size:.9rem;color:var(--text);background:var(--surface);border:1px solid var(--line-strong);
+    border-radius:8px;padding:.85rem 1rem;outline:none;transition:border-color .2s}
+  .search::placeholder{color:var(--muted-2)}
+  .search:focus{border-color:var(--accent)}
+  .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+  .filt{font-family:var(--mono);font-size:.76rem;letter-spacing:.03em;color:var(--muted);background:transparent;border:1px solid var(--line-strong);
+    border-radius:100px;padding:.45rem .95rem;cursor:pointer;transition:all .2s}
+  .filt:hover{color:var(--text);border-color:var(--muted)}
+  .filt.active{background:var(--accent);color:#0A0D14;border-color:var(--accent);font-weight:600}
+  .resultnote{font-family:var(--mono);font-size:.72rem;color:var(--muted-2);margin-top:.8rem;min-height:1em}
+
+  main{padding-bottom:5rem}
+  .pubcat{margin-top:2.6rem}
+  .pubcat-h{font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,3vw,1.8rem);letter-spacing:-.01em;display:flex;align-items:center;gap:.6rem;
+    padding-bottom:.8rem;border-bottom:1px solid var(--line-strong)}
+  .pc-idx{font-family:var(--mono);color:var(--accent);font-size:.9rem}
+  .pc-count{font-family:var(--mono);font-size:.8rem;color:var(--muted-2);font-weight:400}
+  .pubyear{margin-top:1.4rem}
+  .py-label{font-family:var(--mono);font-size:.85rem;color:var(--accent);letter-spacing:.06em;margin-bottom:.5rem}
+  .py-list{list-style:none;display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  .pub-item{background:var(--surface);padding:.9rem 1.1rem;display:flex;gap:1rem;align-items:flex-start;transition:background .18s}
+  .pub-item:hover{background:var(--surface-2)}
+  .pi-main{flex:1;min-width:0}
+  .pi-title{font-size:.98rem;line-height:1.4;color:var(--text);font-weight:500}
+  .pi-title a:hover{color:var(--accent)}
+  .pi-meta{font-family:var(--mono);font-size:.73rem;color:var(--muted);margin-top:.35rem;line-height:1.5;letter-spacing:.01em}
+  .pi-meta b{color:var(--accent-soft);font-weight:600}
+  .pv{color:var(--muted)}
+  .pdoi{font-family:var(--mono);font-size:.7rem;color:var(--accent);white-space:nowrap;align-self:center;border:1px solid var(--line-strong);
+    padding:.28rem .55rem;border-radius:5px;transition:border-color .2s,background .2s}
+  .pdoi:hover{border-color:var(--accent);background:rgba(255,180,61,.08)}
+  .pubnote{font-family:var(--mono);font-size:.76rem;color:var(--muted);line-height:1.6;margin-top:1rem;padding:.9rem 1.1rem;border-left:2px solid var(--line-strong);background:var(--surface)}
+  .empty{display:none;font-family:var(--mono);color:var(--muted-2);padding:2rem 0;text-align:center}
+  @media(max-width:560px){.pub-item{flex-wrap:wrap}.pdoi{align-self:flex-start}}
+
+  footer{border-top:1px solid var(--line);padding:2rem 0;font-family:var(--mono);font-size:.72rem;color:var(--muted-2);letter-spacing:.03em;text-align:center}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="back" href="index.html">← <b>Vahid Vahidinasab</b></a>
+    <a class="gs" href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+  </div>
+</nav>
+
+<header class="head">
+  <div class="wrap">
+    <span class="eyebrow">Complete record</span>
+    <h1>Publications</h1>
+    <p class="coverage">Reconciled from Google Scholar and Scopus · verified {{COVERAGE}}</p>
+
+    <div class="metrics">
+{{METRICS}}
+    </div>
+  </div>
+</header>
+
+<div class="controls">
+  <div class="wrap">
+    <input id="q" class="search" type="search" placeholder="Search by title, author, journal or year…" aria-label="Search publications">
+    <div class="filters" id="filters">
+      <button class="filt active" data-f="all">All ({{TOTAL}})</button>
+      <button class="filt" data-f="journal">Journal</button>
+      <button class="filt" data-f="conference">Conference</button>
+      <button class="filt" data-f="book">Books</button>
+      <button class="filt" data-f="chapter">Chapters</button>
+      <button class="filt" data-f="public">Public engagement</button>
+      <button class="filt" data-f="white">White papers</button>
+      <button class="filt" data-f="working">Working papers</button>
+    </div>
+    <div class="resultnote" id="note"></div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+{{BODY}}
+  </div>
+</main>
+
+<footer>© <span id="yr"></span> Vahid Vahidinasab · <a href="index.html" style="color:var(--accent)">Home</a></footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var q=document.getElementById('q'), note=document.getElementById('note'), empty=document.getElementById('empty');
+  var items=[].slice.call(document.querySelectorAll('.pub-item'));
+  var cats=[].slice.call(document.querySelectorAll('.pubcat'));
+  var years=[].slice.call(document.querySelectorAll('.pubyear'));
+  var curFilter='all';
+  function apply(){
+    var term=(q.value||'').trim().toLowerCase();
+    var shown=0;
+    items.forEach(function(it){
+      var okCat = curFilter==='all' || it.closest('.pubcat').getAttribute('data-cat')===curFilter;
+      var okTerm = !term || it.getAttribute('data-blob').indexOf(term)>-1;
+      var show=okCat&&okTerm;
+      it.style.display=show?'':'none';
+      if(show) shown++;
+    });
+    years.forEach(function(y){
+      var any=y.querySelector('.pub-item:not([style*="display: none"])');
+      y.style.display=any?'':'none';
+    });
+    cats.forEach(function(c){
+      var any=c.querySelector('.pub-item:not([style*="display: none"])');
+      c.style.display=any?'':'none';
+    });
+    empty.style.display=shown?'none':'block';
+    note.textContent = (term||curFilter!=='all') ? (shown+' of {{TOTAL}} shown') : '';
+  }
+  q.addEventListener('input', apply);
+  document.getElementById('filters').addEventListener('click', function(e){
+    var b=e.target.closest('.filt'); if(!b) return;
+    document.querySelectorAll('.filt').forEach(function(x){x.classList.remove('active')});
+    b.classList.add('active'); curFilter=b.getAttribute('data-f'); apply();
+  });
+})();
+</script>
+</body>
+</html>
