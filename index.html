@@ -363,12 +363,12 @@
     </div>
 
     <div class="stats" id="stats">
-      <div class="stat"><div class="num" id="stat-citations" data-target="5410">0</div><div class="lab">Citations</div></div>
-      <div class="stat"><div class="num" id="stat-h" data-target="39">0</div><div class="lab">h-index</div></div>
-      <div class="stat"><div class="num" id="stat-years" data-target="22">0</div><div class="lab">Years in power &amp; energy</div></div>
-      <div class="stat"><div class="num" id="stat-funding" data-target="12" data-prefix="£" data-suffix="M+">0</div><div class="lab">Research funding, PI / Co-I</div></div>
+      <div class="stat"><div class="num" data-target="5311">0</div><div class="lab">Citations</div></div>
+      <div class="stat"><div class="num" data-target="39">0</div><div class="lab">h-index</div></div>
+      <div class="stat"><div class="num" data-target="22">0</div><div class="lab">Years in power &amp; energy</div></div>
+      <div class="stat"><div class="num" data-target="12" data-prefix="£" data-suffix="M+">0</div><div class="lab">Research funding, PI / Co-I</div></div>
     </div>
-    <p class="stats-note">Bibliometrics: <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a>, <span id="bib-verified">20 September 2026</span> &nbsp;·&nbsp; <span id="bib-indices">h-index 39, i10-index 95</span> &nbsp;·&nbsp; <a href="publications.html">full publication list</a></p>
+    <p class="stats-note">Bibliometrics: <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a>, 28 July 2026 &nbsp;·&nbsp; h-index 39, i10-index 95 &nbsp;·&nbsp; <a href="publications.html">full publication list</a></p>
   </div>
 </header>
 
@@ -640,7 +640,7 @@
     </div>
 
     <div class="pub-cta reveal" style="margin:1.8rem 0 0">
-      <a class="btn btn-primary" href="publications.html">View all <span id="pub-count">173</span> publications →</a>
+      <a class="btn btn-primary" href="publications.html">View all 172 publications →</a>
     </div>
     <p class="pub-more reveal" style="margin-top:.9rem">Browse the full record on
       <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a> and
@@ -702,12 +702,6 @@
     <p class="sec-sub reveal">Two decades of research and senior leadership across UK and international energy institutions.</p>
 
     <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-when">2026 – Present</div>
-        <h3>Academic Research Lead, Centre for Sustainable Innovation</h3>
-        <div class="tl-org">University of Salford</div>
-        <p>Leading the research agenda of the University&rsquo;s Centre for Sustainable Innovation, setting direction across sustainability research and its translation into practice.</p>
-      </div>
       <div class="tl-item reveal">
         <div class="tl-when">Dec 2024 – Present</div>
         <h3>Professor and Chair in Sustainability</h3>
@@ -968,51 +962,13 @@
     }
     requestAnimationFrame(frame);
   }
-  /* ---------- live figures from data/profile.json ----------
-     The markup above carries the last known values so the page still reads
-     correctly if the fetch fails. This overwrites them before the counters run. */
-  function hydrate(){
-    return Promise.all([
-      fetch('data/profile.json').then(function(r){ return r.json(); }),
-      fetch('data/publications.json').then(function(r){ return r.json(); })
-                                     .catch(function(){ return null; })
-    ]).then(function(res){
-      var prof = res[0], pubs = res[1];
-      var m = prof.metrics, a = m.all_time, h = prof.headline_numbers || {};
-
-      function setTarget(id, value){
-        var el = document.getElementById(id);
-        if(el && value != null) el.setAttribute('data-target', value);
-      }
-      setTarget('stat-citations', a.citations);
-      setTarget('stat-h', a.h_index);
-      setTarget('stat-years', h.years_in_field);
-      setTarget('stat-funding', h.funding_attributable_gbp_m);
-
-      var idx = document.getElementById('bib-indices');
-      if(idx) idx.textContent = 'h-index ' + a.h_index + ', i10-index ' + a.i10_index;
-
-      var ver = document.getElementById('bib-verified');
-      if(ver && m.verified){
-        ver.textContent = new Date(m.verified + 'T00:00:00').toLocaleDateString('en-GB',
-          { day:'numeric', month:'long', year:'numeric' });
-      }
-      var count = document.getElementById('pub-count');
-      if(count && pubs) count.textContent = pubs.length;
-    }).catch(function(err){
-      console.warn('Live figures unavailable; using the values in the markup.', err);
-    });
-  }
-
   var statsBox = document.getElementById('stats');
   var statsFired = false;
   var statObs = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting && !statsFired){
         statsFired = true;
-        hydrate().then(function(){
-          document.querySelectorAll('#stats .num').forEach(animateCounter);
-        });
+        document.querySelectorAll('#stats .num').forEach(animateCounter);
       }
     });
   }, {threshold:.4});
