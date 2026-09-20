@@ -1,0 +1,98 @@
+{
+ "updated": "2026-09-20",
+ "projects": [
+  {
+   "name": "DriVe2X",
+   "funder": "Horizon Europe",
+   "from": "2023",
+   "to": "present",
+   "role": "Principal Investigator, Work Package Leader, UK pilot lead",
+   "summary": "Mass electric-vehicle deployment enabled by vehicle-to-everything (V2X): customer-centric local flexibility markets, grid-impact analysis and real-world pilot demonstration.",
+   "note": "Secured at Nottingham Trent, delivered there for two years, transferred to the University of Salford on 1 January 2025, where the majority of the technical development has taken place.",
+   "tags": [
+    "v2g",
+    "flexibility",
+    "markets"
+   ]
+  },
+  {
+   "name": "NTU-GridLab",
+   "funder": "Research platform",
+   "from": "2021",
+   "to": "2024",
+   "role": "Founder and Director",
+   "summary": "Laboratory developing open, data-driven tools for local communities, local flexibility market design, and TSO-DSO flexibility coordination.",
+   "tags": [
+    "flexibility",
+    "microgrid"
+   ]
+  },
+  {
+   "name": "Active Building Centre Research Programme",
+   "funder": "EPSRC",
+   "from": "2019",
+   "to": "2021",
+   "role": "Senior Research Associate",
+   "summary": "Control and optimisation of distributed energy at building and network level.",
+   "tags": [
+    "microgrid",
+    "storage"
+   ]
+  },
+  {
+   "name": "inteGRIDy",
+   "funder": "EU H2020",
+   "from": "2018",
+   "to": "2021",
+   "role": "Project Manager and Research Associate",
+   "summary": "One of Europe's largest smart-distribution-grid projects, 30 partners. Built an Integrated Simulation Environment for planning and operation strategies.",
+   "tags": [
+    "planning"
+   ]
+  },
+  {
+   "name": "National Centre for Energy Systems Integration (CESI)",
+   "funder": "EPSRC",
+   "from": "2018",
+   "to": "2021",
+   "role": "Senior Research Associate",
+   "summary": "Defined vector-coupling storage based on power-to-gas, linking the gas and electricity networks to give system operators greater flexibility.",
+   "tags": [
+    "wholesystem",
+    "storage"
+   ]
+  },
+  {
+   "name": "Supergen Energy Networks Hub",
+   "funder": "EPSRC",
+   "from": "2018",
+   "to": "2022",
+   "role": "Senior Research Associate",
+   "summary": "Showed how power-to-gas as a vector-coupling technology can relieve heavily constrained electricity networks and improve whole-system efficiency.",
+   "tags": [
+    "wholesystem"
+   ]
+  }
+ ],
+ "keynotes": [],
+ "panels": [],
+ "media": [],
+ "awards": [
+  {
+   "year": 2023,
+   "what": "IEEE Power and Energy Society Chapter Outstanding Engineer Award"
+  },
+  {
+   "year": 2023,
+   "what": "Vice-Chancellor Research Excellence Award, Nottingham Trent University"
+  },
+  {
+   "year": 2022,
+   "what": "Stanford and Elsevier Top 2% of World Scientists (Energy)"
+  },
+  {
+   "year": 2021,
+   "what": "Stanford and Elsevier Top 2% of World Scientists (Energy)"
+  }
+ ]
+}
