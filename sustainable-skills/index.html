@@ -1,0 +1,2124 @@
+<!doctype html>
+<!-- Sustainable Local Energy Skills Roadmap. © 2026 Vahid Vahidinasab. All rights reserved. -->
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sustainable Local Energy Skills Roadmap</title>
+<meta name="description" content="A free interactive guide for pupils in Years 7 to 11 and their families: a personal roadmap from GCSE topics to jobs in sustainable, local energy.">
+<link rel="canonical" href="https://vahidinasab.github.io/sustainable-skills/">
+<meta name="theme-color" content="#F2F4F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0D14" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vahid Vahidinasab">
+<meta property="og:title" content="Sustainable Local Energy Skills Roadmap">
+<meta property="og:description" content="Four quick questions. One personal roadmap from the GCSE topics you study now to jobs in sustainable, local energy.">
+<meta property="og:url" content="https://vahidinasab.github.io/sustainable-skills/">
+<meta property="og:image" content="https://vahidinasab.github.io/sustainable-skills/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sustainable Local Energy Skills Roadmap: a home with solar panels, a heat pump, a battery and an electric car, linked to GCSE subjects">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23FFB43D%22/%3E%3Cpath%20d%3D%22M7%2023%20L13%2016.5%20L18%2019.5%20L24.5%2010%22%20fill%3D%22none%22%20stroke%3D%22%230E1A24%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Ccircle%20cx%3D%2224.5%22%20cy%3D%2210%22%20r%3D%223.2%22%20fill%3D%22%230E1A24%22/%3E%3Ccircle%20cx%3D%227%22%20cy%3D%2223%22%20r%3D%222.4%22%20fill%3D%22%230E1A24%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+/* Layout: a sticky app bar; the hero sets the headline beside an interactive home-energy scene; the builder puts the four questions beside a live roadmap (stacked below 980px); quiet cards, one amber accent and the type of vahidinasab.github.io; dark mode follows the main site. */
+:root{
+  --bg:#F2F4F7; --surface:#FFFFFF; --surface-2:#F7F9FB; --sunken:#EBEFF4;
+  --line:#DCE2EA; --line-strong:#B6C0CC;
+  --ink:#0E1A24; --text:#1E2A36; --muted:#56626F;
+  --accent:#FFB43D; --accent-hover:#F5A11E; --accent-ink:#0E1A24; --accent-text:#8A4F00; --accent-tint:#FFF2D9;
+  --green:#17785A; --green-tint:#E2F3EB;
+  --note:#FFF5DF; --note-line:#EBB54A;
+  --focus:#0E1A24;
+  --map-idle:#C5CEDA; --map-hot:#E8901A;
+  --appbar:rgba(255,255,255,.92);
+  --shadow:0 1px 2px rgba(14,26,36,.05),0 10px 30px rgba(14,26,36,.07);
+  --band:#0A0D14; --band-2:#111621; --band-text:#EDF0F5; --band-muted:#9AA3B2; --band-line:#263040;
+  --sc-sky:#E4EEF6; --sc-sun:#FFB43D; --sc-halo:rgba(255,180,61,.28); --sc-hill:#CFE2D4; --sc-ground:#B9D6BF; --sc-drive:#D6DCE2;
+  --sc-steel:#7D8896; --sc-tower:#FFFFFF; --sc-hub:#0E1A24; --sc-trunk:#8B6A4E; --sc-leaf:#5DAF7E; --sc-leaf-2:#4C9A6C;
+  --sc-wall:#FFFFFF; --sc-roof:#3B4A5C; --sc-loft:#1E2833; --sc-insul:#F7D774; --sc-insul-line:#B8912C;
+  --sc-pv:#1E3F6E; --sc-pv-line:#7FA6D9; --sc-glass:#CFE2F3; --sc-lit:#CFE2F3; --sc-door:#2E9E7E;
+  --sc-screen:#0E1A24; --sc-bars:#3DD6A3; --sc-box:#F3F6F9; --sc-charge:#2E9E7E; --sc-fan:#DDE3EA; --sc-fan-blade:#55606E;
+  --sc-car:#3F7CCF; --sc-car-glass:#0E1A24; --sc-wheel:#0E1A24; --sc-rim:#8A96A6; --sc-van-cab:#E8EDF2; --sc-line:#0E1A24; --sc-cable:#0E1A24;
+  --hs-ring:#FFFFFF;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r-sm:6px; --r-md:10px; --r-lg:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A0D14; --surface:#111621; --surface-2:#151C29; --sunken:#0D1119;
+    --line:#222B3A; --line-strong:#3A4658;
+    --ink:#FFFFFF; --text:#E3E8EF; --muted:#9AA3B2;
+    --accent:#FFB43D; --accent-hover:#FFC662; --accent-ink:#0A0D14; --accent-text:#FFD98A; --accent-tint:#2A2414;
+    --green:#3DD6A3; --green-tint:#10261F;
+    --note:#1E1A10; --note-line:#8C6A22;
+    --focus:#FFD98A;
+    --map-idle:#334052; --map-hot:#FFB43D;
+    --appbar:rgba(10,13,20,.88);
+    --shadow:0 1px 2px rgba(0,0,0,.5);
+    --sc-sky:#101A2B; --sc-halo:rgba(255,180,61,.16); --sc-hill:#1B3A33; --sc-ground:#16302A; --sc-drive:#232D39;
+    --sc-steel:#6B7A8C; --sc-tower:#CBD3DD; --sc-hub:#0A0D14; --sc-trunk:#5E4634; --sc-leaf:#2F7A57; --sc-leaf-2:#286A4B;
+    --sc-wall:#1C2635; --sc-roof:#0E141D; --sc-loft:#0A0D14; --sc-insul:#E8C35A; --sc-insul-line:#A88A33;
+    --sc-pv:#2A5CA8; --sc-pv-line:#8FB2E4; --sc-glass:#22344D; --sc-lit:#FFD98A;
+    --sc-screen:#0A0D14; --sc-box:#243042; --sc-charge:#3DD6A3; --sc-fan:#33415A; --sc-fan-blade:#9AA3B2;
+    --sc-car-glass:#0A0D14; --sc-wheel:#0A0D14; --sc-rim:#6B7A8C; --sc-van-cab:#2C394D; --sc-line:#7D8B9C; --sc-cable:#CBD3DD;
+    --hs-ring:#111621;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A0D14; --surface:#111621; --surface-2:#151C29; --sunken:#0D1119;
+  --line:#222B3A; --line-strong:#3A4658;
+  --ink:#FFFFFF; --text:#E3E8EF; --muted:#9AA3B2;
+  --accent:#FFB43D; --accent-hover:#FFC662; --accent-ink:#0A0D14; --accent-text:#FFD98A; --accent-tint:#2A2414;
+  --green:#3DD6A3; --green-tint:#10261F;
+  --note:#1E1A10; --note-line:#8C6A22;
+  --focus:#FFD98A;
+  --map-idle:#334052; --map-hot:#FFB43D;
+  --appbar:rgba(10,13,20,.88);
+  --shadow:0 1px 2px rgba(0,0,0,.5);
+  --sc-sky:#101A2B; --sc-halo:rgba(255,180,61,.16); --sc-hill:#1B3A33; --sc-ground:#16302A; --sc-drive:#232D39;
+  --sc-steel:#6B7A8C; --sc-tower:#CBD3DD; --sc-hub:#0A0D14; --sc-trunk:#5E4634; --sc-leaf:#2F7A57; --sc-leaf-2:#286A4B;
+  --sc-wall:#1C2635; --sc-roof:#0E141D; --sc-loft:#0A0D14; --sc-insul:#E8C35A; --sc-insul-line:#A88A33;
+  --sc-pv:#2A5CA8; --sc-pv-line:#8FB2E4; --sc-glass:#22344D; --sc-lit:#FFD98A;
+  --sc-screen:#0A0D14; --sc-box:#243042; --sc-charge:#3DD6A3; --sc-fan:#33415A; --sc-fan-blade:#9AA3B2;
+  --sc-car-glass:#0A0D14; --sc-wheel:#0A0D14; --sc-rim:#6B7A8C; --sc-van-cab:#2C394D; --sc-line:#7D8B9C; --sc-cable:#CBD3DD;
+  --hs-ring:#111621;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none !important}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--surface)}
+h1,h2,h3,h4{margin:0;color:var(--ink);font-family:var(--display);font-weight:800;line-height:1.15;letter-spacing:-.01em;text-wrap:balance}
+p{margin:0}
+a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.2em}
+a:hover{text-decoration-thickness:3px}
+:focus-visible{outline:2.5px solid var(--focus);outline-offset:2px}
+button,input,select,textarea{font:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.skip{position:absolute;left:-9999px;top:0;z-index:60;background:var(--surface);color:var(--ink);padding:10px 14px;border-radius:var(--r-md)}
+.skip:focus{left:16px;top:16px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text)}
+.eyebrow::before{content:"";width:22px;height:3px;border-radius:2px;background:var(--accent)}
+.label{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border-radius:var(--r-md);border:1.5px solid transparent;font-weight:700;font-size:15px;line-height:1.2;cursor:pointer;text-decoration:none;color:var(--ink);background:transparent;transition:background-color .15s ease,border-color .15s ease,transform .1s ease}
+.btn:active{transform:translateY(1px)}
+.btn-accent{background:var(--accent);color:var(--accent-ink)}
+.btn-accent:hover{background:var(--accent-hover)}
+.btn-ghost{border-color:var(--line-strong);background:var(--surface)}
+.btn-ghost:hover,.btn-ghost[aria-expanded="true"]{border-color:var(--ink)}
+.btn-lg{min-height:52px;padding:12px 22px;font-size:16.5px}
+.btn-sm{min-height:38px;padding:7px 14px;font-size:14px}
+.linkish{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.2em;cursor:pointer}
+.linkish:hover{text-decoration-thickness:3px}
+
+/* App bar */
+.appbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--appbar);border-bottom:1px solid var(--line);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px)}
+.appbar-in{display:flex;align-items:center;gap:16px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.01em;min-width:0}
+.brand-mark{flex:none;width:30px;height:30px}
+.brand-name{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-short{display:none}
+@media (max-width:979px){.brand-long{display:none}.brand-short{display:inline}}
+.appnav{display:none;margin-left:auto;gap:4px}
+.appnav a{padding:8px 10px;border-radius:var(--r-sm);font-family:var(--mono);font-size:13px;font-weight:500;color:var(--muted);text-decoration:none}
+.appnav a:hover{color:var(--ink);background:var(--sunken)}
+.appbar .btn{margin-left:auto;flex:none}
+.appnav + .btn{margin-left:8px}
+
+/* Hero */
+.hero{padding-block:36px 44px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start}
+.hero-copy{display:grid;gap:18px;align-content:start;min-width:0}
+.hero h1{font-size:clamp(2.15rem,4.7vw,3.55rem);line-height:1.02;letter-spacing:-.025em}
+.lead{font-size:clamp(1.08rem,1.9vw,1.3rem);line-height:1.5;color:var(--text);max-width:34em}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.guide-note{max-width:34em;padding:12px 14px;border-radius:var(--r-md);border:1px solid var(--note-line);background:var(--note);color:var(--text);font-size:15px}
+.guide-note strong{color:var(--ink)}
+.facts{display:grid;gap:12px;margin:0;max-width:34em}
+.fact{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:14px;padding:14px 16px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line)}
+.fact dt{font-family:var(--display);font-weight:800;font-size:1.9rem;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.fact dd{margin:0;font-size:14.5px;color:var(--text)}
+
+/* Explorer */
+.explorer{min-width:0;display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px;box-shadow:var(--shadow)}
+.ex-head h2{font-size:clamp(1.25rem,2.4vw,1.55rem)}
+.ex-head p{margin-top:4px;font-size:14.5px;color:var(--muted)}
+.ex-stage{position:relative;width:100%;max-width:100%;aspect-ratio:640/400;border-radius:12px;overflow:hidden;background:var(--sc-sky)}
+.ex-stage svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sc-sky{fill:var(--sc-sky)}.sc-sun{fill:var(--sc-sun)}.sc-sun-halo{fill:var(--sc-halo)}.sc-hill{fill:var(--sc-hill)}
+.sc-steel,.sc-wire{stroke:var(--sc-steel)}
+.sc-tower,.sc-blades path{fill:var(--sc-tower);stroke:var(--sc-line);stroke-width:1}
+.sc-hub{fill:var(--sc-hub)}
+.sc-trunk{fill:var(--sc-trunk)}.sc-leaf{fill:var(--sc-leaf)}.sc-leaf-2{fill:var(--sc-leaf-2)}
+.sc-ground{fill:var(--sc-ground)}.sc-drive{fill:var(--sc-drive)}
+.sc-wall{fill:var(--sc-wall);stroke:var(--sc-line);stroke-width:1.5}
+.sc-roof{fill:var(--sc-roof)}.sc-loft{fill:var(--sc-loft)}.sc-insul{fill:var(--sc-insul)}.sc-insul-line{stroke:var(--sc-insul-line)}
+.sc-pv rect{fill:var(--sc-pv)}.sc-pv-line{stroke:var(--sc-pv-line);opacity:.7}
+.sc-glass{fill:var(--sc-glass);stroke:var(--sc-line);stroke-width:1.5}.sc-glass-lit{fill:var(--sc-lit)}
+.sc-frame{stroke:var(--sc-line)}.sc-door{fill:var(--sc-door)}.sc-knob{fill:var(--sc-sun)}
+.sc-screen{fill:var(--sc-screen)}.sc-bars rect{fill:var(--sc-bars)}
+.sc-box{fill:var(--sc-box);stroke:var(--sc-line);stroke-width:1.5}
+.sc-charge rect,.sc-led{fill:var(--sc-charge)}
+.sc-pipe,.sc-grille{stroke:var(--sc-rim)}
+.sc-fan{fill:var(--sc-fan);stroke:var(--sc-line);stroke-width:1.2}.sc-fan-blade{stroke:var(--sc-fan-blade)}
+.sc-cable{stroke:var(--sc-cable)}
+.sc-car{fill:var(--sc-car)}.sc-car-glass{fill:var(--sc-car-glass)}
+.sc-wheel{fill:var(--sc-wheel);stroke:var(--sc-rim);stroke-width:3}
+.sc-van-cab{fill:var(--sc-van-cab);stroke:var(--sc-line);stroke-width:1.5}.sc-van-glass{fill:var(--sc-glass)}.sc-stripe{fill:var(--accent)}
+.hs{position:absolute;width:36px;height:36px;margin:0;padding:0;border:0;border-radius:50%;background:transparent;transform:translate(-50%,-50%);cursor:pointer;display:grid;place-items:center}
+.hs::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--accent);border:2.5px solid #0E1A24;box-shadow:0 0 0 3px var(--hs-ring);transition:transform .15s ease}
+.hs:hover::before{transform:scale(1.15)}
+.hs[aria-pressed="true"]::before{background:#0E1A24;border-color:var(--accent);border-width:4px;box-shadow:0 0 0 3px var(--hs-ring),0 0 0 6px var(--accent)}
+.hs:focus-visible{outline:none}
+.hs:focus-visible::before{box-shadow:0 0 0 3px var(--hs-ring),0 0 0 6px var(--focus)}
+@media (prefers-reduced-motion: no-preference){
+  .hs::after{content:"";position:absolute;inset:4px;border-radius:50%;border:2px solid var(--accent);animation:ping 2.8s ease-out infinite}
+  .hs[aria-pressed="true"]::after{animation:none;border-color:transparent}
+}
+@keyframes ping{0%{transform:scale(.5);opacity:.9}75%,100%{transform:scale(1.35);opacity:0}}
+.ex-chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;min-height:36px;padding:6px 12px;border-radius:999px;border:1.5px solid var(--line-strong);background:var(--surface);color:var(--text);font-size:14px;font-weight:600;cursor:pointer;line-height:1.2}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent-tint);border-color:var(--accent-hover);color:var(--ink)}
+.ex-panel{display:grid;gap:10px;padding-top:12px;border-top:1px solid var(--line);min-height:15em}
+.ex-panel h3{font-size:1.2rem}
+.ex-what{font-size:15px}
+.ex-links{list-style:none;margin:0;padding:0;display:grid;gap:3px;font-size:14.5px}
+.ex-subj{font-weight:700;color:var(--ink)}
+.ex-roles{display:grid;gap:8px}
+.ex-role{display:grid;grid-template-columns:minmax(0,1fr);gap:4px}
+.ex-role .tags{gap:5px}
+
+/* Tags */
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{display:inline-block;padding:3px 9px;border-radius:999px;background:var(--sunken);color:var(--text);font-size:13px;font-weight:600;line-height:1.35}
+.tag-role{background:transparent;border:1px solid var(--line-strong);color:var(--muted);font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:2px 8px}
+.tag-role.is-repair{border-color:var(--green);color:var(--green)}
+
+/* Builder */
+.bench{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;padding-block:8px 56px}
+.answers{min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);align-self:start}
+.answers:focus{outline:none}
+.answers-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.answers h2{font-size:1.45rem}
+.progress{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--muted)}
+.progress-bar{display:flex;gap:4px}
+.progress-bar i{display:block;width:18px;height:6px;border-radius:3px;background:var(--line)}
+.progress-bar i.on{background:var(--green)}
+.privacy{margin-top:6px;font-size:14px;color:var(--muted)}
+.ans-note{margin-top:12px;padding:10px 12px;border-radius:var(--r-md);border:1px solid var(--note-line);background:var(--note);color:var(--text);font-size:14.5px;font-weight:600;line-height:1.45}
+fieldset{border:0;margin:22px 0 0;padding:0;min-width:0}
+legend{display:flex;align-items:baseline;gap:8px;width:100%;padding:0;margin-bottom:10px;font-weight:700;font-size:16.5px;color:var(--ink);line-height:1.3}
+.qn{flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--sunken);color:var(--ink);font-family:var(--mono);font-size:13px;font-weight:600;transform:translateY(-1px)}
+fieldset.is-done .qn{background:var(--green);color:var(--surface)}
+.hint{font-size:14px;color:var(--muted);margin:0 0 8px}
+.hint + .hint{margin-top:10px}
+.seg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.seg-2{grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:12px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{position:relative;display:block}
+.pill input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.pill span{display:flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:8px 12px;border:1.5px solid var(--line-strong);border-radius:var(--r-md);background:var(--surface);color:var(--text);font-size:14.5px;line-height:1.25;cursor:pointer;text-align:center;transition:background-color .12s ease,border-color .12s ease}
+.pills .pill span{justify-content:flex-start;text-align:left;border-radius:999px}
+.pills .pill span::before{content:"";flex:none;width:14px;height:14px;border-radius:4px;border:2px solid var(--line-strong);background:var(--surface)}
+.pill input:checked + span{background:var(--accent-tint);border-color:var(--accent-hover);color:var(--ink);font-weight:700}
+.pills .pill input:checked + span::before{background:var(--accent);border-color:var(--ink);box-shadow:inset 0 0 0 2px var(--surface)}
+.pill input:focus-visible + span{outline:2.5px solid var(--focus);outline-offset:2px}
+.pill input:disabled + span{opacity:.45;cursor:not-allowed}
+.pill span:hover{border-color:var(--ink)}
+.opts{display:grid;gap:8px}
+.opt{position:relative;display:block}
+.opt input{position:absolute;opacity:0;width:1px;height:1px;margin:0}
+.opt-body{display:grid;gap:2px;padding:10px 14px;border:1.5px solid var(--line-strong);border-radius:var(--r-md);cursor:pointer;background:var(--surface)}
+.opt-title{font-weight:700;color:var(--ink)}
+.opt-desc{font-size:14px;color:var(--muted)}
+.opt input:checked + .opt-body{border-color:var(--accent-hover);background:var(--accent-tint)}
+.opt input:checked + .opt-body .opt-desc{color:var(--text)}
+.opt input:focus-visible + .opt-body{outline:2.5px solid var(--focus);outline-offset:2px}
+.opt-body:hover{border-color:var(--ink)}
+.form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:24px}
+
+/* Roadmap */
+.roadmap{min-width:0;display:grid;gap:28px;align-content:start}
+.roadmap:focus{outline:none}
+.rm-head{display:grid;gap:8px;min-width:0}
+.roadmap h2{font-size:clamp(1.7rem,3.2vw,2.3rem);letter-spacing:-.02em}
+.rm-summary{font-size:16px;color:var(--text)}
+.rm-note{font-size:14.5px;color:var(--muted)}
+.ex-banner{display:grid;gap:12px;background:var(--surface);color:var(--text);border:2px dashed var(--line-strong);border-radius:var(--r-lg);padding:16px 18px;font-size:16px}
+.ex-banner strong{color:var(--ink)}
+.row-actions{display:flex;flex-wrap:wrap;gap:10px}
+.keep{display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--shadow)}
+.keep-status{font-size:14.5px;color:var(--text)}
+.keep-status:empty{display:none}
+.email-panel{display:grid;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--sunken)}
+.email-panel label{font-size:13px;font-weight:700;color:var(--ink)}
+.email-h{font-weight:700;color:var(--ink)}
+.send-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.send-grid .btn{text-align:center}
+.email-copy{border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
+.email-copy summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:14.5px;color:var(--ink)}
+.email-copy-body{display:grid;gap:8px;padding:2px 14px 14px}
+.field{width:100%;padding:10px 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--text);font:14px/1.5 var(--body)}
+textarea.field{min-height:12em;resize:vertical}
+.copy-fallback{font:13.5px/1.5 var(--mono)}
+.advice{display:grid;gap:8px;background:var(--note);color:var(--text);border:1px solid var(--note-line);border-radius:var(--r-lg);padding:16px 18px}
+.advice-h{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink)}
+.advice-links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px;font-weight:600}
+.jump{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.jump .label{margin-right:4px}
+.jump a{display:inline-flex;align-items:center;min-height:34px;padding:5px 12px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--text);font-size:13.5px;font-weight:600;text-decoration:none}
+.jump a:hover{border-color:var(--ink);color:var(--ink)}
+.block h3,.card h3{font-size:1.3rem;margin-bottom:6px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;box-shadow:var(--shadow);min-width:0}
+
+/* Dot map */
+.dotmap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(40px,.5fr) minmax(0,1fr);align-items:center;margin-top:14px}
+.dm-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.dm-lines path{fill:none;stroke:var(--map-idle);stroke-linecap:round}
+.dm-lines path.hot{stroke:var(--map-hot)}
+.dm-col{position:relative;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.dm-left{grid-column:1}.dm-right{grid-column:3}
+.dm-item{display:flex;align-items:center;gap:10px;width:100%;min-height:40px;padding:6px 4px;border:0;border-radius:8px;background:transparent;color:var(--text);text-align:left;cursor:pointer;line-height:1.25;transition:opacity .15s ease}
+.dm-left .dm-item{flex-direction:row-reverse;text-align:right}
+.dm-item:hover .dm-label{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:.18em}
+.dm-dot{flex:none;width:16px;height:16px;border-radius:50%;background:var(--surface);border:3px solid var(--ink)}
+.dm-right .dm-dot{background:var(--accent);border:2px solid #0E1A24}
+.dm-item.is-focus .dm-label{font-weight:700;color:var(--ink)}
+.dm-item.is-focus .dm-dot{box-shadow:0 0 0 4px var(--accent-tint)}
+.dm-item.is-dim{opacity:.45}
+
+/* Jobs */
+.jobs-note{margin:-2px 0 12px;font-size:14px;color:var(--muted)}
+.jobs{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,290px),1fr));gap:14px}
+.job{display:flex;flex-direction:column;gap:10px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:18px;box-shadow:var(--shadow);transition:border-color .15s ease}
+.job.is-focus{border-color:var(--accent-hover);box-shadow:0 0 0 2px var(--accent-tint),var(--shadow)}
+.job-top{display:grid;gap:6px}
+.job h4{font-size:1.2rem}
+.job-alt{font-size:13px;color:var(--muted)}
+.pay{font-size:15px;color:var(--text)}
+.pay strong{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+.job-what{font-size:15px}
+.lbl{margin-top:2px}
+.tmini,.routes{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14.5px}
+.tsub,.rk{font-weight:700;color:var(--ink)}
+.job .ext{margin-top:auto;padding-top:6px;font-size:14.5px;font-weight:700}
+.more{margin-top:14px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
+.more summary{cursor:pointer;padding:12px 16px;font-weight:700;color:var(--ink)}
+.more-list{list-style:none;margin:0;padding:0 16px 12px;display:grid;gap:8px}
+.more-list li{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 16px;padding-top:8px;border-top:1px solid var(--line);font-size:15px}
+.ml-right{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px}
+.ml-pay{color:var(--muted);font-family:var(--mono);font-size:13.5px;font-variant-numeric:tabular-nums}
+
+/* Timeline */
+.tl{list-style:none;margin:8px 0 0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:8px;top:10px;bottom:14px;width:2px;background:var(--line)}
+.tl li{position:relative;padding:0 0 20px 34px}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--surface);border:3px solid var(--line-strong)}
+.tl li.now::before{background:var(--accent);border:2px solid #0E1A24}
+.tl li.ctx::before{background:var(--green);border:2px solid var(--surface)}
+.tl-date{display:block;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tl-title{display:block;font-weight:700;color:var(--ink);font-size:17px;margin-top:1px}
+.tl-detail{display:block;font-size:15px;margin-top:2px;max-width:42em}
+.tl-empty{padding-left:0 !important}
+.tl-empty::before{display:none}
+
+/* Topics */
+.subj{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:10px}
+.subj summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;font-weight:700;color:var(--ink);font-size:17px}
+.subj summary::-webkit-details-marker{display:none}
+.subj summary::after{content:"";flex:none;width:9px;height:9px;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg) translate(-2px,-2px);transition:transform .15s ease}
+.subj[open] summary::after{transform:rotate(225deg) translate(-2px,-2px)}
+.subj-count{margin-left:auto;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--muted)}
+.subj-body{padding:0 16px 14px}
+.tlist{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.topic{padding-top:14px;border-top:1px solid var(--line);display:grid;gap:6px;min-width:0}
+.topic-t{font-size:16px;font-family:var(--body);font-weight:700}
+.badge-s{display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:var(--sunken);color:var(--text);font-family:var(--mono);font-size:11.5px;font-weight:600;vertical-align:2px}
+.topic-use{font-size:15px}
+.topic-q{background:var(--sunken);border-radius:8px;padding:8px 12px;font-size:14px;color:var(--text)}
+.ql{display:block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.q{display:block}
+.q + .q{margin-top:4px}
+.topic-note{font-size:14px;color:var(--muted)}
+.topic-jobs{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:14px}
+.topic-jobs .ql{display:inline;margin:0 4px 0 0}
+.src{margin-top:14px;font-size:14px;color:var(--muted)}
+
+/* Lists */
+.slash{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:46em}
+.slash li{position:relative;padding-left:1.4em}
+.slash li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.parents{margin-top:18px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px}
+.parents .label{display:block;margin-bottom:10px}
+
+/* Reach: the visit counter, a box in the footer below About this guide */
+.reach{display:grid;gap:14px;align-self:start;padding:18px;border:1px solid var(--band-line);border-radius:var(--r-lg);background:var(--band-2);font-size:14px;container-type:inline-size}
+.reach-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:2px 16px}
+.reach .reach-head h2{margin:0}
+.reach .muted{color:var(--band-muted)}
+.reach-visits{display:flex;align-items:baseline;gap:8px}
+.reach-visits b{font-family:var(--display);font-weight:800;font-size:2.2rem;line-height:1;color:var(--band-text);font-variant-numeric:tabular-nums}
+.reach-visits span{color:var(--band-muted);font-size:15px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),1fr));gap:8px}
+.tile{display:grid;gap:4px;padding:10px 12px;border-radius:var(--r-md);background:var(--band);border:1px solid var(--band-line)}
+.tile b{font-family:var(--display);font-weight:800;font-size:1.4rem;line-height:1;color:var(--band-text);font-variant-numeric:tabular-nums}
+.tile span{font-size:13px;color:var(--band-muted)}
+.where{display:grid;gap:8px}
+.reach .where .label{margin:0}
+.bars.regions{column-gap:32px}
+@container (min-width:620px){.bars.regions{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(6,auto);grid-auto-flow:column}}
+.bars{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.bars li{display:grid;grid-template-columns:minmax(0,12.5em) minmax(0,1fr) auto;align-items:center;gap:10px}
+.bar{height:8px;border-radius:4px;background:var(--band-line);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:4px;background:var(--accent)}
+.bars .num{color:var(--band-muted);font-size:13px}
+
+/* Official advice */
+.advice-band{padding-block:8px 48px}
+.advice-in{display:grid;gap:16px}
+.advice-in h2{font-size:1.45rem}
+.advice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.service{display:grid;gap:4px;align-content:start;padding:16px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--text)}
+.service:hover{border-color:var(--ink)}
+.service b{font-size:16px;color:var(--ink)}
+.service span{font-size:14px;color:var(--muted)}
+.service .label{color:var(--accent-text)}
+
+/* Footer */
+.foot{background:var(--band);color:var(--band-text)}
+.foot a{color:var(--band-text)}
+.foot-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;padding-block:40px;font-size:14.5px}
+.foot h2{color:var(--band-text);font-size:1.15rem;margin-bottom:10px}
+.foot p + p{margin-top:10px}
+.foot .label{color:var(--band-muted);display:block;margin-bottom:8px}
+.foot-sources ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.share{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center}
+.qr{width:116px;height:116px;border-radius:8px;background:#FFFFFF;padding:0;display:block}
+.share-url{font-family:var(--mono);font-size:13px;color:var(--band-muted);word-break:break-all}
+.foot .btn-ghost{background:transparent;border-color:var(--band-line);color:var(--band-text)}
+.foot .btn-ghost:hover{border-color:var(--band-text)}
+.research{display:grid;gap:6px}
+.end{background:var(--band-2);color:var(--band-text);border-top:1px solid var(--band-line)}
+.end-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-block:18px;font-size:14.5px}
+.end a{color:var(--band-text)}
+.end-name{font-weight:700}
+.foot :focus-visible,.end :focus-visible{outline-color:var(--accent)}
+
+@media (min-width:760px){
+  .appnav{display:flex}
+  .appbar .btn{margin-left:0}
+}
+@media (min-width:980px){
+  .hero{padding-block:52px 56px}
+  .hero-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:44px}
+  .bench{grid-template-columns:minmax(300px,360px) minmax(0,1fr);gap:36px;align-items:start}
+  .answers .btn-accent{display:none}
+  .foot-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr}
+  .foot-about{grid-column:1;grid-row:1}
+  .foot-share{grid-column:2;grid-row:1}
+  .foot-sources{grid-column:3;grid-row:1 / span 2}
+  .foot-grid .reach{grid-column:1;grid-row:2}
+}
+@media (max-width:520px){
+  .hs{width:32px;height:32px}
+  .hs::before{width:15px;height:15px;border-width:2px}
+  .brand{font-size:15.5px}
+  .row-actions .btn{flex:1 1 auto}
+  .fact dt{font-size:1.6rem}
+}
+@media (max-width:759px){
+  .appnav + .btn{margin-left:auto}
+}
+@media (prefers-reduced-motion: reduce){
+  *{transition-duration:.001ms !important;animation-duration:.001ms !important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#answers">Skip to the questions</a>
+
+<header class="appbar">
+  <div class="wrap appbar-in">
+    <a class="brand" href="#top" aria-label="Sustainable Local Energy Skills Roadmap, back to the top">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#FFB43D"/><path d="M7 23 L13 16.5 L18 19.5 L24.5 10" fill="none" stroke="#0E1A24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24.5" cy="10" r="3.2" fill="#0E1A24"/><circle cx="7" cy="23" r="2.4" fill="#0E1A24"/></svg>
+      <span class="brand-name brand-long">Sustainable Local Energy Skills Roadmap</span><span class="brand-name brand-short">Local Energy Skills</span>
+    </a>
+    <nav class="appnav" aria-label="Page sections">
+      <a href="#explore">Explore</a><a href="#answers">Build</a><a href="#roadmap">Roadmap</a><a href="#advice">Advice</a><a href="#about">About</a>
+    </nav>
+    <button class="btn btn-accent btn-sm" type="button" data-go="answers">Start</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">For pupils in Years 7 to 11 and their families</p>
+      <h1>Join the dots from your GCSEs to the clean energy jobs on your street</h1>
+      <p class="lead">Four quick questions. One personal roadmap from the GCSE topics you study now to the jobs that install, run and repair clean, local energy.</p>
+      <div class="hero-actions">
+        <button class="btn btn-accent btn-lg" type="button" data-go="answers">Build my roadmap</button>
+        <button class="btn btn-ghost btn-lg" type="button" data-go="example">See an example</button>
+      </div>
+      <p class="guide-note"><strong>A guide, not advice.</strong> Check your choices with your school's careers adviser or an official careers service. <a href="#advice">Where to get advice</a></p>
+      <dl class="facts">
+        <div class="fact"><dt>860,000</dt><dd>clean energy jobs expected in the UK by 2030, as the sector doubles in size. <a href="https://www.gov.uk/government/news/clean-energy-jobs-boom-to-bring-thousands-of-new-jobs" target="_blank" rel="noopener">Clean Energy Jobs Plan</a></dd></div>
+      </dl>
+    </div>
+
+    <section class="explorer" id="explore" aria-labelledby="ex-h">
+      <div class="ex-head">
+        <h2 id="ex-h">One home, many GCSE subjects</h2>
+        <p>Tap a part of the home to see where it turns up in your lessons, and who installs it and keeps it running.</p>
+      </div>
+      <div class="ex-stage">
+        <svg viewBox="0 0 640 400" role="img" aria-labelledby="scene-t">
+          <title id="scene-t">A home with solar panels, loft insulation, a home battery, a heat pump, a smart energy display and an electric car on charge, with a community wind turbine, an electricity pylon and an installer's van</title>
+          <rect class="sc-sky" x="0" y="0" width="640" height="400"/>
+          <circle class="sc-sun-halo" cx="200" cy="58" r="36"/>
+          <circle class="sc-sun" cx="200" cy="58" r="22"/>
+          <path class="sc-hill" d="M0 246 C70 206 160 204 236 228 C320 254 470 214 640 234 L640 400 L0 400 Z"/>
+          <g class="sc-steel" fill="none" stroke-width="2" stroke-linecap="round">
+            <path d="M598 58 L572 248 M598 58 L624 248"/>
+            <path d="M568 88 H628 M574 112 H622"/>
+            <path d="M589.6 132 H606.4 M584 180 H612 M578.4 228 H617.6"/>
+            <path d="M589.6 132 L612 180 M606.4 132 L584 180 M584 180 L617.6 228 M612 180 L578.4 228"/>
+          </g>
+          <path class="sc-wire" d="M568 88 Q500 132 434 186" fill="none" stroke-width="1.5"/>
+          <path class="sc-tower" d="M60 236 L64 120 L68 236 Z"/>
+          <g class="sc-blades">
+            <path d="M64 118 L60 70 L64 64 L68 70 Z"/>
+            <path d="M64 118 L60 70 L64 64 L68 70 Z" transform="rotate(120 64 118)"/>
+            <path d="M64 118 L60 70 L64 64 L68 70 Z" transform="rotate(240 64 118)"/>
+          </g>
+          <circle class="sc-hub" cx="64" cy="118" r="5"/>
+          <rect class="sc-trunk" x="494" y="250" width="10" height="80" rx="3"/>
+          <circle class="sc-leaf" cx="499" cy="236" r="32"/>
+          <circle class="sc-leaf-2" cx="482" cy="252" r="18"/>
+          <rect class="sc-ground" x="0" y="330" width="640" height="70"/>
+          <path class="sc-drive" d="M432 330 H640 V400 H476 Z"/>
+          <rect class="sc-wall" x="200" y="190" width="220" height="140"/>
+          <path class="sc-roof" d="M186 192 L234 118 L386 118 L434 192 Z"/>
+          <path class="sc-loft" d="M214 188 L238 150 L286 150 L286 188 Z"/>
+          <path class="sc-insul" d="M216 188 L224 176 L286 176 L286 188 Z"/>
+          <path class="sc-insul-line" d="M224 182 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5" fill="none" stroke-width="1.4"/>
+          <g class="sc-pv">
+            <rect x="300" y="128" width="27" height="24" rx="2"/><rect x="330" y="128" width="27" height="24" rx="2"/><rect x="360" y="128" width="27" height="24" rx="2"/>
+            <rect x="300" y="155" width="27" height="24" rx="2"/><rect x="330" y="155" width="27" height="24" rx="2"/><rect x="360" y="155" width="27" height="24" rx="2"/>
+          </g>
+          <g class="sc-pv-line" fill="none" stroke-width="1">
+            <path d="M313.5 128 V152 M343.5 128 V152 M373.5 128 V152 M313.5 155 V179 M343.5 155 V179 M373.5 155 V179"/>
+            <path d="M300 140 H327 M330 140 H357 M360 140 H387 M300 167 H327 M330 167 H357 M360 167 H387"/>
+          </g>
+          <rect class="sc-glass" x="222" y="208" width="50" height="40" rx="3"/>
+          <path class="sc-frame" d="M247 208 V248" fill="none" stroke-width="2"/>
+          <rect class="sc-glass sc-glass-lit" x="350" y="208" width="52" height="40" rx="3"/>
+          <rect class="sc-door" x="296" y="262" width="34" height="68" rx="3"/>
+          <circle class="sc-knob" cx="323" cy="298" r="2.4"/>
+          <rect class="sc-screen" x="362" y="216" width="28" height="22" rx="3"/>
+          <g class="sc-bars"><rect x="366" y="228" width="3" height="6"/><rect x="371" y="224" width="3" height="10"/><rect x="376" y="226" width="3" height="8"/><rect x="381" y="221" width="3" height="13"/></g>
+          <rect class="sc-box" x="222" y="268" width="32" height="52" rx="5"/>
+          <g class="sc-charge"><rect x="229" y="300" width="18" height="6" rx="1.5"/><rect x="229" y="291" width="18" height="6" rx="1.5"/><rect x="229" y="282" width="18" height="6" rx="1.5"/></g>
+          <path class="sc-pipe" d="M188 300 H200 M188 312 H200" fill="none" stroke-width="3"/>
+          <rect class="sc-box" x="124" y="284" width="64" height="46" rx="4"/>
+          <circle class="sc-fan" cx="146" cy="307" r="15"/>
+          <path class="sc-fan-blade" d="M146 307 L146 294 M146 307 L157 314 M146 307 L135 314" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <path class="sc-grille" d="M168 292 V322 M175 292 V322 M182 292 V322" fill="none" stroke-width="1.5"/>
+          <rect class="sc-box" x="400" y="256" width="15" height="26" rx="3"/>
+          <rect class="sc-led" x="404" y="261" width="7" height="4" rx="1"/>
+          <path class="sc-cable" d="M407 282 C407 312 440 312 462 304" fill="none" stroke-width="3" stroke-linecap="round"/>
+          <path class="sc-car" d="M454 322 L454 302 Q458 290 476 288 L504 274 Q514 268 528 268 L576 268 Q590 268 600 280 L616 292 Q626 296 626 306 L626 322 Z"/>
+          <path class="sc-car-glass" d="M510 276 L530 274 L572 274 Q582 275 590 286 L510 286 Z"/>
+          <circle class="sc-wheel" cx="484" cy="324" r="13"/>
+          <circle class="sc-wheel" cx="598" cy="324" r="13"/>
+          <rect class="sc-box" x="6" y="284" width="78" height="40" rx="6"/>
+          <path class="sc-van-cab" d="M84 292 H102 Q110 294 113 304 L114 324 H84 Z"/>
+          <rect class="sc-van-glass" x="90" y="298" width="16" height="10" rx="2"/>
+          <rect class="sc-stripe" x="6" y="306" width="78" height="5"/>
+          <circle class="sc-wheel" cx="30" cy="326" r="10"/>
+          <circle class="sc-wheel" cx="96" cy="326" r="10"/>
+        </svg>
+        <div id="hotspots"></div>
+      </div>
+      <div class="ex-chips" id="ex-chips" role="group" aria-label="Parts of the home"></div>
+      <div class="ex-panel" id="ex-panel" aria-live="polite"></div>
+    </section>
+  </div>
+</section>
+
+<main class="wrap bench" id="main">
+  <section class="answers" id="answers" aria-labelledby="answers-h" tabindex="-1">
+    <div class="answers-head">
+      <h2 id="answers-h">Your answers</h2>
+      <p class="progress"><span class="progress-bar" id="progress-bar" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="progress-t">0 of 4 answered</span></p>
+    </div>
+    <p class="privacy">Your answers are saved on this device only. This page does not collect them.</p>
+    <p class="ans-note" id="ans-note" hidden></p>
+    <form id="quiz" novalidate>
+      <fieldset id="q-y">
+        <legend><span class="qn" aria-hidden="true">1</span>Which year are you in?</legend>
+        <div class="seg" id="year-seg"></div>
+      </fieldset>
+      <fieldset id="q-i">
+        <legend><span class="qn" aria-hidden="true">2</span>What do you enjoy?</legend>
+        <p class="hint" id="int-hint">Pick up to three.</p>
+        <div class="pills" id="interest-chips"></div>
+      </fieldset>
+      <fieldset id="q-s">
+        <legend><span class="qn" aria-hidden="true">3</span>Which GCSE subjects are you taking, or thinking about?</legend>
+        <p class="hint">Everyone takes English, maths and science. Which science course?</p>
+        <div class="seg seg-2" id="sci-seg"></div>
+        <p class="hint">Your options. Electronics and Engineering are not offered at every school.</p>
+        <div class="pills" id="subject-chips"></div>
+      </fieldset>
+      <fieldset id="q-st">
+        <legend><span class="qn" aria-hidden="true">4</span>How do you like to learn?</legend>
+        <div class="opts" id="style-opts"></div>
+      </fieldset>
+      <div class="form-actions">
+        <button type="button" class="btn btn-accent" data-go="roadmap">See my roadmap</button>
+        <button type="button" class="linkish" id="reset">Start again</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="roadmap" id="roadmap" aria-labelledby="roadmap-h" tabindex="-1">
+    <div class="rm-head">
+      <p class="eyebrow" id="rm-eyebrow">Your roadmap</p>
+      <h2 id="roadmap-h">Your local energy skills roadmap</h2>
+      <p class="rm-summary" id="rm-summary"></p>
+      <p class="rm-note" id="rm-note"><span id="rm-note-t"></span> <button type="button" class="linkish" id="show-example">See an example</button></p>
+    </div>
+
+    <div class="ex-banner" id="ex-banner" hidden>
+      <p><strong>This is an example.</strong> <span id="ex-banner-t"></span></p>
+      <div class="row-actions">
+        <button type="button" class="btn btn-accent" id="ex-mine">Start my own roadmap</button>
+      </div>
+    </div>
+
+    <div class="keep" id="keep" hidden>
+      <p class="label">Save or share your roadmap</p>
+      <div class="row-actions">
+        <button type="button" class="btn btn-accent" id="save-pdf">Download PDF</button>
+        <button type="button" class="btn btn-ghost" id="save-email" aria-expanded="false" aria-controls="email-panel">Email it</button>
+        <button type="button" class="btn btn-ghost" id="save-copy">Copy text</button>
+      </div>
+      <p class="keep-status" id="keep-status" role="status"></p>
+      <div class="email-panel" id="email-panel" hidden>
+        <p class="email-h" id="email-h">Which email do you use?</p>
+        <div class="send-grid" id="send-grid" role="group" aria-labelledby="email-h">
+          <a class="btn btn-ghost btn-sm" data-send="gmail" href="https://mail.google.com/" target="_blank" rel="noopener">Gmail</a>
+          <a class="btn btn-ghost btn-sm" data-send="outlook" href="https://outlook.live.com/" target="_blank" rel="noopener">Hotmail or Outlook.com</a>
+          <a class="btn btn-ghost btn-sm" data-send="school" href="https://outlook.office.com/" target="_blank" rel="noopener">School or work Outlook</a>
+          <a class="btn btn-ghost btn-sm" data-send="app" id="send-app" href="mailto:">Email app</a>
+        </div>
+        <p class="small">A new email opens with a short version of your roadmap, ready to send to yourself, a parent or a teacher. For the full version, attach the PDF.</p>
+        <details class="email-copy">
+          <summary>See the message or copy it</summary>
+          <div class="email-copy-body">
+            <label for="email-subject">Subject</label>
+            <input class="field" id="email-subject" readonly>
+            <label for="email-body">Message</label>
+            <textarea class="field" id="email-body" readonly></textarea>
+            <div class="row-actions"><button type="button" class="btn btn-ghost btn-sm" id="email-copy">Copy message</button></div>
+          </div>
+        </details>
+      </div>
+      <textarea id="copy-fallback" class="field copy-fallback" readonly hidden aria-label="Your roadmap as text"></textarea>
+    </div>
+
+    <aside class="advice" aria-labelledby="advice-h">
+      <p class="advice-h" id="advice-h">A guide, not advice</p>
+      <p>This roadmap is based on information available in October 2026, and courses, entry requirements and pay can change. It cannot take account of your own circumstances, so talk to your school or college careers adviser, or an official careers service, before making choices.</p>
+      <p class="advice-links"><a href="https://nationalcareers.service.gov.uk/" target="_blank" rel="noopener">Careers information for England</a><a href="#advice">All official careers services</a></p>
+    </aside>
+
+    <nav class="jump" aria-label="Roadmap sections"><span class="label">Jump to</span><a href="#jobs-h">Jobs</a><a href="#tl-h">Timeline</a><a href="#topics-h">GCSE topics</a><a href="#next-h">Next steps</a><a href="#gtk-h">Good to know</a></nav>
+
+    <div class="card">
+      <h3>How your subjects connect to jobs</h3>
+      <p class="small muted">Each line means the job uses at least one topic from that subject. Tap a subject or a job to trace its lines.</p>
+      <div class="dotmap" id="dotmap">
+        <svg class="dm-lines" id="dm-lines" aria-hidden="true"></svg>
+        <ul class="dm-col dm-left" id="dm-left" aria-label="Subjects"></ul>
+        <ul class="dm-col dm-right" id="dm-right" aria-label="Jobs that fit"></ul>
+      </div>
+    </div>
+
+    <section class="block" aria-labelledby="jobs-h">
+      <h3 id="jobs-h">Jobs that fit you</h3>
+      <p class="jobs-note" id="jobs-note" hidden>Pick what you enjoy in question 2 to rank these for you.</p>
+      <div class="jobs" id="jobs"></div>
+      <details class="more">
+        <summary id="more-sum">More sustainable energy jobs to explore</summary>
+        <ul class="more-list" id="more-list"></ul>
+      </details>
+    </section>
+
+    <section class="block" aria-labelledby="tl-h">
+      <h3 id="tl-h">Your timeline</h3>
+      <ol class="tl" id="timeline"></ol>
+    </section>
+
+    <section class="block" aria-labelledby="topics-h">
+      <h3 id="topics-h">GCSE topics to look out for</h3>
+      <p class="small muted">From the Department for Education's subject content for each GCSE in England. Exam boards add detail, so your course may cover more.</p>
+      <div id="topics"></div>
+    </section>
+
+    <section class="block" aria-labelledby="next-h">
+      <h3 id="next-h">What to do next</h3>
+      <ul class="slash" id="next"></ul>
+      <div class="parents">
+        <span class="label">For parents and carers</span>
+        <ul class="slash" id="parents-list">
+          <li>Ask the school's careers leader which local employers work in sustainable energy, and whether they offer work experience.</li>
+          <li>Ask the school about careers guidance, and use the <a href="https://nationalcareers.service.gov.uk/" target="_blank" rel="noopener">official careers website for England</a> (formerly the National Careers Service) or the careers service where you live.</li>
+          <li>Talk through the jobs in this roadmap together. Many start with an apprenticeship, and a few usually need a degree.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="gtk-h">
+      <h3 id="gtk-h">Good to know</h3>
+      <ul class="slash" id="gtk-list">
+        <li>In England you must stay in education or training until 18: at college or sixth form, in an apprenticeship, or working or volunteering 20 hours or more a week alongside part-time study. <a href="https://www.gov.uk/know-when-you-can-leave-school" target="_blank" rel="noopener">School leaving age</a></li>
+        <li>If you finish Year 11 without at least a grade 4 in English or maths, you keep studying it after 16. <a href="https://www.gov.uk/government/publications/16-to-19-funding-maths-and-english-condition-of-funding/2025-to-2026-academic-year-16-to-19-funding-maths-and-english-condition-of-funding" target="_blank" rel="noopener">Maths and English rules</a></li>
+        <li>T Levels are two-year courses that include at least 45 days working with an employer. <a href="https://www.gov.uk/government/publications/16-to-19-study-programmes-guide-for-providers/16-to-19-study-programmes-guidance-2026-to-2027-academic-year" target="_blank" rel="noopener">16 to 19 study programmes</a></li>
+        <li>V Levels start in September 2027. Each is the size of one A level, so you can mix them with A levels. The first are in digital, education and early years, and finance and accounting. <a href="https://educationhub.blog.gov.uk/2026/03/new-v-levels-and-post-16-qualifications-explained/" target="_blank" rel="noopener">V Levels explained</a></li>
+        <li>Vocational GCSEs are planned in some subjects from as early as September 2029, and will replace today's technical awards. <a href="https://www.gov.uk/government/news/new-vocational-gcses-unveiled-in-major-shake-up-to-hands-on-learning-for-teens" target="_blank" rel="noopener">Department for Education announcement</a></li>
+      </ul>
+    </section>
+  </section>
+</main>
+
+<section class="advice-band" id="advice" aria-labelledby="advice-band-h">
+  <div class="wrap advice-in">
+    <div>
+      <p class="eyebrow">Official careers advice</p>
+      <h2 id="advice-band-h">Talk your choices through with an adviser</h2>
+      <p class="muted" style="margin-top:6px;max-width:46em">This roadmap is a guide, not advice. Start with your school or college careers adviser; these free official services can help too. The GCSE topics here come from England's subject content; Wales and Northern Ireland have their own GCSE courses, and Scotland has National qualifications.</p>
+    </div>
+    <div class="advice-grid" id="advice-grid"></div>
+  </div>
+</section>
+
+<footer class="foot" id="about">
+  <div class="wrap foot-grid">
+    <div class="foot-about">
+      <h2>About this guide</h2>
+      <p>Made by Professor Vahid Vahidinasab at the Centre for Sustainable Innovation (CSI), University of Salford. Information checked in October 2026 against Department for Education subject content, GOV.UK and the official careers website for England (formerly the National Careers Service).</p>
+      <p><strong>This guide is advisory only and is not personal careers advice.</strong> Schools offer different subjects and exam boards, so check your choices with your school and a careers adviser. Pay figures are the typical yearly pay on each job's official profile, from starter to experienced.</p>
+      <p id="privacy-count" hidden>This page counts visits and how the tool is used, anonymously and without cookies. It keeps only totals by country and UK region, never your answers. <a href="#reach">Reach so far</a></p>
+      <div class="research" id="research" hidden>
+        <span class="label" style="margin-top:14px">The research behind it</span>
+        <a id="article-link" href="#" target="_blank" rel="noopener" hidden>Read the article in The Conversation</a>
+        <a id="paper-link" href="#" target="_blank" rel="noopener" hidden>Read the paper</a>
+      </div>
+    </div>
+    <div class="foot-share">
+      <h2>Share this tool</h2>
+      <div class="share">
+        <svg class="qr" id="qr" viewBox="0 0 41 41" role="img" aria-label="QR code that opens the Sustainable Local Energy Skills Roadmap"></svg>
+        <div style="display:grid;gap:8px;min-width:0">
+          <p>Scan to open it on a phone, or show it in class.</p>
+          <p class="share-url" id="share-url"></p>
+          <div class="row-actions"><button type="button" class="btn btn-ghost btn-sm" id="copy-link">Copy link</button></div>
+          <p class="small" id="copy-link-status" role="status"></p>
+        </div>
+      </div>
+    </div>
+    <div class="foot-sources">
+      <h2>Sources</h2>
+      <ul id="sources"></ul>
+    </div>
+    <section class="reach" id="reach" aria-labelledby="reach-h" hidden>
+      <div class="reach-head">
+        <h2 id="reach-h">Reach so far</h2>
+        <p class="muted" id="reach-since"></p>
+      </div>
+      <p class="reach-visits"><b id="st-visit">0</b> <span id="st-visit-label">visits</span></p>
+      <div class="tiles" id="reach-tiles" hidden>
+        <div class="tile"><b id="st-example">0</b><span>example roadmaps explored</span></div>
+        <div class="tile"><b id="st-own">0</b><span>personal roadmaps made</span></div>
+        <div class="tile"><b id="st-pdf">0</b><span>PDFs downloaded</span></div>
+        <div class="tile"><b id="st-sent">0</b><span>roadmaps emailed or copied</span></div>
+      </div>
+      <div class="where" id="reach-where" hidden>
+        <p class="label">Visits across the UK</p>
+        <ul class="bars regions" id="st-regions"></ul>
+        <p class="muted" id="st-also" hidden></p>
+      </div>
+    </section>
+  </div>
+</footer>
+<div class="end">
+  <div class="wrap end-in">
+    <p>© 2026 <a class="end-name" href="https://www.salford.ac.uk/our-staff/vahid-vahidinasab" target="_blank" rel="noopener">Professor Vahid Vahidinasab</a>, University of Salford. All rights reserved.</p>
+    <p><a href="https://vahidinasab.github.io/">vahidinasab.github.io</a></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  document.documentElement.lang = 'en-GB';
+
+  // ---------- Settings to edit ----------
+  var CONFIG = {
+    toolUrl: 'https://vahidinasab.github.io/sustainable-skills/',
+    statsUrl: 'https://sles-roadmap-counter.vahidinasab.workers.dev',   // the visit counter (Cloudflare Worker sles-roadmap-counter)
+    reachDetail: false,   // true also shows uses and UK regions under Reach so far (they are always counted)
+    paperDoi: '',   // for example '10.1016/j.example.2027.000000' once the paper is published
+    articleUrl: ''  // The Conversation article, once it is published
+  };
+  // QR code for toolUrl (33 by 33 modules, error correction M), one hex string per row.
+  var QR_HEX = '1fcc0727f,104c35941,175353c5d,17530455d,1755f925d,105ac6841,1fd55557f,001e53f00,17c5ca77c,1f8fdb26f,015af8c16,1e92af95f,0ef0537b8,0d0ea424f,0279f14c6,0d2924bec,1bdca85b1,0a24962ef,1ed824df6,08a8d293e,0b5f446ba,1992f9e45,12f3468be,138917c5e,1c630a7f0,0011cbd17,1fc169356,10598cf1f,1754701f8,175a64b93,1758b116c,104723c9c,1fdeaa5a2';
+
+  // "short" is used in the one-line summary, where the full labels would run together.
+  var INTERESTS = [
+    { id: 'make', label: 'Making and fixing things', short: 'making things' },
+    { id: 'tech', label: 'Gadgets, electronics and coding', short: 'technology' },
+    { id: 'sci', label: 'Science and how things work', short: 'science' },
+    { id: 'num', label: 'Maths, numbers and data', short: 'numbers' },
+    { id: 'out', label: 'Being outdoors and active', short: 'being outdoors' },
+    { id: 'planet', label: 'Nature and the climate', short: 'nature' },
+    { id: 'biz', label: 'Business and money', short: 'business' },
+    { id: 'people', label: 'Helping people', short: 'helping people' }
+  ];
+
+  var SUBJECTS = [
+    { id: 'science', name: 'Science', short: 'Science', core: true, src: 'https://www.gov.uk/government/publications/gcse-combined-science', srcLabel: 'Combined science GCSE subject content' },
+    { id: 'maths', name: 'Maths', short: 'Maths', core: true, src: 'https://www.gov.uk/government/publications/gcse-mathematics-subject-content-and-assessment-objectives', srcLabel: 'Mathematics GCSE subject content' },
+    { id: 'geography', name: 'Geography', short: 'Geography', src: 'https://assets.publishing.service.gov.uk/media/5a7d5754e5274a33be64898e/GCSE_geography.pdf', srcLabel: 'Geography GCSE subject content' },
+    { id: 'dt', name: 'Design and technology', short: 'D&T', src: 'https://www.gov.uk/government/publications/gcse-design-and-technology', srcLabel: 'Design and technology GCSE subject content' },
+    { id: 'computing', name: 'Computer science', short: 'Computer science', src: 'https://www.gov.uk/government/publications/gcse-computer-science/gcse-subject-content-for-computer-science', srcLabel: 'Computer science GCSE subject content' },
+    { id: 'electronics', name: 'Electronics', short: 'Electronics', src: 'https://www.gov.uk/government/publications/gcse-electronics', srcLabel: 'Electronics GCSE subject content' },
+    { id: 'engineering', name: 'Engineering', short: 'Engineering', src: 'https://www.gov.uk/government/publications/gcse-engineering', srcLabel: 'Engineering GCSE subject content' },
+    { id: 'business', name: 'Business', short: 'Business', src: 'https://assets.publishing.service.gov.uk/media/5a75a4a0e5274a4368298d89/Business_GCSE.pdf', srcLabel: 'Business GCSE subject content' },
+    { id: 'economics', name: 'Economics', short: 'Economics', src: 'https://assets.publishing.service.gov.uk/media/6287b7c28fa8f55617a90521/GCSE_subject_content_economics_May_2022.pdf', srcLabel: 'Economics GCSE subject content' }
+  ];
+  var SEPARATE_SRC = { url: 'https://assets.publishing.service.gov.uk/media/5cd2b951ed915d50c208b4d5/GCSE_single_science_updated_May_2019.pdf', label: 'Biology, chemistry and physics GCSE subject content' };
+
+  // Every quotation is copied from the Department for Education subject content linked for that subject.
+  var TOPICS = [
+    { s: 'science', t: 'Energy resources', q: ['describe the main energy sources available for use on Earth (including fossil fuels, nuclear fuel, bio-fuel, wind, hydro-electricity, the tides and the Sun)'], use: 'Choosing between wind, solar, hydro and nuclear power, and knowing which are renewable.', jobs: ['renew', 'wind', 'solar'] },
+    { s: 'science', t: 'The National Grid', q: ['in the national grid, electrical power is transferred at high voltages from power stations'], use: 'How power gets from a wind farm to your street, and why substations are needed.', jobs: ['grid', 'renew', 'wind', 'eltech'] },
+    { s: 'science', t: 'Mains electricity and safety', q: ['recall the differences in function between the live, neutral and earth mains wires'], use: 'Wiring a home charger, solar system or heat pump so that it is safe.', jobs: ['electrician', 'solar', 'heatpump', 'smartmeter', 'eltech'] },
+    { s: 'science', t: 'Power and efficiency', q: ['calculate energy efficiency for any energy transfer, and describe ways to increase efficiency'], use: 'Comparing a heat pump with a gas boiler, and finding where a home wastes energy.', jobs: ['heatpump', 'assessor', 'renew', 'buildserv'] },
+    { s: 'science', t: 'Insulation', q: ['explain ways of reducing unwanted energy transfer e.g. through lubrication, thermal insulation; describe the effects, on the rate of cooling of a building, of thickness and thermal conductivity of its walls (qualitative only)'], use: 'Why insulating a home cuts heating bills and helps a heat pump work well.', jobs: ['assessor', 'heatpump', 'insulation', 'buildserv'] },
+    { s: 'science', t: 'Heating and specific heat capacity', q: ['describe how heating a system will change the energy stored within the system and raise its temperature or produce changes of state', 'define the term specific heat capacity and distinguish between it and the term specific latent heat'], use: 'Working out how much energy a heat pump has to supply to warm the water and the rooms in a home.', jobs: ['heatpump', 'plumber', 'buildserv', 'refrig'] },
+    { s: 'science', t: 'Changes of state', q: ['describe how, when substances melt, freeze, evaporate, condense or sublimate, mass is conserved, but that these physical changes differ from chemical changes because the material recovers its original properties if the change is reversed'], use: 'Inside a heat pump, a refrigerant evaporates and condenses over and over to carry heat from the outside air into the home.', jobs: ['heatpump', 'refrig'] },
+    { s: 'science', t: 'Power ratings of appliances', q: ['describe, with examples, the relationship between the power ratings for domestic electrical appliances and the changes in stored energy when they are in use'], use: 'Reading a smart meter display and spotting which appliances use the most energy.', jobs: ['smartmeter', 'assessor', 'smarthome', 'electrician'] },
+    { s: 'science', t: 'Batteries and the mains', q: ['describe how, in different domestic devices, energy is transferred from batteries and the a.c. mains to the energy of motors or of heating devices', 'recall that the domestic supply in the UK is a.c., at 50Hz and about 230 volts, explain the difference between direct and alternating voltage'], use: 'Home batteries and solar panels work with direct current while the mains is alternating current, so an inverter converts between the two.', jobs: ['electrician', 'solar', 'eltech', 'electronics'] },
+    { s: 'science', t: 'Electric motors', q: ['explain how this force is used to cause rotation in electric motors'], use: 'How the motor in an electric car turns the wheels.', jobs: ['evtech', 'electronics', 'eltech'] },
+    { s: 'science', t: 'Climate change', q: ['describe the potential effects of increased levels of carbon dioxide and methane on the Earth’s climate', 'how these effects may be mitigated, including consideration of scale, risk and environmental implications'], use: 'The reason the world is switching to clean energy.', jobs: ['sustain', 'renew'] },
+    { s: 'science', t: 'Life cycle assessment', q: ['interpret data from a life-cycle assessment of a material or product'], use: 'Judging the impact of a solar panel or battery, from making it to recycling it.', jobs: ['sustain', 'renew', 'electronics'] },
+    { s: 'science', triple: 'physics', t: 'Generators and transformers', q: ['explain how this effect is used in an alternator to generate a.c., and in a dynamo to generate d.c.', 'explain how the effect of an alternating current in one circuit in inducing a current in another is used in transformers'], use: 'How a wind turbine makes electricity, and how substations change the voltage.', jobs: ['wind', 'grid', 'renew'] },
+    { s: 'science', triple: 'chemistry', t: 'Cells and fuel cells', q: ['recall that a chemical cell produces a potential difference until the reactants are used up', 'evaluate the advantages and disadvantages of hydrogen/oxygen and other fuel cells for given uses'], use: 'How batteries and hydrogen fuel cells store and release energy.', jobs: ['evtech', 'renew', 'electronics'] },
+
+    { s: 'maths', t: 'Rates and unit pricing', q: ['use compound units such as speed, rates of pay, unit pricing, density and pressure'], use: 'Comparing electricity prices in pence per kilowatt-hour, and working out what a charge costs.', jobs: ['assessor', 'data', 'electrician', 'smartmeter'] },
+    { s: 'maths', t: 'Graphs and rates of change', q: ['interpret the gradient of a straight line graph as a rate of change'], use: 'Reading how fast a battery charges, or how quickly demand for power rises in the evening.', jobs: ['evtech', 'data', 'electronics'] },
+    { s: 'maths', t: 'Percentages and growth', q: ['solve problems involving percentage change, including percentage increase/decrease and original value problems', 'set up, solve and interpret the answers in growth and decay problems, including compound interest'], use: 'Working out what solar panels could save, or how a cost changes over time.', jobs: ['solar', 'sustain', 'assessor'] },
+    { s: 'maths', t: 'Scatter graphs and predictions', q: ['use and interpret scatter graphs of bivariate data; recognise correlation and know that it does not indicate causation', 'draw estimated lines of best fit; make predictions'], use: 'Spotting the link between cold weather and energy use, then making a prediction.', jobs: ['data', 'renew'] },
+
+    { s: 'geography', t: 'Energy and resources', q: ['An overview of how humans use, modify and change ecosystems and environments in order to obtain food, energy and water resources', 'issues related to their sustainable use and management at a variety of scales'], use: 'Where our energy comes from, and how places plan for wind farms, solar farms and new power lines.', note: 'Schools choose food, energy or water for the detailed study, so ask which one yours covers.', jobs: ['sustain', 'renew'] },
+    { s: 'geography', t: 'Climate change', q: ['The spatial and temporal characteristics, of climatic change and evidence for different causes, including human activity'], use: 'The evidence behind the move to clean energy.', jobs: ['sustain', 'renew'] },
+
+    { s: 'dt', t: 'Energy generation and storage', q: ['how energy is generated and stored in order to choose and use appropriate sources to make products and to power systems'], use: 'Choosing a solar panel and battery to power a product.', jobs: ['solar', 'electronics', 'renew'] },
+    { s: 'dt', t: 'Electronic systems and smart controls', q: ['how electronic systems provide functionality to products and processes, including sensors and control devices to respond to a variety of inputs, and devices to produce a range of outputs'], use: 'The sensors and controls in smart heating and smart chargers.', jobs: ['electronics', 'smarthome', 'heatpump', 'electrician', 'buildserv'] },
+    { s: 'dt', t: 'Programmable components', q: ['the use of programmable components to embed functionality into products in order to enhance and customise their operation'], use: 'The programmable parts inside smart thermostats, plugs, meters and chargers.', jobs: ['smarthome', 'electronics', 'buildserv'] },
+    { s: 'dt', t: 'Life cycle assessment', q: ['the basic principles in carrying out a life-cycle assessment of a material or product'], use: 'Picking materials with a smaller footprint, from mining to recycling.', jobs: ['sustain', 'electronics'] },
+    { s: 'dt', t: 'Your design project', q: ['securing a sustainable future'], use: 'Half of your marks come from designing and making a prototype. Exam boards set new contexts each year, and where one allows an energy theme you could design something like a solar-powered light.', note: 'The quotation is one of the contexts the Department for Education suggests for the project.', jobs: ['solar', 'electronics', 'renew'] },
+
+    { s: 'computing', t: 'Programming', q: ['design, write, test and refine programs, using one or more high-level programming language'], use: 'Writing software that decides when a smart charger or heat pump should switch on.', jobs: ['data', 'electronics'] },
+    { s: 'computing', t: 'Embedded systems', q: ['hardware components and embedded systems'], use: 'The small computers inside chargers, heat pumps and solar inverters.', jobs: ['electronics', 'evtech', 'smarthome'] },
+    { s: 'computing', t: 'Cyber security', q: ['ways to protect software systems (during design, creation, testing, and use)'], use: 'Keeping connected chargers and energy systems safe from attack.', jobs: ['data', 'electronics', 'smarthome'] },
+    { s: 'computing', t: 'Networks', q: ['connectivity, both wired and wireless'], use: 'How smart meters, thermostats and chargers connect to each other and to the internet.', note: 'This is one of the network topics every course must cover.', jobs: ['smarthome', 'smartmeter', 'data'] },
+    { s: 'computing', t: 'Technology and the environment', q: ['the ethical, legal and environmental impacts of digital technology on wider society, including issues of privacy and cyber security'], use: 'How much energy devices and data centres use, and who can see the data a smart meter collects.', jobs: ['data', 'sustain'] },
+
+    { s: 'electronics', t: 'Sensing, processing and output', q: ['the way in which electronic systems are assembled from sensing, processing and output sub-systems', 'the design and testing of sensing circuits using resistors and a range of passive sensors, including light, temperature, pressure, moisture, switch, sound and pulse generator'], use: 'How a charger senses that a car is plugged in, or a heat pump reads the temperature.', jobs: ['electronics', 'evtech', 'heatpump', 'smarthome'] },
+    { s: 'electronics', t: 'Switching circuits', q: ['how to analyse and compare the action of switching circuits based upon npn transistors, MOSFETs and voltage comparator ICs'], use: 'Switching power on and off safely, which chargers and solar inverters do all the time.', jobs: ['electronics', 'electrician', 'eltech'] },
+    { s: 'electronics', t: 'Diodes and rectification', q: ['the current-voltage behaviour and uses of silicon diodes for component protection in DC circuits and half-wave rectification AC circuits', 'how zener diodes are used in voltage regulation circuits'], use: 'Turning alternating current from the mains into direct current to charge a battery.', jobs: ['electronics', 'evtech', 'solar'] },
+    { s: 'electronics', t: 'Microcontrollers', q: ['how microcontrollers can be interfaced with sensing circuits and output devices'], use: 'Programming the small computer at the heart of a smart device.', jobs: ['electronics', 'data', 'smarthome'] },
+    { s: 'electronics', t: 'Your system project', q: ['a single extended System Design and Construction task'], use: 'You design and build your own electronic system. A circuit that switches on a small load only when a light sensor detects sunshine works like a simple solar power diverter.', jobs: ['electronics', 'solar'] },
+
+    { s: 'engineering', t: 'Programmable control systems', q: ['how to design and construct programs which monitor and control systems with the use of inputs, processes and outputs within an engineered system'], use: 'The control systems that keep wind turbines and heat pumps running.', jobs: ['wind', 'heatpump', 'electronics', 'buildserv', 'maint'] },
+    { s: 'engineering', t: 'Energy, maintenance and end of life', q: ['design solutions need to consider energy production methods and engineered lifespans including planned obsolescence, the need for maintenance of machinery and end of life (EOL)'], use: 'Planning the servicing of a wind farm, and what happens to old panels and batteries.', jobs: ['wind', 'renew', 'solar', 'maint'] },
+    { s: 'engineering', t: 'Testing under load', q: ['the methods of testing and evaluating materials, and structural behaviour under load'], use: 'Making sure turbine blades and roof fixings are strong enough.', jobs: ['wind', 'solar', 'maint'] },
+    { s: 'engineering', t: 'Engineering and the environment', q: ['the impact of engineering on the environment and sustainable development'], use: 'Weighing up the environmental gains and costs of an energy project.', jobs: ['renew', 'sustain'] },
+
+    { s: 'business', t: 'Environmental influences', q: ['the impact of ethical and environmental considerations on businesses, including sustainability'], use: 'Why firms are cutting their emissions and switching to clean energy.', jobs: ['sustain'] },
+    { s: 'business', t: 'Starting a business', q: ['the role of business enterprise and entrepreneurship, and the dynamic nature of business'], use: 'Many electricians and mechanics go on to run their own firms.', jobs: ['electrician', 'evtech'] },
+    { s: 'business', t: 'Cash flow', q: ['the importance of cash to a business, the difference between cash and profit, and cash-flow forecasting'], use: 'Paying for equipment before the customer pays you.', jobs: ['electrician', 'evtech'] },
+
+    { s: 'economics', t: 'Supply, demand and price', q: ['the role of markets in the determination of price and allocation of resources'], use: 'Why some electricity tariffs charge more at 6pm than at 2am.', jobs: ['data', 'sustain'] },
+    { s: 'economics', t: 'Externalities', q: ['positive and negative externalities', 'use, impact, costs and benefits of government policies designed to correct positive and negative externalities'], use: 'How carbon taxes and clean energy subsidies work.', jobs: ['sustain', 'renew'] },
+    { s: 'economics', t: 'Sustainability', q: ['consider moral and ethical and sustainability issues that arise as a result of the impact of economic activity'], use: 'Weighing up who pays for the move to clean energy, and who gains.', jobs: ['sustain'] }
+  ];
+
+  // Job details, pay and routes are from each job's profile on the official careers website for England
+  // (nationalcareers.service.gov.uk, renamed "Get careers information and advice" in October 2026), checked October 2026.
+  var NCS = 'https://nationalcareers.service.gov.uk/job-profiles/';
+  var JOBS = [
+    { id: 'electrician', name: 'Electrician', what: 'Installs power, lighting and renewable technologies in buildings, including solar panels and electric vehicle charging points.', interests: ['make', 'tech', 'biz', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [26000, 45000], url: NCS + 'electrician',
+      routes: [{ k: 'T Level', v: 'Building Services Engineering for Construction (electrotechnical engineering)' }, { k: 'Apprenticeship', v: 'Installation and Maintenance Electrician (level 3)' }, { k: 'Apprenticeship', v: 'Domestic Electrician (level 3)' }] },
+    { id: 'solar', name: 'Solar panel installer', what: 'Surveys roofs, fixes the mounting system and installs solar panels, working with electricians to connect battery storage.', interests: ['make', 'out', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'solar-panel-installer',
+      routes: [{ k: 'Apprenticeship', v: 'Building Services Engineering foundation apprenticeship (level 2), open to 16 to 21-year-olds with no set qualifications' }, { k: 'Apprenticeship', v: 'Installation and Maintenance Electrician (level 3)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
+    { id: 'heatpump', name: 'Heat pump engineer', what: 'Installs, services and repairs low carbon heating and hot water systems, and shows customers how to use them.', interests: ['make', 'planet', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'heat-pump-engineer',
+      routes: [{ k: 'T Level', v: 'Building Services Engineering for Construction, which added a low carbon heating option from September 2026' }, { k: 'Apprenticeship', v: 'Low Carbon Heating Technician (level 3)' }, { k: 'Apprenticeship', v: 'Building Services Engineering foundation apprenticeship (level 2)' }] },
+    { id: 'evtech', name: 'Electric vehicle technician', alt: 'Listed as motor mechanic in the official job profiles', what: 'Finds and fixes faults in vehicles, including working with the high-voltage batteries in hybrid and electric cars.', interests: ['make', 'tech'], style: 'hands', roles: ['repair'], pay: [22000, 42000], url: NCS + 'motor-mechanic',
+      routes: [{ k: 'Apprenticeship', v: 'Motor Vehicle Service and Maintenance Technician, light vehicle (level 3)' }, { k: 'T Level', v: 'Maintenance, Installation and Repair for Engineering and Manufacturing' }, { k: 'College', v: 'Light vehicle courses, some with hybrid and electric options' }] },
+    { id: 'wind', name: 'Wind turbine technician', what: 'Installs and maintains wind turbines on land or at sea, testing the blades and control systems. Often outdoors and at height.', interests: ['out', 'make', 'sci', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'wind-turbine-technician',
+      routes: [{ k: 'Apprenticeship', v: 'Engineering Maintenance Technician, or Maintenance Operations Engineering Technician (level 3)' }, { k: 'T Level', v: 'Maintenance, Installation and Repair for Engineering and Manufacturing' }, { k: 'Degree', v: 'Foundation degree, HND or degree in renewable energy, electrical or mechanical engineering' }] },
+    { id: 'grid', name: 'Electricity network worker', alt: 'Listed as electricity distribution worker in the official job profiles', what: 'Builds and maintains power lines, underground cables and substations, and connects new equipment to the network.', interests: ['out', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [23000, 42000], url: NCS + 'electricity-distribution-worker',
+      routes: [{ k: 'Apprenticeship', v: 'Power Industry Overhead Linesperson, Substation Fitter or Distribution Cable Jointer (level 3)' }, { k: 'Apprenticeship', v: 'Electrical Power Networks Engineer (level 4)' }, { k: 'College', v: 'Engineering or electrical engineering courses' }] },
+    { id: 'assessor', name: 'Domestic energy assessor', what: 'Visits homes to record things like insulation, heating and lighting, then works out the energy rating for an Energy Performance Certificate.', interests: ['people', 'planet', 'num', 'biz'], style: 'hands', roles: ['advise'], pay: [24000, 35000], url: NCS + 'domestic-energy-assessor',
+      routes: [{ k: 'Qualification', v: 'Level 3 Certificate in Domestic Energy Assessment, then joining an approved accreditation scheme' }, { k: 'Experience', v: 'Work in surveying or construction can shorten the training' }] },
+    { id: 'renew', name: 'Renewable energy engineer', what: 'Designs and improves renewable energy projects, from checking whether a site suits a wind or solar farm to making solar panels and batteries more efficient.', interests: ['sci', 'planet', 'num'], style: 'class', roles: ['design'], pay: [31000, 61000], url: NCS + 'energy-engineer',
+      routes: [{ k: 'Degree', v: 'Energy engineering, environmental engineering, or renewable or sustainable energy' }, { k: 'Entry', v: 'Usually 2 or 3 A levels, including maths and a science' }] },
+    { id: 'electronics', name: 'Electronics engineer', what: 'Researches, designs and tests electronic systems and circuits. In clean energy, that includes the electronics in chargers, batteries and solar systems.', interests: ['tech', 'sci', 'num'], style: 'both', roles: ['design'], pay: [28000, 60000], url: NCS + 'electronics-engineer',
+      routes: [{ k: 'Degree', v: 'Electronic engineering, or electronic and electrical engineering' }, { k: 'Degree apprenticeship', v: 'Embedded Electronic Systems Design and Development Engineer (level 6)' }, { k: 'Work', v: 'Start as an electronics engineering technician and train on the job' }] },
+    { id: 'data', name: 'Energy data scientist', alt: 'Listed as data scientist in the official job profiles', what: 'Gathers data to build models and spot patterns. In energy, these skills help forecast demand and plan when to charge electric cars.', interests: ['num', 'tech'], style: 'both', roles: ['data'], pay: [32000, 83000], url: NCS + 'data-scientist',
+      routes: [{ k: 'Degree', v: 'Maths, statistics, data science or computer science' }, { k: 'Apprenticeship', v: 'Data Engineer (level 5)' }, { k: 'Degree apprenticeship', v: 'Data Scientist (level 6)' }] },
+    { id: 'sustain', name: 'Sustainability practitioner', alt: 'Listed as corporate responsibility and sustainability practitioner in the official job profiles', what: 'Plans how an organisation can cut its environmental impact, wins support from colleagues and partners, and tracks progress.', interests: ['planet', 'biz', 'people'], style: 'class', roles: ['advise'], pay: [24000, 50000], url: NCS + 'corporate-responsibility-and-sustainability-practitioner',
+      routes: [{ k: 'Degree', v: 'Environment and sustainability, energy and engineering, economics, or business management' }, { k: 'Apprenticeship', v: 'Corporate Responsibility and Sustainability Practitioner (level 4)' }, { k: 'Degree apprenticeship', v: 'Sustainability Business Specialist (level 7)' }] },
+    { id: 'plumber', name: 'Plumber', what: 'Installs and repairs water, heating and drainage systems in homes and businesses, including heat pumps and solar hot water systems.', interests: ['make', 'people', 'biz'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'plumber',
+      routes: [{ k: 'Apprenticeship', v: 'Plumbing and Domestic Heating Technician (level 3)' }, { k: 'Apprenticeship', v: 'Low Carbon Heating Technician (level 3)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
+    { id: 'refrig', name: 'Refrigeration and air-conditioning installer', what: 'Fits, services and repairs cooling and air-conditioning systems in buildings, cold stores and refrigerated vehicles. The main apprenticeship also covers heat pumps.', interests: ['make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 45000], url: NCS + 'refrigeration-and-air-conditioning-installer',
+      routes: [{ k: 'Apprenticeship', v: 'Refrigeration, Air Conditioning and Heat Pump Engineering (level 3)' }, { k: 'Apprenticeship', v: 'Building Services Engineering Installer (level 2)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
+    { id: 'buildserv', name: 'Building services engineer', what: 'Plans and oversees the heating, lighting, power and ventilation in large buildings such as offices and hospitals, including the controls that run them.', interests: ['sci', 'num', 'make', 'planet'], style: 'both', roles: ['design', 'repair'], pay: [28000, 51000], url: NCS + 'building-services-engineer',
+      routes: [{ k: 'Apprenticeship', v: 'Building Services Engineering Technician (level 3)' }, { k: 'Apprenticeship', v: 'Building Energy Management Systems Controls Engineer (level 4)' }, { k: 'Degree apprenticeship', v: 'Building Services Design Engineer (level 6)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
+    { id: 'smartmeter', name: 'Smart meter installer', what: 'Visits homes and businesses to fit smart gas and electricity meters, checks they are safe, and shows people how to use them to save energy.', interests: ['make', 'people', 'tech'], style: 'hands', roles: ['install', 'advise'], pay: [24000, 38000], url: NCS + 'smart-meter-installer',
+      routes: [{ k: 'Apprenticeship', v: 'Dual Fuel Smart Meter Installer (level 2)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }, { k: 'College', v: 'Electrical installation courses' }] },
+    { id: 'smarthome', name: 'Smart home installer', what: 'Designs, installs and sets up connected lighting, heating, security and entertainment systems in homes, and calibrates the controls.', interests: ['tech', 'make', 'people'], style: 'hands', roles: ['install', 'design'], pay: [24000, 55000], url: NCS + 'smart-home-installer',
+      routes: [{ k: 'Apprenticeship', v: 'Smart Home Technician (level 3)' }, { k: 'Apprenticeship', v: 'Electrical, Electronic Product Service and Installation Engineer (level 3)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
+    { id: 'insulation', name: 'Cavity insulation installer', what: 'Fits insulation into the walls, lofts and ceilings of homes and other buildings, including upgrading insulation in older homes.', interests: ['make', 'planet'], style: 'hands', roles: ['install'], pay: [24000, 40000], url: NCS + 'cavity-insulation-installer',
+      routes: [{ k: 'Apprenticeship', v: 'Insulation Installation Operative (level 2)' }, { k: 'Apprenticeship', v: 'Industrial Thermal Insulation Technician (level 3)' }, { k: 'College', v: 'Construction and building crafts courses' }] },
+    { id: 'eltech', name: 'Electrical engineering technician', what: 'Installs, tests and repairs electrical equipment and control systems, including renewable technologies such as wind turbines and heat pumps.', interests: ['tech', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 48000], url: NCS + 'electrical-engineering-technician',
+      routes: [{ k: 'Apprenticeship', v: 'Engineering Technician (level 3)' }, { k: 'Apprenticeship', v: 'Power Industry Substation Fitter (level 3)' }, { k: 'T Level', v: 'Engineering, Manufacturing, Processing and Control' }] },
+    { id: 'maint', name: 'Engineering maintenance technician', what: 'Keeps machines and equipment running by servicing them, finding faults and fixing them.', interests: ['make', 'tech', 'sci'], style: 'hands', roles: ['repair'], pay: [27000, 48000], url: NCS + 'engineering-maintenance-technician',
+      routes: [{ k: 'Apprenticeship', v: 'Engineering Maintenance Technician (level 3)' }, { k: 'Apprenticeship', v: 'Mechatronics Maintenance Technician (level 3)' }, { k: 'T Level', v: 'Maintenance, Installation and Repair for Engineering and Manufacturing' }] }
+  ];
+
+  var ROLES = { install: 'Installs', repair: 'Maintains and repairs', design: 'Designs and plans', advise: 'Advises', data: 'Works with data' };
+
+  // Parts of the home explorer. "at" places the hotspot, in percent across and down the picture.
+  var PARTS = [
+    { id: 'heatpump', name: 'Heat pump', at: [29.4, 71],
+      what: 'A heat pump moves heat from the outside air into the home, like a fridge working in reverse, and runs on electricity instead of gas. In England and Wales the Boiler Upgrade Scheme gives £7,500 towards an air source heat pump fitted by an MCS-certified installer.',
+      links: [['science', 'Heating and specific heat capacity'], ['science', 'Changes of state'], ['science', 'Power and efficiency'], ['science', 'Insulation']],
+      who: [['Who installs it', ['heatpump', 'plumber']], ['Who maintains and repairs it', ['heatpump', 'refrig', 'eltech']], ['Who designs and plans it', ['buildserv', 'assessor']]] },
+    { id: 'solar', name: 'Solar panels', at: [55.6, 38],
+      what: 'Panels on the roof turn sunlight into electricity for the home, the home battery or the car.',
+      links: [['science', 'Energy resources'], ['science', 'Batteries and the mains'], ['dt', 'Energy generation and storage'], ['maths', 'Percentages and growth']],
+      who: [['Who installs it', ['solar', 'electrician']], ['Who maintains and repairs it', ['solar', 'electrician']], ['Who designs and plans it', ['renew']]] },
+    { id: 'battery', name: 'Home battery', at: [39.7, 67],
+      what: 'A home battery stores electricity from the solar panels, or from the grid when it is cheaper, to use later in the day. Solar installers work with electricians to connect it.',
+      links: [['science', 'Batteries and the mains'], ['science', 'Cells and fuel cells, in separate chemistry'], ['electronics', 'Diodes and rectification'], ['maths', 'Rates and unit pricing']],
+      who: [['Who installs it', ['electrician', 'solar']], ['Who maintains and repairs it', ['electrician', 'eltech']], ['Who designs and plans it', ['electronics', 'renew']]] },
+    { id: 'insulation', name: 'Loft and wall insulation', short: 'Insulation', at: [43.1, 39.5],
+      what: 'Insulation keeps heat in, so the home needs less energy to stay warm. Heat pumps work best in well-insulated homes.',
+      links: [['science', 'Insulation'], ['science', 'Heating and specific heat capacity'], ['dt', 'Life cycle assessment']],
+      who: [['Who installs it', ['insulation']], ['Who checks the home and advises', ['assessor']]] },
+    { id: 'smart', name: 'Smart meter and smart home controls', short: 'Smart controls', at: [62.8, 52],
+      what: 'A smart meter shows how much energy the home uses, and smart controls can run the heating, battery and car charger at the best times. By June 2026 there were 42 million smart and advanced meters in homes and small businesses in Great Britain.',
+      links: [['science', 'Power ratings of appliances'], ['dt', 'Programmable components'], ['computing', 'Networks'], ['computing', 'Cyber security'], ['economics', 'Supply, demand and price']],
+      who: [['Who installs it', ['smartmeter', 'smarthome', 'electrician']], ['Who maintains and repairs it', ['electrician', 'buildserv']], ['Who designs and plans it', ['smarthome', 'electronics', 'data']]] },
+    { id: 'ev', name: 'Electric car and charger', short: 'EV charging', at: [86.25, 67],
+      what: 'The charger is wired into the home and talks to the car. Since June 2022, new home and workplace chargers in Great Britain have had to be smart. Technicians who service electric cars work with high-voltage batteries.',
+      links: [['science', 'Mains electricity and safety'], ['science', 'Electric motors'], ['electronics', 'Sensing, processing and output'], ['maths', 'Rates and unit pricing']],
+      who: [['Who installs it', ['electrician']], ['Who maintains and repairs it', ['evtech', 'electrician']], ['Who designs and plans it', ['electronics']]] },
+    { id: 'wind', name: 'Community wind turbine', short: 'Local wind', at: [10, 29.5],
+      what: 'Some wind turbines and solar farms are run by local community groups. Every turbine needs regular checks and servicing, often at height.',
+      links: [['science', 'Energy resources'], ['science', 'Generators and transformers, in separate physics'], ['engineering', 'Energy, maintenance and end of life'], ['geography', 'Energy and resources']],
+      who: [['Who installs it', ['wind']], ['Who maintains and repairs it', ['wind', 'eltech', 'maint']], ['Who designs and plans it', ['renew', 'sustain']]] },
+    { id: 'grid', name: 'The power grid', short: 'Power grid', at: [93.4, 25],
+      what: 'Power reaches homes through high-voltage lines, substations and underground cables. Network workers build and maintain them, and connect new equipment such as solar panels and chargers.',
+      links: [['science', 'The National Grid'], ['science', 'Generators and transformers, in separate physics'], ['maths', 'Graphs and rates of change']],
+      who: [['Who builds and maintains it', ['grid', 'eltech']], ['Who designs and plans it', ['renew', 'data']]] },
+    { id: 'van', name: 'The local installer', short: 'Local firms', at: [7, 71],
+      what: 'Much of this work is done by small local firms. Running one means pricing jobs, buying equipment, managing cash and looking after customers.',
+      links: [['business', 'Starting a business'], ['business', 'Cash flow'], ['maths', 'Percentages and growth']],
+      who: [['Jobs in firms like this', ['electrician', 'heatpump', 'plumber', 'smartmeter', 'insulation']]] }
+  ];
+
+  // Free official careers services, shown on the page and in the PDF.
+  var ADVICE = [
+    { where: 'England', name: 'Get careers information and advice', what: 'The official careers website, formerly the National Careers Service. Under 18? Your school or college careers adviser gives guidance.', url: 'https://nationalcareers.service.gov.uk/' },
+    { where: 'Scotland', name: 'My World of Work', what: 'Careers information and advice from Skills Development Scotland.', url: 'https://www.myworldofwork.co.uk/' },
+    { where: 'Wales', name: 'Careers Wales', what: 'Independent, impartial careers advice and guidance for all ages.', url: 'https://careerswales.gov.wales/' },
+    { where: 'Northern Ireland', name: 'Careers Service', what: 'Information, advice and guidance for all ages, including pupils at school.', url: 'https://www.nidirect.gov.uk/campaigns/careers' },
+    { where: 'England', kind: 'route', name: 'Find an apprenticeship', what: 'Search and apply for apprenticeships from age 16.', url: 'https://www.gov.uk/apply-apprenticeship' },
+    { where: 'England', kind: 'route', name: 'T Levels', what: 'Two-year courses for 16 to 19-year-olds with at least 45 days on placement.', url: 'https://www.tlevels.gov.uk/' }
+  ];
+
+  var STYLES = [
+    { id: 'hands', title: 'Hands-on', desc: 'I learn best by doing and making things.' },
+    { id: 'class', title: 'In the classroom', desc: 'I like lessons, reading and exams.' },
+    { id: 'mix', title: 'A mix, or not sure yet', desc: 'Show me all the options.' }
+  ];
+  var STYLE_BONUS = { hands: { hands: 2, both: 1, class: 0 }, class: { class: 2, both: 1, hands: 0 }, mix: { hands: 1, both: 1, class: 1 } };
+  var STYLE_PHRASE = { hands: 'learns best hands-on', class: 'learns best in the classroom', mix: 'open to all kinds of learning' };
+
+  var NEXT = {
+    7: [
+      'Look out for solar panels, heat pumps, home batteries and chargers near you. Each one needs people to install it, look after it and repair it.',
+      'Try a STEM, coding or engineering club if your school runs one.',
+      'Read two of the job profiles in your roadmap with your family.'
+    ],
+    8: [
+      'Find out which GCSE options your school offers. Electronics and Engineering are not available everywhere.',
+      'Try a STEM, coding or engineering club if your school runs one.',
+      'Read two of the job profiles in your roadmap with your family.'
+    ],
+    9: [
+      'At options evening, ask which subjects can include an energy project, such as the design project in D&T.',
+      'Check which subjects your school offers. Electronics and Engineering are not available everywhere.',
+      'Read two of the job profiles in your roadmap with your family.'
+    ],
+    10: [
+      'Ask your school about work experience. The government is asking employers for <a href="https://www.gov.uk/government/news/new-vocational-gcses-unveiled-in-major-shake-up-to-hands-on-learning-for-teens" target="_blank" rel="noopener">200,000 extra placements</a> for 14 to 16-year-olds.',
+      'If you take D&T, Electronics or Engineering, ask whether your project can take an energy theme.',
+      'Visit open days at local colleges and sixth forms to see T Levels, V Levels and apprenticeships.'
+    ],
+    11: [
+      'Apply for college, sixth form or an apprenticeship this year. Look at <a href="https://www.tlevels.gov.uk/students/subjects" target="_blank" rel="noopener">T Level subjects</a> and search on <a href="https://www.gov.uk/apply-apprenticeship" target="_blank" rel="noopener">Find an apprenticeship</a>.',
+      'Aim for at least a grade 4 in English and maths. Most T Levels and advanced apprenticeships ask for it.',
+      'At open days, ask colleges how their courses lead to the jobs on your roadmap.'
+    ]
+  };
+
+  var SOURCES = [
+    ['New vocational GCSEs (Department for Education, September 2026)', 'https://www.gov.uk/government/news/new-vocational-gcses-unveiled-in-major-shake-up-to-hands-on-learning-for-teens'],
+    ['New V levels and post-16 qualifications explained (March 2026)', 'https://educationhub.blog.gov.uk/2026/03/new-v-levels-and-post-16-qualifications-explained/'],
+    ['T Level subjects', 'https://www.tlevels.gov.uk/students/subjects'],
+    ['T Level in Building Services Engineering for Construction', 'https://www.tlevels.gov.uk/students/subjects/building-services-engineering'],
+    ['Clean energy jobs boom (October 2025)', 'https://www.gov.uk/government/news/clean-energy-jobs-boom-to-bring-thousands-of-new-jobs'],
+    ['Regulations: electric vehicle smart charge points', 'https://www.gov.uk/guidance/regulations-electric-vehicle-smart-charge-points'],
+    ['Electric Vehicles (Smart Charge Points) Regulations 2021, Part 2', 'https://legislation.gov.uk/uksi/2021/1467/part/2/made'],
+    ['School leaving age', 'https://www.gov.uk/know-when-you-can-leave-school'],
+    ['Boiler Upgrade Scheme: what you can get (GOV.UK)', 'https://www.gov.uk/apply-boiler-upgrade-scheme/what-you-can-get'],
+    ['Smart meters in Great Britain, June 2026 (DESNZ)', 'https://www.gov.uk/government/statistics/smart-meters-in-great-britain-quarterly-update-june-2026/smart-meters-in-great-britain-quarterly-update-june-2026-statistical-bulletin'],
+    ['The National Careers Service website is changing (October 2026)', 'https://nationalcareers.service.gov.uk/service-is-changing'],
+    ['Ofqual conditions for GCSE design and technology', 'https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/504213/gcse-subject-level-conditions-and-requirements-for-design-and-technology.pdf']
+  ];
+
+  var SUBJ = {}; SUBJECTS.forEach(function (s) { SUBJ[s.id] = s; });
+  var JOB = {}; JOBS.forEach(function (j) { JOB[j.id] = j; });
+  var INT = {}; INTERESTS.forEach(function (i) { INT[i.id] = i; });
+  var PART = {}; PARTS.forEach(function (p) { PART[p.id] = p; });
+
+  var MAX_INTERESTS = 3;
+  var KEY = 'gcse-clean-energy-roadmap-v1';
+  var PDFLIB_URL = 'https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js';
+  var PROFILE_URL = 'https://www.salford.ac.uk/our-staff/vahid-vahidinasab';
+  var EXAMPLE_WHO = 'It shows the roadmap for a Year 9 pupil who enjoys making and fixing things, cares about nature and the climate, takes geography and D&T, and learns best hands-on.';
+
+  function $(sel) { return document.querySelector(sel); }
+  function $all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function money(n) { return '£' + n.toLocaleString('en-GB'); }
+  function joinList(arr) { if (arr.length <= 1) return arr.join(''); return arr.slice(0, -1).join(', ') + ' and ' + arr[arr.length - 1]; }
+  function lower(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
+  function reducedMotion() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
+  function shortUrl(u) { return String(u).replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, ''); }
+  function paperUrl() { return CONFIG.paperDoi ? 'https://doi.org/' + CONFIG.paperDoi.replace(/^https?:\/\/(dx\.)?doi\.org\//, '') : ''; }
+
+  // ---------- State ----------
+  function cleanState(s) {
+    var out = { y: null, interests: [], sci: 'combined', subjects: [], style: null, s3: false };
+    if (s && typeof s === 'object') {
+      if ([7, 8, 9, 10, 11].indexOf(s.y) !== -1) out.y = s.y;
+      if (Array.isArray(s.interests)) out.interests = s.interests.filter(function (i) { return !!INT[i]; }).slice(0, MAX_INTERESTS);
+      if (s.sci === 'separate') out.sci = 'separate';
+      if (Array.isArray(s.subjects)) out.subjects = s.subjects.filter(function (i) { return SUBJ[i] && !SUBJ[i].core; });
+      if (STYLE_BONUS[s.style]) out.style = s.style;
+      out.s3 = !!s.s3 || out.subjects.length > 0 || out.sci === 'separate';
+    }
+    return out;
+  }
+  function hasAnswers(s) { return !!(s.y || s.interests.length || s.subjects.length || s.style || s.sci === 'separate' || s.s3); }
+  function answeredCount(s) { return (s.y ? 1 : 0) + (s.interests.length ? 1 : 0) + (s.s3 ? 1 : 0) + (s.style ? 1 : 0); }
+  function loadMine() {
+    try {
+      var raw = window.localStorage.getItem(KEY);
+      if (raw) {
+        var saved = JSON.parse(raw);
+        if (saved && saved.touched === false) return cleanState({});
+        return cleanState(saved);
+      }
+    } catch (e) { /* storage unavailable: start blank */ }
+    return cleanState({});
+  }
+  function saveMine() {
+    try { window.localStorage.setItem(KEY, JSON.stringify(mine)); } catch (e) { /* not saved, page still works */ }
+  }
+
+  // The form always holds the pupil's own answers ("mine"); the roadmap shows the example or theirs, and says which.
+  var EXAMPLE = cleanState({ y: 9, interests: ['make', 'planet'], sci: 'combined', subjects: ['geography', 'dt'], style: 'hands', s3: true });
+  var mine = loadMine();
+  var view = hasAnswers(mine) ? 'mine' : 'example';
+  var state = view === 'example' ? EXAMPLE : mine;
+  var focus = null;
+  var part = 'heatpump';
+  var currentTop = [];
+
+  // ---------- Derived data ----------
+  function chosenSubjects() {
+    return SUBJECTS.filter(function (s) { return s.core || state.subjects.indexOf(s.id) !== -1; }).map(function (s) { return s.id; });
+  }
+  function activeTopics() {
+    var chosen = chosenSubjects();
+    return TOPICS.filter(function (t) { return chosen.indexOf(t.s) !== -1 && (!t.triple || state.sci === 'separate'); });
+  }
+  function subjLabel(id) {
+    if (id === 'science') return state.sci === 'separate' ? 'Separate sciences' : 'Combined science';
+    return SUBJ[id].name;
+  }
+  function rankJobs() {
+    var topics = activeTopics();
+    return JOBS.map(function (j, i) {
+      var im = j.interests.filter(function (x) { return state.interests.indexOf(x) !== -1; });
+      var links = topics.filter(function (t) { return t.jobs.indexOf(j.id) !== -1; });
+      var per = {};
+      links.forEach(function (t) { per[t.s] = (per[t.s] || 0) + 1; });
+      var sw = 0;
+      Object.keys(per).forEach(function (s) { sw += Math.min(per[s], 2) * (SUBJ[s].core ? 0.5 : 1.5); });
+      var st = state.style ? STYLE_BONUS[state.style][j.style] : 0;
+      return { job: j, im: im, links: links, score: im.length * 3 + sw + st - i * 0.01 };
+    }).sort(function (a, b) { return b.score - a.score; });
+  }
+  function jobTopics(r) {
+    return r.links.slice().sort(function (a, b) { return (SUBJ[a.s].core ? 1 : 0) - (SUBJ[b.s].core ? 1 : 0); }).slice(0, 4);
+  }
+  function topicSubject(t) { return t.s === 'science' && t.triple ? 'Separate ' + t.triple : SUBJ[t.s].short; }
+  function topicGroups(r) {
+    var groups = [];
+    jobTopics(r).forEach(function (t) {
+      var k = topicSubject(t), g = groups.filter(function (x) { return x.k === k; })[0];
+      if (g) g.t.push(t.t); else groups.push({ k: k, t: [t.t] });
+    });
+    return groups;
+  }
+  function edges() {
+    var topics = activeTopics();
+    var out = [];
+    chosenSubjects().forEach(function (s) {
+      currentTop.forEach(function (r) {
+        var n = topics.filter(function (t) { return t.s === s && t.jobs.indexOf(r.job.id) !== -1; }).length;
+        if (n) out.push({ s: s, j: r.job.id, n: n });
+      });
+    });
+    return out;
+  }
+  function timelineItems() {
+    var y = state.y;
+    if (!y) return [];
+    var now = new Date();
+    var a = now.getMonth() >= 8 ? now.getFullYear() : now.getFullYear() - 1;
+    var exam = a + (11 - y) + 1;
+    var nowKey = now.getFullYear() + now.getMonth() / 12;
+    var items = [];
+    var nowText = {
+      7: 'A good time to explore. Solar panels, heat pumps, home batteries and chargers are appearing on more homes, and each one needs people to install it and keep it running.',
+      8: 'A good time to explore subjects and clubs before you choose your options.',
+      9: 'Options year. The subjects you pick now shape what you can study at 16.',
+      10: 'You are in the first year of your GCSE courses.',
+      11: 'Your GCSE year, and the time to apply for what comes next.'
+    };
+    items.push({ key: nowKey, cls: 'now', date: 'Now', title: 'Year ' + y, detail: nowText[y] });
+    if (y <= 9) {
+      var oy = a + (9 - y) + 1;
+      items.push({ key: oy + 0.15, date: 'Spring ' + oy, title: 'Choose your GCSE options', detail: 'Most schools do this in Year 9, and a few in Year 8. Ask which subjects can include an energy project.' });
+      var ty = a + (10 - y);
+      var tNote = 'Your two-year GCSE courses begin.';
+      if (ty >= 2029) tNote = 'New technical routes from age 14 are planned from September 2028, and vocational GCSEs in some subjects from as early as September 2029. You could be among the first to take one.';
+      else if (ty === 2028) tNote = 'New technical routes from age 14 are planned to start in September 2028, with more links to employers and work experience.';
+      items.push({ key: ty + 0.7, date: 'September ' + ty, title: 'Start your GCSE courses', detail: tNote });
+    }
+    items.push({ key: exam - 1 + 0.8, date: 'Autumn ' + (exam - 1) + ' to spring ' + exam, title: 'Apply for your next step', detail: (y === 11 ? 'This is happening now. ' : '') + 'Apply to colleges, sixth forms and apprenticeships. Most deadlines fall during Year 11.' });
+    items.push({ key: exam + 0.45, date: 'May to June ' + exam, title: 'GCSE exams', detail: 'Results day is in August. Aim for at least a grade 4 in English and maths, because most T Levels and advanced apprenticeships ask for it.' });
+    items.push({ key: exam + 0.7, date: 'September ' + exam, title: 'Your next step at 16', detail: post16Detail(exam) });
+    items.push({ key: exam + 2.6, date: String(exam + 2), title: 'Your next step at 18', detail: 'A job, a higher or degree apprenticeship, a higher technical qualification or a degree. Many sustainable energy jobs start with an apprenticeship.' });
+    if (nowKey < 2031) items.push({ key: 2030.5, cls: 'ctx', date: 'By 2030', title: 'Clean energy jobs expected to double', detail: 'The government expects the sector to employ 860,000 people.' });
+    items.sort(function (p, q) { return p.key - q.key; });
+    return items;
+  }
+  function post16Detail(exam) {
+    var tlevel = null;
+    for (var i = 0; i < currentTop.length && !tlevel; i++) {
+      currentTop[i].job.routes.forEach(function (r) { if (!tlevel && r.k === 'T Level') tlevel = r.v.split(',')[0].split(' (')[0]; });
+    }
+    var text;
+    if (state.style === 'hands') text = 'An apprenticeship, or a T Level' + (tlevel ? ' such as ' + tlevel : '') + '.';
+    else if (state.style === 'class') text = 'A levels, for example maths and a science, or a mix of A levels and V Levels.';
+    else text = 'A T Level, V Levels, A levels or an apprenticeship.';
+    if (exam >= 2027 && state.style !== 'class') text += ' V Levels are new from September 2027 and can be mixed with A levels.';
+    return text + ' You must stay in education or training until you are 18.';
+  }
+
+  // ---------- Form ----------
+  function buildForm() {
+    $('#year-seg').innerHTML = [7, 8, 9, 10, 11].map(function (y) {
+      return '<label class="pill" for="year-' + y + '"><input type="radio" id="year-' + y + '" name="year" value="' + y + '" aria-label="Year ' + y + '"><span>' + y + '</span></label>';
+    }).join('');
+    $('#interest-chips').innerHTML = INTERESTS.map(function (i) {
+      return '<label class="pill" for="int-' + i.id + '"><input type="checkbox" id="int-' + i.id + '" name="interest" value="' + i.id + '"><span>' + esc(i.label) + '</span></label>';
+    }).join('');
+    $('#sci-seg').innerHTML = '<label class="pill" for="sci-combined"><input type="radio" id="sci-combined" name="sci" value="combined"><span>Combined science</span></label>' +
+      '<label class="pill" for="sci-separate"><input type="radio" id="sci-separate" name="sci" value="separate"><span>Separate sciences</span></label>';
+    $('#subject-chips').innerHTML = SUBJECTS.filter(function (s) { return !s.core; }).map(function (s) {
+      return '<label class="pill" for="sub-' + s.id + '"><input type="checkbox" id="sub-' + s.id + '" name="subject" value="' + s.id + '"><span>' + esc(s.name) + '</span></label>';
+    }).join('');
+    $('#style-opts').innerHTML = STYLES.map(function (s) {
+      return '<label class="opt" for="style-' + s.id + '"><input type="radio" id="style-' + s.id + '" name="style" value="' + s.id + '"><span class="opt-body"><span class="opt-title">' + esc(s.title) + '</span><span class="opt-desc">' + esc(s.desc) + '</span></span></label>';
+    }).join('');
+  }
+  function syncForm() {
+    $all('input[name="year"]').forEach(function (el) { el.checked = Number(el.value) === mine.y; });
+    $all('input[name="interest"]').forEach(function (el) { el.checked = mine.interests.indexOf(el.value) !== -1; });
+    $all('input[name="sci"]').forEach(function (el) { el.checked = el.value === mine.sci; });
+    $all('input[name="subject"]').forEach(function (el) { el.checked = mine.subjects.indexOf(el.value) !== -1; });
+    $all('input[name="style"]').forEach(function (el) { el.checked = el.value === mine.style; });
+    limitInterests();
+    renderProgress();
+  }
+  function limitInterests() {
+    var full = mine.interests.length >= MAX_INTERESTS;
+    $all('input[name="interest"]').forEach(function (el) { el.disabled = full && !el.checked; });
+    $('#int-hint').textContent = full ? 'You have picked three. Untick one to swap it.' : 'Pick up to three.';
+  }
+  function readForm(changed) {
+    var y = document.querySelector('input[name="year"]:checked');
+    mine.y = y ? Number(y.value) : null;
+    mine.interests = $all('input[name="interest"]:checked').map(function (e) { return e.value; }).slice(0, MAX_INTERESTS);
+    var sci = document.querySelector('input[name="sci"]:checked');
+    mine.sci = sci ? sci.value : 'combined';
+    mine.subjects = $all('input[name="subject"]:checked').map(function (e) { return e.value; });
+    var st = document.querySelector('input[name="style"]:checked');
+    mine.style = st ? st.value : null;
+    if (changed === 'sci' || changed === 'subject') mine.s3 = true;
+  }
+  function renderProgress() {
+    var done = { 'q-y': !!mine.y, 'q-i': mine.interests.length > 0, 'q-s': mine.s3, 'q-st': !!mine.style };
+    Object.keys(done).forEach(function (id) { document.getElementById(id).classList.toggle('is-done', done[id]); });
+    var n = answeredCount(mine);
+    $all('#progress-bar i').forEach(function (b, i) { b.classList.toggle('on', i < n); });
+    $('#progress-t').textContent = n + ' of 4 answered';
+  }
+  function setView(v) {
+    view = v;
+    state = v === 'example' ? EXAMPLE : mine;
+    render();
+  }
+
+  // ---------- Render ----------
+  function render() {
+    var ranked = rankJobs();
+    currentTop = ranked.slice(0, 4);
+    renderHead();
+    renderMap();
+    renderJobs(ranked);
+    renderTimeline();
+    renderTopics();
+    renderNext();
+  }
+  function summaryText() {
+    var parts = [];
+    parts.push(state.y ? 'Year ' + state.y : 'Year not chosen yet');
+    if (state.interests.length) parts.push('enjoys ' + joinList(state.interests.map(function (i) { return INT[i].short; })));
+    parts.push('takes ' + joinList(chosenSubjects().map(function (id) { return id === 'dt' ? 'D&T' : lower(subjLabel(id)); })));
+    if (state.style) parts.push(STYLE_PHRASE[state.style]);
+    return parts.join(' · ');
+  }
+  function renderHead() {
+    var ex = view === 'example';
+    var has = hasAnswers(mine);
+    $('#rm-eyebrow').textContent = ex ? 'Example' : 'Your roadmap';
+    $('#roadmap-h').textContent = ex ? 'Example roadmap' : 'Your local energy skills roadmap';
+    $('#rm-summary').textContent = summaryText();
+    $('#rm-summary').hidden = ex;
+    $('#rm-note').hidden = ex;
+    $('#rm-note-t').textContent = has ? 'Built from your answers. It changes as soon as you change an answer.' : 'Answer the four questions and your roadmap will build here as you go.';
+    $('#ex-banner').hidden = !ex;
+    $('#ex-banner-t').textContent = EXAMPLE_WHO + (has ? ' Your own answers are still saved.' : ' Answer the four questions to see your own.');
+    $('#ex-mine').textContent = has ? 'Back to my roadmap' : 'Start my own roadmap';
+    $('#ans-note').hidden = !ex;
+    $('#ans-note').textContent = 'The roadmap is showing an example right now. ' + (has ? 'Your own answers are kept; change any of them to switch back.' : 'Answer any question and it will switch to yours.');
+    $('#jobs-h').textContent = ex ? 'Jobs that fit this pupil' : 'Jobs that fit you';
+    $('#tl-h').textContent = ex ? 'Timeline for this pupil' : 'Your timeline';
+    $('#keep').hidden = ex || !has;
+    if (!ex && has && !$('#email-panel').hidden) fillEmail();
+  }
+  function renderMap() {
+    var subs = chosenSubjects();
+    $('#dm-left').innerHTML = subs.map(function (id) {
+      return '<li><button type="button" class="dm-item" data-type="subject" data-id="' + id + '" aria-pressed="false"><span class="dm-dot" aria-hidden="true"></span><span class="dm-label">' + esc(subjLabel(id)) + '</span></button></li>';
+    }).join('');
+    $('#dm-right').innerHTML = currentTop.map(function (r) {
+      return '<li><button type="button" class="dm-item" data-type="job" data-id="' + r.job.id + '" aria-pressed="false"><span class="dm-dot" aria-hidden="true"></span><span class="dm-label">' + esc(r.job.name) + '</span></button></li>';
+    }).join('');
+    var valid = focus && ((focus.type === 'job' && currentTop.some(function (r) { return r.job.id === focus.id; })) || (focus.type === 'subject' && subs.indexOf(focus.id) !== -1));
+    if (!valid) focus = currentTop.length ? { type: 'job', id: currentTop[0].job.id } : null;
+    drawLines();
+  }
+  function drawLines() {
+    var map = $('#dotmap');
+    var svg = $('#dm-lines');
+    var box = map.getBoundingClientRect();
+    if (!box.width) return;
+    svg.setAttribute('viewBox', '0 0 ' + box.width.toFixed(1) + ' ' + box.height.toFixed(1));
+    var pos = {};
+    $all('#dotmap .dm-item').forEach(function (b) {
+      var d = b.querySelector('.dm-dot').getBoundingClientRect();
+      pos[b.getAttribute('data-type') + ':' + b.getAttribute('data-id')] = { l: d.left - box.left, r: d.right - box.left, y: d.top - box.top + d.height / 2 };
+    });
+    var linked = {}, cold = '', hot = '';
+    edges().forEach(function (e) {
+      var p1 = pos['subject:' + e.s], p2 = pos['job:' + e.j];
+      if (!p1 || !p2) return;
+      var isHot = !!focus && ((focus.type === 'job' && focus.id === e.j) || (focus.type === 'subject' && focus.id === e.s));
+      if (isHot) { linked['subject:' + e.s] = true; linked['job:' + e.j] = true; }
+      var x1 = p1.r + 3, x2 = p2.l - 3, mid = (x1 + x2) / 2;
+      var w = (isHot ? 2.5 : 1.25) + (e.n > 1 ? 0.75 : 0);
+      var d = 'M' + x1.toFixed(1) + ' ' + p1.y.toFixed(1) + ' C' + mid.toFixed(1) + ' ' + p1.y.toFixed(1) + ' ' + mid.toFixed(1) + ' ' + p2.y.toFixed(1) + ' ' + x2.toFixed(1) + ' ' + p2.y.toFixed(1);
+      var path = '<path' + (isHot ? ' class="hot"' : '') + ' style="stroke-width:' + w + 'px" d="' + d + '"/>';
+      if (isHot) hot += path; else cold += path;
+    });
+    svg.innerHTML = cold + hot;
+    $all('#dotmap .dm-item').forEach(function (b) {
+      var k = b.getAttribute('data-type') + ':' + b.getAttribute('data-id');
+      var on = !!focus && b.getAttribute('data-type') === focus.type && b.getAttribute('data-id') === focus.id;
+      b.classList.toggle('is-focus', on);
+      b.classList.toggle('is-dim', !!focus && !on && !linked[k]);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    $all('.job').forEach(function (c) {
+      c.classList.toggle('is-focus', !!focus && focus.type === 'job' && c.getAttribute('data-id') === focus.id);
+    });
+  }
+  function roleTags(j) {
+    return (j.roles || []).map(function (r) { return '<span class="tag tag-role' + (r === 'repair' ? ' is-repair' : '') + '">' + esc(ROLES[r]) + '</span>'; }).join('');
+  }
+  function jobCard(r) {
+    var j = r.job;
+    var why = r.im.map(function (id) { return '<span class="tag">' + esc(INT[id].label) + '</span>'; }).join('');
+    var tl = jobTopics(r).map(function (t) { return '<li><span class="tsub">' + esc(topicSubject(t)) + '</span> ' + esc(t.t) + '</li>'; }).join('');
+    return '<article class="job" data-id="' + j.id + '">' +
+      '<div class="job-top"><h4>' + esc(j.name) + '</h4>' + (j.alt ? '<p class="job-alt">' + esc(j.alt) + '</p>' : '') + '<div class="tags">' + roleTags(j) + '</div></div>' +
+      '<p class="pay"><strong>' + money(j.pay[0]) + ' to ' + money(j.pay[1]) + '</strong> a year</p>' +
+      '<p class="job-what">' + esc(j.what) + '</p>' +
+      (why ? '<p class="label lbl">Why it fits</p><div class="tags">' + why + '</div>' : '') +
+      (tl ? '<p class="label lbl">GCSE topics it uses</p><ul class="tmini">' + tl + '</ul>' : '') +
+      '<p class="label lbl">Ways in</p><ul class="routes">' + j.routes.map(function (x) { return '<li><span class="rk">' + esc(x.k) + ':</span> ' + esc(x.v) + '</li>'; }).join('') + '</ul>' +
+      '<a class="ext" href="' + j.url + '" target="_blank" rel="noopener">Full job profile</a>' +
+      '</article>';
+  }
+  function renderJobs(ranked) {
+    var rest = ranked.slice(4);
+    $('#jobs').innerHTML = currentTop.map(jobCard).join('');
+    $('#jobs-note').hidden = state.interests.length > 0;
+    $('#more-sum').textContent = rest.length + ' more sustainable energy jobs to explore';
+    $('#more-list').innerHTML = rest.map(function (r) {
+      return '<li><a href="' + r.job.url + '" target="_blank" rel="noopener">' + esc(r.job.name) + '</a><span class="ml-right">' + roleTags(r.job) + '<span class="ml-pay">' + money(r.job.pay[0]) + ' to ' + money(r.job.pay[1]) + '</span></span></li>';
+    }).join('');
+    drawLines();
+  }
+  function renderTimeline() {
+    var items = timelineItems();
+    if (!items.length) {
+      $('#timeline').innerHTML = '<li class="tl-empty">Choose your year group in question 1 to see your dates.</li>';
+      return;
+    }
+    $('#timeline').innerHTML = items.map(function (it) {
+      return '<li' + (it.cls ? ' class="' + it.cls + '"' : '') + '><span class="tl-date">' + esc(it.date) + '</span><span class="tl-title">' + esc(it.title) + '</span><span class="tl-detail">' + esc(it.detail) + '</span></li>';
+    }).join('');
+  }
+  function topicRow(t) {
+    var qs = t.q.map(function (q) { return '<span class="q">“' + esc(q) + '”</span>'; }).join('');
+    return '<li class="topic"><h4 class="topic-t">' + esc(t.t) + (t.triple ? '<span class="badge-s">Separate ' + t.triple + ' only</span>' : '') + '</h4>' +
+      '<p class="topic-use">' + esc(t.use) + '</p>' +
+      '<div class="topic-q"><span class="ql">The course says</span>' + qs + '</div>' +
+      (t.note ? '<p class="topic-note">' + esc(t.note) + '</p>' : '') +
+      '<p class="topic-jobs"><span class="ql">Used by</span>' + t.jobs.filter(function (id) { return JOB[id]; }).map(function (id) { return '<span class="tag">' + esc(JOB[id].name) + '</span>'; }).join('') + '</p></li>';
+  }
+  function renderTopics() {
+    var subs = chosenSubjects();
+    var order = subs.filter(function (s) { return !SUBJ[s].core; }).concat(subs.filter(function (s) { return SUBJ[s].core; }));
+    var openTabs = {};
+    $all('#topics details').forEach(function (d) { openTabs[d.getAttribute('data-id')] = d.open; });
+    var hadAny = Object.keys(openTabs).length > 0;
+    $('#topics').innerHTML = order.map(function (s, i) {
+      var list = TOPICS.filter(function (t) { return t.s === s && (!t.triple || state.sci === 'separate'); });
+      if (!list.length) return '';
+      var open = hadAny && (s in openTabs) ? openTabs[s] : i === 0;
+      var src = '<a href="' + SUBJ[s].src + '" target="_blank" rel="noopener">' + esc(SUBJ[s].srcLabel) + '</a>';
+      if (s === 'science' && state.sci === 'separate') src += ' and <a href="' + SEPARATE_SRC.url + '" target="_blank" rel="noopener">' + esc(SEPARATE_SRC.label) + '</a>';
+      return '<details class="subj" data-id="' + s + '"' + (open ? ' open' : '') + '><summary><span>' + esc(subjLabel(s)) + '</span><span class="subj-count">' + list.length + ' topics</span></summary>' +
+        '<div class="subj-body"><ul class="tlist">' + list.map(topicRow).join('') + '</ul><p class="src">Source: ' + src + ' (Department for Education)</p></div></details>';
+    }).join('');
+  }
+  function renderNext() {
+    var list = state.y ? NEXT[state.y] : ['Choose your year group in question 1 to see steps for this year.'];
+    $('#next').innerHTML = list.map(function (t) { return '<li>' + t + '</li>'; }).join('');
+  }
+
+  // ---------- The home explorer ----------
+  function jobTagList(ids) {
+    return ids.filter(function (id) { return JOB[id]; }).map(function (id) { return '<span class="tag">' + esc(JOB[id].name) + '</span>'; }).join('');
+  }
+  function buildExplorer() {
+    $('#hotspots').innerHTML = PARTS.map(function (p) {
+      return '<button type="button" class="hs" data-part="' + p.id + '" style="left:' + p.at[0] + '%;top:' + p.at[1] + '%" aria-label="' + esc(p.name) + '" aria-pressed="false"></button>';
+    }).join('');
+    $('#ex-chips').innerHTML = PARTS.map(function (p) {
+      return '<button type="button" class="chip" data-part="' + p.id + '" aria-pressed="false">' + esc(p.short || p.name) + '</button>';
+    }).join('');
+  }
+  function renderPart() {
+    var p = PART[part];
+    $all('[data-part]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-part') === part ? 'true' : 'false'); });
+    var roles = p.who.filter(function (r) { return r[1].some(function (id) { return JOB[id]; }); });
+    $('#ex-panel').innerHTML = '<h3>' + esc(p.name) + '</h3><p class="ex-what">' + esc(p.what) + '</p>' +
+      '<div><p class="label">Where it turns up at GCSE</p><ul class="ex-links">' + p.links.map(function (l) { return '<li><span class="ex-subj">' + esc(SUBJ[l[0]].name) + ':</span> ' + esc(l[1]) + '</li>'; }).join('') + '</ul></div>' +
+      '<div class="ex-roles">' + roles.map(function (r) { return '<div class="ex-role"><p class="label">' + esc(r[0]) + '</p><div class="tags">' + jobTagList(r[1]) + '</div></div>'; }).join('') + '</div>';
+  }
+
+  // ---------- Save or share: copy, email, PDF ----------
+  var ADVISORY = 'This roadmap is a guide, not advice. It is based on information available in October 2026. Check your choices with your school or college careers adviser. Official careers information for England: https://nationalcareers.service.gov.uk/';
+  function plain(html) { return String(html).replace(/<[^>]+>/g, ''); }
+  function anchorsIn(html) {
+    var out = [], re = /<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g, m;
+    while ((m = re.exec(html))) out.push([m[2], m[1]]);
+    return out;
+  }
+  function payText(j) { return money(j.pay[0]) + ' to ' + money(j.pay[1]) + ' a year'; }
+  function setStatus(msg) { $('#keep-status').textContent = msg; }
+
+  function roadmapText() {
+    var lines = ['My local energy skills roadmap', summaryText(), '', 'Made with the Sustainable Local Energy Skills Roadmap: ' + CONFIG.toolUrl, ''];
+    lines.push('Jobs that fit');
+    currentTop.forEach(function (r, i) {
+      var j = r.job;
+      lines.push((i + 1) + '. ' + j.name + ': ' + payText(j));
+      var tg = topicGroups(r);
+      if (tg.length) lines.push('   GCSE topics: ' + tg.map(function (g) { return g.k + ': ' + g.t.join(' · '); }).join('; '));
+      lines.push('   Ways in: ' + j.routes.map(function (x) { return x.k + ': ' + x.v; }).join('; '));
+      lines.push('   More: ' + j.url);
+    });
+    var items = timelineItems();
+    if (items.length) {
+      lines.push('', 'Timeline');
+      items.forEach(function (it) { lines.push('- ' + it.date + ': ' + it.title); });
+    }
+    if (state.y) {
+      lines.push('', 'Next steps');
+      NEXT[state.y].forEach(function (t) { lines.push('- ' + plain(t)); });
+    }
+    lines.push('', ADVISORY);
+    if (paperUrl()) lines.push('', 'The research behind this tool: ' + paperUrl());
+    lines.push('', 'From the Sustainable Local Energy Skills Roadmap by Professor Vahid Vahidinasab, University of Salford. Information checked October 2026.');
+    return lines.join('\n');
+  }
+  function emailBody() {
+    var head = ['My local energy skills roadmap', summaryText()];
+    var jobsLinked = ['Jobs that fit me:'], jobsPlain = ['Jobs that fit me:'];
+    currentTop.forEach(function (r, i) {
+      jobsPlain.push((i + 1) + '. ' + r.job.name + ', ' + payText(r.job));
+      jobsLinked.push((i + 1) + '. ' + r.job.name + ', ' + payText(r.job), '   ' + r.job.url);
+    });
+    var next = state.y ? ['Next steps:'].concat(NEXT[state.y].map(function (t) { return '- ' + plain(t); })) : [];
+    var dates = timelineItems().filter(function (it) { return !it.cls; }).map(function (it) { return '- ' + it.date + ': ' + it.title; });
+    if (dates.length) dates.unshift('Key dates:');
+    var tail = [['Build or update this roadmap online: ' + CONFIG.toolUrl], [ADVISORY]];
+    var options = [[head, jobsLinked, next, dates], [head, jobsLinked, next], [head, jobsPlain, next, dates], [head, jobsPlain, next], [head, jobsPlain]];
+    for (var i = 0; i < options.length; i++) {
+      var body = options[i].concat(tail).filter(function (b) { return b.length; }).map(function (b) { return b.join('\n'); }).join('\n\n');
+      if (longestLink(body) <= EMAIL_MAX || i === options.length - 1) return body;
+    }
+  }
+  // Each way to send opens a new email with the subject and message filled in.
+  // Links stay under 2,000 characters: Windows does not pass longer email links to the email app.
+  var EMAIL_SUBJECT = 'My local energy skills roadmap';
+  var EMAIL_MAX = 2000;
+  function q(s) { return encodeURIComponent(s); }
+  var SENDERS = {
+    gmail: { name: 'Gmail', link: function (b) { return 'https://mail.google.com/mail/?view=cm&fs=1&su=' + q(EMAIL_SUBJECT) + '&body=' + q(b); } },
+    outlook: { name: 'Outlook', link: function (b) { return 'https://outlook.live.com/mail/0/deeplink/compose?subject=' + q(EMAIL_SUBJECT) + '&body=' + q(b); } },
+    school: { name: 'Outlook', link: function (b) { return 'https://outlook.office.com/mail/deeplink/compose?subject=' + q(EMAIL_SUBJECT) + '&body=' + q(b); } },
+    app: { name: 'your email app', link: function (b) { return 'mailto:?subject=' + q(EMAIL_SUBJECT) + '&body=' + q(b.replace(/\n/g, '\r\n')); } }
+  };
+  function longestLink(body) {
+    return Math.max.apply(null, Object.keys(SENDERS).map(function (k) { return SENDERS[k].link(body).length; }));
+  }
+  function fillEmail() {
+    var body = emailBody();
+    $('#email-subject').value = EMAIL_SUBJECT;
+    $('#email-body').value = body;
+    $all('[data-send]').forEach(function (a) { a.setAttribute('href', SENDERS[a.getAttribute('data-send')].link(body)); });
+  }
+  function closeEmail() {
+    $('#email-panel').hidden = true;
+    $('#save-email').setAttribute('aria-expanded', 'false');
+  }
+
+  // The PDF is drawn with pdf-lib, loaded only when someone asks for a PDF.
+  var pdfLibPromise = null;
+  function loadPdfLib() {
+    if (window.PDFLib) return Promise.resolve(window.PDFLib);
+    if (pdfLibPromise) return pdfLibPromise;
+    pdfLibPromise = new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = PDFLIB_URL;
+      s.async = true;
+      s.onload = function () { if (window.PDFLib) resolve(window.PDFLib); else { pdfLibPromise = null; reject({ code: 'lib' }); } };
+      s.onerror = function () { pdfLibPromise = null; reject({ code: 'lib' }); };
+      document.head.appendChild(s);
+    });
+    return pdfLibPromise;
+  }
+  function pdfName() { return 'local-energy-skills-roadmap' + (state.y ? '-year-' + state.y : '') + '.pdf'; }
+  function qrRows() {
+    return QR_HEX.split(',').map(function (h) {
+      var bits = parseInt(h, 16).toString(2);
+      while (bits.length < 33) bits = '0' + bits;
+      return bits;
+    });
+  }
+
+  function buildPdf(L) {
+    function rgb(r, g, b) { return L.rgb(r / 255, g / 255, b / 255); }
+    var C = { ink: rgb(14, 26, 36), text: rgb(30, 42, 54), muted: rgb(86, 98, 111), amber: rgb(255, 180, 61), amberDark: rgb(232, 144, 26), green: rgb(23, 120, 90), card: rgb(242, 245, 248), cardLine: rgb(220, 226, 234), note: rgb(255, 245, 223), noteLine: rgb(235, 181, 74), white: rgb(255, 255, 255) };
+    var W = 595.28, H = 841.89, M = 50, CW = W - 2 * M, LIMIT = H - 62;
+    var DOT = ' · '; // a separator that never starts a line
+    var doc, F = {}, OK = {}, page = null, y = 0, pages = [];
+
+    function safe(s) {
+      s = String(s).replace(/ /g, ' ');
+      var out = '';
+      for (var i = 0; i < s.length; i++) if (OK[s.charCodeAt(i)]) out += s.charAt(i);
+      return out;
+    }
+    // Widths without kerning, because pdf-lib draws text without kerning.
+    var WCACHE = {};
+    function textW(font, s, size) {
+      var key = font === F.bold ? 'b' : font === F.it ? 'i' : 'r', w = 0;
+      for (var i = 0; i < s.length; i++) {
+        var k = key + s.charAt(i);
+        if (WCACHE[k] === undefined) WCACHE[k] = font.widthOfTextAtSize(s.charAt(i), 1000);
+        w += WCACHE[k];
+      }
+      return w * size / 1000;
+    }
+    function newPage() {
+      page = doc.addPage([W, H]);
+      pages.push(page);
+      y = pages.length === 1 ? 46 : 54;
+      if (pages.length > 1) page.drawText(safe('My local energy skills roadmap · ' + summaryText().split(' · ')[0]), { x: M, y: H - 32, size: 7.5, font: F.reg, color: C.muted });
+    }
+    function ensure(h) { if (y + h > LIMIT) newPage(); }
+    function shape(path, x, top, fill, border, scale) {
+      var o = { x: x, y: H - top, color: fill };
+      if (border) { o.borderColor = border; o.borderWidth = 1; }
+      if (scale) o.scale = scale;
+      page.drawSvgPath(path, o);
+    }
+    function slash(x, top, w, h, color) {
+      var off = h * 0.5095;
+      shape('M ' + off + ' 0 L ' + (w + off) + ' 0 L ' + w + ' ' + h + ' L 0 ' + h + ' Z', x, top, color);
+    }
+    function box(x, top, w, h, r, fill, border) {
+      shape('M ' + r + ' 0 H ' + (w - r) + ' Q ' + w + ' 0 ' + w + ' ' + r + ' V ' + (h - r) + ' Q ' + w + ' ' + h + ' ' + (w - r) + ' ' + h +
+        ' H ' + r + ' Q 0 ' + h + ' 0 ' + (h - r) + ' V ' + r + ' Q 0 0 ' + r + ' 0 Z', x, top, fill, border);
+    }
+    function addLink(x1, y1, x2, y2, url) {
+      var ctx = doc.context;
+      var ref = ctx.register(ctx.obj({ Type: 'Annot', Subtype: 'Link', Rect: [x1, y1, x2, y2], Border: [0, 0, 0], A: { Type: 'Action', S: 'URI', URI: L.PDFString.of(url) } }));
+      var annots = page.node.Annots();
+      if (annots) annots.push(ref); else page.node.set(L.PDFName.of('Annots'), ctx.obj([ref]));
+    }
+    // Text comes in runs: {t: text, f: font, c: colour, u: link}. Runs are separate words;
+    // a no-break space keeps two words together on one line.
+    function wrap(runs, size, width) {
+      var words = [];
+      runs.forEach(function (r) {
+        String(r.t).split(/[ \t\r\n]+/).forEach(function (t) { t = safe(t); if (t) words.push({ t: t, f: r.f || F.reg, c: r.c || null, u: r.u || null }); });
+      });
+      var sp = textW(F.reg, ' ', size), lines = [], cur = [], curW = 0;
+      words.forEach(function (wd) {
+        var ww = textW(wd.f, wd.t, size);
+        if (ww > width) { // a long web address: break it after a slash or hyphen if possible
+          if (cur.length) { lines.push(cur); cur = []; }
+          var t = wd.t;
+          while (textW(wd.f, t, size) > width) {
+            var cut = t.length - 1;
+            while (cut > 1 && textW(wd.f, t.slice(0, cut), size) > width) cut--;
+            var p = t.lastIndexOf('/', cut - 1);
+            if (p + 1 < cut / 2) p = t.lastIndexOf('-', cut - 1);
+            if (p + 1 >= cut / 2) cut = p + 1;
+            lines.push([{ t: t.slice(0, cut), f: wd.f, c: wd.c, u: wd.u }]);
+            t = t.slice(cut);
+          }
+          cur = [{ t: t, f: wd.f, c: wd.c, u: wd.u }];
+          curW = textW(wd.f, t, size);
+          return;
+        }
+        if (cur.length && curW + sp + ww > width) { lines.push(cur); cur = []; curW = 0; }
+        curW = cur.length ? curW + sp + ww : ww;
+        cur.push(wd);
+      });
+      if (cur.length) lines.push(cur);
+      return lines;
+    }
+    function drawLine(line, x, size, color, lhF) {
+      var sp = textW(F.reg, ' ', size), segs = [];
+      line.forEach(function (w) {
+        var last = segs[segs.length - 1];
+        if (last && last.f === w.f && last.c === w.c && last.u === w.u) last.t += ' ' + w.t;
+        else segs.push({ t: w.t, f: w.f, c: w.c, u: w.u });
+      });
+      var base = H - (y + size * (lhF / 2 + 0.25));
+      segs.forEach(function (s) {
+        var tw = textW(s.f, s.t, size);
+        page.drawText(s.t, { x: x, y: base, size: size, font: s.f, color: s.c || color });
+        if (s.u) {
+          page.drawLine({ start: { x: x, y: base - 1.8 }, end: { x: x + tw, y: base - 1.8 }, thickness: 0.9, color: C.amberDark });
+          addLink(x, base - 3, x + tw, base + size * 0.8, s.u);
+        }
+        x += tw + sp;
+      });
+    }
+    // A row is wrapped text ready to draw; blocks of rows are measured first so they never split.
+    function row(runs, o) {
+      o = o || {};
+      var size = o.size || 10, indent = o.indent || 0;
+      return { lines: wrap(typeof runs === 'string' ? [{ t: runs, f: o.font }] : runs, size, (o.width || CW) - indent), size: size, lhF: o.lh || 1.4, indent: indent, color: o.color || C.text, after: o.after || 0, bullet: !!o.bullet };
+    }
+    function height(rows) { return rows.reduce(function (h, r) { return h + r.lines.length * r.size * r.lhF + r.after; }, 0); }
+    function draw(rows, x0) {
+      rows.forEach(function (r) {
+        if (r.lines.length > 1 && r.lines.length <= 4) ensure(r.lines.length * r.size * r.lhF); // keep short wrapped rows on one page
+        r.lines.forEach(function (ln, i) {
+          ensure(r.size * r.lhF);
+          if (i === 0 && r.bullet) slash(x0 + r.indent - 10, y + r.size * (r.lhF / 2 - 0.3), 2.6, r.size * 0.62, C.amberDark);
+          drawLine(ln, x0 + r.indent, r.size, r.color, r.lhF);
+          y += r.size * r.lhF;
+        });
+        y += r.after;
+      });
+    }
+    function para(runs, o) { draw([row(runs, o)], M); }
+    function keep(rows) { ensure(height(rows)); draw(rows, M); }
+    var PAD = 12;
+    function cardHeight(rows) { return height(rows) - rows[rows.length - 1].after + PAD * 2; }
+    function cardAt(rows, x, w, h, fill, border) { // draws at the current y and leaves y unchanged
+      var top = y;
+      box(x, top, w, h, 7, fill, border);
+      y = top + PAD;
+      draw(rows, x + PAD);
+      y = top;
+    }
+    function card(rows, fill, border, after) {
+      var h = cardHeight(rows);
+      ensure(h + after);
+      cardAt(rows, M, CW, h, fill, border);
+      y += h + after;
+    }
+    function label(text, o) {
+      o = o || {};
+      return row([{ t: text.toUpperCase(), f: F.bold, c: C.muted }], { size: 7.5, width: o.width, after: 2 });
+    }
+    function heading(text, next) {
+      ensure(Math.max(90, 35 + (next || 0))); // keep a heading with what follows it
+      y += 8;
+      slash(M, y + 2, 5, 15, C.amber);
+      page.drawText(safe(text), { x: M + 16, y: H - (y + 15), size: 15, font: F.bold, color: C.ink });
+      y += 27;
+    }
+    function linkRows(list, o) {
+      return list.map(function (l) { return row([{ t: l[0] + ':', f: F.bold }, { t: shortUrl(l[1]), u: l[1] }], o); });
+    }
+    function domList(sel) {
+      return $all(sel).map(function (li) {
+        var links = Array.prototype.slice.call(li.querySelectorAll('a')).map(function (a) { return [a.textContent.trim(), a.href]; });
+        var c = li.cloneNode(true), tail = c.lastElementChild;
+        // A link at the end of a "Good to know" item is a source label, not part of the sentence.
+        if (tail && tail.tagName === 'A' && !tail.nextSibling) c.removeChild(tail);
+        return { text: c.textContent.replace(/\s+/g, ' ').trim(), links: links };
+      });
+    }
+    function qrPath() {
+      var d = '';
+      qrRows().forEach(function (bits, r) {
+        var c = 0;
+        while (c < bits.length) {
+          if (bits.charAt(c) !== '1') { c++; continue; }
+          var s = c;
+          while (c < bits.length && bits.charAt(c) === '1') c++;
+          d += 'M ' + s + ' ' + r + ' L ' + c + ' ' + r + ' L ' + c + ' ' + (r + 1) + ' L ' + s + ' ' + (r + 1) + ' Z ';
+        }
+      });
+      return d;
+    }
+
+    return L.PDFDocument.create().then(function (d) {
+      doc = d;
+      return Promise.all([doc.embedFont(L.StandardFonts.Helvetica), doc.embedFont(L.StandardFonts.HelveticaBold), doc.embedFont(L.StandardFonts.HelveticaOblique)]);
+    }).then(function (fonts) {
+      F.reg = fonts[0]; F.bold = fonts[1]; F.it = fonts[2];
+      F.reg.getCharacterSet().forEach(function (c) { OK[c] = true; });
+      var today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+      // Title and what this is
+      newPage();
+      slash(M, y, 7, 18, C.amber);
+      slash(M + 12, y, 7, 18, C.amber);
+      y += 30;
+      para([{ t: 'My local energy skills roadmap', f: F.bold, c: C.ink }], { size: 24, lh: 1.2, after: 6 });
+      para(summaryText().split(' · ').join(DOT), { size: 11, after: 5 });
+      para([{ t: 'Made on ' + today + ' with the Sustainable Local Energy Skills Roadmap, a free online tool that links GCSE topics to jobs in sustainable, local energy. Open it at' }, { t: shortUrl(CONFIG.toolUrl), u: CONFIG.toolUrl }, { t: 'to change your answers.' }], { size: 9, color: C.muted, after: 12 });
+
+      // Guide, not advice, with the official services straight after
+      var adv = [
+        row([{ t: 'A guide, not advice.', f: F.bold, c: C.ink }], { size: 10.5, width: CW - 24, after: 3 }),
+        row('This roadmap is based on information available in October 2026, and courses, entry requirements and pay can change. It cannot take account of your own circumstances. Before making choices, talk to your school or college careers adviser, or a free official careers service:', { size: 9, width: CW - 24, after: 4 })
+      ];
+      ADVICE.filter(function (a) { return a.kind !== 'route'; }).forEach(function (a) { adv.push(row([{ t: a.where + ':', f: F.bold }, { t: a.name }, { t: shortUrl(a.url), u: a.url }], { size: 9, width: CW - 24, indent: 11, bullet: true, after: 1.5 })); });
+      adv[adv.length - 1].after = 5;
+      adv.push(label('Also useful in England', { width: CW - 24 }));
+      ADVICE.filter(function (a) { return a.kind === 'route'; }).forEach(function (a) { adv.push(row([{ t: a.name + ':', f: F.bold }, { t: shortUrl(a.url), u: a.url }], { size: 9, width: CW - 24, indent: 11, bullet: true, after: 1.5 })); });
+      card(adv, C.note, C.noteLine, 6);
+
+      // Jobs, two cards to a row like the page
+      var GAP = 12, colW = (CW - GAP) / 2;
+      function jobRows(r) {
+        var j = r.job, w = colW - PAD * 2, rows = [];
+        rows.push(row([{ t: j.name, f: F.bold, c: C.ink }], { size: 12.5, lh: 1.3, width: w, after: j.alt ? 0 : 2 }));
+        if (j.alt) rows.push(row(j.alt, { size: 8, color: C.muted, width: w, after: 3 }));
+        if (j.roles && j.roles.length) rows.push(row(j.roles.map(function (k) { return { t: ROLES[k].toUpperCase() + (k === j.roles[j.roles.length - 1] ? '' : ' ·'), f: F.bold, c: k === 'repair' ? C.green : C.muted }; }), { size: 7, width: w, after: 4 }));
+        rows.push(row([{ t: money(j.pay[0]) + ' to ' + money(j.pay[1]), f: F.bold, c: C.ink }, { t: 'a year' }], { size: 10, width: w, after: 3 }));
+        rows.push(row(j.what, { size: 9, width: w, after: 7 }));
+        if (r.im.length) {
+          rows.push(label('Why it fits', { width: w }));
+          rows.push(row(r.im.map(function (id) { return INT[id].label; }).join(DOT), { size: 9, width: w, after: 7 }));
+        }
+        var tg = topicGroups(r);
+        if (tg.length) {
+          rows.push(label('GCSE topics it uses', { width: w }));
+          tg.forEach(function (g) { rows.push(row([{ t: g.k + ':', f: F.bold }, { t: g.t.join(DOT) }], { size: 9, width: w, indent: 11, bullet: true, after: 2 })); });
+          rows[rows.length - 1].after = 7;
+        }
+        rows.push(label('Ways in', { width: w }));
+        j.routes.forEach(function (x) { rows.push(row([{ t: x.k + ':', f: F.bold }, { t: x.v }], { size: 9, width: w, indent: 11, bullet: true, after: 2 })); });
+        rows[rows.length - 1].after = 7;
+        rows.push(row([{ t: 'Full profile:', f: F.bold }, { t: shortUrl(j.url), u: j.url }], { size: 8.5, width: w }));
+        return rows;
+      }
+      var firstRow = currentTop.length ? Math.max(cardHeight(jobRows(currentTop[0])), currentTop[1] ? cardHeight(jobRows(currentTop[1])) : 0) : 0;
+      heading('Jobs that fit you', firstRow + GAP);
+      for (var i = 0; i < currentTop.length; i += 2) {
+        var left = jobRows(currentTop[i]), right = currentTop[i + 1] ? jobRows(currentTop[i + 1]) : null;
+        var ch = Math.max(cardHeight(left), right ? cardHeight(right) : 0);
+        ensure(ch + GAP);
+        cardAt(left, M, colW, ch, C.card, C.cardLine);
+        if (right) cardAt(right, M + colW + GAP, colW, ch, C.card, C.cardLine);
+        y += ch + GAP;
+      }
+
+      // Timeline
+      var items = timelineItems();
+      if (items.length) {
+        heading('Your timeline');
+        var dots = [];
+        items.forEach(function (it) {
+          var rows = [
+            row([{ t: it.date.toUpperCase(), f: F.bold }], { size: 7.5, color: C.muted, indent: 20, after: 1 }),
+            row([{ t: it.title, f: F.bold, c: C.ink }], { size: 10.5, lh: 1.3, indent: 20, after: 1 }),
+            row(it.detail, { size: 9.5, indent: 20, after: 10 })
+          ];
+          ensure(height(rows));
+          dots.push({ page: page, y: y + 5.5, cls: it.cls || '' });
+          draw(rows, M);
+        });
+        dots.forEach(function (d, i) {
+          var next = dots[i + 1];
+          if (next && next.page === d.page) d.page.drawLine({ start: { x: M + 6, y: H - (d.y + 7) }, end: { x: M + 6, y: H - (next.y - 7) }, thickness: 1.2, color: C.cardLine });
+          var fill = d.cls === 'now' ? C.amber : d.cls === 'ctx' ? C.green : C.white;
+          d.page.drawCircle({ x: M + 6, y: H - d.y, size: 4.5, color: fill, borderColor: d.cls === 'now' ? C.ink : d.cls === 'ctx' ? C.green : C.muted, borderWidth: d.cls ? 1.1 : 1.6 });
+        });
+      }
+
+      // Topics
+      heading('GCSE topics to look out for');
+      para('From the Department for Education’s subject content for each GCSE in England. Exam boards add detail, so your course may cover more.', { size: 9, color: C.muted, after: 10 });
+      var subs = chosenSubjects();
+      subs.filter(function (s) { return !SUBJ[s].core; }).concat(subs.filter(function (s) { return SUBJ[s].core; })).forEach(function (s) {
+        var list = TOPICS.filter(function (t) { return t.s === s && (!t.triple || state.sci === 'separate'); });
+        if (!list.length) return;
+        list.forEach(function (t, i) {
+          var rows = [];
+          if (i === 0) rows.push(row([{ t: subjLabel(s), f: F.bold, c: C.ink }, { t: '(' + list.length + ' topics)', c: C.muted }], { size: 12, lh: 1.3, after: 5 }));
+          rows.push(row([{ t: t.t, f: F.bold, c: C.ink }].concat(t.triple ? [{ t: '(separate ' + t.triple + ' only)', c: C.muted }] : []), { size: 10, lh: 1.35, indent: 12, bullet: true, after: 1 }));
+          rows.push(row(t.use, { size: 9.5, indent: 12, after: 2 }));
+          t.q.forEach(function (q) { rows.push(row([{ t: 'The course says:', f: F.bold, c: C.muted }, { t: '“' + q + '”', f: F.it, c: C.muted }], { size: 8.8, indent: 12, after: 1 })); });
+          if (t.note) rows.push(row(t.note, { size: 8.5, color: C.muted, indent: 12, after: 1 }));
+          rows.push(row([{ t: 'Used by:', f: F.bold }, { t: t.jobs.filter(function (id) { return JOB[id]; }).map(function (id) { return JOB[id].name; }).join(', ') }], { size: 8.5, indent: 12, after: 9 }));
+          keep(rows);
+        });
+        var src = [[SUBJ[s].srcLabel + ', Department for Education', SUBJ[s].src]];
+        if (s === 'science' && state.sci === 'separate') src.push([SEPARATE_SRC.label + ', Department for Education', SEPARATE_SRC.url]);
+        draw(linkRows(src, { size: 8, color: C.muted, after: 2 }), M);
+        y += 10;
+      });
+
+      // Next steps, for parents, good to know
+      if (state.y) {
+        heading('What to do next');
+        var useful = [];
+        NEXT[state.y].forEach(function (t) {
+          para(plain(t), { size: 10, indent: 12, bullet: true, after: 5 });
+          useful = useful.concat(anchorsIn(t));
+        });
+        if (useful.length) draw(linkRows(useful, { size: 8.5, indent: 12, after: 2 }), M);
+        y += 6;
+      }
+      var parentRows = [label('For parents and carers', { width: CW - 24 })];
+      domList('#parents-list li').forEach(function (it) {
+        parentRows.push(row(it.text, { size: 9.5, width: CW - 24, indent: 12, bullet: true, after: 3 }));
+        if (it.links.length) linkRows(it.links, { size: 8.5, width: CW - 24, indent: 12, after: 3 }).forEach(function (r) { parentRows.push(r); });
+      });
+      card(parentRows, C.card, C.cardLine, 6);
+
+      heading('Good to know');
+      domList('#gtk-list li').forEach(function (it) {
+        keep([row(it.text, { size: 9.5, indent: 12, bullet: true, after: 1 })].concat(linkRows(it.links.map(function (l) { return ['Read more', l[1]]; }), { size: 8, color: C.muted, indent: 12, after: 6 })));
+      });
+
+      // Back to the online tool: QR code, and the research when it is published
+      var QR = 92, qx = M + PAD, onlineW = CW - PAD * 3 - QR;
+      var online = [
+        row([{ t: 'Open your roadmap online', f: F.bold, c: C.ink }], { size: 12, lh: 1.3, width: onlineW, after: 4 }),
+        row('Scan the code with a phone camera to open the Sustainable Local Energy Skills Roadmap, change your answers and make a new roadmap. It is free and needs no account.', { size: 9.5, width: onlineW, after: 4 }),
+        row([{ t: shortUrl(CONFIG.toolUrl), u: CONFIG.toolUrl, f: F.bold }], { size: 9.5, width: onlineW, after: 6 })
+      ];
+      if (CONFIG.articleUrl) online.push(row([{ t: 'Read the article:', f: F.bold }, { t: shortUrl(CONFIG.articleUrl), u: CONFIG.articleUrl }], { size: 9, width: onlineW, after: 2 }));
+      if (paperUrl()) online.push(row([{ t: 'Read the paper:', f: F.bold }, { t: shortUrl(paperUrl()), u: paperUrl() }], { size: 9, width: onlineW, after: 2 }));
+      var oh = Math.max(height(online) + PAD * 2, QR + PAD * 2);
+      ensure(oh + 30);
+      y += 14;
+      var otop = y;
+      box(M, otop, CW, oh, 7, C.card, C.cardLine);
+      box(qx - 4, otop + PAD - 4, QR + 8, QR + 8, 4, C.white, C.cardLine);
+      shape(qrPath(), qx, otop + PAD, C.ink, null, QR / 33);
+      addLink(qx, H - (otop + PAD + QR), qx + QR, H - (otop + PAD), CONFIG.toolUrl);
+      y = otop + PAD;
+      draw(online, M + PAD * 2 + QR);
+      y = otop + oh + 8;
+
+      // About and sources
+      heading('About this roadmap');
+      para('Made by Professor Vahid Vahidinasab at the Centre for Sustainable Innovation (CSI), University of Salford.', { size: 9.5, after: 2 });
+      draw(linkRows([['Staff profile', PROFILE_URL]], { size: 9.5, after: 6 }), M);
+      para('Information checked in October 2026 against Department for Education subject content, GOV.UK and the official careers website for England (formerly the National Careers Service). Pay figures are the typical yearly pay on each job’s official profile, from starter to experienced. This roadmap is advisory only and is not personal careers advice. Schools offer different subjects and exam boards, so check your choices with your school and a careers adviser.', { size: 9.5, after: 4 });
+      para('© 2026 Vahid Vahidinasab. All rights reserved.', { size: 8.5, color: C.muted, after: 10 });
+      var srcRows = linkRows(SOURCES, { size: 8, after: 2 });
+      keep([row([{ t: 'Sources', f: F.bold, c: C.ink }], { size: 10, after: 3 }), srcRows[0]]);
+      draw(srcRows.slice(1), M);
+
+      // Footer on every page
+      pages.forEach(function (p, i) {
+        p.drawLine({ start: { x: M, y: 46 }, end: { x: W - M, y: 46 }, thickness: 0.75, color: C.cardLine });
+        p.drawText(safe('Sustainable Local Energy Skills Roadmap · ' + shortUrl(CONFIG.toolUrl) + ' · A guide, not advice'), { x: M, y: 32, size: 7, font: F.reg, color: C.muted });
+        var pn = 'Page ' + (i + 1) + ' of ' + pages.length;
+        p.drawText(pn, { x: W - M - textW(F.reg, pn, 7), y: 32, size: 7, font: F.reg, color: C.muted });
+      });
+
+      doc.setTitle('My local energy skills roadmap');
+      doc.setAuthor('Sustainable Local Energy Skills Roadmap');
+      doc.setSubject('A personal roadmap from GCSE topics to jobs in sustainable, local energy');
+      doc.setCreator('Sustainable Local Energy Skills Roadmap, ' + CONFIG.toolUrl);
+      doc.setProducer('Sustainable Local Energy Skills Roadmap');
+      if (doc.setLanguage) doc.setLanguage('en-GB');
+      return doc.save();
+    });
+  }
+
+  // ---------- Visit counter (once it is set up) ----------
+  var stats = { on: !!CONFIG.statsUrl, sent: {} };
+  function statsBase() { return CONFIG.statsUrl.replace(/\/+$/, ''); }
+  function track(event) {
+    if (!stats.on || stats.sent[event]) return;
+    stats.sent[event] = true;
+    var url = statsBase() + '/hit', body = JSON.stringify({ event: event });
+    try { if (navigator.sendBeacon && navigator.sendBeacon(url, body)) return; } catch (e) { /* fall through */ }
+    try { fetch(url, { method: 'POST', body: body, mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain' } }).catch(function () {}); } catch (e) { /* counting is optional */ }
+  }
+  function fmt(n) { return Number(n || 0).toLocaleString('en-GB'); }
+  function plural(n, one, many) { return fmt(n) + ' ' + (n === 1 ? one : many); }
+  function bars(list) {
+    var max = list.reduce(function (m, r) { return Math.max(m, r.n); }, 1);
+    return list.map(function (r) {
+      var w = r.n > 0 ? Math.max(4, Math.round(r.n / max * 100)) : 0;
+      return '<li><span>' + esc(r.name) + '</span><span class="bar" aria-hidden="true"><i style="width:' + w + '%"></i></span><span class="num">' + fmt(r.n) + '</span></li>';
+    }).join('');
+  }
+  function renderStats(s) {
+    if (!s || typeof s.visit !== 'number') return;
+    $('#st-visit').textContent = fmt(s.visit);
+    $('#st-visit-label').textContent = s.visit === 1 ? 'visit' : 'visits';
+    // Everything is counted; the breakdown shows on the page only when CONFIG.reachDetail is true.
+    $('#reach-tiles').hidden = $('#reach-where').hidden = !CONFIG.reachDetail;
+    if (CONFIG.reachDetail) renderDetail(s);
+    if (s.since) {
+      var d = new Date(s.since + 'T12:00:00Z');
+      $('#reach-since').textContent = isNaN(d) ? '' : 'Counting since ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+    $('#reach').hidden = false;
+  }
+  function renderDetail(s) {
+    $('#st-example').textContent = fmt(s.example);
+    $('#st-own').textContent = fmt(s.own);
+    $('#st-pdf').textContent = fmt(s.pdf);
+    $('#st-sent').textContent = fmt((s.email || 0) + (s.copy || 0));
+    // The counter sends all twelve UK regions; an older version sent UK nations only.
+    var regions = Array.isArray(s.regions) ? s.regions : Array.isArray(s.nations) ? s.nations : [];
+    $('#st-regions').innerHTML = regions.length ? bars(regions) : '<li class="muted">Regions appear here as visits are counted.</li>';
+    var also = [];
+    if (s.outsideUk > 0) also.push(plural(s.outsideUk, 'visit', 'visits') + ' from outside the UK');
+    if (s.ukUnplaced > 0) also.push(plural(s.ukUnplaced, 'visit', 'visits') + ' from the UK that could not be placed in a region');
+    $('#st-also').textContent = also.length ? 'Also counted: ' + also.join(', and ') + '.' : '';
+    $('#st-also').hidden = !also.length;
+  }
+  function loadStats() {
+    if (!stats.on || !window.fetch) return;
+    var ctrl = window.AbortController ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 8000);
+    fetch(statsBase() + '/stats', ctrl ? { signal: ctrl.signal } : {}).then(function (r) {
+      return r.ok ? r.json() : null;
+    }).then(renderStats, function () { /* the counter is optional */ }).then(function () { clearTimeout(timer); });
+  }
+
+  // ---------- Official advice, research links, share block ----------
+  function buildStatic() {
+    $('#advice-grid').innerHTML = ADVICE.map(function (a) {
+      return '<a class="service" href="' + a.url + '" target="_blank" rel="noopener"><span class="label">' + esc(a.kind === 'route' ? 'Also useful in England' : a.where) + '</span><b>' + esc(a.name) + '</b><span>' + esc(a.what) + '</span></a>';
+    }).join('');
+    $('#sources').innerHTML = SOURCES.concat(SUBJECTS.map(function (s) { return [s.srcLabel, s.src]; })).concat([[SEPARATE_SRC.label, SEPARATE_SRC.url]]).map(function (s) {
+      return '<li><a href="' + s[1] + '" target="_blank" rel="noopener">' + esc(s[0]) + '</a></li>';
+    }).join('') + '<li>Official job profiles at nationalcareers.service.gov.uk, linked from each job</li>';
+    var showResearch = false;
+    if (CONFIG.articleUrl) { $('#article-link').href = CONFIG.articleUrl; $('#article-link').hidden = false; showResearch = true; }
+    if (paperUrl()) { $('#paper-link').href = paperUrl(); $('#paper-link').textContent = 'Read the paper: doi.org/' + CONFIG.paperDoi.replace(/^https?:\/\/(dx\.)?doi\.org\//, ''); $('#paper-link').hidden = false; showResearch = true; }
+    $('#research').hidden = !showResearch;
+    $('#share-url').textContent = CONFIG.toolUrl;
+    var rows = qrRows(), d = '';
+    rows.forEach(function (row, r) { for (var c = 0; c < row.length; c++) if (row.charAt(c) === '1') d += 'M' + (c + 4) + ' ' + (r + 4) + 'h1v1h-1z'; });
+    $('#qr').innerHTML = '<rect width="41" height="41" fill="#FFFFFF"/><path d="' + d + '" fill="#0E1A24"/>';
+  }
+
+  // ---------- Events ----------
+  buildForm();
+  syncForm();
+  buildExplorer();
+  buildStatic();
+
+  function clearSaveUi() {
+    setStatus('');
+    $('#copy-fallback').hidden = true;
+    closeEmail();
+  }
+  $('#quiz').addEventListener('change', function (ev) {
+    readForm(ev.target && ev.target.name);
+    limitInterests();
+    renderProgress();
+    saveMine();
+    clearSaveUi();
+    setView('mine');
+    if (mine.y && answeredCount(mine) >= 2) track('own');
+  });
+  $('#reset').addEventListener('click', function () {
+    mine = cleanState({});
+    focus = null;
+    syncForm();
+    saveMine();
+    clearSaveUi();
+    setView('mine');
+    var first = document.getElementById('year-7');
+    if (first) first.focus();
+  });
+  $('#dotmap').addEventListener('click', function (ev) {
+    var b = ev.target.closest('.dm-item');
+    if (!b) return;
+    focus = { type: b.getAttribute('data-type'), id: b.getAttribute('data-id') };
+    drawLines();
+  });
+  $all('[data-part]').forEach(function (b) {
+    b.addEventListener('click', function () { part = b.getAttribute('data-part'); renderPart(); });
+  });
+  function jumpTo(id, el) {
+    var target = document.getElementById(id);
+    if (!target) return;
+    target.scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+    var f = el || target;
+    try { f.focus({ preventScroll: true }); } catch (e) { f.focus(); }
+  }
+  $all('[data-go]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var go = b.getAttribute('data-go');
+      if (go === 'example') { setView('example'); track('example'); jumpTo('roadmap'); }
+      else if (go === 'answers') { if (view === 'example' && hasAnswers(mine)) setView('mine'); jumpTo('answers'); }
+      else { if (hasAnswers(mine)) setView('mine'); jumpTo('roadmap'); }
+    });
+  });
+  $('#ex-mine').addEventListener('click', function () {
+    if (hasAnswers(mine)) { setView('mine'); jumpTo('roadmap'); }
+    else jumpTo('answers', document.getElementById('year-7'));
+  });
+  $('#show-example').addEventListener('click', function () { clearSaveUi(); setView('example'); track('example'); jumpTo('roadmap'); });
+
+  function copyText(text, ok, fail) {
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(text).then(ok, fail); return; }
+    } catch (e) { /* use the fallback */ }
+    fail();
+  }
+  $('#save-copy').addEventListener('click', function () {
+    var text = roadmapText();
+    var ta = $('#copy-fallback');
+    closeEmail();
+    copyText(text, function () {
+      ta.hidden = true;
+      setStatus('Copied. Paste it into a message, email or note.');
+      track('copy');
+    }, function () {
+      ta.value = text;
+      ta.hidden = false;
+      ta.focus();
+      ta.select();
+      setStatus('Select all the text in the box below and copy it.');
+    });
+  });
+  // Email it shows the ways to send. Each one is an ordinary link, so the browser opens it directly.
+  $('#save-email').addEventListener('click', function () {
+    $('#copy-fallback').hidden = true;
+    setStatus('');
+    if (!$('#email-panel').hidden) { closeEmail(); return; }
+    fillEmail();
+    $('#email-panel').hidden = false;
+    this.setAttribute('aria-expanded', 'true');
+  });
+  // On phones and tablets the email app is usually the easiest way, so it goes first.
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) {
+    $('#send-grid').insertBefore($('#send-app'), $('#send-grid').firstChild);
+  }
+  // The message is copied as the new email opens, so it can be pasted in if it arrives empty.
+  function copyNow(text) {
+    var ta = document.createElement('textarea'), was = document.activeElement, ok = false;
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.cssText = 'position:fixed;top:0;left:-9999px;opacity:0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    ta.remove();
+    if (was && was.focus) { try { was.focus({ preventScroll: true }); } catch (e) { was.focus(); } }
+    return ok;
+  }
+  $all('[data-send]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var key = a.getAttribute('data-send');
+      var lead = key === 'app' ? 'Opening your email app. If nothing opens, pick Gmail or Outlook instead.' : 'Opening ' + SENDERS[key].name + ' in a new tab.';
+      var also = ' Your roadmap is copied too, in case you need to paste it.';
+      var text = $('#email-body').value;
+      if (copyNow(text)) setStatus(lead + also);
+      else { setStatus(lead); copyText(text, function () { setStatus(lead + also); }, function () {}); }
+      track('email');
+    });
+  });
+  $('#email-copy').addEventListener('click', function () {
+    var text = 'Subject: ' + EMAIL_SUBJECT + '\n\n' + $('#email-body').value;
+    copyText(text, function () { setStatus('Message copied. Paste it into a new email.'); track('copy'); }, function () {
+      var ta = $('#email-body'); ta.focus(); ta.select();
+      setStatus('Select the message text and copy it.');
+    });
+  });
+  $('#copy-link').addEventListener('click', function () {
+    copyText(CONFIG.toolUrl, function () { $('#copy-link-status').textContent = 'Link copied.'; track('share'); }, function () { $('#copy-link-status').textContent = CONFIG.toolUrl; });
+  });
+
+  // PDF: built in the browser and saved as a normal download.
+  var pdfBusy = false;
+  ['pointerenter', 'focus', 'touchstart'].forEach(function (ev) {
+    $('#save-pdf').addEventListener(ev, function () { loadPdfLib().then(null, function () {}); }, { passive: true });
+  });
+  function deliverPdf(bytes) {
+    var url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = pdfName();
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
+  }
+  $('#save-pdf').addEventListener('click', function () {
+    if (pdfBusy) return;
+    var btn = this;
+    pdfBusy = true;
+    btn.setAttribute('aria-busy', 'true');
+    $('#copy-fallback').hidden = true;
+    closeEmail();
+    setStatus('Making your PDF...');
+    loadPdfLib().then(buildPdf).then(function (bytes) {
+      deliverPdf(bytes);
+      setStatus('PDF saved. Check your downloads.');
+      track('pdf');
+    }, function (err) {
+      setStatus(err && err.code === 'lib' ? 'The PDF maker did not load. Check your connection and try again, or use Copy text.' : 'Sorry, the PDF could not be made. Use Copy text or Email it instead.');
+    }).then(function () { pdfBusy = false; btn.removeAttribute('aria-busy'); });
+  });
+
+  // An example counts as explored when someone opens it, or it stays on screen for a few seconds.
+  if (window.IntersectionObserver) {
+    var seenTimer = null;
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting && view === 'example') { if (!seenTimer) seenTimer = setTimeout(function () { if (view === 'example') track('example'); }, 4000); }
+        else if (seenTimer) { clearTimeout(seenTimer); seenTimer = null; }
+      });
+    }, { threshold: 0.35 }).observe($('#roadmap'));
+  }
+
+  var raf = 0;
+  function scheduleLines() { cancelAnimationFrame(raf); raf = requestAnimationFrame(drawLines); }
+  if (window.ResizeObserver) new ResizeObserver(scheduleLines).observe($('#dotmap'));
+  window.addEventListener('resize', scheduleLines);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleLines);
+
+  render();
+  renderPart();
+  if (stats.on) { $('#privacy-count').hidden = false; track('visit'); setTimeout(loadStats, 900); }
+})();
+</script>
+
+</body>
+</html>
