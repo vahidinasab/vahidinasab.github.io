@@ -468,6 +468,7 @@ textarea.field{min-height:12em;resize:vertical}
 .foot .btn-ghost{background:transparent;border-color:var(--band-line);color:var(--band-text)}
 .foot .btn-ghost:hover{border-color:var(--band-text)}
 .research{display:grid;gap:6px}
+.foot-links{font-weight:600}
 .end{background:var(--band-2);color:var(--band-text);border-top:1px solid var(--band-line)}
 .end-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-block:18px;font-size:14.5px}
 .end a{color:var(--band-text)}
@@ -673,7 +674,7 @@ textarea.field{min-height:12em;resize:vertical}
       <h2 id="answers-h">Your answers</h2>
       <p class="progress"><span class="progress-bar" id="progress-bar" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="progress-t">0 of 4 answered</span></p>
     </div>
-    <p class="privacy">Your answers are saved on this device only. This page does not collect them.</p>
+    <p class="privacy">Your answers are saved on this device only. This page does not collect them. <a href="privacy.html">Privacy</a></p>
     <p class="ans-note" id="ans-note" hidden></p>
     <form id="quiz" novalidate>
       <p class="wiz-step" id="wiz-step" aria-live="polite" hidden></p>
@@ -842,6 +843,8 @@ textarea.field{min-height:12em;resize:vertical}
       <p>Developed by Professor Vahid Vahidinasab, Chair in Sustainability and Academic Research Lead at the Centre for Sustainable Innovation (CSI), University of Salford. Information checked in October 2026 against Department for Education subject content, GOV.UK and the official careers website for England (formerly the National Careers Service).</p>
       <p><strong>This guide is advisory only and is not personal careers advice.</strong> Schools offer different subjects and exam boards, so check your choices with your school and a careers adviser. Pay figures are the typical yearly pay on each job's official profile, from starter to experienced.</p>
       <p id="privacy-count" hidden>This page counts visits and how the tool is used, anonymously and without cookies. It keeps only totals by country and UK region, never your answers.<span id="reach-link" hidden> <a href="#reach">Reach so far</a></span></p>
+      <p id="feedback">Spotted a mistake or have an idea? <a id="feedback-link" href="https://www.salford.ac.uk/our-staff/vahid-vahidinasab" target="_blank" rel="noopener">Send feedback</a></p>
+      <p class="foot-links"><a href="privacy.html">Privacy</a> <span aria-hidden="true">·</span> <a href="accessibility.html">Accessibility statement</a></p>
       <div class="research" id="research" hidden>
         <span class="label" style="margin-top:14px">The research behind it</span>
         <a id="article-link" href="#" target="_blank" rel="noopener" hidden>Read the article in The Conversation</a>
@@ -911,7 +914,9 @@ textarea.field{min-height:12em;resize:vertical}
     reachDetail: false,   // true also shows uses and UK regions under Reach so far (they are always counted)
     reachShowFrom: 1000,   // Reach so far appears once the visit total reaches this number
     paperDoi: '',   // for example '10.1016/j.example.2027.000000' once the paper is published
-    articleUrl: 'https://theconversation.com/vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now-295008'  // The Conversation article
+    articleUrl: 'https://theconversation.com/vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now-295008',  // The Conversation article
+    feedbackUrl: '',   // a feedback form (for example a Microsoft Form); used for Send feedback when set
+    contactEmail: ''   // otherwise an email address for Send feedback; with neither, it links to the staff profile
   };
   // QR code for toolUrl (33 by 33 modules, error correction M), one hex string per row.
   var QR_HEX = '1fcc0727f,104c35941,175353c5d,17530455d,1755f925d,105ac6841,1fd55557f,001e53f00,17c5ca77c,1f8fdb26f,015af8c16,1e92af95f,0ef0537b8,0d0ea424f,0279f14c6,0d2924bec,1bdca85b1,0a24962ef,1ed824df6,08a8d293e,0b5f446ba,1992f9e45,12f3468be,138917c5e,1c630a7f0,0011cbd17,1fc169356,10598cf1f,1754701f8,175a64b93,1758b116c,104723c9c,1fdeaa5a2';
@@ -2229,6 +2234,11 @@ textarea.field{min-height:12em;resize:vertical}
     if (paperUrl()) { $('#paper-link').href = paperUrl(); $('#paper-link').textContent = 'Read the paper: doi.org/' + CONFIG.paperDoi.replace(/^https?:\/\/(dx\.)?doi\.org\//, ''); $('#paper-link').hidden = false; showResearch = true; }
     $('#research').hidden = !showResearch;
     $('#words-list').innerHTML = wordsHtml(WORDS);
+    // Send feedback goes to a form if one is set, else an email address, else the staff profile.
+    var fb = $('#feedback-link');
+    if (CONFIG.feedbackUrl) fb.href = CONFIG.feedbackUrl;
+    else if (CONFIG.contactEmail) { fb.href = 'mailto:' + CONFIG.contactEmail + '?subject=' + encodeURIComponent('Sustainable Local Energy Skills Roadmap: feedback'); fb.removeAttribute('target'); }
+    else fb.textContent = 'Contact the author';
     $('#share-url').textContent = CONFIG.toolUrl;
     var rows = qrRows(), d = '';
     rows.forEach(function (row, r) { for (var c = 0; c < row.length; c++) if (row.charAt(c) === '1') d += 'M' + (c + 4) + ' ' + (r + 4) + 'h1v1h-1z'; });
