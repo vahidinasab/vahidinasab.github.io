@@ -470,6 +470,38 @@ textarea.field{min-height:12em;resize:vertical}
 @media (prefers-reduced-motion: reduce){
   *{transition-duration:.001ms !important;animation-duration:.001ms !important}
 }
+
+/* Printing the page (Ctrl+P) gives the roadmap on white paper. Download PDF gives the designed version. */
+@media print{
+  :root:root:root{--bg:#FFFFFF;--surface:#FFFFFF;--surface-2:#FFFFFF;--sunken:#EEF2F5;--line:#C9D1DA;--line-strong:#9AA6B2;--ink:#032A3B;--text:#1D3542;--muted:#4A5763;--accent:#2EB895;--accent-text:#0C6E57;--accent-tint:#E2F5EF;--green:#17785A;--note:#FFFFFF;--note-line:#7FD1BB;--map-idle:#C5CEDA;--map-hot:#1E9C7D;--shadow:none;color-scheme:light}
+  @page{margin:14mm 14mm 16mm}
+  html{scroll-padding-top:0}
+  body{background:#FFFFFF;font-size:10.5pt;line-height:1.45}
+  body::before,.skip,.appnav,.appbar .btn,.appbar-rule,.hero,.answers,.keep,.jump,.ex-banner .row-actions,.rm-note,.roadmap > .card,.more,.foot-sources,.reach,.research,#copy-link,#copy-link-status,.end-logo{display:none !important}
+  .appbar{position:static;background:#FFFFFF;border-bottom:1px solid var(--line);-webkit-backdrop-filter:none;backdrop-filter:none}
+  .uos-dark{display:none !important}.uos-light{display:block !important}
+  .brand-long{display:inline !important}.brand-short{display:none !important}
+  .wrap{max-width:none;padding:0}
+  .bench{display:block;padding:10pt 0 0}
+  .roadmap{display:block}
+  .roadmap > * + *{margin-top:16pt}
+  .topic-q{display:none}
+  .jobs{grid-template-columns:repeat(2,minmax(0,1fr));gap:10pt}
+  .job,.card,.keep,.ex-banner,.advice,.service,.parents{box-shadow:none}
+  .topic,.tl li,.service,.parents,.advice,.ex-banner,.subj summary,.job-top,.job li,.job .tags{break-inside:avoid}
+  h2,h3,h4{break-after:avoid}
+  .subj{break-inside:auto}
+  .subj summary::after{display:none}
+  .advice-band{padding:14pt 0 0}
+  .advice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .foot{background:#FFFFFF;color:var(--text);border-top:1px solid var(--line);margin-top:14pt}
+  .foot a,.end a{color:var(--ink)}
+  .foot h2{color:var(--ink)}
+  .foot .label,.share-url{color:var(--muted)}
+  .foot-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);padding-block:12pt}
+  .end{background:#FFFFFF;color:var(--text);border-top:1px solid var(--line)}
+  a{text-decoration-color:var(--line-strong)}
+}
 </style>
 </head>
 <body>
@@ -2138,6 +2170,17 @@ textarea.field{min-height:12em;resize:vertical}
       });
     }, { threshold: 0.35 }).observe($('#roadmap'));
   }
+
+  // Printing opens the GCSE topic sections, then closes them again afterwards.
+  var printOpened = [];
+  window.addEventListener('beforeprint', function () {
+    printOpened = $all('#topics details.subj:not([open])');
+    printOpened.forEach(function (d) { d.open = true; });
+  });
+  window.addEventListener('afterprint', function () {
+    printOpened.forEach(function (d) { d.open = false; });
+    printOpened = [];
+  });
 
   var raf = 0;
   function scheduleLines() { cancelAnimationFrame(raf); raf = requestAnimationFrame(drawLines); }
