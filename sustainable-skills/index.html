@@ -164,8 +164,6 @@ button,input,select,textarea{font:inherit}
 .hero h1{font-size:clamp(2.15rem,4.7vw,3.55rem);line-height:1.02;letter-spacing:-.025em}
 .lead{font-size:clamp(1.08rem,1.9vw,1.3rem);line-height:1.5;color:var(--text);max-width:34em}
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
-.guide-note{max-width:34em;padding:12px 14px;border-radius:var(--r-md);border:1px solid var(--note-line);background:var(--note);color:var(--text);font-size:15px}
-.guide-note strong{color:var(--ink)}
 .facts{display:grid;gap:12px;margin:0;max-width:34em}
 .fact{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:14px;padding:14px 16px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line)}
 .fact dt{font-family:var(--display);font-weight:800;font-size:1.9rem;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
@@ -295,9 +293,8 @@ fieldset.is-done .qn{background:var(--green);color:var(--surface)}
 .field{width:100%;padding:10px 12px;border:1px solid var(--line-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--text);font:14px/1.5 var(--body)}
 textarea.field{min-height:12em;resize:vertical}
 .copy-fallback{font:13.5px/1.5 var(--mono)}
-.advice{display:grid;gap:8px;background:var(--note);color:var(--text);border:1px solid var(--note-line);border-radius:var(--r-lg);padding:16px 18px}
-.advice-h{font-family:var(--display);font-weight:800;font-size:1.1rem;color:var(--ink)}
-.advice-links{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14.5px;font-weight:600}
+.guide-line{padding:12px 16px;border-left:4px solid var(--accent);border-radius:0 var(--r-md) var(--r-md) 0;background:var(--surface);color:var(--text);font-size:15px;max-width:52em}
+.guide-line strong{color:var(--ink)}
 .jump{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .jump .label{margin-right:4px}
 .jump a{display:inline-flex;align-items:center;min-height:34px;padding:5px 12px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--text);font-size:13.5px;font-weight:600;text-decoration:none}
@@ -540,7 +537,6 @@ textarea.field{min-height:12em;resize:vertical}
         <button class="btn btn-accent btn-lg" type="button" data-go="answers">Build my roadmap</button>
         <button class="btn btn-ghost btn-lg" type="button" data-go="example">See an example</button>
       </div>
-      <p class="guide-note"><strong>Note: This is a guide, not advice.</strong> Please check your choices with your school's careers adviser or an official careers service. <a href="#advice">Where to get advice</a></p>
       <dl class="facts">
         <div class="fact"><dt>860,000</dt><dd>clean energy jobs expected in the UK by 2030, as the sector doubles in size. <a href="https://www.gov.uk/government/news/clean-energy-jobs-boom-to-bring-thousands-of-new-jobs" target="_blank" rel="noopener">Clean Energy Jobs Plan</a></dd></div>
       </dl>
@@ -709,11 +705,7 @@ textarea.field{min-height:12em;resize:vertical}
       <textarea id="copy-fallback" class="field copy-fallback" readonly hidden aria-label="Your roadmap as text"></textarea>
     </div>
 
-    <aside class="advice" aria-labelledby="advice-h">
-      <p class="advice-h" id="advice-h">A guide, not advice</p>
-      <p>This roadmap uses information from October 2026. Courses, entry grades and pay can change, and it does not know your own situation. So talk to your school or college careers adviser, or an official careers service, before you choose.</p>
-      <p class="advice-links"><a href="https://nationalcareers.service.gov.uk/" target="_blank" rel="noopener">Careers information for England</a><a href="#advice">All official careers services</a></p>
-    </aside>
+    <p class="guide-line"><strong>Use this to explore, then talk to your careers adviser before you choose.</strong> Courses, grades and pay can change, and this roadmap does not know your own situation. Information checked October 2026. <a href="#advice">Where to get advice</a></p>
 
     <nav class="jump" aria-label="Roadmap sections"><span class="label">Jump to</span><a href="#jobs-h">Jobs</a><a href="#tl-h">Timeline</a><a href="#topics-h">GCSE topics</a><a href="#next-h">Next steps</a><a href="#gtk-h">Good to know</a><a href="#words-h">Words explained</a></nav>
 
@@ -786,7 +778,7 @@ textarea.field{min-height:12em;resize:vertical}
     <div>
       <p class="eyebrow">Official careers advice</p>
       <h2 id="advice-band-h">Talk your choices through with an adviser</h2>
-      <p class="muted" style="margin-top:6px;max-width:46em">This roadmap is a guide, not advice. Start with your school or college careers adviser; these free official services can help too. The GCSE topics here come from England's subject content; Wales and Northern Ireland have their own GCSE courses, and Scotland has National qualifications.</p>
+      <p class="muted" style="margin-top:6px;max-width:46em">Your school or college careers adviser is the best place to start. These free official services can help too. The GCSE topics here come from England's courses. Wales and Northern Ireland have their own GCSEs, and Scotland has National qualifications.</p>
     </div>
     <div class="advice-grid" id="advice-grid"></div>
   </div>
@@ -1507,7 +1499,7 @@ textarea.field{min-height:12em;resize:vertical}
   }
 
   // ---------- Save or share: copy, email, PDF ----------
-  var ADVISORY = 'This roadmap is a guide, not advice. It is based on information available in October 2026. Check your choices with your school or college careers adviser. Official careers information for England: https://nationalcareers.service.gov.uk/';
+  var ADVISORY = 'Use this roadmap to explore, then talk to your school or college careers adviser before you choose. Information checked October 2026. Official careers information for England: https://nationalcareers.service.gov.uk/';
   function plain(html) { return String(html).replace(/<[^>]+>/g, ''); }
   function anchorsIn(html) {
     var out = [], re = /<a href="([^"]+)"[^>]*>([^<]+)<\/a>/g, m;
@@ -1805,8 +1797,8 @@ textarea.field{min-height:12em;resize:vertical}
 
       // Guide, not advice, with the official services straight after
       var adv = [
-        row([{ t: 'A guide, not advice.', f: F.bold, c: C.ink }], { size: 10.5, width: CW - 24, after: 3 }),
-        row('This roadmap is based on information available in October 2026, and courses, entry requirements and pay can change. It cannot take account of your own circumstances. Before making choices, talk to your school or college careers adviser, or a free official careers service:', { size: 9, width: CW - 24, after: 4 })
+        row([{ t: 'Use this to explore, then talk to your careers adviser before you choose.', f: F.bold, c: C.ink }], { size: 10.5, width: CW - 24, after: 3 }),
+        row('Courses, grades and pay can change, and this roadmap does not know your own situation. Information checked October 2026. Free official careers services:', { size: 9, width: CW - 24, after: 4 })
       ];
       ADVICE.filter(function (a) { return a.kind !== 'route'; }).forEach(function (a) { adv.push(row([{ t: a.where + ':', f: F.bold }, { t: a.name }, { t: shortUrl(a.url), u: a.url }], { size: 9, width: CW - 24, indent: 11, bullet: true, after: 1.5 })); });
       adv[adv.length - 1].after = 5;
