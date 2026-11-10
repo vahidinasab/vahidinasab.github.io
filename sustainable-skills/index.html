@@ -1201,6 +1201,23 @@ textarea.field{min-height:12em;resize:vertical}
       return { job: j, im: im, links: links, score: im.length * 3 + sw + st - i * 0.01 };
     }).sort(function (a, b) { return b.score - a.score; });
   }
+  // The top jobs, making sure every interest the pupil picked shows up in at least one of them.
+  function pickTop(ranked, n) {
+    var top = ranked.slice(0, n);
+    function fits(r, id) { return r.job.interests.indexOf(id) !== -1; }
+    state.interests.forEach(function (id) {
+      if (top.some(function (r) { return fits(r, id); })) return;
+      var cand = ranked.filter(function (r) { return top.indexOf(r) === -1 && fits(r, id); })[0];
+      if (!cand) return;
+      // Swap out the lowest-ranked job whose interests the others still cover.
+      for (var i = top.length - 1; i >= 0; i--) {
+        var others = top.filter(function (r, k) { return k !== i; }).concat([cand]);
+        var keepsAll = state.interests.every(function (x) { return !fits(top[i], x) || others.some(function (r) { return fits(r, x); }); });
+        if (keepsAll) { top[i] = cand; return; }
+      }
+    });
+    return top.sort(function (a, b) { return b.score - a.score; });
+  }
   function jobTopics(r) {
     return r.links.slice().sort(function (a, b) { return (SUBJ[a.s].core ? 1 : 0) - (SUBJ[b.s].core ? 1 : 0); }).slice(0, 4);
   }
@@ -1328,7 +1345,7 @@ textarea.field{min-height:12em;resize:vertical}
   // ---------- Render ----------
   function render() {
     var ranked = rankJobs();
-    currentTop = ranked.slice(0, 4);
+    currentTop = pickTop(ranked, 4);
     renderHead();
     renderMap();
     renderJobs(ranked);
@@ -1429,7 +1446,7 @@ textarea.field{min-height:12em;resize:vertical}
       '</article>';
   }
   function renderJobs(ranked) {
-    var rest = ranked.slice(4);
+    var rest = ranked.filter(function (r) { return currentTop.indexOf(r) === -1; });
     $('#jobs').innerHTML = currentTop.map(jobCard).join('');
     $('#jobs-note').hidden = state.interests.length > 0;
     $('#more-sum').textContent = rest.length + ' more sustainable energy jobs to explore';
