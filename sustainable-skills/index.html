@@ -118,9 +118,9 @@ button,input,select,textarea{font:inherit}
 .muted{color:var(--muted)}
 .small{font-size:14px}
 .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
-.eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text)}
+.eyebrow{display:flex;align-items:center;gap:10px;font-size:14.5px;font-weight:700;letter-spacing:.01em;color:var(--accent-text)}
 .eyebrow::before{content:"";width:22px;height:3px;border-radius:2px;background:var(--accent)}
-.label{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.label{font-size:13.5px;font-weight:700;letter-spacing:.01em;color:var(--muted)}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 18px;border-radius:var(--r-md);border:1.5px solid transparent;font-weight:700;font-size:15px;line-height:1.2;cursor:pointer;text-decoration:none;color:var(--ink);background:transparent;transition:background-color .15s ease,border-color .15s ease,transform .1s ease}
@@ -152,7 +152,7 @@ button,input,select,textarea{font:inherit}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .uos-light{display:none}:root:not([data-theme="light"]) .uos-dark{display:block}}
 @media (max-width:979px){.brand-long{display:none}.brand-short{display:inline}}
 .appnav{display:none;margin-left:auto;gap:4px}
-.appnav a{padding:8px 10px;border-radius:var(--r-sm);font-family:var(--mono);font-size:13px;font-weight:500;color:var(--muted);text-decoration:none}
+.appnav a{padding:8px 10px;border-radius:var(--r-sm);font-size:14.5px;font-weight:600;color:var(--muted);text-decoration:none}
 .appnav a:hover{color:var(--ink);background:var(--sunken)}
 .appbar .btn{margin-left:auto;flex:none}
 .appnav + .btn{margin-left:8px}
@@ -224,8 +224,8 @@ button,input,select,textarea{font:inherit}
 
 /* Tags */
 .tags{display:flex;flex-wrap:wrap;gap:6px}
-.tag{display:inline-block;padding:3px 9px;border-radius:999px;background:var(--sunken);color:var(--text);font-size:13px;font-weight:600;line-height:1.35}
-.tag-role{background:transparent;border:1px solid var(--line-strong);color:var(--muted);font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:2px 8px}
+.tag{display:inline-block;padding:3px 9px;border-radius:999px;background:var(--sunken);color:var(--text);font-size:13.5px;font-weight:600;line-height:1.35}
+.tag-role{background:transparent;border:1px solid var(--line-strong);color:var(--muted);font-size:13px;font-weight:600;padding:2px 9px}
 .tag-role.is-repair{border-color:var(--green);color:var(--green)}
 
 /* Builder */
@@ -234,7 +234,7 @@ button,input,select,textarea{font:inherit}
 .answers:focus{outline:none}
 .answers-head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
 .answers h2{font-size:1.45rem}
-.progress{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;font-weight:600;color:var(--muted)}
+.progress{display:flex;align-items:center;gap:10px;font-size:13.5px;font-weight:600;color:var(--muted)}
 .progress-bar{display:flex;gap:4px}
 .progress-bar i{display:block;width:18px;height:6px;border-radius:3px;background:var(--line)}
 .progress-bar i.on{background:var(--green)}
@@ -285,7 +285,7 @@ fieldset.is-done .qn{background:var(--green);color:var(--surface)}
 .keep-status{font-size:14.5px;color:var(--text)}
 .keep-status:empty{display:none}
 .email-panel{display:grid;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--sunken)}
-.email-panel label{font-size:13px;font-weight:700;color:var(--ink)}
+.email-panel label{font-size:14px;font-weight:700;color:var(--ink)}
 .email-h{font-weight:700;color:var(--ink)}
 .send-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
 .send-grid .btn{text-align:center}
@@ -328,7 +328,7 @@ textarea.field{min-height:12em;resize:vertical}
 .job.is-focus{border-color:var(--accent-hover);box-shadow:0 0 0 2px var(--accent-tint),var(--shadow)}
 .job-top{display:grid;gap:6px}
 .job h4{font-size:1.2rem}
-.job-alt{font-size:13px;color:var(--muted)}
+.job-alt{font-size:14px;color:var(--muted)}
 .pay{font-size:15px;color:var(--text)}
 .pay strong{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink)}
 .job-what{font-size:15px}
@@ -351,7 +351,7 @@ textarea.field{min-height:12em;resize:vertical}
 .tl li::before{content:"";position:absolute;left:0;top:3px;width:18px;height:18px;border-radius:50%;background:var(--surface);border:3px solid var(--line-strong)}
 .tl li.now::before{background:var(--accent);border:2px solid #032A3B}
 .tl li.ctx::before{background:var(--green);border:2px solid var(--surface)}
-.tl-date{display:block;font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.tl-date{display:block;font-size:14px;font-weight:700;color:var(--muted)}
 .tl-title{display:block;font-weight:700;color:var(--ink);font-size:17px;margin-top:1px}
 .tl-detail{display:block;font-size:15px;margin-top:2px;max-width:42em}
 .tl-empty{padding-left:0 !important}
@@ -363,15 +363,15 @@ textarea.field{min-height:12em;resize:vertical}
 .subj summary::-webkit-details-marker{display:none}
 .subj summary::after{content:"";flex:none;width:9px;height:9px;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg) translate(-2px,-2px);transition:transform .15s ease}
 .subj[open] summary::after{transform:rotate(225deg) translate(-2px,-2px)}
-.subj-count{margin-left:auto;font-family:var(--mono);font-size:13px;font-weight:500;color:var(--muted)}
+.subj-count{margin-left:auto;font-size:14px;font-weight:600;color:var(--muted)}
 .subj-body{padding:0 16px 14px}
 .tlist{list-style:none;margin:0;padding:0;display:grid;gap:14px}
 .topic{padding-top:14px;border-top:1px solid var(--line);display:grid;gap:6px;min-width:0}
 .topic-t{font-size:16px;font-family:var(--body);font-weight:700}
-.badge-s{display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;background:var(--sunken);color:var(--text);font-family:var(--mono);font-size:11.5px;font-weight:600;vertical-align:2px}
+.badge-s{display:inline-block;margin-left:6px;padding:2px 9px;border-radius:999px;background:var(--sunken);color:var(--text);font-size:13px;font-weight:600;vertical-align:2px}
 .topic-use{font-size:15px}
 .topic-q{background:var(--sunken);border-radius:8px;padding:8px 12px;font-size:14px;color:var(--text)}
-.ql{display:block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.ql{display:block;font-size:13.5px;font-weight:700;letter-spacing:.01em;color:var(--muted);margin-bottom:2px}
 .q{display:block}
 .q + .q{margin-top:4px}
 .topic-note{font-size:14px;color:var(--muted)}
@@ -1673,7 +1673,7 @@ textarea.field{min-height:12em;resize:vertical}
     }
     function label(text, o) {
       o = o || {};
-      return row([{ t: text.toUpperCase(), f: F.bold, c: C.muted }], { size: 7.5, width: o.width, after: 2 });
+      return row([{ t: text, f: F.bold, c: C.muted }], { size: 8.5, width: o.width, after: 2 });
     }
     function heading(text, next) {
       ensure(Math.max(90, 35 + (next || 0))); // keep a heading with what follows it
@@ -1745,7 +1745,7 @@ textarea.field{min-height:12em;resize:vertical}
         var j = r.job, w = colW - PAD * 2, rows = [];
         rows.push(row([{ t: j.name, f: F.bold, c: C.ink }], { size: 12.5, lh: 1.3, width: w, after: j.alt ? 0 : 2 }));
         if (j.alt) rows.push(row(j.alt, { size: 8, color: C.muted, width: w, after: 3 }));
-        if (j.roles && j.roles.length) rows.push(row(j.roles.map(function (k) { return { t: ROLES[k].toUpperCase() + (k === j.roles[j.roles.length - 1] ? '' : ' ·'), f: F.bold, c: k === 'repair' ? C.green : C.muted }; }), { size: 7, width: w, after: 4 }));
+        if (j.roles && j.roles.length) rows.push(row(j.roles.map(function (k) { return { t: ROLES[k] + (k === j.roles[j.roles.length - 1] ? '' : ' ·'), f: F.bold, c: k === 'repair' ? C.green : C.muted }; }), { size: 8, width: w, after: 4 }));
         rows.push(row([{ t: money(j.pay[0]) + ' to ' + money(j.pay[1]), f: F.bold, c: C.ink }, { t: 'a year' }], { size: 10, width: w, after: 3 }));
         rows.push(row(j.what, { size: 9, width: w, after: 7 }));
         if (r.im.length) {
@@ -1782,7 +1782,7 @@ textarea.field{min-height:12em;resize:vertical}
         var dots = [];
         items.forEach(function (it) {
           var rows = [
-            row([{ t: it.date.toUpperCase(), f: F.bold }], { size: 7.5, color: C.muted, indent: 20, after: 1 }),
+            row([{ t: it.date, f: F.bold }], { size: 8.5, color: C.muted, indent: 20, after: 1 }),
             row([{ t: it.title, f: F.bold, c: C.ink }], { size: 10.5, lh: 1.3, indent: 20, after: 1 }),
             row(it.detail, { size: 9.5, indent: 20, after: 10 })
           ];
