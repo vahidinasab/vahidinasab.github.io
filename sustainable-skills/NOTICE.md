@@ -14,4 +14,5 @@ All other rights in the text, illustrations, job and curriculum data and teachin
 - Fonts in `fonts/` (Archivo, IBM Plex Sans and IBM Plex Mono) are used under the SIL Open Font License 1.1. Their licence files are in the same folder.
 - `vendor/pdf-lib-1.17.1.min.js` is pdf-lib, used under the MIT licence (`vendor/LICENSE-pdf-lib.md`).
 - Curriculum quotations come from the Department for Education's GCSE subject content, and job information comes from the official careers website for England. These are Crown copyright and are reused under the Open Government Licence v3.0.
+- The home picture (`images/home-day-*.jpg`, `images/home-night-*.jpg` and `og-image.png`) is an original 3D illustration made for this tool. Its source is in `art/home-scene/`, and it is covered by the same permissions as the rest of the tool.
 - The University of Salford name and logo belong to the University of Salford and are not covered by the permissions above.
