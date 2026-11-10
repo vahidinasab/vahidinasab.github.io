@@ -150,7 +150,7 @@ button,input,select,textarea{font:inherit}
 :root[data-theme="dark"] .uos-light{display:none}
 :root[data-theme="dark"] .uos-dark{display:block}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .uos-light{display:none}:root:not([data-theme="light"]) .uos-dark{display:block}}
-@media (max-width:979px){.brand-long{display:none}.brand-short{display:inline}}
+@media (max-width:1079px){.brand-long{display:none}.brand-short{display:inline}}
 .appnav{display:none;margin-left:auto;gap:4px}
 .appnav a{padding:8px 10px;border-radius:var(--r-sm);font-size:14.5px;font-weight:600;color:var(--muted);text-decoration:none}
 .appnav a:hover{color:var(--ink);background:var(--sunken)}
@@ -509,6 +509,10 @@ textarea.field{min-height:12em;resize:vertical}
 @media (max-width:759px){
   .appnav + .btn{margin-left:auto}
 }
+@media (min-width:760px) and (max-width:979px){
+  .appnav{gap:0}
+  .appnav a{padding:8px 6px;font-size:14px}
+}
 @media (prefers-reduced-motion: reduce){
   *{transition-duration:.001ms !important;animation-duration:.001ms !important}
 }
@@ -559,7 +563,7 @@ textarea.field{min-height:12em;resize:vertical}
       <span class="brand-name brand-long">Sustainable Local Energy Skills Roadmap</span><span class="brand-name brand-short">Local Energy Skills</span>
     </a>
     <nav class="appnav" aria-label="Page sections">
-      <a href="#explore">Explore</a><a href="#answers">Build</a><a href="#roadmap">Roadmap</a><a href="#advice">Advice</a><a href="#about">About</a>
+      <a href="#explore">Explore</a><a href="#answers">Build</a><a href="#roadmap">Roadmap</a><a href="#advice">Advice</a><a href="#about">About</a><a href="teachers.html">Teachers</a>
     </nav>
     <button class="btn btn-accent btn-sm" type="button" data-go="answers">Start</button>
   </div>
@@ -844,6 +848,7 @@ textarea.field{min-height:12em;resize:vertical}
       <p><strong>This guide is advisory only and is not personal careers advice.</strong> Schools offer different subjects and exam boards, so check your choices with your school and a careers adviser. Pay figures are the typical yearly pay on each job's official profile, from starter to experienced.</p>
       <p id="privacy-count" hidden>This page counts visits and how the tool is used, anonymously and without cookies. It keeps only totals by country and UK region, never your answers.<span id="reach-link" hidden> <a href="#reach">Reach so far</a></span></p>
       <p id="feedback">Spotted a mistake or have an idea? <a id="feedback-link" href="https://www.salford.ac.uk/our-staff/vahid-vahidinasab" target="_blank" rel="noopener">Send feedback</a></p>
+      <p>Teaching with this tool? The <a href="teachers.html">teacher pack</a> has a 20-minute activity, classroom slides, a pupil worksheet and a QR poster.</p>
       <p class="foot-links"><a href="privacy.html">Privacy</a> <span aria-hidden="true">·</span> <a href="accessibility.html">Accessibility statement</a></p>
       <div class="research" id="research" hidden>
         <span class="label" style="margin-top:14px">The research behind it</span>
