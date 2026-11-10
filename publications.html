@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Publications · Vahid Vahidinasab</title>
 <meta name="description" content="Complete publication record of Professor Vahid Vahidinasab: journal papers, conference papers, books and book chapters in power systems, energy markets and net zero.">
+<link rel="canonical" href="https://vahidinasab.github.io/publications.html">
+<meta name="theme-color" content="#0A0D14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23FFB43D%22/%3E%3Cpath%20d%3D%22M7%2023%20L13%2016.5%20L18%2019.5%20L24.5%2010%22%20fill%3D%22none%22%20stroke%3D%22%230A0D14%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Ccircle%20cx%3D%2224.5%22%20cy%3D%2210%22%20r%3D%223.2%22%20fill%3D%22%230A0D14%22/%3E%3Ccircle%20cx%3D%227%22%20cy%3D%2223%22%20r%3D%222.4%22%20fill%3D%22%230A0D14%22/%3E%3C/svg%3E">
+
+<!-- link previews (LinkedIn, X, Teams, Slack, WhatsApp) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Vahid Vahidinasab">
+<meta property="og:title" content="Publications · Vahid Vahidinasab">
+<meta property="og:description" content="Complete publication record of Professor Vahid Vahidinasab: journal papers, conference papers, books and book chapters in power systems, energy markets and net zero.">
+<meta property="og:url" content="https://vahidinasab.github.io/publications.html">
+<meta property="og:image" content="https://vahidinasab.github.io/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vahid Vahidinasab, Professor and Chair in Sustainability, University of Salford">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,7 +28,7 @@
   :root{
     --bg:#0A0D14;--bg-2:#0C1018;--surface:#111621;--surface-2:#151C29;
     --line:rgba(255,255,255,.09);--line-strong:rgba(255,255,255,.16);
-    --text:#EDF0F5;--muted:#9AA3B2;--muted-2:#6B7484;
+    --text:#EDF0F5;--muted:#9AA3B2;--muted-2:#7E8798;
     --accent:#FFB43D;--accent-soft:#FFD98A;--glow:rgba(255,180,61,.16);
     --display:'Archivo',sans-serif;--body:'IBM Plex Sans',sans-serif;--mono:'IBM Plex Mono',monospace;
     --maxw:1000px;--pad:clamp(1.25rem,5vw,2.5rem);
@@ -90,6 +106,33 @@
   @media(max-width:560px){.pub-item{flex-wrap:wrap}.pdoi{align-self:flex-start}}
 
   footer{border-top:1px solid var(--line);padding:2rem 0;font-family:var(--mono);font-size:.72rem;color:var(--muted-2);letter-spacing:.03em;text-align:center}
+  /* ============ PRINT / SAVE AS PDF ============ */
+  @media print{
+    :root{--bg:#fff;--bg-2:#fff;--surface:#fff;--surface-2:#fff;--line:#d5dae1;--line-strong:#c2c8d1;
+      --text:#111418;--muted:#3d4452;--muted-2:#566070;--accent:#8a5200;--accent-soft:#8a5200;--glow:transparent}
+    @page{margin:14mm 14mm 16mm}
+    html,body{background:#fff!important;color:var(--text)}
+    body{font-size:10pt}
+    body::before,body::after,.nav,.controls,.empty,.pdoi{display:none!important}
+    .wrap{max-width:none;padding:0}
+    header.head{padding:0 0 .6rem}
+    header.head h1,.metric .n{background:none!important;-webkit-background-clip:border-box;background-clip:border-box;color:var(--text)!important}
+    header.head h1{font-size:24pt;margin:.4rem 0 .5rem}
+    .metrics{margin:.8rem 0 .2rem}
+    .metric{padding:.5rem .7rem}
+    .metric .n{font-size:15pt}
+    main{padding-bottom:0}
+    .pubcat{margin-top:1.2rem}
+    .pubcat-h{font-size:14pt;break-after:avoid}
+    .pubyear{margin-top:.7rem}
+    .py-label{break-after:avoid;margin-bottom:.3rem}
+    .py-list{background:none;gap:0;border:0;border-top:1px solid var(--line);border-radius:0}
+    .pub-item{padding:.45rem .7rem;break-inside:avoid;border-bottom:1px solid var(--line)}
+    .pub-item:last-child{border-bottom:0}
+    .pi-title{font-size:9.5pt}
+    .pi-meta{font-size:7.5pt}
+    footer{padding:.6rem 0}
+  }
 </style>
 </head>
 <body>
@@ -118,18 +161,18 @@
   </div>
 </header>
 
-<div class="controls">
+<div class="controls" role="search" aria-label="Search and filter publications">
   <div class="wrap">
-    <input id="q" class="search" type="search" placeholder="Search by title, author, journal or year…" aria-label="Search publications">
+    <input id="q" class="search" type="search" placeholder="Title, author, journal or year…" aria-label="Search publications">
     <div class="filters" id="filters">
-      <button class="filt active" data-f="all">All (173)</button>
-      <button class="filt" data-f="journal">Journal</button>
-      <button class="filt" data-f="conference">Conference</button>
-      <button class="filt" data-f="book">Books</button>
-      <button class="filt" data-f="chapter">Chapters</button>
-      <button class="filt" data-f="public">Public engagement</button>
-      <button class="filt" data-f="white">White papers</button>
-      <button class="filt" data-f="working">Working papers</button>
+      <button type="button" class="filt active" data-f="all" aria-pressed="true">All (173)</button>
+      <button type="button" class="filt" data-f="journal" aria-pressed="false">Journal</button>
+      <button type="button" class="filt" data-f="conference" aria-pressed="false">Conference</button>
+      <button type="button" class="filt" data-f="book" aria-pressed="false">Books</button>
+      <button type="button" class="filt" data-f="chapter" aria-pressed="false">Chapters</button>
+      <button type="button" class="filt" data-f="public" aria-pressed="false">Public engagement</button>
+      <button type="button" class="filt" data-f="white" aria-pressed="false">White papers</button>
+      <button type="button" class="filt" data-f="working" aria-pressed="false">Working papers</button>
     </div>
     <div class="resultnote" id="note"></div>
   </div>
@@ -415,7 +458,7 @@
   </div>
 </main>
 
-<footer>© <span id="yr"></span> Vahid Vahidinasab · <a href="index.html" style="color:var(--accent)">Home</a></footer>
+<footer>© <span id="yr"></span> Vahid Vahidinasab · <a href="index.html" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Home</a></footer>
 
 <script>
 (function(){
@@ -449,8 +492,8 @@
   q.addEventListener('input', apply);
   document.getElementById('filters').addEventListener('click', function(e){
     var b=e.target.closest('.filt'); if(!b) return;
-    document.querySelectorAll('.filt').forEach(function(x){x.classList.remove('active')});
-    b.classList.add('active'); curFilter=b.getAttribute('data-f'); apply();
+    document.querySelectorAll('.filt').forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false')});
+    b.classList.add('active'); b.setAttribute('aria-pressed','true'); curFilter=b.getAttribute('data-f'); apply();
   });
 })();
 </script>
