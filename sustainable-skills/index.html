@@ -196,6 +196,7 @@ button,input,select,textarea{font:inherit}
 .sc-car{fill:var(--sc-car)}.sc-car-glass{fill:var(--sc-car-glass)}
 .sc-wheel{fill:var(--sc-wheel);stroke:var(--sc-rim);stroke-width:3}
 .sc-van-cab{fill:var(--sc-van-cab);stroke:var(--sc-line);stroke-width:1.5}.sc-van-glass{fill:var(--sc-glass)}.sc-stripe{fill:var(--accent)}
+.sc-hivis{fill:#F28C28}.sc-reflect{fill:#FFF4D6;opacity:.9}.sc-trousers{fill:#253447}.sc-boot{fill:#11181F}.sc-hair{fill:#1E1A17}.sc-scarf{fill:#3F6FB5}.sc-hat{fill:#FFD34D}.sc-toolbox{fill:#D64545}
 .hs{position:absolute;width:36px;height:36px;margin:0;padding:0;border:0;border-radius:50%;background:transparent;transform:translate(-50%,-50%);cursor:pointer;display:grid;place-items:center}
 .hs::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--accent);border:2.5px solid #032A3B;box-shadow:0 0 0 3px var(--hs-ring);transition:transform .15s ease}
 .hs:hover::before{transform:scale(1.15)}
@@ -384,10 +385,10 @@ textarea.field{min-height:12em;resize:vertical}
 
 /* Topics */
 .subj{border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:10px}
-.subj summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;font-weight:700;color:var(--ink);font-size:17px}
-.subj summary::-webkit-details-marker{display:none}
-.subj summary::after{content:"";flex:none;width:9px;height:9px;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg) translate(-2px,-2px);transition:transform .15s ease}
-.subj[open] summary::after{transform:rotate(225deg) translate(-2px,-2px)}
+.subj > summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;font-weight:700;color:var(--ink);font-size:17px}
+.subj > summary::-webkit-details-marker{display:none}
+.subj > summary::after{content:"";flex:none;width:9px;height:9px;border-right:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);transform:rotate(45deg) translate(-2px,-2px);transition:transform .15s ease}
+.subj[open] > summary::after{transform:rotate(225deg) translate(-2px,-2px)}
 .subj-count{margin-left:auto;font-size:14px;font-weight:600;color:var(--muted)}
 .subj-body{padding:0 16px 14px}
 .tlist{list-style:none;margin:0;padding:0;display:grid;gap:14px}
@@ -396,6 +397,15 @@ textarea.field{min-height:12em;resize:vertical}
 .badge-s{display:inline-block;margin-left:6px;padding:2px 9px;border-radius:999px;background:var(--sunken);color:var(--text);font-size:13px;font-weight:600;vertical-align:2px}
 .topic-use{font-size:15px}
 .topic-q{background:var(--sunken);border-radius:8px;padding:8px 12px;font-size:14px;color:var(--text)}
+.topic-q summary{cursor:pointer;font-weight:700;color:var(--muted);font-size:13.5px}
+.topic-q[open] summary{margin-bottom:4px}
+.job-day{font-size:14.5px;color:var(--text)}
+.day-l{font-weight:700;color:var(--ink)}
+.tag-skill{background:var(--accent-tint);color:var(--ink)}
+.story{margin:0;padding:12px 14px;border-radius:var(--r-md);background:var(--surface-2);border:1px solid var(--line)}
+.story blockquote{margin:0;font-size:15px;color:var(--ink)}
+.story figcaption{margin-top:6px;font-size:13.5px;color:var(--muted)}
+.story-sample{display:inline-block;margin-bottom:6px;padding:1px 8px;border-radius:999px;background:#FFE7A3;color:#4A3500;font-size:12.5px;font-weight:700}
 .ql{display:block;font-size:13.5px;font-weight:700;letter-spacing:.01em;color:var(--muted);margin-bottom:2px}
 .q{display:block}
 .q + .q{margin-top:4px}
@@ -578,7 +588,7 @@ textarea.field{min-height:12em;resize:vertical}
       </div>
       <div class="ex-stage">
         <svg viewBox="0 0 640 400" role="img" aria-labelledby="scene-t">
-          <title id="scene-t">A home with solar panels, loft insulation, a home battery, a heat pump, a smart energy display and an electric car on charge, with a community wind turbine, an electricity pylon and an installer's van</title>
+          <title id="scene-t">A home with solar panels, loft insulation, a home battery, a heat pump, a smart energy display and an electric car on charge, with a community wind turbine, an electricity pylon and an installer's van, and four people who install and look after them</title>
           <rect class="sc-sky" x="0" y="0" width="640" height="400"/>
           <circle class="sc-sun-halo" cx="200" cy="58" r="36"/>
           <circle class="sc-sun" cx="200" cy="58" r="22"/>
@@ -642,6 +652,12 @@ textarea.field{min-height:12em;resize:vertical}
           <rect class="sc-stripe" x="6" y="306" width="78" height="5"/>
           <circle class="sc-wheel" cx="30" cy="326" r="10"/>
           <circle class="sc-wheel" cx="96" cy="326" r="10"/>
+          <g class="sc-people" aria-hidden="true">
+            <g transform="translate(277 330) scale(0.95)"><rect class="sc-trousers" x="-5" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-trousers" x="0.8" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-boot" x="-5.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-boot" x="0.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-hivis" x="-10.2" y="-28" width="3.6" height="13" rx="1.8"/><rect class="sc-hivis" x="6.6" y="-28" width="3.6" height="13" rx="1.8"/><circle fill="#8D5524" cx="-8.4" cy="-14.6" r="1.9"/><circle fill="#8D5524" cx="8.4" cy="-14.6" r="1.9"/><rect class="sc-hivis" x="-7" y="-29.5" width="14" height="17" rx="4"/><rect class="sc-reflect" x="-7" y="-22.5" width="14" height="2"/><rect fill="#8D5524" x="-1.8" y="-31.5" width="3.6" height="3"/><circle fill="#8D5524" cx="0" cy="-35" r="5"/><path class="sc-hair" d="M-5.2 -35 a5.2 5.2 0 0 1 10.4 0 c-2 -1.6 -8.4 -1.6 -10.4 0 z"/><circle class="sc-hair" cx="0" cy="-41" r="2.6"/><rect class="sc-toolbox" x="7.4" y="-13" width="8.5" height="6" rx="1.2"/></g>
+            <g transform="translate(437 330) scale(0.95)"><rect class="sc-trousers" x="-5" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-trousers" x="0.8" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-boot" x="-5.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-boot" x="0.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-hivis" x="-10.2" y="-28" width="3.6" height="13" rx="1.8"/><rect class="sc-hivis" x="6.6" y="-28" width="3.6" height="13" rx="1.8"/><circle fill="#C68642" cx="-8.4" cy="-14.6" r="1.9"/><circle fill="#C68642" cx="8.4" cy="-14.6" r="1.9"/><rect class="sc-hivis" x="-7" y="-29.5" width="14" height="17" rx="4"/><rect class="sc-reflect" x="-7" y="-22.5" width="14" height="2"/><path class="sc-scarf" d="M-6.6 -34.5 a6.6 6.6 0 0 1 13.2 0 v3.4 l1.4 3.1 h-16 l1.4 -3.1 z"/><circle fill="#C68642" cx="0" cy="-33.6" r="4.1"/></g>
+            <g transform="translate(86 221) scale(0.55)"><rect class="sc-trousers" x="-5" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-trousers" x="0.8" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-boot" x="-5.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-boot" x="0.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-hivis" x="-10.2" y="-28" width="3.6" height="13" rx="1.8"/><rect class="sc-hivis" x="6.6" y="-28" width="3.6" height="13" rx="1.8"/><circle fill="#F1C27D" cx="-8.4" cy="-14.6" r="1.9"/><circle fill="#F1C27D" cx="8.4" cy="-14.6" r="1.9"/><rect class="sc-hivis" x="-7" y="-29.5" width="14" height="17" rx="4"/><rect class="sc-reflect" x="-7" y="-22.5" width="14" height="2"/><rect fill="#F1C27D" x="-1.8" y="-31.5" width="3.6" height="3"/><circle fill="#F1C27D" cx="0" cy="-35" r="5"/><path class="sc-hat" d="M-5.8 -36 a5.8 5.8 0 0 1 11.6 0 z"/><rect class="sc-hat" x="-7.2" y="-36.6" width="14.4" height="1.9" rx=".95"/></g>
+            <g transform="translate(556 232) scale(0.6)"><rect class="sc-trousers" x="-5" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-trousers" x="0.8" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-boot" x="-5.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-boot" x="0.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-hivis" x="-10.2" y="-28" width="3.6" height="13" rx="1.8"/><rect class="sc-hivis" x="6.6" y="-28" width="3.6" height="13" rx="1.8"/><circle fill="#5C3A21" cx="-8.4" cy="-14.6" r="1.9"/><circle fill="#5C3A21" cx="8.4" cy="-14.6" r="1.9"/><rect class="sc-hivis" x="-7" y="-29.5" width="14" height="17" rx="4"/><rect class="sc-reflect" x="-7" y="-22.5" width="14" height="2"/><rect fill="#5C3A21" x="-1.8" y="-31.5" width="3.6" height="3"/><circle fill="#5C3A21" cx="0" cy="-35" r="5"/><path class="sc-hat" d="M-5.8 -36 a5.8 5.8 0 0 1 11.6 0 z"/><rect class="sc-hat" x="-7.2" y="-36.6" width="14.4" height="1.9" rx=".95"/></g>
+          </g>
         </svg>
         <div id="hotspots"></div>
       </div>
@@ -918,7 +934,7 @@ textarea.field{min-height:12em;resize:vertical}
     { id: 'geography', name: 'Geography', short: 'Geography', src: 'https://assets.publishing.service.gov.uk/media/5a7d5754e5274a33be64898e/GCSE_geography.pdf', srcLabel: 'Geography GCSE subject content' },
     { id: 'dt', name: 'Design and technology', short: 'D&T', src: 'https://www.gov.uk/government/publications/gcse-design-and-technology', srcLabel: 'Design and technology GCSE subject content' },
     { id: 'computing', name: 'Computer science', short: 'Computer science', src: 'https://www.gov.uk/government/publications/gcse-computer-science/gcse-subject-content-for-computer-science', srcLabel: 'Computer science GCSE subject content' },
-    { id: 'electronics', name: 'Electronics', short: 'Electronics', src: 'https://www.gov.uk/government/publications/gcse-electronics', srcLabel: 'Electronics GCSE subject content' },
+    { id: 'electronics', name: 'Electronics', day: 'designing a circuit on a computer, building and testing a prototype, and working out why it does not work yet.', skills: ['Circuit design', 'Coding', 'Testing and problem solving'], short: 'Electronics', src: 'https://www.gov.uk/government/publications/gcse-electronics', srcLabel: 'Electronics GCSE subject content' },
     { id: 'engineering', name: 'Engineering', short: 'Engineering', src: 'https://www.gov.uk/government/publications/gcse-engineering', srcLabel: 'Engineering GCSE subject content' },
     { id: 'business', name: 'Business', short: 'Business', src: 'https://assets.publishing.service.gov.uk/media/5a75a4a0e5274a4368298d89/Business_GCSE.pdf', srcLabel: 'Business GCSE subject content' },
     { id: 'economics', name: 'Economics', short: 'Economics', src: 'https://assets.publishing.service.gov.uk/media/6287b7c28fa8f55617a90521/GCSE_subject_content_economics_May_2022.pdf', srcLabel: 'Economics GCSE subject content' }
@@ -986,43 +1002,43 @@ textarea.field{min-height:12em;resize:vertical}
   // (nationalcareers.service.gov.uk, renamed "Get careers information and advice" in October 2026), checked October 2026.
   var NCS = 'https://nationalcareers.service.gov.uk/job-profiles/';
   var JOBS = [
-    { id: 'electrician', name: 'Electrician', what: 'Fits and fixes the wiring, sockets and lights in homes and other buildings. Many also fit solar panels and car chargers.', interests: ['make', 'tech', 'biz', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [26000, 45000], url: NCS + 'electrician',
+    { id: 'electrician', name: 'Electrician', day: 'wiring a new kitchen, fitting a car charger on a driveway, and testing circuits to check they are safe.', skills: ['Working safely with electricity', 'Solving problems', 'Explaining things to customers'], what: 'Fits and fixes the wiring, sockets and lights in homes and other buildings. Many also fit solar panels and car chargers.', interests: ['make', 'tech', 'biz', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [26000, 45000], url: NCS + 'electrician',
       routes: [{ k: 'T Level', v: 'Building Services Engineering for Construction (electrotechnical engineering)' }, { k: 'Apprenticeship', v: 'Installation and Maintenance Electrician (level 3)' }, { k: 'Apprenticeship', v: 'Domestic Electrician (level 3)' }] },
-    { id: 'solar', name: 'Solar panel installer', what: 'Checks roofs and fits solar panels on them. Works with electricians to connect home batteries.', interests: ['make', 'out', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'solar-panel-installer',
+    { id: 'solar', name: 'Solar panel installer', day: 'checking a roof is strong enough, fixing panels in place, and showing a family how much power they are making.', skills: ['Working safely at height', 'Teamwork', 'Careful measuring'], what: 'Checks roofs and fits solar panels on them. Works with electricians to connect home batteries.', interests: ['make', 'out', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'solar-panel-installer',
       routes: [{ k: 'Apprenticeship', v: 'Building Services Engineering foundation apprenticeship (level 2), open to 16 to 21-year-olds with no set qualifications' }, { k: 'Apprenticeship', v: 'Installation and Maintenance Electrician (level 3)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'heatpump', name: 'Heat pump engineer', what: 'Fits, checks and fixes heat pumps and other low carbon heating. Shows people how to use their new heating.', interests: ['make', 'planet', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'heat-pump-engineer',
+    { id: 'heatpump', name: 'Heat pump engineer', day: 'fitting a heat pump outside a home, connecting it to the radiators, and explaining the controls to the family.', skills: ['Plumbing and wiring', 'Working out how much heat a home loses', 'Helping customers'], what: 'Fits, checks and fixes heat pumps and other low carbon heating. Shows people how to use their new heating.', interests: ['make', 'planet', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'heat-pump-engineer',
       routes: [{ k: 'T Level', v: 'Building Services Engineering for Construction, which added a low carbon heating option from September 2026' }, { k: 'Apprenticeship', v: 'Low Carbon Heating Technician (level 3)' }, { k: 'Apprenticeship', v: 'Building Services Engineering foundation apprenticeship (level 2)' }] },
-    { id: 'evtech', name: 'Electric vehicle technician', alt: 'Official job profile: motor mechanic', what: 'Finds and fixes faults in cars and vans, including the high-voltage batteries in hybrid and electric cars.', interests: ['make', 'tech'], style: 'hands', roles: ['repair'], pay: [22000, 42000], url: NCS + 'motor-mechanic',
+    { id: 'evtech', name: 'Electric vehicle technician', day: 'finding a fault using diagnostic software, servicing brakes and tyres, and safely checking a high-voltage battery.', skills: ['Finding faults', 'Working safely with high voltage', 'Using diagnostic computers'], alt: 'Official job profile: motor mechanic', what: 'Finds and fixes faults in cars and vans, including the high-voltage batteries in hybrid and electric cars.', interests: ['make', 'tech'], style: 'hands', roles: ['repair'], pay: [22000, 42000], url: NCS + 'motor-mechanic',
       routes: [{ k: 'Apprenticeship', v: 'Motor Vehicle Service and Maintenance Technician, light vehicle (level 3)' }, { k: 'T Level', v: 'Maintenance, Installation and Repair for Engineering and Manufacturing' }, { k: 'College', v: 'Light vehicle courses, some with hybrid and electric options' }] },
-    { id: 'wind', name: 'Wind turbine technician', what: 'Builds, checks and fixes wind turbines on land or out at sea. Often works outdoors and high up.', interests: ['out', 'make', 'sci', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'wind-turbine-technician',
+    { id: 'wind', name: 'Wind turbine technician', day: 'climbing a turbine tower in a safety harness, checking the blades and the machinery at the top, and reporting back to the control room.', skills: ['A head for heights', 'Fitness', 'Mechanical and electrical skills'], what: 'Builds, checks and fixes wind turbines on land or out at sea. Often works outdoors and high up.', interests: ['out', 'make', 'sci', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'wind-turbine-technician',
       routes: [{ k: 'Apprenticeship', v: 'Engineering Maintenance Technician, or Maintenance Operations Engineering Technician (level 3)' }, { k: 'T Level', v: 'Maintenance, Installation and Repair for Engineering and Manufacturing' }, { k: 'Degree', v: 'Foundation degree, HND or degree in renewable energy, electrical or mechanical engineering' }] },
-    { id: 'grid', name: 'Electricity network worker', alt: 'Official job profile: electricity distribution worker', what: 'Builds and looks after power lines, underground cables and substations. Connects new things, like solar panels, to the grid.', interests: ['out', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [23000, 42000], url: NCS + 'electricity-distribution-worker',
+    { id: 'grid', name: 'Electricity network worker', day: 'joining underground cables, working on a substation, and connecting a new solar farm or charger to the grid.', skills: ['Working safely with high voltage', 'Teamwork', 'Working outdoors in all weathers'], alt: 'Official job profile: electricity distribution worker', what: 'Builds and looks after power lines, underground cables and substations. Connects new things, like solar panels, to the grid.', interests: ['out', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [23000, 42000], url: NCS + 'electricity-distribution-worker',
       routes: [{ k: 'Apprenticeship', v: 'Power Industry Overhead Linesperson, Substation Fitter or Distribution Cable Jointer (level 3)' }, { k: 'Apprenticeship', v: 'Electrical Power Networks Engineer (level 4)' }, { k: 'College', v: 'Engineering or electrical engineering courses' }] },
-    { id: 'assessor', name: 'Domestic energy assessor', what: 'Visits homes to check the insulation, heating and lighting. Then gives the home an energy rating from A to G.', interests: ['people', 'planet', 'num', 'biz'], style: 'hands', roles: ['advise'], pay: [24000, 35000], url: NCS + 'domestic-energy-assessor',
+    { id: 'assessor', name: 'Domestic energy assessor', day: 'visiting several homes, measuring rooms and checking the heating and insulation, then entering the details into software.', skills: ['Noticing details', 'Using software', 'Talking to people'], what: 'Visits homes to check the insulation, heating and lighting. Then gives the home an energy rating from A to G.', interests: ['people', 'planet', 'num', 'biz'], style: 'hands', roles: ['advise'], pay: [24000, 35000], url: NCS + 'domestic-energy-assessor',
       routes: [{ k: 'Qualification', v: 'Level 3 Certificate in Domestic Energy Assessment, then joining an approved accreditation scheme' }, { k: 'Experience', v: 'Work in surveying or construction can shorten the training' }] },
-    { id: 'renew', name: 'Renewable energy engineer', what: 'Plans and designs wind, solar and other clean energy projects. Might check if a place suits a wind farm, or make solar panels work better.', interests: ['sci', 'planet', 'num'], style: 'class', roles: ['design'], pay: [31000, 61000], url: NCS + 'energy-engineer',
+    { id: 'renew', name: 'Renewable energy engineer', day: 'studying wind or sunlight data for a site, using design software, and meeting the team that will build the project.', skills: ['Maths and physics', 'Computer modelling', 'Planning projects'], what: 'Plans and designs wind, solar and other clean energy projects. Might check if a place suits a wind farm, or make solar panels work better.', interests: ['sci', 'planet', 'num'], style: 'class', roles: ['design'], pay: [31000, 61000], url: NCS + 'energy-engineer',
       routes: [{ k: 'Degree', v: 'Energy engineering, environmental engineering, or renewable or sustainable energy' }, { k: 'Entry', v: 'Usually 2 or 3 A levels, including maths and a science' }] },
     { id: 'electronics', name: 'Electronics engineer', what: 'Designs and tests circuits and electronic systems. In clean energy, that means the electronics inside chargers, batteries and solar power systems.', interests: ['tech', 'sci', 'num'], style: 'both', roles: ['design'], pay: [28000, 60000], url: NCS + 'electronics-engineer',
       routes: [{ k: 'Degree', v: 'Electronic engineering, or electronic and electrical engineering' }, { k: 'Degree apprenticeship', v: 'Embedded Electronic Systems Design and Development Engineer (level 6)' }, { k: 'Work', v: 'Start as an electronics engineering technician and train on the job' }] },
-    { id: 'data', name: 'Energy data scientist', alt: 'Official job profile: data scientist', what: 'Uses data and computer models to spot patterns. In energy, this helps predict how much power people will need, and the best time to charge electric cars.', interests: ['num', 'tech'], style: 'both', roles: ['data'], pay: [32000, 83000], url: NCS + 'data-scientist',
+    { id: 'data', name: 'Energy data scientist', day: 'tidying a big set of energy data, writing code to find patterns, and making charts to explain what you found.', skills: ['Coding', 'Statistics', 'Explaining results clearly'], alt: 'Official job profile: data scientist', what: 'Uses data and computer models to spot patterns. In energy, this helps predict how much power people will need, and the best time to charge electric cars.', interests: ['num', 'tech'], style: 'both', roles: ['data'], pay: [32000, 83000], url: NCS + 'data-scientist',
       routes: [{ k: 'Degree', v: 'Maths, statistics, data science or computer science' }, { k: 'Apprenticeship', v: 'Data Engineer (level 5)' }, { k: 'Degree apprenticeship', v: 'Data Scientist (level 6)' }] },
-    { id: 'sustain', name: 'Sustainability practitioner', alt: 'Official job profile: corporate responsibility and sustainability practitioner', what: 'Helps a business or council do less harm to the environment. Makes a plan, gets people on board and checks how it is going.', interests: ['planet', 'biz', 'people'], style: 'class', roles: ['advise'], pay: [24000, 50000], url: NCS + 'corporate-responsibility-and-sustainability-practitioner',
+    { id: 'sustain', name: 'Sustainability practitioner', day: 'measuring how much energy an organisation uses, running a meeting about a new plan, and writing a progress report.', skills: ['Persuading people', 'Planning', 'Working with numbers'], alt: 'Official job profile: corporate responsibility and sustainability practitioner', what: 'Helps a business or council do less harm to the environment. Makes a plan, gets people on board and checks how it is going.', interests: ['planet', 'biz', 'people'], style: 'class', roles: ['advise'], pay: [24000, 50000], url: NCS + 'corporate-responsibility-and-sustainability-practitioner',
       routes: [{ k: 'Degree', v: 'Environment and sustainability, energy and engineering, economics, or business management' }, { k: 'Apprenticeship', v: 'Corporate Responsibility and Sustainability Practitioner (level 4)' }, { k: 'Degree apprenticeship', v: 'Sustainability Business Specialist (level 7)' }] },
-    { id: 'plumber', name: 'Plumber', what: 'Fits and fixes water pipes, heating and drains in homes and businesses. This includes heat pumps and solar hot water.', interests: ['make', 'people', 'biz'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'plumber',
+    { id: 'plumber', name: 'Plumber', day: 'fixing a leak, fitting a new radiator, and connecting a heat pump or solar hot water tank to a home’s pipes.', skills: ['Practical problem solving', 'Working safely', 'Customer care'], what: 'Fits and fixes water pipes, heating and drains in homes and businesses. This includes heat pumps and solar hot water.', interests: ['make', 'people', 'biz'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'plumber',
       routes: [{ k: 'Apprenticeship', v: 'Plumbing and Domestic Heating Technician (level 3)' }, { k: 'Apprenticeship', v: 'Low Carbon Heating Technician (level 3)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'refrig', name: 'Refrigeration and air-conditioning installer', what: 'Fits, checks and fixes cooling and air conditioning in buildings, cold stores and fridge lorries. The main apprenticeship also covers heat pumps.', interests: ['make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 45000], url: NCS + 'refrigeration-and-air-conditioning-installer',
+    { id: 'refrig', name: 'Refrigeration and air-conditioning installer', day: 'servicing the cooling in a supermarket, fitting air conditioning in an office, and testing a heat pump for leaks.', skills: ['Handling refrigerants safely', 'Electrical skills', 'Finding faults'], what: 'Fits, checks and fixes cooling and air conditioning in buildings, cold stores and fridge lorries. The main apprenticeship also covers heat pumps.', interests: ['make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 45000], url: NCS + 'refrigeration-and-air-conditioning-installer',
       routes: [{ k: 'Apprenticeship', v: 'Refrigeration, Air Conditioning and Heat Pump Engineering (level 3)' }, { k: 'Apprenticeship', v: 'Building Services Engineering Installer (level 2)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'buildserv', name: 'Building services engineer', what: 'Plans the heating, lighting, power and fresh air in big buildings like offices and hospitals, and the controls that run them.', interests: ['sci', 'num', 'make', 'planet'], style: 'both', roles: ['design', 'repair'], pay: [28000, 51000], url: NCS + 'building-services-engineer',
+    { id: 'buildserv', name: 'Building services engineer', day: 'designing the heating and ventilation for a new school, checking plans with architects, and visiting the building site.', skills: ['Maths and physics', 'Design software', 'Teamwork'], what: 'Plans the heating, lighting, power and fresh air in big buildings like offices and hospitals, and the controls that run them.', interests: ['sci', 'num', 'make', 'planet'], style: 'both', roles: ['design', 'repair'], pay: [28000, 51000], url: NCS + 'building-services-engineer',
       routes: [{ k: 'Apprenticeship', v: 'Building Services Engineering Technician (level 3)' }, { k: 'Apprenticeship', v: 'Building Energy Management Systems Controls Engineer (level 4)' }, { k: 'Degree apprenticeship', v: 'Building Services Design Engineer (level 6)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'smartmeter', name: 'Smart meter installer', what: 'Fits smart gas and electricity meters in homes and businesses. Checks they are safe and shows people how to use them to save energy.', interests: ['make', 'people', 'tech'], style: 'hands', roles: ['install', 'advise'], pay: [24000, 38000], url: NCS + 'smart-meter-installer',
+    { id: 'smartmeter', name: 'Smart meter installer', day: 'visiting several homes, swapping old meters for smart ones, and showing each family how to read their in-home display.', skills: ['Working safely with gas and electricity', 'Being friendly and clear', 'Organising your day'], what: 'Fits smart gas and electricity meters in homes and businesses. Checks they are safe and shows people how to use them to save energy.', interests: ['make', 'people', 'tech'], style: 'hands', roles: ['install', 'advise'], pay: [24000, 38000], url: NCS + 'smart-meter-installer',
       routes: [{ k: 'Apprenticeship', v: 'Dual Fuel Smart Meter Installer (level 2)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }, { k: 'College', v: 'Electrical installation courses' }] },
-    { id: 'smarthome', name: 'Smart home installer', what: 'Plans, fits and sets up smart lighting, heating, security and TV systems in homes, so they all work together.', interests: ['tech', 'make', 'people'], style: 'hands', roles: ['install', 'design'], pay: [24000, 55000], url: NCS + 'smart-home-installer',
+    { id: 'smarthome', name: 'Smart home installer', day: 'installing smart heating controls, setting up lights and speakers to work together, and fixing a Wi-Fi problem.', skills: ['Technology and networks', 'Wiring', 'Explaining technology simply'], what: 'Plans, fits and sets up smart lighting, heating, security and TV systems in homes, so they all work together.', interests: ['tech', 'make', 'people'], style: 'hands', roles: ['install', 'design'], pay: [24000, 55000], url: NCS + 'smart-home-installer',
       routes: [{ k: 'Apprenticeship', v: 'Smart Home Technician (level 3)' }, { k: 'Apprenticeship', v: 'Electrical, Electronic Product Service and Installation Engineer (level 3)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'insulation', name: 'Cavity insulation installer', what: 'Fits insulation in walls, lofts and ceilings, including in older homes, so buildings stay warm using less energy.', interests: ['make', 'planet'], style: 'hands', roles: ['install'], pay: [24000, 40000], url: NCS + 'cavity-insulation-installer',
+    { id: 'insulation', name: 'Cavity insulation installer', day: 'laying insulation in a loft, filling the gap inside a cavity wall, and checking air can still flow so the home does not get damp.', skills: ['Practical skills', 'Working carefully and tidily', 'Teamwork'], what: 'Fits insulation in walls, lofts and ceilings, including in older homes, so buildings stay warm using less energy.', interests: ['make', 'planet'], style: 'hands', roles: ['install'], pay: [24000, 40000], url: NCS + 'cavity-insulation-installer',
       routes: [{ k: 'Apprenticeship', v: 'Insulation Installation Operative (level 2)' }, { k: 'Apprenticeship', v: 'Industrial Thermal Insulation Technician (level 3)' }, { k: 'College', v: 'Construction and building crafts courses' }] },
-    { id: 'eltech', name: 'Electrical engineering technician', what: 'Fits, tests and fixes electrical equipment and control systems, including in wind turbines and heat pumps.', interests: ['tech', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 48000], url: NCS + 'electrical-engineering-technician',
+    { id: 'eltech', name: 'Electrical engineering technician', day: 'testing a control panel, repairing a motor, and checking the electrics inside a wind turbine or heat pump.', skills: ['Electrical testing', 'Reading diagrams', 'Problem solving'], what: 'Fits, tests and fixes electrical equipment and control systems, including in wind turbines and heat pumps.', interests: ['tech', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 48000], url: NCS + 'electrical-engineering-technician',
       routes: [{ k: 'Apprenticeship', v: 'Engineering Technician (level 3)' }, { k: 'Apprenticeship', v: 'Power Industry Substation Fitter (level 3)' }, { k: 'T Level', v: 'Engineering, Manufacturing, Processing and Control' }] },
-    { id: 'maint', name: 'Engineering maintenance technician', what: 'Keeps machines and equipment running. Checks them often, finds faults and fixes them.', interests: ['make', 'tech', 'sci'], style: 'hands', roles: ['repair'], pay: [27000, 48000], url: NCS + 'engineering-maintenance-technician',
+    { id: 'maint', name: 'Engineering maintenance technician', day: 'a planned service of a machine, tracking down a sudden fault, and ordering the parts to fix it.', skills: ['Mechanical and electrical skills', 'Finding faults', 'Working under pressure'], what: 'Keeps machines and equipment running. Checks them often, finds faults and fixes them.', interests: ['make', 'tech', 'sci'], style: 'hands', roles: ['repair'], pay: [27000, 48000], url: NCS + 'engineering-maintenance-technician',
       routes: [{ k: 'Apprenticeship', v: 'Engineering Maintenance Technician (level 3)' }, { k: 'Apprenticeship', v: 'Mechatronics Maintenance Technician (level 3)' }, { k: 'T Level', v: 'Maintenance, Installation and Repair for Engineering and Manufacturing' }] }
   ];
 
@@ -1164,6 +1180,23 @@ textarea.field{min-height:12em;resize:vertical}
   var KEY = 'gcse-clean-energy-roadmap-v1';
   var PDFLIB_URL = 'vendor/pdf-lib-1.17.1.min.js';   // pdf-lib 1.17.1 (MIT licence), served from this site
   var PROFILE_URL = 'https://www.salford.ac.uk/our-staff/vahid-vahidinasab';
+  // Real stories from people in these jobs, shared with their permission, appear on the matching job card.
+  // Add one per job, for example:
+  // { job: 'heatpump', quote: 'What they enjoy about the job, in their own words.', name: 'First name', detail: 'Apprentice heat pump engineer, age 19, Salford' }
+  var STORIES = [];
+  // Adding ?sample-stories to the address shows how a story looks, with a clear sample label. It never shows otherwise.
+  var SAMPLE_STORIES = /[?&]sample-stories\b/.test(location.search) ? [
+    { job: 'heatpump', quote: 'I liked science but wanted to work with my hands. Now I fit heat pumps and spend one day a week at college.', name: 'Sample name', detail: 'Apprentice heat pump engineer, age 19' },
+    { job: 'solar', quote: 'Every roof is different, so no two days are the same. I like seeing a family\u2019s first sunny-day reading.', name: 'Sample name', detail: 'Solar panel installer, age 23' },
+    { job: 'electronics', quote: 'I design the circuit boards inside car chargers. Maths and physics at school were the start.', name: 'Sample name', detail: 'Electronics engineer, age 27' }
+  ] : [];
+  function storyHtml(jobId) {
+    var s = STORIES.filter(function (x) { return x.job === jobId; })[0], sample = false;
+    if (!s) { s = SAMPLE_STORIES.filter(function (x) { return x.job === jobId; })[0]; sample = !!s; }
+    if (!s) return '';
+    return '<figure class="story">' + (sample ? '<span class="story-sample">Sample layout, not a real person</span>' : '') + '<blockquote>\u201C' + esc(s.quote) + '\u201D</blockquote><figcaption>' + esc(s.name) + ', ' + esc(s.detail) + '</figcaption></figure>';
+  }
+
   var EXAMPLE_WHO = 'It shows the roadmap for a Year 9 pupil who enjoys making and fixing things, cares about nature and the climate, takes geography and D&T, and learns best hands-on.';
 
   function $(sel) { return document.querySelector(sel); }
@@ -1481,6 +1514,9 @@ textarea.field{min-height:12em;resize:vertical}
       '<p class="pay"><strong>' + money(j.pay[0]) + ' to ' + money(j.pay[1]) + '</strong> a year<span class="pay-note">From starting pay to experienced</span></p>' +
       '<p class="job-what">' + esc(j.what) + '</p>' +
       (why ? '<p class="label lbl">Why it fits</p><div class="tags">' + why + '</div>' : '') +
+      (j.day ? '<p class="job-day"><span class="day-l">A day might include</span> ' + esc(j.day) + '</p>' : '') +
+      (j.skills ? '<p class="label lbl">Skills you use</p><div class="tags">' + j.skills.map(function (s) { return '<span class="tag tag-skill">' + esc(s) + '</span>'; }).join('') + '</div>' : '') +
+      storyHtml(j.id) +
       (tl ? '<p class="label lbl">GCSE topics it uses</p><ul class="tmini">' + tl + '</ul>' : '') +
       '<p class="label lbl">Ways in</p><ul class="routes">' + j.routes.map(function (x) { return '<li><span class="rk">' + esc(x.k) + ':</span> ' + esc(x.v) + '</li>'; }).join('') + '</ul>' +
       wordsBox(wordsIn(routeText(j))) +
@@ -1511,7 +1547,7 @@ textarea.field{min-height:12em;resize:vertical}
     var qs = t.q.map(function (q) { return '<span class="q">“' + esc(q) + '”</span>'; }).join('');
     return '<li class="topic"><h4 class="topic-t">' + esc(t.t) + (t.triple ? '<span class="badge-s">Separate ' + t.triple + ' only</span>' : '') + '</h4>' +
       '<p class="topic-use">' + esc(t.use) + '</p>' +
-      '<div class="topic-q"><span class="ql">The course says</span>' + qs + '</div>' +
+      '<details class="topic-q"><summary>What the course says (official wording)</summary>' + qs + '</details>' +
       (t.note ? '<p class="topic-note">' + esc(t.note) + '</p>' : '') +
       '<p class="topic-jobs"><span class="ql">Used by</span>' + t.jobs.filter(function (id) { return JOB[id]; }).map(function (id) { return '<span class="tag">' + esc(JOB[id].name) + '</span>'; }).join('') + '</p></li>';
   }
@@ -1519,7 +1555,7 @@ textarea.field{min-height:12em;resize:vertical}
     var subs = chosenSubjects();
     var order = subs.filter(function (s) { return !SUBJ[s].core; }).concat(subs.filter(function (s) { return SUBJ[s].core; }));
     var openTabs = {};
-    $all('#topics details').forEach(function (d) { openTabs[d.getAttribute('data-id')] = d.open; });
+    $all('#topics details.subj').forEach(function (d) { openTabs[d.getAttribute('data-id')] = d.open; });
     var hadAny = Object.keys(openTabs).length > 0;
     $('#topics').innerHTML = order.map(function (s, i) {
       var list = TOPICS.filter(function (t) { return t.s === s && (!t.triple || state.sci === 'separate'); });
@@ -1964,7 +2000,9 @@ textarea.field{min-height:12em;resize:vertical}
         if (j.roles && j.roles.length) rows.push(row(j.roles.map(function (k) { return { t: ROLES[k] + (k === j.roles[j.roles.length - 1] ? '' : ' ·'), f: F.bold, c: k === 'repair' ? C.green : C.muted }; }), { size: 8, width: w, after: 4 }));
         rows.push(row([{ t: money(j.pay[0]) + ' to ' + money(j.pay[1]), f: F.bold, c: C.ink }, { t: 'a year' }], { size: 10, width: w, after: 0 }));
         rows.push(row('From starting pay to experienced', { size: 8, color: C.muted, width: w, after: 4 }));
-        rows.push(row(j.what, { size: 9, width: w, after: 7 }));
+        rows.push(row(j.what, { size: 9, width: w, after: 5 }));
+        if (j.day) rows.push(row([{ t: 'A day might include', f: F.bold }, { t: j.day }], { size: 8.5, width: w, after: 5 }));
+        if (j.skills) rows.push(row([{ t: 'Skills you use:', f: F.bold }, { t: j.skills.join(DOT) }], { size: 8.5, width: w, after: 7 }));
         if (r.im.length) {
           rows.push(label('Why it fits', { width: w }));
           rows.push(row(r.im.map(function (id) { return INT[id].label; }).join(DOT), { size: 9, width: w, after: 7 }));
