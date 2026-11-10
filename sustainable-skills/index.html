@@ -336,6 +336,14 @@ textarea.field{min-height:12em;resize:vertical}
 .tmini,.routes{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:14.5px}
 .tsub,.rk{font-weight:700;color:var(--ink)}
 .job .ext{margin-top:auto;padding-top:6px;font-size:14.5px;font-weight:700}
+.pay-note{display:block;font-size:13.5px;color:var(--muted)}
+.words{border-top:1px dashed var(--line);padding-top:8px}
+.words summary{cursor:pointer;width:max-content;max-width:100%;font-size:14px;font-weight:700;color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.2em}
+.words dl{margin:8px 0 0;display:grid;gap:8px;font-size:14px}
+.words dt,.words-list dt{font-weight:700;color:var(--ink)}
+.words dd,.words-list dd{margin:0}
+.words-list{margin:10px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:12px 24px;font-size:15px}
+.ml-note{padding:0 16px 4px;font-size:14px;color:var(--muted)}
 .more{margin-top:14px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
 .more summary{cursor:pointer;padding:12px 16px;font-weight:700;color:var(--ink)}
 .more-list{list-style:none;margin:0;padding:0 16px 12px;display:grid;gap:8px}
@@ -703,11 +711,11 @@ textarea.field{min-height:12em;resize:vertical}
 
     <aside class="advice" aria-labelledby="advice-h">
       <p class="advice-h" id="advice-h">A guide, not advice</p>
-      <p>This roadmap is based on information available in October 2026, and courses, entry requirements and pay can change. It cannot take account of your own circumstances, so talk to your school or college careers adviser, or an official careers service, before making choices.</p>
+      <p>This roadmap uses information from October 2026. Courses, entry grades and pay can change, and it does not know your own situation. So talk to your school or college careers adviser, or an official careers service, before you choose.</p>
       <p class="advice-links"><a href="https://nationalcareers.service.gov.uk/" target="_blank" rel="noopener">Careers information for England</a><a href="#advice">All official careers services</a></p>
     </aside>
 
-    <nav class="jump" aria-label="Roadmap sections"><span class="label">Jump to</span><a href="#jobs-h">Jobs</a><a href="#tl-h">Timeline</a><a href="#topics-h">GCSE topics</a><a href="#next-h">Next steps</a><a href="#gtk-h">Good to know</a></nav>
+    <nav class="jump" aria-label="Roadmap sections"><span class="label">Jump to</span><a href="#jobs-h">Jobs</a><a href="#tl-h">Timeline</a><a href="#topics-h">GCSE topics</a><a href="#next-h">Next steps</a><a href="#gtk-h">Good to know</a><a href="#words-h">Words explained</a></nav>
 
     <div class="card">
       <h3>How your subjects connect to jobs</h3>
@@ -725,6 +733,7 @@ textarea.field{min-height:12em;resize:vertical}
       <div class="jobs" id="jobs"></div>
       <details class="more">
         <summary id="more-sum">More sustainable energy jobs to explore</summary>
+        <p class="ml-note">Pay is for a year, from starting pay to experienced.</p>
         <ul class="more-list" id="more-list"></ul>
       </details>
     </section>
@@ -756,12 +765,18 @@ textarea.field{min-height:12em;resize:vertical}
     <section class="block" aria-labelledby="gtk-h">
       <h3 id="gtk-h">Good to know</h3>
       <ul class="slash" id="gtk-list">
-        <li>In England you must stay in education or training until 18: at college or sixth form, in an apprenticeship, or working or volunteering 20 hours or more a week alongside part-time study. <a href="https://www.gov.uk/know-when-you-can-leave-school" target="_blank" rel="noopener">School leaving age</a></li>
+        <li>In England you must stay in education or training until you are 18. That can be college, sixth form, an apprenticeship, or work or volunteering (20 hours or more a week) with part-time study. <a href="https://www.gov.uk/know-when-you-can-leave-school" target="_blank" rel="noopener">School leaving age</a></li>
         <li>If you finish Year 11 without at least a grade 4 in English or maths, you keep studying it after 16. <a href="https://www.gov.uk/government/publications/16-to-19-funding-maths-and-english-condition-of-funding/2025-to-2026-academic-year-16-to-19-funding-maths-and-english-condition-of-funding" target="_blank" rel="noopener">Maths and English rules</a></li>
         <li>T Levels are two-year courses that include at least 45 days working with an employer. <a href="https://www.gov.uk/government/publications/16-to-19-study-programmes-guide-for-providers/16-to-19-study-programmes-guidance-2026-to-2027-academic-year" target="_blank" rel="noopener">16 to 19 study programmes</a></li>
         <li>V Levels start in September 2027. Each is the size of one A level, so you can mix them with A levels. The first are in digital, education and early years, and finance and accounting. <a href="https://educationhub.blog.gov.uk/2026/03/new-v-levels-and-post-16-qualifications-explained/" target="_blank" rel="noopener">V Levels explained</a></li>
-        <li>Vocational GCSEs are planned in some subjects from as early as September 2029, and will replace today's technical awards. <a href="https://www.gov.uk/government/news/new-vocational-gcses-unveiled-in-major-shake-up-to-hands-on-learning-for-teens" target="_blank" rel="noopener">Department for Education announcement</a></li>
+        <li>New vocational GCSEs, about practical skills for work, are planned in some subjects from as early as September 2029. They will replace today's technical awards. <a href="https://www.gov.uk/government/news/new-vocational-gcses-unveiled-in-major-shake-up-to-hands-on-learning-for-teens" target="_blank" rel="noopener">Department for Education announcement</a></li>
       </ul>
+    </section>
+
+    <section class="block" aria-labelledby="words-h">
+      <h3 id="words-h">Words explained</h3>
+      <p class="small muted">What the words in this roadmap mean.</p>
+      <dl class="words-list" id="words-list"></dl>
     </section>
   </section>
 </div>
@@ -940,47 +955,73 @@ textarea.field{min-height:12em;resize:vertical}
   // (nationalcareers.service.gov.uk, renamed "Get careers information and advice" in October 2026), checked October 2026.
   var NCS = 'https://nationalcareers.service.gov.uk/job-profiles/';
   var JOBS = [
-    { id: 'electrician', name: 'Electrician', what: 'Installs power, lighting and renewable technologies in buildings, including solar panels and electric vehicle charging points.', interests: ['make', 'tech', 'biz', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [26000, 45000], url: NCS + 'electrician',
+    { id: 'electrician', name: 'Electrician', what: 'Fits and fixes the wiring, sockets and lights in homes and other buildings. Many also fit solar panels and car chargers.', interests: ['make', 'tech', 'biz', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [26000, 45000], url: NCS + 'electrician',
       routes: [{ k: 'T Level', v: 'Building Services Engineering for Construction (electrotechnical engineering)' }, { k: 'Apprenticeship', v: 'Installation and Maintenance Electrician (level 3)' }, { k: 'Apprenticeship', v: 'Domestic Electrician (level 3)' }] },
-    { id: 'solar', name: 'Solar panel installer', what: 'Surveys roofs, fixes the mounting system and installs solar panels, working with electricians to connect battery storage.', interests: ['make', 'out', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'solar-panel-installer',
+    { id: 'solar', name: 'Solar panel installer', what: 'Checks roofs and fits solar panels on them. Works with electricians to connect home batteries.', interests: ['make', 'out', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'solar-panel-installer',
       routes: [{ k: 'Apprenticeship', v: 'Building Services Engineering foundation apprenticeship (level 2), open to 16 to 21-year-olds with no set qualifications' }, { k: 'Apprenticeship', v: 'Installation and Maintenance Electrician (level 3)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'heatpump', name: 'Heat pump engineer', what: 'Installs, services and repairs low carbon heating and hot water systems, and shows customers how to use them.', interests: ['make', 'planet', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'heat-pump-engineer',
+    { id: 'heatpump', name: 'Heat pump engineer', what: 'Fits, checks and fixes heat pumps and other low carbon heating. Shows people how to use their new heating.', interests: ['make', 'planet', 'people'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'heat-pump-engineer',
       routes: [{ k: 'T Level', v: 'Building Services Engineering for Construction, which added a low carbon heating option from September 2026' }, { k: 'Apprenticeship', v: 'Low Carbon Heating Technician (level 3)' }, { k: 'Apprenticeship', v: 'Building Services Engineering foundation apprenticeship (level 2)' }] },
-    { id: 'evtech', name: 'Electric vehicle technician', alt: 'Listed as motor mechanic in the official job profiles', what: 'Finds and fixes faults in vehicles, including working with the high-voltage batteries in hybrid and electric cars.', interests: ['make', 'tech'], style: 'hands', roles: ['repair'], pay: [22000, 42000], url: NCS + 'motor-mechanic',
+    { id: 'evtech', name: 'Electric vehicle technician', alt: 'Official job profile: motor mechanic', what: 'Finds and fixes faults in cars and vans, including the high-voltage batteries in hybrid and electric cars.', interests: ['make', 'tech'], style: 'hands', roles: ['repair'], pay: [22000, 42000], url: NCS + 'motor-mechanic',
       routes: [{ k: 'Apprenticeship', v: 'Motor Vehicle Service and Maintenance Technician, light vehicle (level 3)' }, { k: 'T Level', v: 'Maintenance, Installation and Repair for Engineering and Manufacturing' }, { k: 'College', v: 'Light vehicle courses, some with hybrid and electric options' }] },
-    { id: 'wind', name: 'Wind turbine technician', what: 'Installs and maintains wind turbines on land or at sea, testing the blades and control systems. Often outdoors and at height.', interests: ['out', 'make', 'sci', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'wind-turbine-technician',
+    { id: 'wind', name: 'Wind turbine technician', what: 'Builds, checks and fixes wind turbines on land or out at sea. Often works outdoors and high up.', interests: ['out', 'make', 'sci', 'planet'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 47000], url: NCS + 'wind-turbine-technician',
       routes: [{ k: 'Apprenticeship', v: 'Engineering Maintenance Technician, or Maintenance Operations Engineering Technician (level 3)' }, { k: 'T Level', v: 'Maintenance, Installation and Repair for Engineering and Manufacturing' }, { k: 'Degree', v: 'Foundation degree, HND or degree in renewable energy, electrical or mechanical engineering' }] },
-    { id: 'grid', name: 'Electricity network worker', alt: 'Listed as electricity distribution worker in the official job profiles', what: 'Builds and maintains power lines, underground cables and substations, and connects new equipment to the network.', interests: ['out', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [23000, 42000], url: NCS + 'electricity-distribution-worker',
+    { id: 'grid', name: 'Electricity network worker', alt: 'Official job profile: electricity distribution worker', what: 'Builds and looks after power lines, underground cables and substations. Connects new things, like solar panels, to the grid.', interests: ['out', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [23000, 42000], url: NCS + 'electricity-distribution-worker',
       routes: [{ k: 'Apprenticeship', v: 'Power Industry Overhead Linesperson, Substation Fitter or Distribution Cable Jointer (level 3)' }, { k: 'Apprenticeship', v: 'Electrical Power Networks Engineer (level 4)' }, { k: 'College', v: 'Engineering or electrical engineering courses' }] },
-    { id: 'assessor', name: 'Domestic energy assessor', what: 'Visits homes to record things like insulation, heating and lighting, then works out the energy rating for an Energy Performance Certificate.', interests: ['people', 'planet', 'num', 'biz'], style: 'hands', roles: ['advise'], pay: [24000, 35000], url: NCS + 'domestic-energy-assessor',
+    { id: 'assessor', name: 'Domestic energy assessor', what: 'Visits homes to check the insulation, heating and lighting. Then gives the home an energy rating from A to G.', interests: ['people', 'planet', 'num', 'biz'], style: 'hands', roles: ['advise'], pay: [24000, 35000], url: NCS + 'domestic-energy-assessor',
       routes: [{ k: 'Qualification', v: 'Level 3 Certificate in Domestic Energy Assessment, then joining an approved accreditation scheme' }, { k: 'Experience', v: 'Work in surveying or construction can shorten the training' }] },
-    { id: 'renew', name: 'Renewable energy engineer', what: 'Designs and improves renewable energy projects, from checking whether a site suits a wind or solar farm to making solar panels and batteries more efficient.', interests: ['sci', 'planet', 'num'], style: 'class', roles: ['design'], pay: [31000, 61000], url: NCS + 'energy-engineer',
+    { id: 'renew', name: 'Renewable energy engineer', what: 'Plans and designs wind, solar and other clean energy projects. Might check if a place suits a wind farm, or make solar panels work better.', interests: ['sci', 'planet', 'num'], style: 'class', roles: ['design'], pay: [31000, 61000], url: NCS + 'energy-engineer',
       routes: [{ k: 'Degree', v: 'Energy engineering, environmental engineering, or renewable or sustainable energy' }, { k: 'Entry', v: 'Usually 2 or 3 A levels, including maths and a science' }] },
-    { id: 'electronics', name: 'Electronics engineer', what: 'Researches, designs and tests electronic systems and circuits. In clean energy, that includes the electronics in chargers, batteries and solar systems.', interests: ['tech', 'sci', 'num'], style: 'both', roles: ['design'], pay: [28000, 60000], url: NCS + 'electronics-engineer',
+    { id: 'electronics', name: 'Electronics engineer', what: 'Designs and tests circuits and electronic systems. In clean energy, that means the electronics inside chargers, batteries and solar power systems.', interests: ['tech', 'sci', 'num'], style: 'both', roles: ['design'], pay: [28000, 60000], url: NCS + 'electronics-engineer',
       routes: [{ k: 'Degree', v: 'Electronic engineering, or electronic and electrical engineering' }, { k: 'Degree apprenticeship', v: 'Embedded Electronic Systems Design and Development Engineer (level 6)' }, { k: 'Work', v: 'Start as an electronics engineering technician and train on the job' }] },
-    { id: 'data', name: 'Energy data scientist', alt: 'Listed as data scientist in the official job profiles', what: 'Gathers data to build models and spot patterns. In energy, these skills help forecast demand and plan when to charge electric cars.', interests: ['num', 'tech'], style: 'both', roles: ['data'], pay: [32000, 83000], url: NCS + 'data-scientist',
+    { id: 'data', name: 'Energy data scientist', alt: 'Official job profile: data scientist', what: 'Uses data and computer models to spot patterns. In energy, this helps predict how much power people will need, and the best time to charge electric cars.', interests: ['num', 'tech'], style: 'both', roles: ['data'], pay: [32000, 83000], url: NCS + 'data-scientist',
       routes: [{ k: 'Degree', v: 'Maths, statistics, data science or computer science' }, { k: 'Apprenticeship', v: 'Data Engineer (level 5)' }, { k: 'Degree apprenticeship', v: 'Data Scientist (level 6)' }] },
-    { id: 'sustain', name: 'Sustainability practitioner', alt: 'Listed as corporate responsibility and sustainability practitioner in the official job profiles', what: 'Plans how an organisation can cut its environmental impact, wins support from colleagues and partners, and tracks progress.', interests: ['planet', 'biz', 'people'], style: 'class', roles: ['advise'], pay: [24000, 50000], url: NCS + 'corporate-responsibility-and-sustainability-practitioner',
+    { id: 'sustain', name: 'Sustainability practitioner', alt: 'Official job profile: corporate responsibility and sustainability practitioner', what: 'Helps a business or council do less harm to the environment. Makes a plan, gets people on board and checks how it is going.', interests: ['planet', 'biz', 'people'], style: 'class', roles: ['advise'], pay: [24000, 50000], url: NCS + 'corporate-responsibility-and-sustainability-practitioner',
       routes: [{ k: 'Degree', v: 'Environment and sustainability, energy and engineering, economics, or business management' }, { k: 'Apprenticeship', v: 'Corporate Responsibility and Sustainability Practitioner (level 4)' }, { k: 'Degree apprenticeship', v: 'Sustainability Business Specialist (level 7)' }] },
-    { id: 'plumber', name: 'Plumber', what: 'Installs and repairs water, heating and drainage systems in homes and businesses, including heat pumps and solar hot water systems.', interests: ['make', 'people', 'biz'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'plumber',
+    { id: 'plumber', name: 'Plumber', what: 'Fits and fixes water pipes, heating and drains in homes and businesses. This includes heat pumps and solar hot water.', interests: ['make', 'people', 'biz'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 46000], url: NCS + 'plumber',
       routes: [{ k: 'Apprenticeship', v: 'Plumbing and Domestic Heating Technician (level 3)' }, { k: 'Apprenticeship', v: 'Low Carbon Heating Technician (level 3)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'refrig', name: 'Refrigeration and air-conditioning installer', what: 'Fits, services and repairs cooling and air-conditioning systems in buildings, cold stores and refrigerated vehicles. The main apprenticeship also covers heat pumps.', interests: ['make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 45000], url: NCS + 'refrigeration-and-air-conditioning-installer',
+    { id: 'refrig', name: 'Refrigeration and air-conditioning installer', what: 'Fits, checks and fixes cooling and air conditioning in buildings, cold stores and fridge lorries. The main apprenticeship also covers heat pumps.', interests: ['make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [25000, 45000], url: NCS + 'refrigeration-and-air-conditioning-installer',
       routes: [{ k: 'Apprenticeship', v: 'Refrigeration, Air Conditioning and Heat Pump Engineering (level 3)' }, { k: 'Apprenticeship', v: 'Building Services Engineering Installer (level 2)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'buildserv', name: 'Building services engineer', what: 'Plans and oversees the heating, lighting, power and ventilation in large buildings such as offices and hospitals, including the controls that run them.', interests: ['sci', 'num', 'make', 'planet'], style: 'both', roles: ['design', 'repair'], pay: [28000, 51000], url: NCS + 'building-services-engineer',
+    { id: 'buildserv', name: 'Building services engineer', what: 'Plans the heating, lighting, power and fresh air in big buildings like offices and hospitals, and the controls that run them.', interests: ['sci', 'num', 'make', 'planet'], style: 'both', roles: ['design', 'repair'], pay: [28000, 51000], url: NCS + 'building-services-engineer',
       routes: [{ k: 'Apprenticeship', v: 'Building Services Engineering Technician (level 3)' }, { k: 'Apprenticeship', v: 'Building Energy Management Systems Controls Engineer (level 4)' }, { k: 'Degree apprenticeship', v: 'Building Services Design Engineer (level 6)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'smartmeter', name: 'Smart meter installer', what: 'Visits homes and businesses to fit smart gas and electricity meters, checks they are safe, and shows people how to use them to save energy.', interests: ['make', 'people', 'tech'], style: 'hands', roles: ['install', 'advise'], pay: [24000, 38000], url: NCS + 'smart-meter-installer',
+    { id: 'smartmeter', name: 'Smart meter installer', what: 'Fits smart gas and electricity meters in homes and businesses. Checks they are safe and shows people how to use them to save energy.', interests: ['make', 'people', 'tech'], style: 'hands', roles: ['install', 'advise'], pay: [24000, 38000], url: NCS + 'smart-meter-installer',
       routes: [{ k: 'Apprenticeship', v: 'Dual Fuel Smart Meter Installer (level 2)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }, { k: 'College', v: 'Electrical installation courses' }] },
-    { id: 'smarthome', name: 'Smart home installer', what: 'Designs, installs and sets up connected lighting, heating, security and entertainment systems in homes, and calibrates the controls.', interests: ['tech', 'make', 'people'], style: 'hands', roles: ['install', 'design'], pay: [24000, 55000], url: NCS + 'smart-home-installer',
+    { id: 'smarthome', name: 'Smart home installer', what: 'Plans, fits and sets up smart lighting, heating, security and TV systems in homes, so they all work together.', interests: ['tech', 'make', 'people'], style: 'hands', roles: ['install', 'design'], pay: [24000, 55000], url: NCS + 'smart-home-installer',
       routes: [{ k: 'Apprenticeship', v: 'Smart Home Technician (level 3)' }, { k: 'Apprenticeship', v: 'Electrical, Electronic Product Service and Installation Engineer (level 3)' }, { k: 'T Level', v: 'Building Services Engineering for Construction' }] },
-    { id: 'insulation', name: 'Cavity insulation installer', what: 'Fits insulation into the walls, lofts and ceilings of homes and other buildings, including upgrading insulation in older homes.', interests: ['make', 'planet'], style: 'hands', roles: ['install'], pay: [24000, 40000], url: NCS + 'cavity-insulation-installer',
+    { id: 'insulation', name: 'Cavity insulation installer', what: 'Fits insulation in walls, lofts and ceilings, including in older homes, so buildings stay warm using less energy.', interests: ['make', 'planet'], style: 'hands', roles: ['install'], pay: [24000, 40000], url: NCS + 'cavity-insulation-installer',
       routes: [{ k: 'Apprenticeship', v: 'Insulation Installation Operative (level 2)' }, { k: 'Apprenticeship', v: 'Industrial Thermal Insulation Technician (level 3)' }, { k: 'College', v: 'Construction and building crafts courses' }] },
-    { id: 'eltech', name: 'Electrical engineering technician', what: 'Installs, tests and repairs electrical equipment and control systems, including renewable technologies such as wind turbines and heat pumps.', interests: ['tech', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 48000], url: NCS + 'electrical-engineering-technician',
+    { id: 'eltech', name: 'Electrical engineering technician', what: 'Fits, tests and fixes electrical equipment and control systems, including in wind turbines and heat pumps.', interests: ['tech', 'make', 'sci'], style: 'hands', roles: ['install', 'repair'], pay: [24000, 48000], url: NCS + 'electrical-engineering-technician',
       routes: [{ k: 'Apprenticeship', v: 'Engineering Technician (level 3)' }, { k: 'Apprenticeship', v: 'Power Industry Substation Fitter (level 3)' }, { k: 'T Level', v: 'Engineering, Manufacturing, Processing and Control' }] },
-    { id: 'maint', name: 'Engineering maintenance technician', what: 'Keeps machines and equipment running by servicing them, finding faults and fixing them.', interests: ['make', 'tech', 'sci'], style: 'hands', roles: ['repair'], pay: [27000, 48000], url: NCS + 'engineering-maintenance-technician',
+    { id: 'maint', name: 'Engineering maintenance technician', what: 'Keeps machines and equipment running. Checks them often, finds faults and fixes them.', interests: ['make', 'tech', 'sci'], style: 'hands', roles: ['repair'], pay: [27000, 48000], url: NCS + 'engineering-maintenance-technician',
       routes: [{ k: 'Apprenticeship', v: 'Engineering Maintenance Technician (level 3)' }, { k: 'Apprenticeship', v: 'Mechatronics Maintenance Technician (level 3)' }, { k: 'T Level', v: 'Maintenance, Installation and Repair for Engineering and Manufacturing' }] }
   ];
 
   var ROLES = { install: 'Installs', repair: 'Maintains and repairs', design: 'Designs and plans', advise: 'Advises', data: 'Works with data' };
+
+  // Plain-English meanings for the words in "Ways in", the timeline and Good to know. "m" finds the word in a job's routes.
+  var WORDS = [
+    { t: 'Apprenticeship', m: /apprenticeship/i, d: 'A real job with training. You are paid, learn at work and study part of the time, often at a college. You can start from age 16.' },
+    { t: 'Foundation apprenticeship', m: /foundation apprenticeship/i, d: 'A first step into a type of work for 16 to 21-year-olds. You do not need set grades to start.' },
+    { t: 'Degree apprenticeship', m: /degree apprenticeship/i, d: 'An apprenticeship that ends with a university degree. You earn a wage and do not pay course fees.' },
+    { t: 'T Level', m: /\bT Levels?\b/, d: 'A two-year course after GCSEs, worth the same as three A levels. It includes at least 45 days working with an employer.' },
+    { t: 'V Level', m: /\bV Levels?\b/, d: 'A new course from September 2027 about a type of work, the size of one A level. You can mix V Levels with A levels.' },
+    { t: 'A level', m: /\bA levels?\b/, d: 'A two-year course in one subject after GCSEs, at a sixth form or college. Many university courses ask for A levels.' },
+    { t: 'Levels 2 to 7', m: /\blevel [2-7]\b/i, d: 'Level 2 is the same standard as GCSEs at grades 4 to 9. Level 3 is the same as A levels and T Levels. Levels 4 and 5 are between A levels and a degree. Level 6 is a bachelor\'s degree, and level 7 a master\'s degree.' },
+    { t: 'HND', m: /\bHND\b/, d: 'Higher National Diploma: a work-focused course, usually two years, at a college or university.' },
+    { t: 'Foundation degree', m: /foundation degree/i, d: 'A work-focused course, usually two years. You can often add a third year to turn it into a full degree.' },
+    { t: 'Degree', m: /(^|\| )Degree:/, d: 'A university course, usually three years if you study full time.' },
+    { t: 'College', m: /(^|\| )College:/, d: 'A further education college. It runs courses for 16 to 19-year-olds and adults, including T Levels and apprenticeship training.' },
+    { t: 'Accreditation scheme', m: /accreditation scheme/i, d: 'An approved body that checks energy assessors are trained, and lets them issue energy certificates for homes.' },
+    { t: 'MCS-certified', m: /\bMCS\b/, d: 'Checked by MCS, the Microgeneration Certification Scheme, which sets standards for small renewable energy products and the people who fit them.' }
+  ];
+  function routeText(j) { return j.routes.map(function (r) { return r.k + ': ' + r.v; }).join(' | '); }
+  function wordsIn(text) { return WORDS.filter(function (w) { return w.m.test(text); }); }
+  function wordsHtml(list) { return list.map(function (w) { return '<div><dt>' + esc(w.t) + '</dt><dd>' + esc(w.d) + '</dd></div>'; }).join(''); }
+  function wordsBox(list) { return list.length ? '<details class="words"><summary>What do these words mean?</summary><dl>' + wordsHtml(list) + '</dl></details>' : ''; }
+  // The words used in the current roadmap: its four jobs' routes and its timeline.
+  function roadmapWords() {
+    var text = currentTop.map(function (r) { return routeText(r.job); }).join(' | ') + ' | ' + timelineItems().map(function (it) { return it.title + ' ' + it.detail; }).join(' ');
+    return wordsIn(text);
+  }
 
   // Parts of the home explorer. "at" places the hotspot, in percent across and down the picture.
   var PARTS = [
@@ -1386,11 +1427,12 @@ textarea.field{min-height:12em;resize:vertical}
     var tl = jobTopics(r).map(function (t) { return '<li><span class="tsub">' + esc(topicSubject(t)) + '</span> ' + esc(t.t) + '</li>'; }).join('');
     return '<article class="job" data-id="' + j.id + '">' +
       '<div class="job-top"><h4>' + esc(j.name) + '</h4>' + (j.alt ? '<p class="job-alt">' + esc(j.alt) + '</p>' : '') + '<div class="tags">' + roleTags(j) + '</div></div>' +
-      '<p class="pay"><strong>' + money(j.pay[0]) + ' to ' + money(j.pay[1]) + '</strong> a year</p>' +
+      '<p class="pay"><strong>' + money(j.pay[0]) + ' to ' + money(j.pay[1]) + '</strong> a year<span class="pay-note">From starting pay to experienced</span></p>' +
       '<p class="job-what">' + esc(j.what) + '</p>' +
       (why ? '<p class="label lbl">Why it fits</p><div class="tags">' + why + '</div>' : '') +
       (tl ? '<p class="label lbl">GCSE topics it uses</p><ul class="tmini">' + tl + '</ul>' : '') +
       '<p class="label lbl">Ways in</p><ul class="routes">' + j.routes.map(function (x) { return '<li><span class="rk">' + esc(x.k) + ':</span> ' + esc(x.v) + '</li>'; }).join('') + '</ul>' +
+      wordsBox(wordsIn(routeText(j))) +
       '<a class="ext" href="' + j.url + '" target="_blank" rel="noopener">Full job profile</a>' +
       '</article>';
   }
@@ -1472,7 +1514,7 @@ textarea.field{min-height:12em;resize:vertical}
     while ((m = re.exec(html))) out.push([m[2], m[1]]);
     return out;
   }
-  function payText(j) { return money(j.pay[0]) + ' to ' + money(j.pay[1]) + ' a year'; }
+  function payText(j) { return money(j.pay[0]) + ' to ' + money(j.pay[1]) + ' a year (starting pay to experienced)'; }
   function setStatus(msg) { $('#keep-status').textContent = msg; }
 
   function roadmapText() {
@@ -1779,7 +1821,8 @@ textarea.field{min-height:12em;resize:vertical}
         rows.push(row([{ t: j.name, f: F.bold, c: C.ink }], { size: 12.5, lh: 1.3, width: w, after: j.alt ? 0 : 2 }));
         if (j.alt) rows.push(row(j.alt, { size: 8, color: C.muted, width: w, after: 3 }));
         if (j.roles && j.roles.length) rows.push(row(j.roles.map(function (k) { return { t: ROLES[k] + (k === j.roles[j.roles.length - 1] ? '' : ' ·'), f: F.bold, c: k === 'repair' ? C.green : C.muted }; }), { size: 8, width: w, after: 4 }));
-        rows.push(row([{ t: money(j.pay[0]) + ' to ' + money(j.pay[1]), f: F.bold, c: C.ink }, { t: 'a year' }], { size: 10, width: w, after: 3 }));
+        rows.push(row([{ t: money(j.pay[0]) + ' to ' + money(j.pay[1]), f: F.bold, c: C.ink }, { t: 'a year' }], { size: 10, width: w, after: 0 }));
+        rows.push(row('From starting pay to experienced', { size: 8, color: C.muted, width: w, after: 4 }));
         rows.push(row(j.what, { size: 9, width: w, after: 7 }));
         if (r.im.length) {
           rows.push(label('Why it fits', { width: w }));
@@ -1876,6 +1919,12 @@ textarea.field{min-height:12em;resize:vertical}
       domList('#gtk-list li').forEach(function (it) {
         keep([row(it.text, { size: 9.5, indent: 12, bullet: true, after: 1 })].concat(linkRows(it.links.map(function (l) { return ['Read more', l[1]]; }), { size: 8, color: C.muted, indent: 12, after: 6 })));
       });
+
+      var used = roadmapWords();
+      if (used.length) {
+        heading('Words explained');
+        used.forEach(function (wd) { keep([row([{ t: wd.t + ':', f: F.bold }, { t: wd.d }], { size: 9.5, indent: 12, bullet: true, after: 4 })]); });
+      }
 
       // Back to the online tool: QR code, and the research when it is published
       var QR = 92, qx = M + PAD, onlineW = CW - PAD * 3 - QR;
@@ -1996,6 +2045,7 @@ textarea.field{min-height:12em;resize:vertical}
     if (CONFIG.articleUrl) { $('#article-link').href = CONFIG.articleUrl; $('#article-link').hidden = false; showResearch = true; }
     if (paperUrl()) { $('#paper-link').href = paperUrl(); $('#paper-link').textContent = 'Read the paper: doi.org/' + CONFIG.paperDoi.replace(/^https?:\/\/(dx\.)?doi\.org\//, ''); $('#paper-link').hidden = false; showResearch = true; }
     $('#research').hidden = !showResearch;
+    $('#words-list').innerHTML = wordsHtml(WORDS);
     $('#share-url').textContent = CONFIG.toolUrl;
     var rows = qrRows(), d = '';
     rows.forEach(function (row, r) { for (var c = 0; c < row.length; c++) if (row.charAt(c) === '1') d += 'M' + (c + 4) + ' ' + (r + 4) + 'h1v1h-1z'; });
