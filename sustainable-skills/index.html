@@ -17,11 +17,12 @@
 <meta property="og:image" content="https://vahidinasab.github.io/sustainable-skills/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Sustainable Local Energy Skills Roadmap: a home with solar panels, a heat pump, a battery and an electric car, linked to GCSE subjects">
+<meta property="og:image:alt" content="Sustainable Local Energy Skills Roadmap: a family home with solar panels, a heat pump and an electric car on charge, marked with dots to explore">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%232EB895%22/%3E%3Cpath%20d%3D%22M7%2023%20L13%2016.5%20L18%2019.5%20L24.5%2010%22%20fill%3D%22none%22%20stroke%3D%22%23032A3B%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Ccircle%20cx%3D%2224.5%22%20cy%3D%2210%22%20r%3D%223.2%22%20fill%3D%22%23032A3B%22/%3E%3Ccircle%20cx%3D%227%22%20cy%3D%2223%22%20r%3D%222.4%22%20fill%3D%22%23032A3B%22/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/archivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="images/home-1344.jpg" imagesrcset="images/home-800.jpg 800w, images/home-1344.jpg 1344w" imagesizes="(min-width: 1200px) 590px, (min-width: 980px) 50vw, 100vw">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style>
 <style>
 /* Fonts are served from this site (fonts/, SIL Open Font License), so no request goes to a font service. */
@@ -46,12 +47,6 @@
   --appbar:rgba(255,255,255,.92);
   --shadow:0 1px 2px rgba(3,42,59,.05),0 10px 30px rgba(3,42,59,.08);
   --band:#032A3B; --band-2:#02202D; --band-text:#EDF0F5; --band-muted:#A9B7C0; --band-line:#1C4657;
-  --sc-sky:#E4EEF6; --sc-sun:#FFB43D; --sc-halo:rgba(255,180,61,.28); --sc-hill:#CFE2D4; --sc-ground:#B9D6BF; --sc-drive:#D6DCE2;
-  --sc-steel:#7D8896; --sc-tower:#FFFFFF; --sc-hub:#0E1A24; --sc-trunk:#8B6A4E; --sc-leaf:#5DAF7E; --sc-leaf-2:#4C9A6C;
-  --sc-wall:#FFFFFF; --sc-roof:#3B4A5C; --sc-loft:#1E2833; --sc-insul:#F7D774; --sc-insul-line:#B8912C;
-  --sc-pv:#1E3F6E; --sc-pv-line:#7FA6D9; --sc-glass:#CFE2F3; --sc-lit:#CFE2F3; --sc-door:#2EB895;
-  --sc-screen:#0E1A24; --sc-bars:#3DD6A3; --sc-box:#F3F6F9; --sc-charge:#2EB895; --sc-fan:#DDE3EA; --sc-fan-blade:#55606E;
-  --sc-car:#3F7CCF; --sc-car-glass:#0E1A24; --sc-wheel:#0E1A24; --sc-rim:#8A96A6; --sc-van-cab:#E8EDF2; --sc-line:#0E1A24; --sc-cable:#0E1A24;
   --hs-ring:#FFFFFF;
   --display:"Archivo","Arial Narrow",Arial,sans-serif;
   --body:"IBM Plex Sans","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
@@ -70,12 +65,6 @@
     --map-idle:#2B4D5D; --map-hot:#2EB895;
     --appbar:rgba(1,27,38,.88);
     --shadow:0 1px 2px rgba(0,0,0,.5);
-    --sc-sky:#0A2638; --sc-halo:rgba(255,180,61,.16); --sc-hill:#1B3A33; --sc-ground:#16302A; --sc-drive:#232D39;
-    --sc-steel:#6B7A8C; --sc-tower:#CBD3DD; --sc-hub:#0A0D14; --sc-trunk:#5E4634; --sc-leaf:#2F7A57; --sc-leaf-2:#286A4B;
-    --sc-wall:#1C2635; --sc-roof:#0E141D; --sc-loft:#0A0D14; --sc-insul:#E8C35A; --sc-insul-line:#A88A33;
-    --sc-pv:#2A5CA8; --sc-pv-line:#8FB2E4; --sc-glass:#22344D; --sc-lit:#FFD98A;
-    --sc-screen:#0A0D14; --sc-box:#243042; --sc-charge:#3DD6A3; --sc-fan:#33415A; --sc-fan-blade:#9AA3B2;
-    --sc-car-glass:#0A0D14; --sc-wheel:#0A0D14; --sc-rim:#6B7A8C; --sc-van-cab:#2C394D; --sc-line:#7D8B9C; --sc-cable:#CBD3DD;
     --hs-ring:#062836;
     color-scheme:dark;
   }
@@ -91,12 +80,6 @@
   --map-idle:#2B4D5D; --map-hot:#2EB895;
   --appbar:rgba(1,27,38,.88);
   --shadow:0 1px 2px rgba(0,0,0,.5);
-  --sc-sky:#0A2638; --sc-halo:rgba(255,180,61,.16); --sc-hill:#1B3A33; --sc-ground:#16302A; --sc-drive:#232D39;
-  --sc-steel:#6B7A8C; --sc-tower:#CBD3DD; --sc-hub:#0A0D14; --sc-trunk:#5E4634; --sc-leaf:#2F7A57; --sc-leaf-2:#286A4B;
-  --sc-wall:#1C2635; --sc-roof:#0E141D; --sc-loft:#0A0D14; --sc-insul:#E8C35A; --sc-insul-line:#A88A33;
-  --sc-pv:#2A5CA8; --sc-pv-line:#8FB2E4; --sc-glass:#22344D; --sc-lit:#FFD98A;
-  --sc-screen:#0A0D14; --sc-box:#243042; --sc-charge:#3DD6A3; --sc-fan:#33415A; --sc-fan-blade:#9AA3B2;
-  --sc-car-glass:#0A0D14; --sc-wheel:#0A0D14; --sc-rim:#6B7A8C; --sc-van-cab:#2C394D; --sc-line:#7D8B9C; --sc-cable:#CBD3DD;
   --hs-ring:#062836;
   color-scheme:dark;
 }
@@ -174,31 +157,11 @@ button,input,select,textarea{font:inherit}
 .explorer{min-width:0;display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px;box-shadow:var(--shadow)}
 .ex-head h2{font-size:clamp(1.25rem,2.4vw,1.55rem)}
 .ex-head p{margin-top:4px;font-size:14.5px;color:var(--muted)}
-.ex-stage{position:relative;width:100%;max-width:100%;aspect-ratio:640/400;border-radius:12px;overflow:hidden;background:var(--sc-sky)}
+.ex-stage{--hs-ring:#FFFFFF;position:relative;width:100%;max-width:100%;aspect-ratio:1344/752;border-radius:12px;overflow:hidden;background:#C9D6DF}
+.ex-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 .ex-stage svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.sc-sky{fill:var(--sc-sky)}.sc-sun{fill:var(--sc-sun)}.sc-sun-halo{fill:var(--sc-halo)}.sc-hill{fill:var(--sc-hill)}
-.sc-steel,.sc-wire{stroke:var(--sc-steel)}
-.sc-tower,.sc-blades path{fill:var(--sc-tower);stroke:var(--sc-line);stroke-width:1}
-.sc-hub{fill:var(--sc-hub)}
-.sc-trunk{fill:var(--sc-trunk)}.sc-leaf{fill:var(--sc-leaf)}.sc-leaf-2{fill:var(--sc-leaf-2)}
-.sc-ground{fill:var(--sc-ground)}.sc-drive{fill:var(--sc-drive)}
-.sc-wall{fill:var(--sc-wall);stroke:var(--sc-line);stroke-width:1.5}
-.sc-roof{fill:var(--sc-roof)}.sc-loft{fill:var(--sc-loft)}.sc-insul{fill:var(--sc-insul)}.sc-insul-line{stroke:var(--sc-insul-line)}
-.sc-pv rect{fill:var(--sc-pv)}.sc-pv-line{stroke:var(--sc-pv-line);opacity:.7}
-.sc-glass{fill:var(--sc-glass);stroke:var(--sc-line);stroke-width:1.5}.sc-glass-lit{fill:var(--sc-lit)}
-.sc-frame{stroke:var(--sc-line)}.sc-door{fill:var(--sc-door)}.sc-knob{fill:var(--sc-sun)}
-.sc-screen{fill:var(--sc-screen)}.sc-bars rect{fill:var(--sc-bars)}
-.sc-box{fill:var(--sc-box);stroke:var(--sc-line);stroke-width:1.5}
-.sc-charge rect,.sc-led{fill:var(--sc-charge)}
-.sc-pipe,.sc-grille{stroke:var(--sc-rim)}
-.sc-fan{fill:var(--sc-fan);stroke:var(--sc-line);stroke-width:1.2}.sc-fan-blade{stroke:var(--sc-fan-blade)}
-.sc-cable{stroke:var(--sc-cable)}
-.sc-car{fill:var(--sc-car)}.sc-car-glass{fill:var(--sc-car-glass)}
-.sc-wheel{fill:var(--sc-wheel);stroke:var(--sc-rim);stroke-width:3}
-.sc-van-cab{fill:var(--sc-van-cab);stroke:var(--sc-line);stroke-width:1.5}.sc-van-glass{fill:var(--sc-glass)}.sc-stripe{fill:var(--accent)}
-.sc-hivis{fill:#F28C28}.sc-reflect{fill:#FFF4D6;opacity:.9}.sc-trousers{fill:#253447}.sc-boot{fill:#11181F}.sc-hair{fill:#1E1A17}.sc-scarf{fill:#3F6FB5}.sc-hat{fill:#FFD34D}.sc-toolbox{fill:#D64545}
 .hs{position:absolute;width:36px;height:36px;margin:0;padding:0;border:0;border-radius:50%;background:transparent;transform:translate(-50%,-50%);cursor:pointer;display:grid;place-items:center}
-.hs::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--accent);border:2.5px solid #032A3B;box-shadow:0 0 0 3px var(--hs-ring);transition:transform .15s ease}
+.hs::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--accent);border:2.5px solid #032A3B;box-shadow:0 0 0 3px var(--hs-ring),0 2px 10px rgba(0,0,0,.35);transition:transform .15s ease}
 .hs:hover::before{transform:scale(1.15)}
 .hs[aria-pressed="true"]::before{background:#032A3B;border-color:var(--accent);border-width:4px;box-shadow:0 0 0 3px var(--hs-ring),0 0 0 6px var(--accent)}
 .hs:focus-visible{outline:none}
@@ -600,76 +563,61 @@ textarea.field{min-height:12em;resize:vertical}
         <p>Tap a part of the home to see where it turns up in your lessons, and who installs it and keeps it running.</p>
       </div>
       <div class="ex-stage">
-        <svg viewBox="0 0 640 400" role="img" aria-labelledby="scene-t">
-          <title id="scene-t">A home with solar panels, loft insulation, a home battery, a heat pump, a smart energy display and an electric car on charge, with a community wind turbine, an electricity pylon and an installer's van, and four people who install and look after them</title>
-          <rect class="sc-sky" x="0" y="0" width="640" height="400"/>
-          <circle class="sc-sun-halo" cx="200" cy="58" r="36"/>
-          <circle class="sc-sun" cx="200" cy="58" r="22"/>
-          <path class="sc-hill" d="M0 246 C70 206 160 204 236 228 C320 254 470 214 640 234 L640 400 L0 400 Z"/>
-          <g class="sc-steel" fill="none" stroke-width="2" stroke-linecap="round">
-            <path d="M598 58 L572 248 M598 58 L624 248"/>
-            <path d="M568 88 H628 M574 112 H622"/>
-            <path d="M589.6 132 H606.4 M584 180 H612 M578.4 228 H617.6"/>
-            <path d="M589.6 132 L612 180 M606.4 132 L584 180 M584 180 L617.6 228 M612 180 L578.4 228"/>
+        <img class="ex-photo" src="images/home-1344.jpg" srcset="images/home-800.jpg 800w, images/home-1344.jpg 1344w" sizes="(min-width: 1200px) 590px, (min-width: 980px) 50vw, 100vw" width="1344" height="752" alt="" fetchpriority="high">
+        <svg class="ex-anim" id="ex-anim" viewBox="0 0 1344 752" preserveAspectRatio="xMidYMid slice" role="img" aria-labelledby="scene-t">
+          <title id="scene-t">A brick family home with solar panels on the roof, an air source heat pump at the side and an electric car charging on the driveway from a charger on the wall, with two wind turbines turning on the horizon</title>
+          <defs>
+            <linearGradient id="hx-blade" x1="0" x2="1"><stop offset="0" stop-color="#fbfbfa"/><stop offset="1" stop-color="#d4dae0"/></linearGradient>
+            <linearGradient id="hx-glint" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/><stop offset=".5" stop-color="#FFFFFF" stop-opacity=".42"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+            <clipPath id="hx-pv"><path d="M358 22 L823 89 L943 201 L403 135 Z"/></clipPath>
+            <filter id="hx-glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3"/></filter>
+          </defs>
+          <g clip-path="url(#hx-pv)" class="hx-sun">
+            <rect x="200" y="-20" width="150" height="260" fill="url(#hx-glint)" transform="skewX(-24)">
+              <animate attributeName="x" values="160;1080;1080" keyTimes="0;.55;1" dur="7s" repeatCount="indefinite"/>
+            </rect>
           </g>
-          <path class="sc-wire" d="M568 88 Q500 132 434 186" fill="none" stroke-width="1.5"/>
-          <path class="sc-tower" d="M60 236 L64 120 L68 236 Z"/>
-          <g class="sc-blades">
-            <path d="M64 118 L60 70 L64 64 L68 70 Z"/>
-            <path d="M64 118 L60 70 L64 64 L68 70 Z" transform="rotate(120 64 118)"/>
-            <path d="M64 118 L60 70 L64 64 L68 70 Z" transform="rotate(240 64 118)"/>
+          <g class="hx-flow" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M870 546 C871 570 874 600 877 621 C884 634 902 638 930 641 C968 646 1012 645 1040 634 C1056 623 1064 602 1072 583 L1080 561" stroke="#7FF0CF" stroke-opacity=".42" stroke-width="6" filter="url(#hx-glow)"/>
+            <path d="M870 546 C871 570 874 600 877 621 C884 634 902 638 930 641 C968 646 1012 645 1040 634 C1056 623 1064 602 1072 583 L1080 561" stroke="#E9FFF8" stroke-width="3.4" stroke-dasharray="3 14">
+              <animate attributeName="stroke-dashoffset" from="0" to="-34" dur="1.1s" repeatCount="indefinite"/>
+            </path>
           </g>
-          <circle class="sc-hub" cx="64" cy="118" r="5"/>
-          <rect class="sc-trunk" x="494" y="250" width="10" height="80" rx="3"/>
-          <circle class="sc-leaf" cx="499" cy="236" r="32"/>
-          <circle class="sc-leaf-2" cx="482" cy="252" r="18"/>
-          <rect class="sc-ground" x="0" y="330" width="640" height="70"/>
-          <path class="sc-drive" d="M432 330 H640 V400 H476 Z"/>
-          <rect class="sc-wall" x="200" y="190" width="220" height="140"/>
-          <path class="sc-roof" d="M186 192 L234 118 L386 118 L434 192 Z"/>
-          <path class="sc-loft" d="M214 188 L238 150 L286 150 L286 188 Z"/>
-          <path class="sc-insul" d="M216 188 L224 176 L286 176 L286 188 Z"/>
-          <path class="sc-insul-line" d="M224 182 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5 l4 -5 l4 5" fill="none" stroke-width="1.4"/>
-          <g class="sc-pv">
-            <rect x="300" y="128" width="27" height="24" rx="2"/><rect x="330" y="128" width="27" height="24" rx="2"/><rect x="360" y="128" width="27" height="24" rx="2"/>
-            <rect x="300" y="155" width="27" height="24" rx="2"/><rect x="330" y="155" width="27" height="24" rx="2"/><rect x="360" y="155" width="27" height="24" rx="2"/>
+          <g transform="translate(215.3 585.3)">
+            <g fill="#d5dade" opacity=".32">
+              <path d="M 0 -8 C 9 -14 20 -22 29 -20 C 30 -12 20 -4 7 -2 Z"/>
+              <path d="M 0 -8 C 9 -14 20 -22 29 -20 C 30 -12 20 -4 7 -2 Z" transform="rotate(90)"/>
+              <path d="M 0 -8 C 9 -14 20 -22 29 -20 C 30 -12 20 -4 7 -2 Z" transform="rotate(180)"/>
+              <path d="M 0 -8 C 9 -14 20 -22 29 -20 C 30 -12 20 -4 7 -2 Z" transform="rotate(270)"/>
+              <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="1.4s" repeatCount="indefinite"/>
+            </g>
+            <circle r="8" fill="#e9ebec" opacity=".9"/><circle r="8" fill="none" stroke="#9aa1a6" stroke-width=".8"/>
           </g>
-          <g class="sc-pv-line" fill="none" stroke-width="1">
-            <path d="M313.5 128 V152 M343.5 128 V152 M373.5 128 V152 M313.5 155 V179 M343.5 155 V179 M373.5 155 V179"/>
-            <path d="M300 140 H327 M330 140 H357 M360 140 H387 M300 167 H327 M330 167 H357 M360 167 H387"/>
-          </g>
-          <rect class="sc-glass" x="222" y="208" width="50" height="40" rx="3"/>
-          <path class="sc-frame" d="M247 208 V248" fill="none" stroke-width="2"/>
-          <rect class="sc-glass sc-glass-lit" x="350" y="208" width="52" height="40" rx="3"/>
-          <rect class="sc-door" x="296" y="262" width="34" height="68" rx="3"/>
-          <circle class="sc-knob" cx="323" cy="298" r="2.4"/>
-          <rect class="sc-screen" x="362" y="216" width="28" height="22" rx="3"/>
-          <g class="sc-bars"><rect x="366" y="228" width="3" height="6"/><rect x="371" y="224" width="3" height="10"/><rect x="376" y="226" width="3" height="8"/><rect x="381" y="221" width="3" height="13"/></g>
-          <rect class="sc-box" x="222" y="268" width="32" height="52" rx="5"/>
-          <g class="sc-charge"><rect x="229" y="300" width="18" height="6" rx="1.5"/><rect x="229" y="291" width="18" height="6" rx="1.5"/><rect x="229" y="282" width="18" height="6" rx="1.5"/></g>
-          <path class="sc-pipe" d="M188 300 H200 M188 312 H200" fill="none" stroke-width="3"/>
-          <rect class="sc-box" x="124" y="284" width="64" height="46" rx="4"/>
-          <circle class="sc-fan" cx="146" cy="307" r="15"/>
-          <path class="sc-fan-blade" d="M146 307 L146 294 M146 307 L157 314 M146 307 L135 314" fill="none" stroke-width="3" stroke-linecap="round"/>
-          <path class="sc-grille" d="M168 292 V322 M175 292 V322 M182 292 V322" fill="none" stroke-width="1.5"/>
-          <rect class="sc-box" x="400" y="256" width="15" height="26" rx="3"/>
-          <rect class="sc-led" x="404" y="261" width="7" height="4" rx="1"/>
-          <path class="sc-cable" d="M407 282 C407 312 440 312 462 304" fill="none" stroke-width="3" stroke-linecap="round"/>
-          <path class="sc-car" d="M454 322 L454 302 Q458 290 476 288 L504 274 Q514 268 528 268 L576 268 Q590 268 600 280 L616 292 Q626 296 626 306 L626 322 Z"/>
-          <path class="sc-car-glass" d="M510 276 L530 274 L572 274 Q582 275 590 286 L510 286 Z"/>
-          <circle class="sc-wheel" cx="484" cy="324" r="13"/>
-          <circle class="sc-wheel" cx="598" cy="324" r="13"/>
-          <rect class="sc-box" x="6" y="284" width="78" height="40" rx="6"/>
-          <path class="sc-van-cab" d="M84 292 H102 Q110 294 113 304 L114 324 H84 Z"/>
-          <rect class="sc-van-glass" x="90" y="298" width="16" height="10" rx="2"/>
-          <rect class="sc-stripe" x="6" y="306" width="78" height="5"/>
-          <circle class="sc-wheel" cx="30" cy="326" r="10"/>
-          <circle class="sc-wheel" cx="96" cy="326" r="10"/>
-          <g class="sc-people" aria-hidden="true">
-            <g transform="translate(277 330) scale(0.95)"><rect class="sc-trousers" x="-5" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-trousers" x="0.8" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-boot" x="-5.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-boot" x="0.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-hivis" x="-10.2" y="-28" width="3.6" height="13" rx="1.8"/><rect class="sc-hivis" x="6.6" y="-28" width="3.6" height="13" rx="1.8"/><circle fill="#8D5524" cx="-8.4" cy="-14.6" r="1.9"/><circle fill="#8D5524" cx="8.4" cy="-14.6" r="1.9"/><rect class="sc-hivis" x="-7" y="-29.5" width="14" height="17" rx="4"/><rect class="sc-reflect" x="-7" y="-22.5" width="14" height="2"/><rect fill="#8D5524" x="-1.8" y="-31.5" width="3.6" height="3"/><circle fill="#8D5524" cx="0" cy="-35" r="5"/><path class="sc-hair" d="M-5.2 -35 a5.2 5.2 0 0 1 10.4 0 c-2 -1.6 -8.4 -1.6 -10.4 0 z"/><circle class="sc-hair" cx="0" cy="-41" r="2.6"/><rect class="sc-toolbox" x="7.4" y="-13" width="8.5" height="6" rx="1.2"/></g>
-            <g transform="translate(437 330) scale(0.95)"><rect class="sc-trousers" x="-5" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-trousers" x="0.8" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-boot" x="-5.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-boot" x="0.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-hivis" x="-10.2" y="-28" width="3.6" height="13" rx="1.8"/><rect class="sc-hivis" x="6.6" y="-28" width="3.6" height="13" rx="1.8"/><circle fill="#C68642" cx="-8.4" cy="-14.6" r="1.9"/><circle fill="#C68642" cx="8.4" cy="-14.6" r="1.9"/><rect class="sc-hivis" x="-7" y="-29.5" width="14" height="17" rx="4"/><rect class="sc-reflect" x="-7" y="-22.5" width="14" height="2"/><path class="sc-scarf" d="M-6.6 -34.5 a6.6 6.6 0 0 1 13.2 0 v3.4 l1.4 3.1 h-16 l1.4 -3.1 z"/><circle fill="#C68642" cx="0" cy="-33.6" r="4.1"/></g>
-            <g transform="translate(86 221) scale(0.55)"><rect class="sc-trousers" x="-5" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-trousers" x="0.8" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-boot" x="-5.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-boot" x="0.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-hivis" x="-10.2" y="-28" width="3.6" height="13" rx="1.8"/><rect class="sc-hivis" x="6.6" y="-28" width="3.6" height="13" rx="1.8"/><circle fill="#F1C27D" cx="-8.4" cy="-14.6" r="1.9"/><circle fill="#F1C27D" cx="8.4" cy="-14.6" r="1.9"/><rect class="sc-hivis" x="-7" y="-29.5" width="14" height="17" rx="4"/><rect class="sc-reflect" x="-7" y="-22.5" width="14" height="2"/><rect fill="#F1C27D" x="-1.8" y="-31.5" width="3.6" height="3"/><circle fill="#F1C27D" cx="0" cy="-35" r="5"/><path class="sc-hat" d="M-5.8 -36 a5.8 5.8 0 0 1 11.6 0 z"/><rect class="sc-hat" x="-7.2" y="-36.6" width="14.4" height="1.9" rx=".95"/></g>
-            <g transform="translate(556 232) scale(0.6)"><rect class="sc-trousers" x="-5" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-trousers" x="0.8" y="-14" width="4.2" height="14" rx="1.6"/><rect class="sc-boot" x="-5.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-boot" x="0.6" y="-2.2" width="5" height="2.6" rx="1"/><rect class="sc-hivis" x="-10.2" y="-28" width="3.6" height="13" rx="1.8"/><rect class="sc-hivis" x="6.6" y="-28" width="3.6" height="13" rx="1.8"/><circle fill="#5C3A21" cx="-8.4" cy="-14.6" r="1.9"/><circle fill="#5C3A21" cx="8.4" cy="-14.6" r="1.9"/><rect class="sc-hivis" x="-7" y="-29.5" width="14" height="17" rx="4"/><rect class="sc-reflect" x="-7" y="-22.5" width="14" height="2"/><rect fill="#5C3A21" x="-1.8" y="-31.5" width="3.6" height="3"/><circle fill="#5C3A21" cx="0" cy="-35" r="5"/><path class="sc-hat" d="M-5.8 -36 a5.8 5.8 0 0 1 11.6 0 z"/><rect class="sc-hat" x="-7.2" y="-36.6" width="14.4" height="1.9" rx=".95"/></g>
+          <g class="hx-wind">
+            <g transform="translate(1196 304)">
+              <path d="M-1.4 0 L1.4 0 L2.3 92 L-2.3 92 Z" fill="#eef1f4" stroke="#c9cfd6" stroke-width=".5"/>
+              <rect x="-2.6" y="-2.6" width="9" height="5.2" rx="2" fill="#e3e7eb"/>
+              <g>
+                <path d="M -1.8 -2.5 C -2.5 -14 -1.2 -33 -0.4 -42 L 0.4 -42 C 1.1 -30 2.1 -14 1.6 -2.5 Z" fill="url(#hx-blade)"/>
+                <path d="M -1.8 -2.5 C -2.5 -14 -1.2 -33 -0.4 -42 L 0.4 -42 C 1.1 -30 2.1 -14 1.6 -2.5 Z" fill="url(#hx-blade)" transform="rotate(120)"/>
+                <path d="M -1.8 -2.5 C -2.5 -14 -1.2 -33 -0.4 -42 L 0.4 -42 C 1.1 -30 2.1 -14 1.6 -2.5 Z" fill="url(#hx-blade)" transform="rotate(240)"/>
+                <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="5.2s" repeatCount="indefinite"/>
+              </g>
+              <circle r="2.8" fill="#f4f6f8" stroke="#b9c0c8" stroke-width=".6"/>
+            </g>
+            <g transform="translate(1246 326) scale(.72)">
+              <path d="M-1.4 0 L1.4 0 L2.3 96 L-2.3 96 Z" fill="#eef1f4" stroke="#c9cfd6" stroke-width=".6"/>
+              <rect x="-2.6" y="-2.6" width="9" height="5.2" rx="2" fill="#e3e7eb"/>
+              <g transform="rotate(40)">
+                <g>
+                  <path d="M -1.8 -2.5 C -2.5 -14 -1.2 -33 -0.4 -42 L 0.4 -42 C 1.1 -30 2.1 -14 1.6 -2.5 Z" fill="url(#hx-blade)"/>
+                  <path d="M -1.8 -2.5 C -2.5 -14 -1.2 -33 -0.4 -42 L 0.4 -42 C 1.1 -30 2.1 -14 1.6 -2.5 Z" fill="url(#hx-blade)" transform="rotate(120)"/>
+                  <path d="M -1.8 -2.5 C -2.5 -14 -1.2 -33 -0.4 -42 L 0.4 -42 C 1.1 -30 2.1 -14 1.6 -2.5 Z" fill="url(#hx-blade)" transform="rotate(240)"/>
+                  <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="6.1s" repeatCount="indefinite"/>
+                </g>
+              </g>
+              <circle r="2.8" fill="#f4f6f8" stroke="#b9c0c8" stroke-width=".8"/>
+            </g>
           </g>
         </svg>
         <div id="hotspots"></div>
@@ -1107,39 +1055,39 @@ textarea.field{min-height:12em;resize:vertical}
 
   // Parts of the home explorer. "at" places the hotspot, in percent across and down the picture.
   var PARTS = [
-    { id: 'heatpump', name: 'Heat pump', at: [29.4, 71],
+    { id: 'heatpump', name: 'Heat pump', at: [19.5, 74.5],
       what: 'A heat pump moves heat from the outside air into the home, like a fridge working in reverse, and runs on electricity instead of gas. In England and Wales the Boiler Upgrade Scheme gives £7,500 towards an air source heat pump fitted by an MCS-certified installer.',
       links: [['science', 'Heating and specific heat capacity'], ['science', 'Changes of state'], ['science', 'Power and efficiency'], ['science', 'Insulation']],
       who: [['Who installs it', ['heatpump', 'plumber']], ['Who maintains and repairs it', ['heatpump', 'refrig', 'eltech']], ['Who designs and plans it', ['buildserv', 'assessor']]] },
-    { id: 'solar', name: 'Solar panels', at: [55.6, 38],
+    { id: 'solar', name: 'Solar panels', at: [48.4, 14.6],
       what: 'Panels on the roof turn sunlight into electricity for the home, the home battery or the car.',
       links: [['science', 'Energy resources'], ['science', 'Batteries and the mains'], ['dt', 'Energy generation and storage'], ['maths', 'Percentages and growth']],
       who: [['Who installs it', ['solar', 'electrician']], ['Who maintains and repairs it', ['solar', 'electrician']], ['Who designs and plans it', ['renew']]] },
-    { id: 'battery', name: 'Home battery', at: [39.7, 67],
-      what: 'A home battery stores electricity from the solar panels, or from the grid when it is cheaper, to use later in the day. Solar installers work with electricians to connect it.',
+    { id: 'battery', name: 'Home battery', at: [72.0, 61.4],
+      what: 'A home battery, often fitted in a garage or utility room, stores electricity from the solar panels, or from the grid when it is cheaper, to use later in the day. Solar installers work with electricians to connect it.',
       links: [['science', 'Batteries and the mains'], ['science', 'Cells and fuel cells, in separate chemistry'], ['electronics', 'Diodes and rectification'], ['maths', 'Rates and unit pricing']],
       who: [['Who installs it', ['electrician', 'solar']], ['Who maintains and repairs it', ['electrician', 'eltech']], ['Who designs and plans it', ['electronics', 'renew']]] },
-    { id: 'insulation', name: 'Loft and wall insulation', short: 'Insulation', at: [43.1, 39.5],
+    { id: 'insulation', name: 'Loft and wall insulation', short: 'Insulation', at: [45.5, 34.8],
       what: 'Insulation keeps heat in, so the home needs less energy to stay warm. Heat pumps work best in well-insulated homes.',
       links: [['science', 'Insulation'], ['science', 'Heating and specific heat capacity'], ['dt', 'Life cycle assessment']],
       who: [['Who installs it', ['insulation']], ['Who checks the home and advises', ['assessor']]] },
-    { id: 'smart', name: 'Smart meter and smart home controls', short: 'Smart controls', at: [62.8, 52],
+    { id: 'smart', name: 'Smart meter and smart home controls', short: 'Smart controls', at: [39.4, 60.5],
       what: 'A smart meter shows how much energy the home uses, and smart controls can run the heating, battery and car charger at the best times. By June 2026 there were 42 million smart and advanced meters in homes and small businesses in Great Britain.',
       links: [['science', 'Power ratings of appliances'], ['dt', 'Programmable components'], ['computing', 'Networks'], ['computing', 'Cyber security'], ['economics', 'Supply, demand and price']],
       who: [['Who installs it', ['smartmeter', 'smarthome', 'electrician']], ['Who maintains and repairs it', ['electrician', 'buildserv']], ['Who designs and plans it', ['smarthome', 'electronics', 'data']]] },
-    { id: 'ev', name: 'Electric car and charger', short: 'EV charging', at: [86.25, 67],
+    { id: 'ev', name: 'Electric car and charger', short: 'EV charging', at: [85.6, 72.5],
       what: 'The charger is wired into the home and talks to the car. Since June 2022, new home and workplace chargers in Great Britain have had to be smart. Technicians who service electric cars work with high-voltage batteries.',
       links: [['science', 'Mains electricity and safety'], ['science', 'Electric motors'], ['electronics', 'Sensing, processing and output'], ['maths', 'Rates and unit pricing']],
       who: [['Who installs it', ['electrician']], ['Who maintains and repairs it', ['evtech', 'electrician']], ['Who designs and plans it', ['electronics']]] },
-    { id: 'wind', name: 'Community wind turbine', short: 'Local wind', at: [10, 29.5],
+    { id: 'wind', name: 'Community wind turbine', short: 'Local wind', at: [89.0, 46.8],
       what: 'Some wind turbines and solar farms are run by local community groups. Every turbine needs regular checks and servicing, often at height.',
       links: [['science', 'Energy resources'], ['science', 'Generators and transformers, in separate physics'], ['engineering', 'Energy, maintenance and end of life'], ['geography', 'Energy and resources']],
       who: [['Who installs it', ['wind']], ['Who maintains and repairs it', ['wind', 'eltech', 'maint']], ['Who designs and plans it', ['renew', 'sustain']]] },
-    { id: 'grid', name: 'The power grid', short: 'Power grid', at: [93.4, 25],
+    { id: 'grid', name: 'The power grid', short: 'Power grid', at: [91.9, 93.1],
       what: 'Power reaches homes through high-voltage lines, substations and underground cables. Network workers build and maintain them, and connect new equipment such as solar panels and chargers.',
       links: [['science', 'The National Grid'], ['science', 'Generators and transformers, in separate physics'], ['maths', 'Graphs and rates of change']],
       who: [['Who builds and maintains it', ['grid', 'eltech']], ['Who designs and plans it', ['renew', 'data']]] },
-    { id: 'van', name: 'The local installer', short: 'Local firms', at: [7, 71],
+    { id: 'van', name: 'The local installer', short: 'Local firms', at: [79.0, 49.5],
       what: 'Much of this work is done by small local firms. Running one means pricing jobs, buying equipment, managing cash and looking after customers.',
       links: [['business', 'Starting a business'], ['business', 'Cash flow'], ['maths', 'Percentages and growth']],
       who: [['Jobs in firms like this', ['electrician', 'heatpump', 'plumber', 'smartmeter', 'insulation']]] }
@@ -2359,6 +2307,12 @@ textarea.field{min-height:12em;resize:vertical}
   syncForm();
   buildExplorer();
   buildStatic();
+  // The home picture's movement (fan, sunlight, charging, turbines) stops for reduced motion and pauses off screen.
+  var anim = document.getElementById('ex-anim');
+  if (anim && anim.pauseAnimations) {
+    if (reducedMotion()) anim.pauseAnimations();
+    else if (window.IntersectionObserver) new IntersectionObserver(function (en) { if (en[0].isIntersecting) anim.unpauseAnimations(); else anim.pauseAnimations(); }).observe(anim);
+  }
   showStep(firstUnanswered(), false);
 
   function clearSaveUi() {
