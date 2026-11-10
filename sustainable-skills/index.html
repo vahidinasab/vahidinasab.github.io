@@ -416,6 +416,14 @@ textarea.field{min-height:12em;resize:vertical}
 
 /* Lists */
 .slash{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:46em}
+.near-pick{display:grid;gap:4px;max-width:22em;margin:10px 0 12px}
+.near-pick label{font-size:14px;font-weight:700;color:var(--ink)}
+.near-pick select{min-height:44px;font-size:16px}
+.near-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:10px}
+.near-list li{display:grid;gap:4px;align-content:start;padding:14px 16px;border-radius:var(--r-md);background:var(--surface);border:1px solid var(--line)}
+.near-list a{font-weight:700}
+.near-list span{font-size:14.5px;color:var(--text)}
+.near-list .near-kind{font-size:13px;font-weight:700;color:var(--accent-text)}
 .slash li{position:relative;padding-left:1.4em}
 .slash li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
 .parents{margin-top:18px;background:var(--surface-2);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px}
@@ -762,7 +770,7 @@ textarea.field{min-height:12em;resize:vertical}
 
     <p class="guide-line"><strong>Use this to explore, then talk to your careers adviser before you choose.</strong> Courses, grades and pay can change, and this roadmap does not know your own situation. Information checked October 2026. <a href="#advice">Where to get advice</a></p>
 
-    <nav class="jump" aria-label="Roadmap sections"><span class="label">Jump to</span><a href="#jobs-h">Jobs</a><a href="#tl-h">Timeline</a><a href="#topics-h">GCSE topics</a><a href="#next-h">Next steps</a><a href="#gtk-h">Good to know</a><a href="#words-h">Words explained</a></nav>
+    <nav class="jump" aria-label="Roadmap sections"><span class="label">Jump to</span><a href="#jobs-h">Jobs</a><a href="#tl-h">Timeline</a><a href="#topics-h">GCSE topics</a><a href="#next-h">Next steps</a><a href="#gtk-h">Good to know</a><a href="#near-h">Near you</a><a href="#words-h">Words explained</a></nav>
 
     <div class="card">
       <h3>How your subjects connect to jobs</h3>
@@ -807,6 +815,23 @@ textarea.field{min-height:12em;resize:vertical}
           <li>Talk through the jobs in this roadmap together. Many start with an apprenticeship, and a few usually need a degree.</li>
         </ul>
       </div>
+    </section>
+
+    <section class="block" aria-labelledby="near-h">
+      <h3 id="near-h">Near you</h3>
+      <p class="small muted">Where do you live? This is saved on this device only, like your answers.</p>
+      <div class="near-pick">
+        <label for="near-area">Your area</label>
+        <select id="near-area" class="field">
+          <option value="">Choose an area</option>
+          <option value="gm">Greater Manchester</option>
+          <option value="eng">Somewhere else in England</option>
+          <option value="sco">Scotland</option>
+          <option value="wal">Wales</option>
+          <option value="ni">Northern Ireland</option>
+        </select>
+      </div>
+      <ul class="near-list" id="near-list"></ul>
     </section>
 
     <section class="block" aria-labelledby="gtk-h">
@@ -1121,6 +1146,36 @@ textarea.field{min-height:12em;resize:vertical}
   ];
 
   // Free official careers services, shown on the page and in the PDF.
+  // Near you: official finders and local groups, checked November 2026. Your area is saved on the device only.
+  var NEAR = {
+    gm: [
+      { kind: 'Careers and apprenticeships', name: 'GMACS', url: 'https://www.gmacs.co.uk/', what: 'Greater Manchester\u2019s free careers and apprenticeships website for young people. Search local apprenticeships, get careers advice and chat to an adviser.' },
+      { kind: 'Colleges and courses', name: 'Find a T Level near you', url: 'https://www.tlevels.gov.uk/students/find', what: 'Enter your postcode to see which local schools and colleges teach T Levels, such as Building Services Engineering for Construction.' },
+      { kind: 'Community energy', name: 'Greater Manchester Community Renewables', url: 'https://www.gmcr.org.uk/', what: 'A volunteer-run group that puts community-owned solar panels on schools and community buildings.' },
+      { kind: 'Community energy', name: 'Carbon Co-op', url: 'https://carbon.coop/', what: 'A Manchester co-operative that helps people make their homes warmer and use less energy.' }
+    ],
+    eng: [
+      { kind: 'Colleges and courses', name: 'Find a T Level near you', url: 'https://www.tlevels.gov.uk/students/find', what: 'Enter your postcode to see which local schools and colleges teach T Levels, such as Building Services Engineering for Construction.' },
+      { kind: 'Apprenticeships', name: 'Find an apprenticeship', url: 'https://www.gov.uk/apply-apprenticeship', what: 'Search apprenticeships near you, from age 16.' },
+      { kind: 'Colleges and courses', name: 'Find a course', url: 'https://nationalcareers.service.gov.uk/find-a-course', what: 'Search college and training courses in your area.' },
+      { kind: 'Community energy', name: 'Community Energy England', url: 'https://communityenergyengland.org/our-members', what: 'Find community energy groups across England.' }
+    ],
+    sco: [
+      { kind: 'Careers', name: 'My World of Work', url: 'https://www.myworldofwork.co.uk/', what: 'Careers information and advice from Skills Development Scotland.' },
+      { kind: 'Apprenticeships', name: 'Apprenticeships in Scotland', url: 'https://www.apprenticeships.scot/', what: 'Find apprenticeship vacancies across Scotland.' },
+      { kind: 'Community energy', name: 'Local Energy Scotland projects map', url: 'https://localenergy.scot/local-energy-projects-map', what: 'See community and locally owned energy projects near you.' }
+    ],
+    wal: [
+      { kind: 'Careers and apprenticeships', name: 'Careers Wales', url: 'https://careerswales.gov.wales/', what: 'Independent careers advice for all ages, and a search for apprenticeships in Wales.' }
+    ],
+    ni: [
+      { kind: 'Careers and apprenticeships', name: 'Careers Service', url: 'https://www.nidirect.gov.uk/campaigns/careers', what: 'Careers advice for all ages, including information on apprenticeships in Northern Ireland.' }
+    ]
+  };
+  var NEAR_NAMES = { gm: 'Greater Manchester', eng: 'England', sco: 'Scotland', wal: 'Wales', ni: 'Northern Ireland' };
+  var AREA_KEY = 'gcse-clean-energy-roadmap-area';
+  var area = (function () { try { var a = window.localStorage.getItem(AREA_KEY); return NEAR[a] ? a : ''; } catch (e) { return ''; } })();
+
   var ADVICE = [
     { where: 'England', name: 'Get careers information and advice', what: 'The official careers website, formerly the National Careers Service. Under 18? Your school or college careers adviser gives guidance.', url: 'https://nationalcareers.service.gov.uk/' },
     { where: 'Scotland', name: 'My World of Work', what: 'Careers information and advice from Skills Development Scotland.', url: 'https://www.myworldofwork.co.uk/' },
@@ -1577,6 +1632,11 @@ textarea.field{min-height:12em;resize:vertical}
         '<div class="subj-body"><ul class="tlist">' + list.map(topicRow).join('') + '</ul><p class="src">Source: ' + src + ' (Department for Education)</p></div></details>';
     }).join('');
   }
+  function renderNear() {
+    $('#near-area').value = area;
+    var list = NEAR[area] || [];
+    $('#near-list').innerHTML = list.map(function (n) { return '<li><span class="near-kind">' + esc(n.kind) + '</span><a href="' + n.url + '" target="_blank" rel="noopener">' + esc(n.name) + '</a><span>' + esc(n.what) + '</span></li>'; }).join('');
+  }
   function renderNext() {
     var list = state.y ? NEXT[state.y] : ['Choose your year group in question 1 to see steps for this year.'];
     $('#next').innerHTML = list.map(function (t) { return '<li>' + t + '</li>'; }).join('');
@@ -1949,6 +2009,10 @@ textarea.field{min-height:12em;resize:vertical}
           heading('What to do next');
           NEXT[state.y].forEach(function (t) { para(plain(t), { size: 9.5, indent: 12, bullet: true, after: 3 }); });
         }
+        if (NEAR[area]) {
+          heading('Near you: ' + NEAR_NAMES[area]);
+          NEAR[area].forEach(function (n) { keep([row([{ t: n.name + ':', f: F.bold }, { t: shortUrl(n.url), u: n.url }], { size: 9, indent: 12, bullet: true, after: 2.5 })]); });
+        }
         var used = roadmapWords();
         if (used.length && level < 2) {
           heading('Words explained');
@@ -2096,6 +2160,10 @@ textarea.field{min-height:12em;resize:vertical}
         });
         if (useful.length) draw(linkRows(useful, { size: 8.5, indent: 12, after: 2 }), M);
         y += 6;
+      }
+      if (NEAR[area]) {
+        heading('Near you: ' + NEAR_NAMES[area]);
+        NEAR[area].forEach(function (n) { keep([row([{ t: n.name + ':', f: F.bold }, { t: n.what }], { size: 9.5, indent: 12, bullet: true, after: 1 }), row([{ t: shortUrl(n.url), u: n.url }], { size: 8.5, indent: 12, after: 5 })]); });
       }
       var parentRows = [label('For parents and carers', { width: CW - 24 })];
       domList('#parents-list li').forEach(function (it) {
@@ -2501,6 +2569,12 @@ textarea.field{min-height:12em;resize:vertical}
 
   render();
   renderPart();
+  renderNear();
+  $('#near-area').addEventListener('change', function () {
+    area = NEAR[this.value] ? this.value : '';
+    try { if (area) window.localStorage.setItem(AREA_KEY, area); else window.localStorage.removeItem(AREA_KEY); } catch (e) { /* not saved, still shown */ }
+    renderNear();
+  });
   if (stats.on) { $('#privacy-count').hidden = false; track('visit'); setTimeout(loadStats, 900); }
 })();
 </script>
