@@ -299,6 +299,8 @@ body.has-go-bar{padding-bottom:76px}
 .row-actions{display:flex;flex-wrap:wrap;gap:10px}
 .keep{display:grid;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px;box-shadow:var(--shadow)}
 .keep-status{font-size:14.5px;color:var(--text)}
+.keep-more{font-size:14px;color:var(--muted)}
+.keep-more .linkish{font-weight:600}
 .keep-status:empty{display:none}
 .email-panel{display:grid;gap:12px;padding:14px;border-radius:var(--r-md);background:var(--sunken)}
 .email-panel label{font-size:14px;font-weight:700;color:var(--ink)}
@@ -708,10 +710,11 @@ textarea.field{min-height:12em;resize:vertical}
     <div class="keep" id="keep" hidden>
       <p class="label">Save or share your roadmap</p>
       <div class="row-actions">
-        <button type="button" class="btn btn-accent" id="save-pdf">Download PDF</button>
+        <button type="button" class="btn btn-accent" id="save-pdf" data-mode="summary">Download PDF (2 pages)</button>
         <button type="button" class="btn btn-ghost" id="save-email" aria-expanded="false" aria-controls="email-panel">Email it</button>
         <button type="button" class="btn btn-ghost" id="save-copy">Copy text</button>
       </div>
+      <p class="keep-more">For teachers: <button type="button" class="linkish" id="save-pdf-full" data-mode="full">download the full version</button>, with every GCSE topic and what the course says.</p>
       <p class="keep-status" id="keep-status" role="status"></p>
       <div class="email-panel" id="email-panel" hidden>
         <p class="email-h" id="email-h">Which email do you use?</p>
@@ -1649,7 +1652,7 @@ textarea.field{min-height:12em;resize:vertical}
     });
     return pdfLibPromise;
   }
-  function pdfName() { return 'local-energy-skills-roadmap' + (state.y ? '-year-' + state.y : '') + '.pdf'; }
+  function pdfName(mode) { return 'local-energy-skills-roadmap' + (state.y ? '-year-' + state.y : '') + (mode === 'full' ? '-full' : '') + '.pdf'; }
   function qrRows() {
     return QR_HEX.split(',').map(function (h) {
       var bits = parseInt(h, 16).toString(2);
@@ -1658,7 +1661,9 @@ textarea.field{min-height:12em;resize:vertical}
     });
   }
 
-  function buildPdf(L) {
+  // mode: 'summary' (two pages, the default) or 'full' (every GCSE topic, for teachers).
+  function buildPdf(L, mode, level) {
+    level = level || 0;
     function rgb(r, g, b) { return L.rgb(r / 255, g / 255, b / 255); }
     var C = { ink: rgb(3, 42, 59), text: rgb(29, 53, 66), muted: rgb(86, 98, 111), amber: rgb(46, 184, 149), amberDark: rgb(12, 110, 87), green: rgb(23, 120, 90), card: rgb(242, 245, 248), cardLine: rgb(220, 226, 234), note: rgb(233, 246, 242), noteLine: rgb(127, 209, 187), white: rgb(255, 255, 255) };
     var W = 595.28, H = 841.89, M = 50, CW = W - 2 * M, LIMIT = H - 62;
@@ -1843,6 +1848,92 @@ textarea.field{min-height:12em;resize:vertical}
       F.reg.getCharacterSet().forEach(function (c) { OK[c] = true; });
       var today = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
+      // The two-page summary: the four jobs first, then the timeline, next steps, words, advice and the QR code.
+      // "level" tightens the layout (1: timeline without details, 2: no word list) if a roadmap would run to a third page.
+      function summaryPages(logoImg) {
+        newPage();
+        if (logoImg) { var lw = 84, lh = lw * logoImg.height / logoImg.width; page.drawImage(logoImg, { x: W - M - lw, y: H - y - lh, width: lw, height: lh }); }
+        slash(M, y, 6, 16, C.amber);
+        slash(M + 11, y, 6, 16, C.amber);
+        y += 26;
+        para([{ t: 'My local energy skills roadmap', f: F.bold, c: C.ink }], { size: 20, lh: 1.2, after: 3, width: CW - 100 });
+        para(summaryText().split(' · ').join(DOT), { size: 10, after: 4 });
+        para([{ t: 'Made on ' + today + '. To change your answers or see more, open' }, { t: shortUrl(CONFIG.toolUrl), u: CONFIG.toolUrl }], { size: 8.5, color: C.muted, after: 8 });
+
+        var GAP = 10, colW = (CW - GAP) / 2, w = colW - PAD * 2;
+        function jobRowsS(r) {
+          var j = r.job, rows = [];
+          rows.push(row([{ t: j.name, f: F.bold, c: C.ink }], { size: 11.5, lh: 1.3, width: w, after: 1 }));
+          rows.push(row([{ t: money(j.pay[0]) + ' to ' + money(j.pay[1]), f: F.bold, c: C.ink }, { t: 'a year' }], { size: 8.5, width: w, after: 4 }));
+          rows.push(row(j.what, { size: 8.5, width: w, after: 5 }));
+          if (r.im.length) rows.push(row([{ t: 'Why it fits:', f: F.bold }, { t: r.im.map(function (id) { return INT[id].label; }).join(DOT) }], { size: 8.5, width: w, after: 5 }));
+          var tg = topicGroups(r);
+          if (tg.length) {
+            var tr = [{ t: 'GCSE topics:', f: F.bold }];
+            tg.forEach(function (g, gi) { tr.push({ t: g.k + ':', c: C.ink }); tr.push({ t: g.t.join(DOT) + (gi < tg.length - 1 ? ';' : '') }); });
+            rows.push(row(tr, { size: 8.5, width: w, after: 5 }));
+          }
+          rows.push(label('Ways in', { width: w }));
+          j.routes.slice(0, 2).forEach(function (x) { rows.push(row([{ t: x.k + ':', f: F.bold }, { t: x.v }], { size: 8.5, width: w, indent: 10, bullet: true, after: 1.5 })); });
+          rows[rows.length - 1].after = 5;
+          rows.push(row([{ t: 'Full job profile', u: j.url, f: F.bold }], { size: 8.5, width: w }));
+          return rows;
+        }
+        heading('Jobs that fit you');
+        para('Pay is for a year, from starting pay to experienced. The website shows every way in for each job.', { size: 8, color: C.muted, after: 6 });
+        for (var i = 0; i < currentTop.length; i += 2) {
+          var left = jobRowsS(currentTop[i]), right = currentTop[i + 1] ? jobRowsS(currentTop[i + 1]) : null;
+          var ch = Math.max(cardHeight(left), right ? cardHeight(right) : 0);
+          ensure(ch + GAP);
+          cardAt(left, M, colW, ch, C.card, C.cardLine);
+          if (right) cardAt(right, M + colW + GAP, colW, ch, C.card, C.cardLine);
+          y += ch + GAP;
+        }
+
+        var items = timelineItems();
+        if (items.length) {
+          heading('Your timeline');
+          items.forEach(function (it) {
+            var rs = [row([{ t: it.date + ':', f: F.bold, c: C.muted }, { t: it.title, f: F.bold, c: C.ink }], { size: 9.5, indent: 12, bullet: true, after: level >= 1 ? 3 : 1 })];
+            if (level < 1) rs.push(row(it.detail, { size: 8.5, indent: 12, after: 4 }));
+            keep(rs);
+          });
+        }
+        if (state.y) {
+          heading('What to do next');
+          NEXT[state.y].forEach(function (t) { para(plain(t), { size: 9.5, indent: 12, bullet: true, after: 3 }); });
+        }
+        var used = roadmapWords();
+        if (used.length && level < 2) {
+          heading('Words explained');
+          used.forEach(function (wd) { keep([row([{ t: wd.t + ':', f: F.bold }, { t: wd.d }], { size: 8.5, indent: 12, bullet: true, after: 2.5 })]); });
+        }
+
+        // Talk it through (official services) beside the QR code back to the tool
+        var QR = 76, rightW = QR + PAD * 2, leftW = CW - rightW - 10, iw = leftW - PAD * 2;
+        var adv = [
+          row([{ t: 'Use this to explore, then talk to your careers adviser before you choose.', f: F.bold, c: C.ink }], { size: 10, width: iw, after: 3 }),
+          row('Courses, grades and pay can change. Information checked October 2026. Your school or college careers adviser is the best place to start. Free official careers services:', { size: 8.5, width: iw, after: 3 })
+        ];
+        ADVICE.filter(function (a) { return a.kind !== 'route'; }).forEach(function (a) { adv.push(row([{ t: a.where + ':', f: F.bold }, { t: shortUrl(a.url), u: a.url }], { size: 8.5, width: iw, indent: 10, bullet: true, after: 1.5 })); });
+        var bh = Math.max(cardHeight(adv), QR + PAD * 2 + 14);
+        ensure(bh + 34);
+        y += 8;
+        var top = y;
+        cardAt(adv, M, leftW, bh, C.note, C.noteLine);
+        var bx = M + leftW + 10, qx = bx + PAD;
+        box(bx, top, rightW, bh, 7, C.card, C.cardLine);
+        box(qx - 3, top + PAD - 3, QR + 6, QR + 6, 4, C.white, C.cardLine);
+        shape(qrPath(), qx, top + PAD, C.ink, null, QR / 33);
+        addLink(qx, H - (top + PAD + QR), qx + QR, H - (top + PAD), CONFIG.toolUrl);
+        y = top + PAD + QR + 5;
+        draw([row('Scan to open it online', { size: 7.5, color: C.muted, width: QR + 4 })], qx);
+        y = top + bh + 8;
+        para('Made with the Sustainable Local Energy Skills Roadmap by Professor Vahid Vahidinasab, University of Salford. A guide, not personal careers advice. The full version, with every GCSE topic, is on the website.', { size: 7.5, color: C.muted });
+      }
+
+      if (mode === 'summary') summaryPages(fonts[3]);
+      else {
       // Title and what this is
       newPage();
       if (fonts[3]) { var lw = 96, lh = lw * fonts[3].height / fonts[3].width; page.drawImage(fonts[3], { x: W - M - lw, y: H - y - lh, width: lw, height: lh }); }
@@ -2006,6 +2097,10 @@ textarea.field{min-height:12em;resize:vertical}
       var srcRows = linkRows(SOURCES, { size: 8, after: 2 });
       keep([row([{ t: 'Sources', f: F.bold, c: C.ink }], { size: 10, after: 3 }), srcRows[0]]);
       draw(srcRows.slice(1), M);
+      }
+
+      // A summary that would run to a third page is rebuilt more tightly.
+      if (mode === 'summary' && pages.length > 2 && level < 2) return buildPdf(L, mode, level + 1);
 
       // Footer on every page
       pages.forEach(function (p, i) {
@@ -2015,7 +2110,7 @@ textarea.field{min-height:12em;resize:vertical}
         p.drawText(pn, { x: W - M - textW(F.reg, pn, 7), y: 32, size: 7, font: F.reg, color: C.muted });
       });
 
-      doc.setTitle('My local energy skills roadmap');
+      doc.setTitle('My local energy skills roadmap' + (mode === 'full' ? ', full version' : ''));
       doc.setAuthor('Sustainable Local Energy Skills Roadmap');
       doc.setSubject('A personal roadmap from GCSE topics to jobs in sustainable, local energy');
       doc.setCreator('Sustainable Local Energy Skills Roadmap, ' + CONFIG.toolUrl);
@@ -2292,34 +2387,36 @@ textarea.field{min-height:12em;resize:vertical}
   // PDF: built in the browser and saved as a normal download.
   var pdfBusy = false;
   ['pointerenter', 'focus', 'touchstart'].forEach(function (ev) {
-    $('#save-pdf').addEventListener(ev, function () { loadPdfLib().then(null, function () {}); }, { passive: true });
+    ['#save-pdf', '#save-pdf-full'].forEach(function (sel) { $(sel).addEventListener(ev, function () { loadPdfLib().then(null, function () {}); }, { passive: true }); });
   });
-  function deliverPdf(bytes) {
+  function deliverPdf(bytes, mode) {
     var url = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
     var a = document.createElement('a');
     a.href = url;
-    a.download = pdfName();
+    a.download = pdfName(mode);
     document.body.appendChild(a);
     a.click();
     a.remove();
     setTimeout(function () { URL.revokeObjectURL(url); }, 60000);
   }
-  $('#save-pdf').addEventListener('click', function () {
+  function makePdf() {
     if (pdfBusy) return;
-    var btn = this;
+    var btn = this, mode = btn.getAttribute('data-mode') || 'summary';
     pdfBusy = true;
     btn.setAttribute('aria-busy', 'true');
     $('#copy-fallback').hidden = true;
     closeEmail();
-    setStatus('Making your PDF...');
-    loadPdfLib().then(buildPdf).then(function (bytes) {
-      deliverPdf(bytes);
-      setStatus('PDF saved. Check your downloads.');
+    setStatus(mode === 'full' ? 'Making the full PDF...' : 'Making your PDF...');
+    loadPdfLib().then(function (L) { return buildPdf(L, mode); }).then(function (bytes) {
+      deliverPdf(bytes, mode);
+      setStatus(mode === 'full' ? 'Full PDF saved. Check your downloads.' : 'PDF saved. Check your downloads.');
       track('pdf');
     }, function (err) {
       setStatus(err && err.code === 'lib' ? 'The PDF maker did not load. Check your connection and try again, or use Copy text.' : 'Sorry, the PDF could not be made. Use Copy text or Email it instead.');
     }).then(function () { pdfBusy = false; btn.removeAttribute('aria-busy'); });
-  });
+  }
+  $('#save-pdf').addEventListener('click', makePdf);
+  $('#save-pdf-full').addEventListener('click', makePdf);
 
   // An example counts as explored when someone opens it, or it stays on screen for a few seconds.
   if (window.IntersectionObserver) {
