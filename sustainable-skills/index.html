@@ -212,6 +212,8 @@ button,input,select,textarea{font:inherit}
 .chip:hover{border-color:var(--ink)}
 .chip[aria-pressed="true"]{background:var(--accent-tint);border-color:var(--accent-hover);color:var(--ink)}
 .ex-panel{display:grid;gap:10px;padding-top:12px;border-top:1px solid var(--line);min-height:15em}
+.ex-panel.is-empty{min-height:0}
+.ex-hint{font-size:14.5px;color:var(--muted)}
 .ex-panel h3{font-size:1.2rem}
 .ex-what{font-size:15px}
 .ex-links{list-style:none;margin:0;padding:0;display:grid;gap:3px;font-size:14.5px}
@@ -268,6 +270,22 @@ fieldset.is-done .qn{background:var(--green);color:var(--surface)}
 .opt input:focus-visible + .opt-body{outline:2.5px solid var(--focus);outline-offset:2px}
 .opt-body:hover{border-color:var(--ink)}
 .form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:24px}
+/* One question at a time below 980px */
+.wiz-step{margin-top:16px;font-size:14px;font-weight:700;color:var(--accent-text)}
+#quiz.is-wizard fieldset{display:none}
+#quiz.is-wizard fieldset.is-current{display:block;margin-top:8px}
+#quiz.is-wizard fieldset:focus{outline:none}
+#quiz.is-wizard .form-actions{margin-top:14px}
+#quiz.is-wizard .form-actions .btn-accent{display:none}
+.wiz-nav{display:flex;gap:10px;margin-top:22px}
+.wiz-nav .btn{flex:1 1 0}
+.wiz-nav .btn-accent{flex:2 1 0}
+.wiz-nav .btn[hidden]{display:none}
+/* The bar that leads to the roadmap on phones and tablets */
+.go-bar{position:fixed;left:0;right:0;bottom:0;z-index:35;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:var(--appbar);border-top:1px solid var(--line);-webkit-backdrop-filter:saturate(1.4) blur(10px);backdrop-filter:saturate(1.4) blur(10px);box-shadow:0 -6px 20px rgba(3,42,59,.08)}
+.go-bar p{font-size:15px;color:var(--ink)}
+body.has-go-bar{padding-bottom:76px}
+@media (min-width:980px){.go-bar{display:none !important}body.has-go-bar{padding-bottom:0}}
 
 /* Roadmap */
 .roadmap{min-width:0;display:grid;gap:28px;align-content:start}
@@ -490,6 +508,8 @@ textarea.field{min-height:12em;resize:vertical}
   .bench{display:block;padding:10pt 0 0}
   .roadmap{display:block}
   .roadmap > * + *{margin-top:16pt}
+  .go-bar{display:none !important}
+  body.has-go-bar{padding-bottom:0}
   .topic-q{display:none}
   .jobs{grid-template-columns:repeat(2,minmax(0,1fr));gap:10pt}
   .job,.card,.keep,.ex-banner,.advice,.service,.parents{box-shadow:none}
@@ -632,26 +652,31 @@ textarea.field{min-height:12em;resize:vertical}
     <p class="privacy">Your answers are saved on this device only. This page does not collect them.</p>
     <p class="ans-note" id="ans-note" hidden></p>
     <form id="quiz" novalidate>
-      <fieldset id="q-y">
+      <p class="wiz-step" id="wiz-step" aria-live="polite" hidden></p>
+      <fieldset id="q-y" tabindex="-1">
         <legend><span class="qn" aria-hidden="true">1</span>Which year are you in?</legend>
         <div class="seg" id="year-seg"></div>
       </fieldset>
-      <fieldset id="q-i">
+      <fieldset id="q-i" tabindex="-1">
         <legend><span class="qn" aria-hidden="true">2</span>What do you enjoy?</legend>
         <p class="hint" id="int-hint">Pick up to three.</p>
         <div class="pills" id="interest-chips"></div>
       </fieldset>
-      <fieldset id="q-s">
+      <fieldset id="q-s" tabindex="-1">
         <legend><span class="qn" aria-hidden="true">3</span>Which GCSE subjects are you taking, or thinking about?</legend>
         <p class="hint">Everyone takes English, maths and science. Which science course?</p>
         <div class="seg seg-2" id="sci-seg"></div>
         <p class="hint">Your options. Electronics and Engineering are not offered at every school.</p>
         <div class="pills" id="subject-chips"></div>
       </fieldset>
-      <fieldset id="q-st">
+      <fieldset id="q-st" tabindex="-1">
         <legend><span class="qn" aria-hidden="true">4</span>How do you like to learn?</legend>
         <div class="opts" id="style-opts"></div>
       </fieldset>
+      <div class="wiz-nav" id="wiz-nav" hidden>
+        <button type="button" class="btn btn-ghost" id="wiz-back">Back</button>
+        <button type="button" class="btn btn-accent" id="wiz-next">Next question</button>
+      </div>
       <div class="form-actions">
         <button type="button" class="btn btn-accent" data-go="roadmap">See my roadmap</button>
         <button type="button" class="linkish" id="reset">Start again</button>
@@ -664,7 +689,7 @@ textarea.field{min-height:12em;resize:vertical}
       <p class="eyebrow" id="rm-eyebrow">Your roadmap</p>
       <h2 id="roadmap-h">Your local energy skills roadmap</h2>
       <p class="rm-summary" id="rm-summary"></p>
-      <p class="rm-note" id="rm-note"><span id="rm-note-t"></span> <button type="button" class="linkish" id="show-example">See an example</button></p>
+      <p class="rm-note" id="rm-note"><span id="rm-note-t"></span> <button type="button" class="linkish" id="edit-answers">Change my answers</button> <span aria-hidden="true">·</span> <button type="button" class="linkish" id="show-example">See an example</button></p>
     </div>
 
     <div class="ex-banner" id="ex-banner" hidden>
@@ -843,6 +868,11 @@ textarea.field{min-height:12em;resize:vertical}
   </div>
 </div>
 </footer>
+
+<div class="go-bar" id="go-bar" hidden>
+  <p><strong>Your roadmap is ready.</strong></p>
+  <button type="button" class="btn btn-accent" id="go-bar-btn">See my roadmap</button>
+</div>
 
 <script>
 (function () {
@@ -1173,7 +1203,10 @@ textarea.field{min-height:12em;resize:vertical}
   var view = hasAnswers(mine) ? 'mine' : 'example';
   var state = view === 'example' ? EXAMPLE : mine;
   var focus = null;
-  var part = 'heatpump';
+  var phoneMq = window.matchMedia ? window.matchMedia('(max-width: 759px)') : null;
+  function isPhone() { return !!(phoneMq && phoneMq.matches); }
+  // On phones the explorer starts folded, so the questions come sooner; tap a part to open it.
+  var part = isPhone() ? null : 'heatpump';
   var currentTop = [];
 
   // ---------- Derived data ----------
@@ -1509,6 +1542,8 @@ textarea.field{min-height:12em;resize:vertical}
   function renderPart() {
     var p = PART[part];
     $all('[data-part]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-part') === part ? 'true' : 'false'); });
+    $('#ex-panel').classList.toggle('is-empty', !p);
+    if (!p) { $('#ex-panel').innerHTML = '<p class="ex-hint">Tap a dot or a button to see where it turns up in your lessons, and who installs it.</p>'; return; }
     var roles = p.who.filter(function (r) { return r[1].some(function (id) { return JOB[id]; }); });
     $('#ex-panel').innerHTML = '<h3>' + esc(p.name) + '</h3><p class="ex-what">' + esc(p.what) + '</p>' +
       '<div><p class="label">Where it turns up at GCSE</p><ul class="ex-links">' + p.links.map(function (l) { return '<li><span class="ex-subj">' + esc(SUBJ[l[0]].name) + ':</span> ' + esc(l[1]) + '</li>'; }).join('') + '</ul></div>' +
@@ -2062,10 +2097,47 @@ textarea.field{min-height:12em;resize:vertical}
   }
 
   // ---------- Events ----------
+  // ---------- One question at a time on phones and tablets ----------
+  var STEPS = ['q-y', 'q-i', 'q-s', 'q-st'];
+  var step = 0;
+  var wizardMq = window.matchMedia ? window.matchMedia('(max-width: 979px)') : null;
+  function isWizard() { return !!(wizardMq && wizardMq.matches); }
+  function firstUnanswered() {
+    var done = [!!mine.y, mine.interests.length > 0, mine.s3, !!mine.style];
+    var i = done.indexOf(false);
+    return i === -1 ? 0 : i;
+  }
+  function showStep(n, moveFocus) {
+    step = Math.max(0, Math.min(STEPS.length - 1, n));
+    var on = isWizard();
+    $('#quiz').classList.toggle('is-wizard', on);
+    $('#wiz-nav').hidden = !on;
+    $('#wiz-step').hidden = !on;
+    STEPS.forEach(function (id, i) { document.getElementById(id).classList.toggle('is-current', i === step); });
+    $('#wiz-step').textContent = 'Question ' + (step + 1) + ' of ' + STEPS.length;
+    $('#wiz-back').hidden = step === 0;
+    $('#wiz-next').textContent = step === STEPS.length - 1 ? 'See my roadmap' : 'Next question';
+    if (on && moveFocus) {
+      var fs = document.getElementById(STEPS[step]);
+      $('#answers').scrollIntoView({ behavior: reducedMotion() ? 'auto' : 'smooth', block: 'start' });
+      try { fs.focus({ preventScroll: true }); } catch (e) { fs.focus(); }
+    }
+  }
+  // The bar shows on phones and tablets once all four questions are answered, until the roadmap is on screen.
+  function updateGoBar() {
+    var r = $('#roadmap').getBoundingClientRect();
+    var nb = $('#wiz-next').getBoundingClientRect();
+    var lastStepOnScreen = step === STEPS.length - 1 && nb.top < window.innerHeight && nb.bottom > 0;   // it has its own See my roadmap button
+    var show = isWizard() && view === 'mine' && answeredCount(mine) === 4 && r.top > window.innerHeight * 0.6 && !lastStepOnScreen;
+    $('#go-bar').hidden = !show;
+    document.body.classList.toggle('has-go-bar', show);
+  }
+
   buildForm();
   syncForm();
   buildExplorer();
   buildStatic();
+  showStep(firstUnanswered(), false);
 
   function clearSaveUi() {
     setStatus('');
@@ -2080,6 +2152,7 @@ textarea.field{min-height:12em;resize:vertical}
     clearSaveUi();
     setView('mine');
     if (mine.y && answeredCount(mine) >= 2) track('own');
+    updateGoBar();
   });
   $('#reset').addEventListener('click', function () {
     mine = cleanState({});
@@ -2088,6 +2161,8 @@ textarea.field{min-height:12em;resize:vertical}
     saveMine();
     clearSaveUi();
     setView('mine');
+    showStep(0, false);
+    updateGoBar();
     var first = document.getElementById('year-7');
     if (first) first.focus();
   });
@@ -2098,7 +2173,11 @@ textarea.field{min-height:12em;resize:vertical}
     drawLines();
   });
   $all('[data-part]').forEach(function (b) {
-    b.addEventListener('click', function () { part = b.getAttribute('data-part'); renderPart(); });
+    b.addEventListener('click', function () {
+      var id = b.getAttribute('data-part');
+      part = (part === id && isPhone()) ? null : id;   // on phones a second tap folds it again
+      renderPart();
+    });
   });
   function jumpTo(id, el) {
     var target = document.getElementById(id);
@@ -2117,8 +2196,21 @@ textarea.field{min-height:12em;resize:vertical}
   });
   $('#ex-mine').addEventListener('click', function () {
     if (hasAnswers(mine)) { setView('mine'); jumpTo('roadmap'); }
-    else jumpTo('answers', document.getElementById('year-7'));
+    else { showStep(0, false); jumpTo('answers', document.getElementById('year-7')); }
   });
+  $('#edit-answers').addEventListener('click', function () { showStep(0, false); jumpTo('answers'); });
+  $('#wiz-next').addEventListener('click', function () {
+    if (step < STEPS.length - 1) showStep(step + 1, true);
+    else { if (hasAnswers(mine)) setView('mine'); jumpTo('roadmap'); }
+  });
+  $('#wiz-back').addEventListener('click', function () { showStep(step - 1, true); });
+  $('#go-bar-btn').addEventListener('click', function () { if (hasAnswers(mine)) setView('mine'); jumpTo('roadmap'); });
+  if (wizardMq) {
+    var onWidth = function () { showStep(step, false); updateGoBar(); };
+    if (wizardMq.addEventListener) wizardMq.addEventListener('change', onWidth); else if (wizardMq.addListener) wizardMq.addListener(onWidth);
+  }
+  var barRaf = 0;
+  window.addEventListener('scroll', function () { cancelAnimationFrame(barRaf); barRaf = requestAnimationFrame(updateGoBar); }, { passive: true });
   $('#show-example').addEventListener('click', function () { clearSaveUi(); setView('example'); track('example'); jumpTo('roadmap'); });
 
   function copyText(text, ok, fail) {
