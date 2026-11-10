@@ -474,6 +474,12 @@ textarea.field{min-height:12em;resize:vertical}
   .hero-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:44px}
   .bench{grid-template-columns:minmax(300px,360px) minmax(0,1fr);gap:36px;align-items:start}
   .answers .btn-accent{display:none}
+  /* The questions stay in view beside the roadmap, so a changed answer updates the roadmap in front of you. */
+  .answers{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);max-height:calc(100vh - 92px);overflow-y:auto;scrollbar-width:thin;scrollbar-gutter:stable;padding:18px}
+  .answers fieldset{margin-top:18px}
+  .answers .pill span{min-height:38px;padding:6px 11px}
+  .answers .opt-body{padding:8px 12px}
+  .answers .form-actions{margin-top:18px}
   .foot-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto 1fr}
   .foot-about{grid-column:1;grid-row:1}
   .foot-share{grid-column:2;grid-row:1}
