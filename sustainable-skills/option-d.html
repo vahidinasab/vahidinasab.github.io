@@ -571,14 +571,15 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
   @media (prefers-reduced-motion: no-preference){dialog.drawer[open]{animation-name:sheet-in}@keyframes sheet-in{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}}
 }
 
-/* ---------- Option D: At a glance, with How it works ---------- */
-.how{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:34em}
-.how li{display:flex;align-items:flex-start;gap:12px}
-.how-n{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:var(--accent);color:#032A3B;font-family:var(--display);font-weight:800;font-size:16px;line-height:1}
-.how-t{display:grid;gap:1px;font-size:14.5px;line-height:1.45;color:#DCE5EB}
-.how-t b{font-size:16px;color:#FFFFFF}
-.hero-copy .fact{padding:10px 14px}
-.hero-copy .fact dt{font-size:1.5rem}
+/* ---------- Option D: At a glance, with the How it works row ---------- */
+.how-wrap{padding-top:28px}
+.how{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.how li{display:flex;align-items:flex-start;gap:14px;padding:16px 18px;border-radius:var(--r-lg);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18)}
+.how-n{flex:none;display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--accent);color:#032A3B;font-family:var(--display);font-weight:800;font-size:18px;line-height:1}
+.how-t{display:grid;gap:3px;font-size:15px;line-height:1.45;color:#DCE5EB}
+.how-t b{font-size:16.5px;color:#FFFFFF}
+@media (min-width:760px){.how{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:980px){.how-wrap{padding-top:36px}}
 
 /* Printing the page (Ctrl+P) gives the roadmap on white paper. Download PDF gives the designed version. */
 @media print{
@@ -653,11 +654,6 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
         <button class="btn btn-accent btn-lg" type="button" data-go="answers">Build my roadmap</button>
         <button class="btn btn-ghost btn-lg" type="button" data-go="example">See an example</button>
       </div>
-      <ol class="how" aria-label="How it works">
-        <li><span class="how-n" aria-hidden="true">1</span><span class="how-t"><b>Explore the home</b>See where each part turns up in your GCSE subjects.</span></li>
-        <li><span class="how-n" aria-hidden="true">2</span><span class="how-t"><b>Answer four questions</b>Your year, what you enjoy, your subjects and how you like to learn.</span></li>
-        <li><span class="how-n" aria-hidden="true">3</span><span class="how-t"><b>Get your roadmap</b>Jobs that fit, key dates and next steps, ready to save as a PDF.</span></li>
-      </ol>
       <dl class="facts">
         <div class="fact"><dt>860,000</dt><dd>clean energy jobs expected in the UK by 2030, as the sector doubles in size. <a href="https://www.gov.uk/government/news/clean-energy-jobs-boom-to-bring-thousands-of-new-jobs" target="_blank" rel="noopener">Clean Energy Jobs Plan</a></dd></div>
       </dl>
@@ -682,6 +678,13 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       <div class="ex-chips" id="ex-chips" role="group" aria-label="Parts of the home"></div>
       <div class="ex-panel" id="ex-panel" aria-live="polite"></div>
     </section>
+  </div>
+  <div class="wrap how-wrap">
+      <ol class="how" aria-label="How it works">
+      <li><span class="how-n" aria-hidden="true">1</span><span class="how-t"><b>Explore the home</b>See where each part turns up in your GCSE subjects.</span></li>
+      <li><span class="how-n" aria-hidden="true">2</span><span class="how-t"><b>Answer four questions</b>Your year, what you enjoy, your subjects and how you like to learn.</span></li>
+      <li><span class="how-n" aria-hidden="true">3</span><span class="how-t"><b>Get your roadmap</b>Jobs that fit, key dates and next steps, ready to save as a PDF.</span></li>
+    </ol>
   </div>
 </section>
 
