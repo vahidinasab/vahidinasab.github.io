@@ -993,7 +993,8 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     toolUrl: 'https://vahidinasab.github.io/sustainable-skills/',
     statsUrl: 'https://sles-roadmap-counter.vahidinasab.workers.dev',   // the visit counter (Cloudflare Worker sles-roadmap-counter)
     reachDetail: false,   // true also shows uses and UK regions under Reach so far (they are always counted)
-    reachShowFrom: 100,   // Reach so far appears once the visit total reaches this number
+    reachShow: false,   // false hides Reach so far for now; true shows it once the total reaches reachShowFrom
+    reachShowFrom: 500,   // Reach so far appears once the visit total reaches this number
     paperDoi: '',   // for example '10.1016/j.example.2027.000000' once the paper is published
     articleUrl: 'https://theconversation.com/vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now-295008',  // The Conversation article
     feedbackUrl: '',   // a feedback form (for example a Microsoft Form); used for Send feedback when set
@@ -2356,7 +2357,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     }).join('');
   }
   function renderStats(s) {
-    if (!s || typeof s.visit !== 'number' || s.visit < (CONFIG.reachShowFrom || 0)) return;
+    if (!CONFIG.reachShow || !s || typeof s.visit !== 'number' || s.visit < (CONFIG.reachShowFrom || 0)) return;
     $('#st-visit').textContent = fmt(s.visit);
     $('#st-visit-label').textContent = s.visit === 1 ? 'visit' : 'visits';
     // Everything is counted; the breakdown shows on the page only when CONFIG.reachDetail is true.
