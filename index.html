@@ -1,15 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vahid Vahidinasab · Professor and Chair in Sustainability</title>
-<meta name="description" content="Vahid Vahidinasab, Professor and Chair in Sustainability at the University of Salford. Research and leadership in power systems, electricity markets, smart grids and net zero.">
+<meta name="description" content="Vahid Vahidinasab, Professor and Chair in Sustainability and Academic Research Director of the Centre for Sustainable Innovation at the University of Salford. Research and leadership in power systems, electricity markets, smart grids and net zero.">
+<link rel="canonical" href="https://vahidinasab.github.io/">
+<meta name="theme-color" content="#0A0D14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23FFB43D%22/%3E%3Cpath%20d%3D%22M7%2023%20L13%2016.5%20L18%2019.5%20L24.5%2010%22%20fill%3D%22none%22%20stroke%3D%22%230A0D14%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Ccircle%20cx%3D%2224.5%22%20cy%3D%2210%22%20r%3D%223.2%22%20fill%3D%22%230A0D14%22/%3E%3Ccircle%20cx%3D%227%22%20cy%3D%2223%22%20r%3D%222.4%22%20fill%3D%22%230A0D14%22/%3E%3C/svg%3E">
+
+<!-- link previews (LinkedIn, X, Teams, Slack, WhatsApp) -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Vahid Vahidinasab">
+<meta property="og:title" content="Vahid Vahidinasab · Professor and Chair in Sustainability">
+<meta property="og:description" content="Professor and Chair in Sustainability and Academic Research Director of the Centre for Sustainable Innovation at the University of Salford. Research and leadership in power systems, electricity markets, smart grids and net zero.">
+<meta property="og:url" content="https://vahidinasab.github.io/">
+<meta property="og:image" content="https://vahidinasab.github.io/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vahid Vahidinasab, Professor and Chair in Sustainability, University of Salford">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="profile:first_name" content="Vahid">
+<meta property="profile:last_name" content="Vahidinasab">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Person",
+ "name": "Vahid Vahidinasab",
+ "honorificPrefix": "Professor",
+ "jobTitle": [
+  "Professor and Chair in Sustainability",
+  "Academic Research Director, Centre for Sustainable Innovation"
+ ],
+ "worksFor": {
+  "@type": "CollegeOrUniversity",
+  "name": "University of Salford",
+  "url": "https://www.salford.ac.uk/"
+ },
+ "url": "https://vahidinasab.github.io/",
+ "image": "https://vahidinasab.github.io/assets/vahid.jpg",
+ "email": "mailto:v.vahidinasab@salford.ac.uk",
+ "sameAs": [
+  "https://scholar.google.com/citations?user=Dh-12v4AAAAJ",
+  "https://orcid.org/0000-0002-0779-8727",
+  "https://www.linkedin.com/in/vahid-vahidinasab/",
+  "https://www.scopus.com/authid/detail.uri?authorId=23483160600",
+  "https://www.webofscience.com/wos/author/rid/F-3602-2014",
+  "https://theconversation.com/profiles/vahid-vahidinasab-1453103"
+ ],
+ "knowsAbout": [
+  "Power systems",
+  "Electricity markets",
+  "Smart grids",
+  "Local energy communities",
+  "Peer-to-peer energy trading",
+  "Electric vehicles and vehicle-to-grid",
+  "Whole-energy systems",
+  "Net zero"
+ ],
+ "alumniOf": [
+  {
+   "@type": "CollegeOrUniversity",
+   "name": "Iran University of Science and Technology"
+  },
+  {
+   "@type": "CollegeOrUniversity",
+   "name": "K. N. Toosi University of Technology"
+  }
+ ]
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
+<script>document.documentElement.classList.add('js')</script>
 <style>
   /* ============ TOKENS ============ */
   :root{
@@ -21,7 +88,7 @@
     --line-strong:rgba(255,255,255,.16);
     --text:#EDF0F5;
     --muted:#9AA3B2;
-    --muted-2:#6B7484;
+    --muted-2:#7E8798;    /* passes WCAG AA (4.7:1+) on every surface */
     --accent:#FFB43D;      /* single electric accent: amber */
     --accent-soft:#FFD98A; /* gradient partner: heated gold */
     --accent-deep:#F59021; /* depth */
@@ -84,9 +151,25 @@
   .brand b{color:var(--accent)}
   .nav-links{display:flex;gap:1.4rem;font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;color:var(--muted)}
   .nav-links a{transition:color .2s}
-  .nav-links a:hover{color:var(--accent)}
-  .nav-links .idx{color:var(--accent);opacity:.7}
-  @media(max-width:760px){.nav-links{display:none}}
+  .nav-links a:hover,.nav-links a.is-active{color:var(--accent)}
+  /* menu button: only shown on small screens */
+  .nav-toggle{display:none;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--text);background:transparent;border:1px solid var(--line-strong);border-radius:6px;padding:.55rem .85rem;cursor:pointer;transition:border-color .2s,color .2s}
+  .nav-toggle:hover{border-color:var(--accent);color:var(--accent)}
+  .nav-toggle .bars{position:relative;width:14px;height:10px}
+  .nav-toggle .bars::before,.nav-toggle .bars::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:currentColor;transition:transform .2s,top .2s}
+  .nav-toggle .bars::before{top:1px}
+  .nav-toggle .bars::after{top:7.5px}
+  .nav.open .nav-toggle .bars::before{top:4.25px;transform:rotate(45deg)}
+  .nav.open .nav-toggle .bars::after{top:4.25px;transform:rotate(-45deg)}
+  @media(max-width:980px){
+    .nav-toggle{display:inline-flex}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;font-size:.88rem;
+      padding:.3rem var(--pad) 1rem;background:var(--bg-2);border-bottom:1px solid var(--line-strong);box-shadow:0 24px 40px -24px rgba(0,0,0,.8)}
+    .nav.open .nav-links{display:flex}
+    .nav-links a{padding:.85rem 0;border-bottom:1px solid var(--line)}
+    .nav-links a:last-child{border-bottom:0}
+  }
 
   /* ============ HERO ============ */
   .hero{position:relative;padding-top:clamp(4rem,11vh,7rem);padding-bottom:clamp(3.5rem,8vh,6rem);min-height:88vh;display:flex;align-items:center}
@@ -98,6 +181,7 @@
 
   .eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:.6rem}
   .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent);opacity:.6}
+  h2.eyebrow{font-weight:400}
 
   .hero h1{
     font-family:var(--display);font-weight:900;line-height:.95;letter-spacing:-.03em;
@@ -106,8 +190,8 @@
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .hero .role{font-family:var(--mono);font-size:clamp(.9rem,1.7vw,1.05rem);letter-spacing:.02em;color:var(--text)}
-  .hero .role-sub{font-family:var(--mono);font-size:clamp(.72rem,1.3vw,.82rem);letter-spacing:.02em;color:var(--muted);margin-top:.5rem;line-height:1.6;max-width:56ch}
   .hero .role span{color:var(--accent)}
+  .hero .role + .role{margin-top:.35rem}
   .hero .position{max-width:52ch;margin-top:1.5rem;color:var(--muted);font-size:clamp(1.02rem,1.7vw,1.22rem);line-height:1.6}
   .hero .position b{color:var(--text);font-weight:600}
 
@@ -116,8 +200,10 @@
   .photo-frame{position:relative;width:clamp(220px,30vw,340px);aspect-ratio:1/1;border-radius:22px;overflow:hidden;
     border:1px solid var(--line-strong);
     box-shadow:0 24px 60px -28px rgba(0,0,0,.7)}
+  .photo-frame picture{display:block;width:100%;height:100%}
   .photo-frame img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block}
-  @media(max-width:820px){
+  .hero > .wrap{width:100%;min-width:0}
+  @media(max-width:980px){
     .hero-grid{grid-template-columns:1fr}
     .hero-photo{justify-content:flex-start;order:-1}
     .photo-frame{width:clamp(150px,42vw,220px);border-radius:18px}
@@ -125,19 +211,20 @@
 
   .cta-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.1rem}
   .btn{font-family:var(--mono);font-size:.82rem;letter-spacing:.05em;padding:.72rem 1.25rem;border-radius:6px;transition:transform .18s,box-shadow .18s,border-color .18s,background .18s;display:inline-flex;align-items:center;gap:.5rem}
-  .btn-primary,.pub-more a.btn-primary{background:var(--accent);color:#0A0D14;font-weight:600;border:0}
+  .btn-primary{background:var(--accent);color:#0A0D14;font-weight:600;border:0}
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px -8px rgba(255,180,61,.5)}
   .btn-ghost{border:1px solid var(--line-strong);color:var(--text)}
   .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 
   /* ============ STAT COUNTERS ============ */
-  .stats{margin-top:3.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  /* the 1px gaps are the dividers; the solid base stops the hero trace showing through them */
+  .stats{margin-top:3.2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:linear-gradient(var(--line),var(--line)),var(--bg);border:1px solid var(--line);border-radius:12px;overflow:hidden}
   .stat{background:var(--bg-2);padding:1.5rem 1.35rem}
   .stat .num{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1;letter-spacing:-.02em;
     background:linear-gradient(180deg,#fff,var(--accent-soft));-webkit-background-clip:text;background-clip:text;color:transparent}
   .stat .lab{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--muted);margin-top:.7rem;text-transform:uppercase;line-height:1.4}
   .stats-note{font-family:var(--mono);font-size:.7rem;color:var(--muted-2);margin-top:.9rem;letter-spacing:.03em}
-  .stats-note a{color:var(--accent);border-bottom:1px solid transparent;transition:border-color .2s}
+  .stats-note a{color:var(--accent);border-bottom:1px solid rgba(255,180,61,.4);transition:border-color .2s}
   .stats-note a:hover{border-color:var(--accent)}
   @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
 
@@ -153,9 +240,14 @@
   .bio{max-width:60ch;font-size:clamp(1.15rem,2.1vw,1.5rem);line-height:1.6;color:var(--text);font-weight:400;letter-spacing:-.01em}
 
   /* reveal on scroll */
-  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+  /* hidden only when JS runs (html.js), so the content never disappears without it */
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+  .js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+
+  /* tidier line breaks: no lone last words in headings or short paragraphs */
+  h1,h2,h3,.contact .big{text-wrap:balance}
+  p{text-wrap:pretty}
 
   /* ============ FOCUS CARDS ============ */
   .grid-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
@@ -181,35 +273,10 @@
   .tl-item p{color:var(--muted);font-size:.94rem;margin-top:.45rem;max-width:66ch}
 
   /* ============ PUBLICATIONS ============ */
-  .pub-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-  .pub{background:var(--surface);padding:1.35rem 1.5rem;display:flex;gap:1.2rem;align-items:flex-start;transition:background .2s}
-  .pub:hover{background:var(--surface-2)}
-  .pub .yr{font-family:var(--mono);font-size:.8rem;color:var(--accent);flex:0 0 3.2rem;padding-top:.15rem}
-  .pub .body{flex:1;min-width:0}
-  .pub .title{font-weight:500;color:var(--text);font-size:1.02rem;line-height:1.45}
-  .pub .venue{font-family:var(--mono);font-size:.76rem;color:var(--muted);margin-top:.35rem;letter-spacing:.02em}
-  .pub .doi{font-family:var(--mono);font-size:.74rem;color:var(--accent);white-space:nowrap;align-self:center;border:1px solid var(--line-strong);padding:.3rem .6rem;border-radius:5px;transition:border-color .2s,background .2s}
-  .pub .doi:hover{border-color:var(--accent);background:rgba(255,180,61,.08)}
-  .pub .doi[href="#"]{color:var(--muted-2);border-style:dashed}
-  @media(max-width:600px){.pub{flex-wrap:wrap}.pub .doi{align-self:flex-start;margin-top:.2rem}}
   .pub-cta{margin:0 0 1.6rem}
-  .pub-more{margin-top:1.6rem;font-family:var(--mono);font-size:.82rem;color:var(--muted);display:flex;flex-wrap:wrap;align-items:center;gap:.5rem}
-  .pub-more a:not(.btn){color:var(--accent);border-bottom:1px solid transparent;transition:border-color .2s}
-  .pub-more a:not(.btn):hover{border-color:var(--accent)}
-
-  /* books */
-  .books-block{margin-top:3.4rem;padding-top:2.6rem;border-top:1px solid var(--line)}
-  .books-head{display:flex;align-items:baseline;gap:.9rem;margin-bottom:1.8rem}
-  .books-head .sec-idx{font-size:.8rem}
-  .books-title{font-family:var(--display);font-weight:800;letter-spacing:-.01em;font-size:clamp(1.3rem,2.6vw,1.9rem)}
-  .books-gallery{display:grid;grid-template-columns:repeat(7,1fr);gap:clamp(.7rem,1.6vw,1.1rem)}
-  .bookc{display:flex;flex-direction:column;gap:.7rem}
-  .bookc-img{display:block;border-radius:6px;overflow:hidden;border:1px solid var(--line-strong);
-    box-shadow:0 18px 40px -22px rgba(0,0,0,.85);transition:transform .25s,box-shadow .25s;aspect-ratio:2/3}
-  .bookc-img img{width:100%;height:100%;object-fit:cover;display:block}
-  .bookc:hover .bookc-img{transform:translateY(-6px);box-shadow:0 26px 50px -20px rgba(255,180,61,.4)}
-  .bookc-cap{display:flex;flex-direction:column;gap:.15rem;font-family:var(--mono);font-size:.66rem;color:var(--muted);letter-spacing:.02em;line-height:1.35}
-  .bookc-cap b{color:var(--text);font-weight:600;font-family:var(--body);font-size:.82rem;line-height:1.25}
+  .pub-more{margin-top:1.6rem;font-family:var(--mono);font-size:.82rem;color:var(--muted);line-height:1.7}
+  .pub-more a{color:var(--accent);border-bottom:1px solid rgba(255,180,61,.4);transition:border-color .2s}
+  .pub-more a:hover{border-color:var(--accent)}
 
   /* ===== carousel + art cards (Selected publications / Books) ===== */
   .carousel{position:relative;margin-top:1.8rem}
@@ -230,19 +297,17 @@
   .artcard.feat .artcard-tag,.artcard.feat .artcard-title{color:#0A0D14}
   .artcard.feat .artcard-tag .mk{border-left-color:#0A0D14}
   .artcard.feat .artcard-meta{color:rgba(10,13,20,.72)}
-  .artcard-media.pub{aspect-ratio:16/10;position:relative;overflow:hidden;display:grid;place-items:center;
+  /* the cover art SVGs are 320x200 (16:10) and fill the panel edge to edge */
+  .artcard-media.art{aspect-ratio:16/10;position:relative;overflow:hidden;
     background:radial-gradient(120% 120% at 78% 12%,rgba(255,180,61,.16),transparent 55%),linear-gradient(140deg,#0e131c,#181019)}
-  .artcard:nth-child(3n+2) .artcard-media.pub{background:radial-gradient(120% 120% at 20% 14%,rgba(255,180,61,.16),transparent 55%),linear-gradient(140deg,#101722,#181014)}
-  .artcard:nth-child(3n) .artcard-media.pub{background:radial-gradient(130% 130% at 50% 0%,rgba(255,180,61,.14),transparent 60%),linear-gradient(140deg,#0d1119,#15121c)}
-  .artcard-media.pub::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:24px 24px;opacity:0}
-  .artcard-media.pub .cover-art{width:100%;height:100%;display:block}
+  .artcard-media.art .cover-art{width:100%;height:100%;display:block}
   .artcard-media.book{aspect-ratio:2/3;overflow:hidden;background:#0b0f16}
-  .artcard-media.book picture{display:block;width:100%}
   .artcard-media.book img{width:100%;height:100%;object-fit:contain;display:block}
   /* cover-only book cards: 5 visible at load */
   .artcard.bookcard{flex:0 0 clamp(116px,calc((100% - 4rem)/5),190px);border-radius:10px;border-bottom-right-radius:22px;background:transparent;border-color:transparent}
   .artcard.bookcard .artcard-media.book{aspect-ratio:auto;background:transparent}
-  .artcard.bookcard img{height:auto;border-radius:8px;border:1px solid var(--line-strong);box-shadow:0 18px 40px -22px rgba(0,0,0,.85)}
+  /* one shared cover shape so the row has a clean bottom edge (the scans differ by ~3% in height) */
+  .artcard.bookcard img{height:auto;aspect-ratio:360/542;object-fit:cover;border-radius:8px;border:1px solid var(--line-strong);box-shadow:0 18px 40px -22px rgba(0,0,0,.85)}
   .artcard.bookcard{align-self:flex-start}
   .artcard.bookcard:hover{box-shadow:none;border-color:transparent}
   .artcard.bookcard:hover img{box-shadow:0 24px 46px -20px rgba(255,180,61,.42);border-color:var(--accent)}
@@ -257,9 +322,6 @@
   .cbtn.next{background:var(--accent);color:#0A0D14;border-color:var(--accent)}
   .cbtn.next:hover:not(:disabled){filter:brightness(1.06);color:#0A0D14}
   .cbtn:disabled{opacity:.3;cursor:default}
-  @media(max-width:900px){.books-gallery{grid-template-columns:repeat(4,1fr)}}
-  @media(max-width:560px){.books-gallery{grid-template-columns:repeat(3,1fr)}}
-  @media(max-width:380px){.books-gallery{grid-template-columns:repeat(2,1fr)}}
 
   /* ============ PROJECTS ============ */
   .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
@@ -270,6 +332,20 @@
   .proj h3{font-family:var(--display);font-weight:700;font-size:1.28rem;margin:.6rem 0 .5rem;letter-spacing:-.01em}
   .proj p{color:var(--muted);font-size:.95rem;line-height:1.6}
   .proj .role{font-family:var(--mono);font-size:.74rem;color:var(--muted-2);margin-top:.9rem;letter-spacing:.03em}
+
+  /* featured tool card spanning the projects grid */
+  .proj-feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);padding:0;overflow:hidden;border-color:rgba(255,180,61,.35)}
+  .proj-feature .pf-media{display:block;background:#EEF1F3}
+  .proj-feature .pf-media img{width:100%;height:100%;object-fit:cover;display:block}
+  .proj-feature .pf-body{padding:1.8rem 2rem;display:flex;flex-direction:column;justify-content:center}
+  .proj-feature .pf-links{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.3rem}
+  @media(max-width:760px){.proj-feature{grid-template-columns:1fr}.proj-feature .pf-body{padding:1.5rem}}
+
+  /* ============ PUBLIC ENGAGEMENT & MEDIA ============ */
+  .mcard{display:flex;flex-direction:column}
+  .mcard h3{font-size:1.12rem;line-height:1.35}
+  .mcard .mc-by{font-family:var(--mono);font-size:.74rem;color:var(--muted-2);margin-top:.8rem;letter-spacing:.02em;line-height:1.5}
+  .mcard .mc-more{font-family:var(--mono);font-size:.76rem;color:var(--accent);margin-top:auto;padding-top:1.1rem;letter-spacing:.04em}
 
   /* ============ RECOGNITION ============ */
   .rec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
@@ -300,20 +376,75 @@
   footer{border-top:1px solid var(--line);padding:2.2rem 0}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.6rem;font-family:var(--mono);font-size:.74rem;color:var(--muted-2);letter-spacing:.03em}
   .vision{color:var(--accent);opacity:.85}
+
+  /* ============ PRINT / SAVE AS PDF ============ */
+  /* a light, ink-friendly version: every section visible, carousels laid out as grids */
+  @media print{
+    :root{--bg:#fff;--bg-2:#fff;--surface:#fff;--surface-2:#fff;--line:#d5dae1;--line-strong:#c2c8d1;
+      --text:#111418;--muted:#3d4452;--muted-2:#566070;--accent:#8a5200;--accent-soft:#8a5200;--glow:transparent}
+    @page{margin:14mm 14mm 16mm}
+    html,body{background:#fff!important;color:var(--text)}
+    body{font-size:10.5pt;line-height:1.5}
+    body::before,body::after,.hero-trace,.nav,.cta-row,.carousel-foot,.pub-cta,.artcard-media.art,.contact .big{display:none!important}
+    .js .reveal,.reveal{opacity:1!important;transform:none!important;transition:none!important}
+    .wrap{max-width:none;padding:0}
+    .hero{min-height:0;padding:0 0 1rem;display:block}
+    .hero-grid{grid-template-columns:1fr 32mm;gap:8mm;align-items:start}
+    .hero-photo{order:0;justify-content:flex-end}
+    .photo-frame{width:32mm;border-radius:4mm;box-shadow:none}
+    .hero h1,.stat .num{background:none!important;-webkit-background-clip:border-box;background-clip:border-box;color:var(--text)!important}
+    .hero h1{font-size:28pt;margin:.4rem 0 .3rem}
+    .hero .position{margin-top:.8rem;font-size:11pt}
+    .stats{margin-top:1rem;background:var(--line);grid-template-columns:repeat(4,1fr)}
+    .stat{padding:.55rem .8rem}
+    .stat .num{font-size:17pt}
+    .band{padding:.9rem 0 .3rem;border-top:1px solid var(--line)}
+    .sec-head{margin-bottom:.7rem;break-after:avoid}
+    .sec-sub{margin-top:-.3rem;margin-bottom:.8rem;font-size:10.5pt}
+    .sec-title{font-size:16pt}
+    .about-band .eyebrow{margin-bottom:.6rem}
+    .bio{font-size:11pt;max-width:none}
+    .grid-cards,.proj-grid{grid-template-columns:repeat(2,1fr);gap:.5rem}
+    .card,.proj{padding:.7rem .9rem;transform:none!important}
+    .card,.proj,.tl-item,.artcard,.rec-col li,.edu-pills span{break-inside:avoid}
+    .tl-item{padding-bottom:1rem}
+    .carousel{margin-top:.6rem}
+    .carousel-track{flex-wrap:wrap;overflow:visible;gap:.5rem;padding:0}
+    .artcard{flex:1 1 30%;border-radius:6px;transform:none!important;box-shadow:none!important}
+    .artcard.feat{background:#fff;border-color:var(--line)}
+    .artcard-body{padding:.6rem .8rem}
+    .artcard-title{display:block;-webkit-line-clamp:unset;font-size:10.5pt}
+    .artcard.bookcard{flex:0 0 calc((100% - 3rem)/7);border-radius:0}
+    .artcard.bookcard img{box-shadow:none}
+    .rec-grid{gap:1rem;grid-template-columns:repeat(3,1fr);break-inside:avoid}
+    .rec-col h3{break-after:avoid}
+    .edu-strip{margin-top:1.2rem;padding-top:1rem}
+    .proj-feature .pf-links,.mcard .mc-more{display:none}
+    .contact{text-align:left}
+    .contact .wrap{break-inside:avoid}
+    .contact .eyebrow{display:flex;justify-content:flex-start!important;margin-bottom:.4rem}
+    .contact .email{border:0;color:var(--text)}
+    .links{display:block;margin-top:.8rem}
+    .links a{display:block;border:0;padding:.1rem 0;color:var(--text)}
+    .links a::after{content:"  " attr(href);font-size:8.5pt;color:var(--muted)}
+    footer{padding:.6rem 0}
+  }
 </style>
 </head>
-<body>
+<body id="top">
 
 <!-- ================= NAV ================= -->
-<nav class="nav">
+<nav class="nav" aria-label="Sections">
   <div class="wrap">
-    <div class="brand">V<b>·</b>Vahidinasab</div>
-    <div class="nav-links">
+    <a class="brand" href="#top" title="Back to top">V<b>·</b>Vahidinasab</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="bars" aria-hidden="true"></span>Menu</button>
+    <div class="nav-links" id="nav-links">
       <a href="#work">Publications</a>
       <a href="#focus">Research</a>
       <a href="#career">Leadership</a>
       <a href="#books">Books</a>
       <a href="#projects">Projects</a>
+      <a href="#media">Media</a>
       <a href="#recognition">Recognition</a>
       <a href="#contact">Contact</a>
     </div>
@@ -348,6 +479,7 @@
         <span class="eyebrow">Power Systems · Electricity Markets · Net Zero</span>
         <h1>Vahid<br>Vahidinasab</h1>
         <p class="role">Professor and Chair in Sustainability <span>/</span> University of Salford</p>
+        <p class="role">Academic Research Director <span>/</span> Centre for Sustainable Innovation</p>
         <p class="position">I build the models, <b>markets</b> and tools that make clean energy systems work, and lead the research groups, <b>labs</b> and national programmes that turn them into practice.</p>
 
         <div class="cta-row">
@@ -358,18 +490,18 @@
 
       <div class="hero-photo">
         <div class="photo-frame">
-          <img src="assets/vahid.jpg" alt="Vahid Vahidinasab" width="1092" height="1092" loading="eager" fetchpriority="high" decoding="async">
+          <picture><source srcset="assets/vahid-720.webp" type="image/webp"><img src="assets/vahid.jpg" alt="Vahid Vahidinasab" width="1092" height="1092" loading="eager" fetchpriority="high" decoding="async"></picture>
         </div>
       </div>
     </div>
 
     <div class="stats" id="stats">
-      <div class="stat"><div class="num" data-target="5410">0</div><div class="lab">Citations</div></div>
-      <div class="stat"><div class="num" data-target="39">0</div><div class="lab">h-index</div></div>
-      <div class="stat"><div class="num" data-target="22">0</div><div class="lab">Years in power &amp; energy</div></div>
-      <div class="stat"><div class="num" data-target="12" data-prefix="£" data-suffix="M+">0</div><div class="lab">Research funding, PI / Co-I</div></div>
+      <div class="stat"><div class="num" data-target="5547">5,547</div><div class="lab">Citations</div></div>
+      <div class="stat"><div class="num" data-target="39">39</div><div class="lab">h-index</div></div>
+      <div class="stat"><div class="num" data-target="22">22</div><div class="lab">Years in power &amp; energy</div></div>
+      <div class="stat"><div class="num" data-target="12" data-prefix="£" data-suffix="M+">£12M+</div><div class="lab">Research funding, PI / Co-I</div></div>
     </div>
-    <p class="stats-note">Bibliometrics: <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a>, 20 September 2026 &nbsp;·&nbsp; h-index 39, i10-index 95 &nbsp;·&nbsp; <a href="publications.html">full publication list</a></p>
+    <p class="stats-note">Bibliometrics: <a href="https://scholar.google.com/citations?user=Dh-12v4AAAAJ" target="_blank" rel="noopener">Google Scholar</a>, 10 November 2026 &nbsp;·&nbsp; h-index 39, i10-index 96 &nbsp;·&nbsp; <a href="publications.html">full publication list</a></p>
   </div>
 </header>
 
@@ -378,8 +510,8 @@
 <!-- ================= ABOUT / BIO ================= -->
 <section class="band about-band" id="about">
   <div class="wrap">
-    <span class="eyebrow reveal">Profile</span>
-    <p class="bio reveal">Vahid Vahidinasab is Professor and Chair in Sustainability at the University of Salford, working where energy systems, markets, policy and people meet. Across more than twenty years in academia, industry and national research leadership, he has built the models, markets and tools that help clean energy systems run, and led the teams, labs and programmes that put them to work. His research centres on self-sustaining, resilient communities that are fair and affordable, spanning smart grids, local flexibility markets, electric vehicles and whole-energy systems. He is an IEEE Senior Member, an author of seven books, and an editor of leading international journals.</p>
+    <h2 class="eyebrow reveal">Profile</h2>
+    <p class="bio reveal">Vahid Vahidinasab is Professor and Chair in Sustainability at the University of Salford and Academic Research Director of its Centre for Sustainable Innovation (CSI), working where energy systems, markets, policy and people meet. Across more than twenty years in academia, industry and national research leadership, he has built the models, markets and tools that help clean energy systems run, and led the teams, labs and programmes that put them to work. His research centres on self-sustaining, resilient communities that are fair and affordable, spanning smart grids, local flexibility markets, electric vehicles and whole-energy systems. He is an IEEE Senior Member, an author or editor of seven books, and an editor of leading international journals.</p>
   </div>
 </section>
 
@@ -400,7 +532,7 @@
             <h3 class="artcard-title">Tree-partitioning as an emergency measure to contain cascading line failures</h3>
             <div class="artcard-meta">2022 · DOI ↗</div>
           </div>
-          <div class="artcard-media pub">
+          <div class="artcard-media art">
             <svg class="cover-art" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <defs>
                 <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
@@ -441,7 +573,7 @@
             <h3 class="artcard-title">Peer-to-peer energy management of distributed ledgers in renewable smart energy systems</h3>
             <div class="artcard-meta">2025 · DOI ↗</div>
           </div>
-          <div class="artcard-media pub">
+          <div class="artcard-media art">
             <svg class="cover-art" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <defs>
                 <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
@@ -485,7 +617,7 @@
             <h3 class="artcard-title">Arbitrage strategy of renewable-based microgrids via peer-to-peer energy trading</h3>
             <div class="artcard-meta">2021 · DOI ↗</div>
           </div>
-          <div class="artcard-media pub">
+          <div class="artcard-media art">
             <svg class="cover-art" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <defs>
                 <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
@@ -521,7 +653,7 @@
             <h3 class="artcard-title">A new false data injection attack resilient model for energy forecasting</h3>
             <div class="artcard-meta">2022 · DOI ↗</div>
           </div>
-          <div class="artcard-media pub">
+          <div class="artcard-media art">
             <svg class="cover-art" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <defs>
                 <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
@@ -556,7 +688,7 @@
             <h3 class="artcard-title">Enhancing smart city operation management with a subway synergism hub</h3>
             <div class="artcard-meta">2024 · DOI ↗</div>
           </div>
-          <div class="artcard-media pub">
+          <div class="artcard-media art">
             <svg class="cover-art" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <defs>
                 <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
@@ -597,7 +729,7 @@
             <h3 class="artcard-title">A review on demand-side tools in electricity market</h3>
             <div class="artcard-meta">2017 · DOI ↗</div>
           </div>
-          <div class="artcard-media pub">
+          <div class="artcard-media art">
             <svg class="cover-art" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
               <defs>
                 <linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1">
@@ -634,8 +766,8 @@
       <div class="carousel-foot">
         <div class="carousel-prog"><span></span></div>
         <div class="carousel-btns">
-          <button class="cbtn prev" aria-label="Previous">&#8592;</button>
-          <button class="cbtn next" aria-label="Next">&#8594;</button>
+          <button type="button" class="cbtn prev" aria-label="Previous publications">&#8592;</button>
+          <button type="button" class="cbtn next" aria-label="Next publications">&#8594;</button>
         </div>
       </div>
     </div>
@@ -705,7 +837,7 @@
     <div class="timeline">
       <div class="tl-item reveal">
         <div class="tl-when">2026 – Present</div>
-        <h3>Academic Research Lead, Centre for Sustainable Innovation</h3>
+        <h3>Academic Research Director, Centre for Sustainable Innovation (CSI)</h3>
         <div class="tl-org">University of Salford</div>
         <p>Leading the research agenda of the University's Centre for Sustainable Innovation, setting direction across sustainability research and its translation into practice.</p>
       </div>
@@ -761,7 +893,6 @@
   </div>
 </section>
 
-<!-- ================= 03 SELECTED PUBLICATIONS ================= -->
 <!-- ================= 03 BOOKS (carousel) ================= -->
 <section class="band" id="books">
   <div class="wrap">
@@ -774,32 +905,32 @@
     <div class="carousel reveal">
       <div class="carousel-track">
         <a class="artcard bookcard" href="https://link.springer.com/book/10.1007/978-3-031-52429-5" target="_blank" rel="noopener" title="Green Hydrogen in Power Systems (Springer, 2024)">
-          <div class="artcard-media book"><picture><source srcset="assets/green-hydrogen.webp" type="image/webp"><img src="assets/green-hydrogen.jpg" alt="Green Hydrogen in Power Systems (Springer, 2024)" width="360" height="542" loading="lazy" decoding="async"></picture></div>
+          <div class="artcard-media book"><img src="assets/green-hydrogen.webp" alt="Green Hydrogen in Power Systems (Springer, 2024)" width="360" height="542" loading="lazy" decoding="async"></div>
         </a>
         <a class="artcard bookcard" href="https://shop.elsevier.com/books/power-to-gas-bridging-the-electricity-and-gas-networks/mirzaei/978-0-323-90544-2" target="_blank" rel="noopener" title="Power-to-Gas: Bridging the Electricity and Gas Networks (Elsevier, 2023)">
-          <div class="artcard-media book"><picture><source srcset="assets/power-to-gas.webp" type="image/webp"><img src="assets/power-to-gas.jpg" alt="Power-to-Gas: Bridging the Electricity and Gas Networks (Elsevier, 2023)" width="360" height="543" loading="lazy" decoding="async"></picture></div>
+          <div class="artcard-media book"><img src="assets/power-to-gas.webp" alt="Power-to-Gas: Bridging the Electricity and Gas Networks (Elsevier, 2023)" width="360" height="543" loading="lazy" decoding="async"></div>
         </a>
         <a class="artcard bookcard" href="https://link.springer.com/book/10.1007/978-3-031-22186-6" target="_blank" rel="noopener" title="Energy Systems Transition (Springer, 2023)">
-          <div class="artcard-media book"><picture><source srcset="assets/energy-systems-transition.webp" type="image/webp"><img src="assets/energy-systems-transition.jpg" alt="Energy Systems Transition (Springer, 2023)" width="360" height="542" loading="lazy" decoding="async"></picture></div>
+          <div class="artcard-media book"><img src="assets/energy-systems-transition.webp" alt="Energy Systems Transition (Springer, 2023)" width="360" height="542" loading="lazy" decoding="async"></div>
         </a>
         <a class="artcard bookcard" href="https://link.springer.com/book/10.1007/978-3-031-35233-1" target="_blank" rel="noopener" title="Demand-Side Peer-to-Peer Energy Trading (Springer, 2023)">
-          <div class="artcard-media book"><picture><source srcset="assets/demand-side-p2p.webp" type="image/webp"><img src="assets/demand-side-p2p.jpg" alt="Demand-Side Peer-to-Peer Energy Trading (Springer, 2023)" width="360" height="542" loading="lazy" decoding="async"></picture></div>
+          <div class="artcard-media book"><img src="assets/demand-side-p2p.webp" alt="Demand-Side Peer-to-Peer Energy Trading (Springer, 2023)" width="360" height="542" loading="lazy" decoding="async"></div>
         </a>
         <a class="artcard bookcard" href="https://link.springer.com/book/10.1007/978-3-031-05909-4" target="_blank" rel="noopener" title="Electric Vehicle Integration via Smart Charging (Springer, 2022)">
-          <div class="artcard-media book"><picture><source srcset="assets/ev-smart-charging.webp" type="image/webp"><img src="assets/ev-smart-charging.jpg" alt="Electric Vehicle Integration via Smart Charging (Springer, 2022)" width="360" height="559" loading="lazy" decoding="async"></picture></div>
+          <div class="artcard-media book"><img src="assets/ev-smart-charging.webp" alt="Electric Vehicle Integration via Smart Charging (Springer, 2022)" width="360" height="559" loading="lazy" decoding="async"></div>
         </a>
         <a class="artcard bookcard" href="https://link.springer.com/book/10.1007/978-3-030-79742-3" target="_blank" rel="noopener" title="Active Building Energy Systems (Springer, 2022)">
-          <div class="artcard-media book"><picture><source srcset="assets/active-building.webp" type="image/webp"><img src="assets/active-building.jpg" alt="Active Building Energy Systems (Springer, 2022)" width="360" height="559" loading="lazy" decoding="async"></picture></div>
+          <div class="artcard-media book"><img src="assets/active-building.webp" alt="Active Building Energy Systems (Springer, 2022)" width="360" height="559" loading="lazy" decoding="async"></div>
         </a>
         <a class="artcard bookcard" href="https://link.springer.com/book/10.1007/978-3-030-87653-1" target="_blank" rel="noopener" title="Whole Energy Systems (Springer, 2021)">
-          <div class="artcard-media book"><picture><source srcset="assets/whole-energy-systems.webp" type="image/webp"><img src="assets/whole-energy-systems.jpg" alt="Whole Energy Systems (Springer, 2021)" width="360" height="559" loading="lazy" decoding="async"></picture></div>
+          <div class="artcard-media book"><img src="assets/whole-energy-systems.webp" alt="Whole Energy Systems (Springer, 2021)" width="360" height="559" loading="lazy" decoding="async"></div>
         </a>
       </div>
       <div class="carousel-foot">
         <div class="carousel-prog"><span></span></div>
         <div class="carousel-btns">
-          <button class="cbtn prev" aria-label="Previous">&#8592;</button>
-          <button class="cbtn next" aria-label="Next">&#8594;</button>
+          <button type="button" class="cbtn prev" aria-label="Previous books">&#8592;</button>
+          <button type="button" class="cbtn next" aria-label="Next books">&#8594;</button>
         </div>
       </div>
     </div>
@@ -816,6 +947,19 @@
     <p class="sec-sub reveal">Research delivered at pilot and national scale, and the tools and labs it produced.</p>
 
     <div class="proj-grid">
+      <article class="proj proj-feature reveal">
+        <a class="pf-media" href="sustainable-skills/" tabindex="-1" aria-hidden="true"><img src="sustainable-skills/og-image.png" alt="" width="1200" height="630" loading="lazy" decoding="async"></a>
+        <div class="pf-body">
+          <div class="tag">Free online tool · 2026</div>
+          <h3>Sustainable Local Energy Skills Roadmap</h3>
+          <p>A free interactive guide for pupils in Years 7 to 11 and their families. Four quick questions build a personal roadmap from the GCSE topics they study now to jobs in sustainable, local energy.</p>
+          <div class="pf-links">
+            <a class="btn btn-primary" href="sustainable-skills/">Open the roadmap →</a>
+            <a class="btn btn-ghost" href="https://theconversation.com/vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now-295008" target="_blank" rel="noopener">Read the article ↗</a>
+          </div>
+        </div>
+      </article>
+
       <article class="proj reveal">
         <div class="tag">Horizon Europe · 2023–present</div>
         <h3>DriVe2X</h3>
@@ -861,11 +1005,45 @@
   </div>
 </section>
 
-<!-- ================= 05 RECOGNITION ================= -->
-<section class="band" id="recognition">
+<!-- ================= 05 PUBLIC ENGAGEMENT & MEDIA ================= -->
+<section class="band" id="media">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-idx">[05]</span>
+      <h2 class="sec-title">Public engagement &amp; media</h2>
+    </div>
+    <p class="sec-sub reveal">Articles for The Conversation, written for readers outside academia.</p>
+
+    <div class="grid-cards">
+      <a class="card mcard reveal" href="https://theconversation.com/vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now-295008" target="_blank" rel="noopener">
+        <div class="k">// THE CONVERSATION · 3 NOV 2026</div>
+        <h3>Vocational GCSEs won't arrive until 2029, but clean energy skills can be found in the curriculum now</h3>
+        <p>UK clean energy jobs are expected to double by 2030.</p>
+        <div class="mc-more">Read the article ↗</div>
+      </a>
+      <a class="card mcard reveal" href="https://theconversation.com/two-way-electric-vehicle-charging-at-scale-could-stop-renewable-energy-being-wasted-heres-how-it-works-272373" target="_blank" rel="noopener">
+        <div class="k">// THE CONVERSATION · 24 DEC 2025</div>
+        <h3>Two-way electric vehicle charging at scale could stop renewable energy being wasted, here's how it works</h3>
+        <p>A ‘bidirectional charging’ EV trial is under way that, in years to come, could help solve the UK’s energy conundrum.</p>
+        <div class="mc-more">Read the article ↗</div>
+      </a>
+      <a class="card mcard reveal" href="https://theconversation.com/rising-temperatures-mean-more-air-conditioning-which-means-more-electricity-is-needed-rooftop-solar-is-a-perfect-fit-211313" target="_blank" rel="noopener">
+        <div class="k">// THE CONVERSATION · 18 AUG 2023</div>
+        <h3>Rising temperatures mean more air conditioning which means more electricity is needed, rooftop solar is a perfect fit</h3>
+        <p>The sunniest days also see the biggest demand for air con.</p>
+        <div class="mc-by">With Tom Rogers, Amin Al-Habaibeh and Angelines Donastorg Sosa</div>
+        <div class="mc-more">Read the article ↗</div>
+      </a>
+    </div>
+    <p class="pub-more reveal">All articles on <a href="https://theconversation.com/profiles/vahid-vahidinasab-1453103/articles" target="_blank" rel="noopener">The Conversation</a>.</p>
+  </div>
+</section>
+
+<!-- ================= 06 RECOGNITION ================= -->
+<section class="band" id="recognition">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-idx">[06]</span>
       <h2 class="sec-title">Recognition</h2>
     </div>
 
@@ -904,7 +1082,7 @@
           <li>Secretary, IEEE UK &amp; Ireland Diversity, Equity &amp; Inclusion Committee</li>
           <li><b>Full Member, EPSRC Peer Review College</b> (2021–present)</li>
           <li>Panel member, UKRI and Innovate UK Panels of Assessors</li>
-          <li>Author of 7 books · keynote speaker at international energy conferences</li>
+          <li>Author or editor of 7 books · keynote speaker at international energy conferences</li>
         </ul>
       </div>
     </div>
@@ -922,10 +1100,10 @@
   </div>
 </section>
 
-<!-- ================= 06 CONTACT ================= -->
+<!-- ================= 07 CONTACT ================= -->
 <section class="band contact" id="contact">
   <div class="wrap">
-    <span class="eyebrow" style="justify-content:center">[06] Contact</span>
+    <h2 class="eyebrow" style="justify-content:center">[07] Contact</h2>
     <p class="big">Let's build the energy system that comes next.</p>
     <a class="email" href="mailto:v.vahidinasab@salford.ac.uk">v.vahidinasab@salford.ac.uk</a>
     <p class="loc">Salford Business School · University of Salford · Manchester M5 4WT, UK</p>
@@ -935,6 +1113,7 @@
       <a href="https://www.linkedin.com/in/vahid-vahidinasab/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://www.scopus.com/authid/detail.uri?authorId=23483160600" target="_blank" rel="noopener">Scopus</a>
       <a href="https://www.webofscience.com/wos/author/rid/F-3602-2014" target="_blank" rel="noopener">Web of Science</a>
+      <a href="https://theconversation.com/profiles/vahid-vahidinasab-1453103" target="_blank" rel="noopener">The Conversation</a>
     </div>
   </div>
 </section>
@@ -951,43 +1130,99 @@
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasIO = 'IntersectionObserver' in window;
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  /* ---------- animated counters ---------- */
+  /* ---------- mobile menu ---------- */
+  var nav = document.querySelector('.nav');
+  var toggle = nav && nav.querySelector('.nav-toggle');
+  function setMenu(open){
+    nav.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  if(toggle){
+    toggle.addEventListener('click', function(){ setMenu(!nav.classList.contains('open')); });
+    nav.querySelectorAll('.nav-links a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && nav.classList.contains('open')){ setMenu(false); toggle.focus(); }
+    });
+    document.addEventListener('click', function(e){
+      if(nav.classList.contains('open') && !nav.contains(e.target)) setMenu(false);
+    });
+    var wide = window.matchMedia('(min-width: 981px)');
+    if(wide.addEventListener) wide.addEventListener('change', function(m){ if(m.matches) setMenu(false); });
+  }
+
+  /* ---------- highlight the nav link for the section in view ---------- */
+  if(nav && hasIO){
+    var links = {};
+    nav.querySelectorAll('.nav-links a[href^="#"]').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        var a = links[e.target.id];
+        if(!a) return;
+        if(e.isIntersecting){
+          Object.keys(links).forEach(function(k){ links[k].classList.remove('is-active'); });
+          a.classList.add('is-active');
+        } else {
+          a.classList.remove('is-active');
+        }
+      });
+    }, {rootMargin:'-40% 0px -55% 0px'});
+    Object.keys(links).forEach(function(id){ var s = document.getElementById(id); if(s) spy.observe(s); });
+  }
+
+  /* ---------- animated counters (the HTML holds the real figures; we count up to them) ---------- */
+  function fmt(n){ return n.toLocaleString('en-GB'); }
+  var counters = [].slice.call(document.querySelectorAll('#stats .num[data-target]'));
   function animateCounter(el){
     var target = parseFloat(el.getAttribute('data-target'));
     var prefix = el.getAttribute('data-prefix') || '';
     var suffix = el.getAttribute('data-suffix') || '';
-    if(reduce){ el.textContent = prefix + target.toLocaleString() + suffix; return; }
     var dur = 1500, start = performance.now();
     function frame(now){
       var p = Math.min((now-start)/dur, 1);
       var eased = 1 - Math.pow(1-p, 3);
-      var val = Math.round(target * eased);
-      el.textContent = prefix + val.toLocaleString() + suffix;
+      el.textContent = prefix + fmt(Math.round(target * eased)) + suffix;
       if(p < 1) requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
   }
   var statsBox = document.getElementById('stats');
-  var statsFired = false;
-  var statObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting && !statsFired){
-        statsFired = true;
-        document.querySelectorAll('#stats .num').forEach(animateCounter);
-      }
+  if(statsBox && hasIO && !reduce){
+    counters.forEach(function(el){
+      el.textContent = (el.getAttribute('data-prefix') || '') + '0' + (el.getAttribute('data-suffix') || '');
     });
-  }, {threshold:.4});
-  if(statsBox) statObs.observe(statsBox);
+    var statObs = new IntersectionObserver(function(entries){
+      if(entries.some(function(e){ return e.isIntersecting; })){
+        statObs.disconnect();
+        counters.forEach(animateCounter);
+      }
+    }, {threshold:.4});
+    statObs.observe(statsBox);
+  }
 
   /* ---------- scroll reveal ---------- */
-  var revObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target); }
+  var reveals = [].slice.call(document.querySelectorAll('.reveal'));
+  function revealAll(){ reveals.forEach(function(el){ el.classList.add('in'); }); }
+  if(hasIO){
+    var revObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){ revObs.observe(el); });
+  } else {
+    revealAll();
+  }
+  // printing or saving as PDF should always include every section
+  window.addEventListener('beforeprint', function(){
+    revealAll();
+    document.querySelectorAll('img[loading="lazy"]').forEach(function(img){ img.loading = 'eager'; });
+    counters.forEach(function(el){
+      el.textContent = (el.getAttribute('data-prefix') || '') + fmt(parseFloat(el.getAttribute('data-target'))) + (el.getAttribute('data-suffix') || '');
     });
-  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
+  });
 
   /* ---------- card hover glow follows cursor ---------- */
   document.querySelectorAll('.card').forEach(function(card){
@@ -1029,17 +1264,26 @@
         [{strokeDashoffset:len},{strokeDashoffset:0}],
         {duration:2200, easing:'cubic-bezier(.16,1,.3,1)', fill:'forwards'}
       );
-      // travelling readout dot
-      var t0 = null, travel = 5200;
+      // travelling readout dot; it only runs while the hero is on screen
+      var t0 = null, travel = 5200, rafId = null, heroVisible = true, dotReady = false;
       function moveDot(ts){
         if(t0===null) t0 = ts;
         var p = ((ts - t0) % travel) / travel;
         var pt = path.getPointAtLength(p * len);
         dot.setAttribute('cx', pt.x); dot.setAttribute('cy', pt.y);
         dot.style.opacity = 1;
-        requestAnimationFrame(moveDot);
+        rafId = requestAnimationFrame(moveDot);
       }
-      setTimeout(function(){ requestAnimationFrame(moveDot); }, 2000);
+      function startDot(){ if(dotReady && heroVisible && rafId === null) rafId = requestAnimationFrame(moveDot); }
+      function stopDot(){ if(rafId !== null){ cancelAnimationFrame(rafId); rafId = null; } }
+      setTimeout(function(){ dotReady = true; startDot(); }, 2000);
+      var hero = document.querySelector('.hero');
+      if(hero && hasIO){
+        new IntersectionObserver(function(entries){
+          heroVisible = entries[entries.length-1].isIntersecting;
+          if(heroVisible) startDot(); else stopDot();
+        }).observe(hero);
+      }
     }
   }
   /* ---------- carousels (Selected publications / Books) ---------- */
