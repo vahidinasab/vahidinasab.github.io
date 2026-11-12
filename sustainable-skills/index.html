@@ -825,9 +825,10 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     </div>
 
     <div class="ex-banner" id="ex-banner" hidden>
-      <p><strong>This is an example.</strong> <span id="ex-banner-t"></span></p>
+      <p><strong id="ex-banner-s">This is an example.</strong> <span id="ex-banner-t"></span></p>
       <div class="row-actions">
         <button type="button" class="btn btn-accent" id="ex-mine">Start my own roadmap</button>
+        <button type="button" class="btn btn-ghost" id="sh-use" hidden>Use these answers as mine</button>
       </div>
     </div>
 
@@ -837,6 +838,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
         <button type="button" class="btn btn-accent" id="save-pdf" data-mode="summary">Download PDF (2 pages)</button>
         <button type="button" class="btn btn-ghost" id="save-email" aria-expanded="false" aria-controls="email-panel">Email it</button>
         <button type="button" class="btn btn-ghost" id="save-copy">Copy text</button>
+        <button type="button" class="btn btn-ghost" id="save-share">Share a link</button>
       </div>
       <p class="keep-more">For teachers: <button type="button" class="linkish" id="save-pdf-full" data-mode="full">download the full version</button>, with every GCSE topic and what the course says.</p>
       <p class="keep-status" id="keep-status" role="status"></p>
@@ -1069,7 +1071,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
         <div style="display:grid;gap:8px;min-width:0">
           <p>Scan to open it on a phone, or show it in class.</p>
           <p class="share-url" id="share-url"></p>
-          <div class="row-actions"><button type="button" class="btn btn-ghost btn-sm" id="copy-link">Copy link</button></div>
+          <div class="row-actions"><button type="button" class="btn btn-ghost btn-sm" id="share-tool" hidden>Share</button><button type="button" class="btn btn-ghost btn-sm" id="copy-link">Copy link</button></div>
           <p class="small" id="copy-link-status" role="status"></p>
         </div>
       </div>
@@ -1499,8 +1501,30 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
   // The form always holds the pupil's own answers ("mine"); the roadmap shows the example or theirs, and says which.
   var EXAMPLE = cleanState({ y: 9, interests: ['make', 'planet'], sci: 'combined', subjects: ['geography', 'dt'], style: 'hands', s3: true });
   var mine = loadMine();
-  var view = hasAnswers(mine) ? 'mine' : 'example';
-  var state = view === 'example' ? EXAMPLE : mine;
+  // A link can reopen a roadmap. The answers travel after the # in the address, which browsers never send to a server.
+  function encodeState(s) {
+    return [s.y || 0, s.interests.join('-') || 0, s.s3 ? (s.sci === 'separate' ? 's' : 'c') : 'n', s.subjects.join('-') || 0, s.style || 0].join('.');
+  }
+  function decodeState(code) {
+    var p = String(code).split('.');
+    if (p.length !== 5) return null;
+    var st = cleanState({ y: Number(p[0]), interests: p[1] === '0' ? [] : p[1].split('-'), sci: p[2] === 's' ? 'separate' : 'combined', subjects: p[3] === '0' ? [] : p[3].split('-'), style: p[4], s3: p[2] !== 'n' });
+    return hasAnswers(st) && encodeState(st) === code ? st : null;   // anything that is not a real set of answers is ignored
+  }
+  function sharedFromAddress() {
+    var m = /(?:^#|&)r=([a-z0-9.\-]+)/.exec(location.hash);
+    var st = m ? decodeState(m[1]) : null;
+    return st && encodeState(st) !== encodeState(mine) ? st : null;   // a link to your own roadmap just opens yours
+  }
+  function roadmapLink(s) { return CONFIG.toolUrl + '#r=' + encodeState(s); }
+  function clearAddress() {
+    if (!/(?:^#|&)r=/.test(location.hash)) return;
+    try { window.history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* the address stays; nothing else changes */ }
+  }
+  // The roadmap shows the example, a roadmap someone shared ("shared"), or the pupil's own ("mine"), and says which.
+  var shared = sharedFromAddress();
+  var view = shared ? 'shared' : hasAnswers(mine) ? 'mine' : 'example';
+  var state = view === 'shared' ? shared : view === 'example' ? EXAMPLE : mine;
   var focus = null;
   var phoneMq = window.matchMedia ? window.matchMedia('(max-width: 759px)') : null;
   function isPhone() { return !!(phoneMq && phoneMq.matches); }
@@ -1669,8 +1693,9 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     $('#progress-t').textContent = n + ' of 4 answered';
   }
   function setView(v) {
+    if (v !== 'shared') clearAddress();
     view = v;
-    state = v === 'example' ? EXAMPLE : mine;
+    state = v === 'shared' ? shared : v === 'example' ? EXAMPLE : mine;
     render();
   }
 
@@ -1715,23 +1740,26 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     return parts.join(' · ');
   }
   function renderHead() {
-    var ex = view === 'example';
+    var ex = view === 'example', sh = view === 'shared', demo = ex || sh;
     var has = hasAnswers(mine);
-    $('#rm-eyebrow').textContent = ex ? 'Example' : 'Your roadmap';
-    $('#roadmap-h').textContent = ex ? 'Example roadmap' : 'Your local energy skills roadmap';
+    $('#rm-eyebrow').textContent = ex ? 'Example' : sh ? 'Shared with you' : 'Your roadmap';
+    $('#roadmap-h').textContent = ex ? 'Example roadmap' : sh ? 'A roadmap shared with you' : 'Your local energy skills roadmap';
     $('#rm-summary').textContent = summaryText();
     $('#rm-summary').hidden = ex;
-    $('#rm-note').hidden = ex;
+    $('#rm-note').hidden = demo;
     $('#rm-note-t').textContent = has ? 'Built from your answers. It changes as soon as you change an answer.' : 'Answer the four questions and your roadmap will build here as you go.';
-    $('#ex-banner').hidden = !ex;
-    $('#ex-banner-t').textContent = EXAMPLE_WHO + (has ? ' Your own answers are still saved.' : ' Answer the four questions to see your own.');
+    $('#ex-banner').hidden = !demo;
+    $('#ex-banner-s').textContent = sh ? 'Someone shared this roadmap with you.' : 'This is an example.';
+    $('#ex-banner-t').textContent = (sh ? 'It was built from their answers, not yours.' : EXAMPLE_WHO) + (has ? ' Your own answers are still saved.' : ' Answer the four questions to see your own.');
     $('#ex-mine').textContent = has ? 'Back to my roadmap' : 'Start my own roadmap';
-    $('#ans-note').hidden = !ex;
-    $('#ans-note').textContent = 'The roadmap is showing an example right now. ' + (has ? 'Your own answers are kept; change any of them to switch back.' : 'Answer any question and it will switch to yours.');
-    $('#jobs-h').textContent = ex ? 'Jobs that fit this pupil' : 'Jobs that fit you';
-    $('#tl-h').textContent = ex ? 'Timeline for this pupil' : 'Your timeline';
-    $('#keep').hidden = ex || !has;
-    if (!ex && has && !$('#email-panel').hidden) fillEmail();
+    $('#sh-use').hidden = !sh;
+    $('#sh-use').textContent = has ? 'Replace my answers with these' : 'Use these answers as mine';
+    $('#ans-note').hidden = !demo;
+    $('#ans-note').textContent = 'The roadmap is showing ' + (sh ? 'a shared roadmap' : 'an example') + ' right now. ' + (has ? 'Your own answers are kept; change any of them to switch back.' : 'Answer any question and it will switch to yours.');
+    $('#jobs-h').textContent = demo ? 'Jobs that fit this pupil' : 'Jobs that fit you';
+    $('#tl-h').textContent = demo ? 'Timeline for this pupil' : 'Your timeline';
+    $('#keep').hidden = demo || !has;
+    if (!demo && has && !$('#email-panel').hidden) fillEmail();
   }
   function renderMap() {
     var subs = chosenSubjects();
@@ -1951,7 +1979,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     var next = state.y ? ['Next steps:'].concat(NEXT[state.y].map(function (t) { return '- ' + plain(t); })) : [];
     var dates = timelineItems().filter(function (it) { return !it.cls; }).map(function (it) { return '- ' + it.date + ': ' + it.title; });
     if (dates.length) dates.unshift('Key dates:');
-    var tail = [['Build or update this roadmap online: ' + CONFIG.toolUrl], [ADVISORY]];
+    var tail = [['Build or update this roadmap online: ' + roadmapLink(state)], [ADVISORY]];
     var options = [[head, jobsLinked, next, dates], [head, jobsLinked, next], [head, jobsPlain, next, dates], [head, jobsPlain, next], [head, jobsPlain]];
     for (var i = 0; i < options.length; i++) {
       var body = options[i].concat(tail).filter(function (b) { return b.length; }).map(function (b) { return b.join('\n'); }).join('\n\n');
@@ -2659,13 +2687,33 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     b.addEventListener('click', function () {
       var go = b.getAttribute('data-go');
       if (go === 'example') { setView('example'); track('example'); jumpTo('roadmap'); }
-      else if (go === 'answers') { if (view === 'example' && hasAnswers(mine)) setView('mine'); jumpTo('answers'); }
+      else if (go === 'answers') { if (view !== 'mine' && hasAnswers(mine)) setView('mine'); jumpTo('answers'); }
       else { if (hasAnswers(mine)) setView('mine'); jumpTo('roadmap'); }
     });
   });
   $('#ex-mine').addEventListener('click', function () {
     if (hasAnswers(mine)) { setView('mine'); jumpTo('roadmap'); }
     else { showStep(0, false); jumpTo('answers', document.getElementById('year-7')); }
+  });
+  $('#sh-use').addEventListener('click', function () {
+    if (!shared) return;
+    mine = cleanState(JSON.parse(JSON.stringify(shared)));
+    focus = null;
+    syncForm();
+    saveMine();
+    clearSaveUi();
+    setView('mine');
+    showStep(firstUnanswered(), false);
+    updateGoBar();
+    jumpTo('roadmap');
+  });
+  window.addEventListener('hashchange', function () {
+    var st = sharedFromAddress();
+    if (!st) return;
+    shared = st;
+    clearSaveUi();
+    setView('shared');
+    jumpTo('roadmap');
   });
   $('#edit-answers').addEventListener('click', function () { showStep(0, false); jumpTo('answers'); });
   $('#wiz-next').addEventListener('click', function () {
@@ -2748,6 +2796,34 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       setStatus('Select the message text and copy it.');
     });
   });
+  // Share: the phone or computer's own share sheet where there is one, otherwise the link is copied.
+  function shareLink(data, copied, shown) {
+    function copy() { copyText(data.url, function () { copied(); track('share'); }, shown); }
+    if (navigator.share) {
+      navigator.share(data).then(function () { track('share'); }, function (err) { if (!err || err.name !== 'AbortError') copy(); });
+    } else copy();
+  }
+  $('#save-share').addEventListener('click', function () {
+    var link = roadmapLink(mine), ta = $('#copy-fallback');
+    closeEmail();
+    ta.hidden = true;
+    setStatus('');
+    shareLink({ title: 'My local energy skills roadmap', text: 'My local energy skills roadmap', url: link }, function () {
+      setStatus('Link copied. Anyone who opens it sees this roadmap, with your four answers.');
+    }, function () {
+      ta.value = link;
+      ta.hidden = false;
+      ta.focus();
+      ta.select();
+      setStatus('Select the link in the box below and copy it.');
+    });
+  });
+  if (navigator.share) {
+    $('#share-tool').hidden = false;
+    $('#share-tool').addEventListener('click', function () {
+      shareLink({ title: 'Sustainable Local Energy Skills Roadmap', text: 'Join the dots from your GCSEs to clean energy jobs', url: CONFIG.toolUrl }, function () { $('#copy-link-status').textContent = 'Link copied.'; }, function () { $('#copy-link-status').textContent = CONFIG.toolUrl; });
+    });
+  } else $('#save-share').textContent = 'Copy a link';
   $('#copy-link').addEventListener('click', function () {
     copyText(CONFIG.toolUrl, function () { $('#copy-link-status').textContent = 'Link copied.'; track('share'); }, function () { $('#copy-link-status').textContent = CONFIG.toolUrl; });
   });
@@ -2817,6 +2893,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
   render();
   renderPart();
   renderNear();
+  if (view === 'shared') setTimeout(function () { jumpTo('roadmap'); }, 0);
   $('#near-area').addEventListener('change', function () {
     area = NEAR[this.value] ? this.value : '';
     try { if (area) window.localStorage.setItem(AREA_KEY, area); else window.localStorage.removeItem(AREA_KEY); } catch (e) { /* not saved, still shown */ }
