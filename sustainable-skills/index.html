@@ -658,6 +658,17 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
 @media (min-width:760px){.how{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:980px){.how-wrap{padding-top:36px}}
 
+/* Links to the job and subject pages */
+.browse{padding-block:0 40px}
+.browse-in{display:grid;gap:12px}
+.browse h2{font-size:1.2rem}
+.browse-grid{display:grid;gap:12px;align-items:start}
+.browse .more{margin-top:0}
+.browse-list{list-style:none;margin:0;padding:0 16px 4px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:8px 20px;font-size:15px}
+.browse-all{padding:8px 16px 14px;font-size:15px;font-weight:700}
+.job .ext-page{margin-top:0;padding-top:0;font-weight:600}
+@media (min-width:760px){.browse-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* Printing the page (Ctrl+P) gives the roadmap on white paper. Download PDF gives the designed version. */
 @media print{
   :root:root:root{--bg:#FFFFFF;--surface:#FFFFFF;--surface-2:#FFFFFF;--sunken:#EEF2F5;--line:#C9D1DA;--line-strong:#9AA6B2;--ink:#032A3B;--text:#1D3542;--muted:#4A5763;--accent:#2EB895;--accent-text:#0C6E57;--accent-tint:#E2F5EF;--green:#17785A;--note:#FFFFFF;--note-line:#7FD1BB;--map-idle:#C5CEDA;--map-hot:#1E9C7D;--shadow:none;color-scheme:light}
@@ -695,7 +706,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
 .job-more > summary,.ex-more > summary,.src-fold > summary{display:none}
 }
 @media print{
-.dash,dialog.drawer,#sec-more,.how{display:none !important}
+.dash,dialog.drawer,#sec-more,.how,.browse,.ext-page{display:none !important}
 .holder[hidden]{display:block !important}
 .holder > * + *{margin-top:16pt}
 .hero{background:none}
@@ -972,6 +983,56 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     </div>
   </section>
 </div>
+
+<!-- browse:start (written by _build/build-pages.mjs) -->
+<section class="browse" aria-labelledby="browse-h">
+  <div class="wrap browse-in">
+    <h2 id="browse-h">Browse every job and subject</h2>
+    <div class="browse-grid">
+      <details class="more">
+        <summary>All 19 clean energy jobs</summary>
+        <ul class="browse-list">
+          <li><a href="jobs/electrician.html">Electrician</a></li>
+          <li><a href="jobs/solar-panel-installer.html">Solar panel installer</a></li>
+          <li><a href="jobs/heat-pump-engineer.html">Heat pump engineer</a></li>
+          <li><a href="jobs/electric-vehicle-technician.html">Electric vehicle technician</a></li>
+          <li><a href="jobs/wind-turbine-technician.html">Wind turbine technician</a></li>
+          <li><a href="jobs/electricity-network-worker.html">Electricity network worker</a></li>
+          <li><a href="jobs/domestic-energy-assessor.html">Domestic energy assessor</a></li>
+          <li><a href="jobs/renewable-energy-engineer.html">Renewable energy engineer</a></li>
+          <li><a href="jobs/electronics-engineer.html">Electronics engineer</a></li>
+          <li><a href="jobs/energy-data-scientist.html">Energy data scientist</a></li>
+          <li><a href="jobs/sustainability-practitioner.html">Sustainability practitioner</a></li>
+          <li><a href="jobs/plumber.html">Plumber</a></li>
+          <li><a href="jobs/refrigeration-and-air-conditioning-installer.html">Refrigeration and air-conditioning installer</a></li>
+          <li><a href="jobs/building-services-engineer.html">Building services engineer</a></li>
+          <li><a href="jobs/smart-meter-installer.html">Smart meter installer</a></li>
+          <li><a href="jobs/smart-home-installer.html">Smart home installer</a></li>
+          <li><a href="jobs/cavity-insulation-installer.html">Cavity insulation installer</a></li>
+          <li><a href="jobs/electrical-engineering-technician.html">Electrical engineering technician</a></li>
+          <li><a href="jobs/engineering-maintenance-technician.html">Engineering maintenance technician</a></li>
+        </ul>
+        <p class="browse-all"><a href="jobs/">Compare all the jobs</a></p>
+      </details>
+      <details class="more">
+        <summary>All 9 GCSE subjects</summary>
+        <ul class="browse-list">
+          <li><a href="subjects/science.html">Science</a></li>
+          <li><a href="subjects/maths.html">Maths</a></li>
+          <li><a href="subjects/geography.html">Geography</a></li>
+          <li><a href="subjects/design-and-technology.html">Design and technology</a></li>
+          <li><a href="subjects/computer-science.html">Computer science</a></li>
+          <li><a href="subjects/electronics.html">Electronics</a></li>
+          <li><a href="subjects/engineering.html">Engineering</a></li>
+          <li><a href="subjects/business.html">Business</a></li>
+          <li><a href="subjects/economics.html">Economics</a></li>
+        </ul>
+        <p class="browse-all"><a href="subjects/">See all the subjects</a></p>
+      </details>
+    </div>
+  </div>
+</section>
+<!-- browse:end -->
 
 <section class="advice-band" id="advice" aria-labelledby="advice-band-h">
   <div class="wrap advice-in">
@@ -1397,6 +1458,8 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
   function $all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function money(n) { return '£' + n.toLocaleString('en-GB'); }
+  // File names of the job and subject pages; the same rule as slug() in _build/build-pages.mjs.
+  function slug(name) { return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function joinList(arr) { if (arr.length <= 1) return arr.join(''); return arr.slice(0, -1).join(', ') + ' and ' + arr[arr.length - 1]; }
   function lower(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
   function reducedMotion() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
@@ -1750,6 +1813,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       '<p class="label lbl">Ways in</p><ul class="routes">' + j.routes.map(function (x) { return '<li><span class="rk">' + esc(x.k) + ':</span> ' + esc(x.v) + '</li>'; }).join('') + '</ul>' +
       wordsBox(wordsIn(routeText(j))) +
       '<a class="ext" href="' + j.url + '" target="_blank" rel="noopener">Full job profile<span class="vh"> for ' + esc(j.name) + '</span></a>' +
+      '<a class="ext ext-page" href="jobs/' + slug(j.name) + '.html">This job on its own page<span class="vh">: ' + esc(j.name) + '</span></a>' +
       '</article>';
   }
   function renderJobs(ranked) {
@@ -1796,7 +1860,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       var src = '<a href="' + SUBJ[s].src + '" target="_blank" rel="noopener">' + esc(SUBJ[s].srcLabel) + '</a>';
       if (s === 'science' && state.sci === 'separate') src += ' and <a href="' + SEPARATE_SRC.url + '" target="_blank" rel="noopener">' + esc(SEPARATE_SRC.label) + '</a>';
       return '<details class="subj" data-id="' + s + '"' + (open ? ' open' : '') + '><summary><span>' + esc(subjLabel(s)) + '</span><span class="subj-count">' + list.length + ' topics</span></summary>' +
-        '<div class="subj-body"><ul class="tlist">' + list.map(topicRow).join('') + '</ul><p class="src">Source: ' + src + ' (Department for Education)</p></div></details>';
+        '<div class="subj-body"><ul class="tlist">' + list.map(topicRow).join('') + '</ul><p class="src">Source: ' + src + ' (Department for Education)</p><p class="src"><a href="subjects/' + slug(SUBJ[s].name) + '.html">' + esc(SUBJ[s].name) + ' on its own page</a></p></div></details>';
     }).join('');
   }
   function renderNear() {
