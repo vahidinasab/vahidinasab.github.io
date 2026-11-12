@@ -669,6 +669,8 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
 .job .ext-page{margin-top:0;padding-top:0;font-weight:600}
 @media (min-width:760px){.browse-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
+.hero-back{margin-top:-6px;font-size:15px;color:#DCE5EB}
+
 /* Printing the page (Ctrl+P) gives the roadmap on white paper. Download PDF gives the designed version. */
 @media print{
   :root:root:root{--bg:#FFFFFF;--surface:#FFFFFF;--surface-2:#FFFFFF;--sunken:#EEF2F5;--line:#C9D1DA;--line-strong:#9AA6B2;--ink:#032A3B;--text:#1D3542;--muted:#4A5763;--accent:#2EB895;--accent-text:#0C6E57;--accent-tint:#E2F5EF;--green:#17785A;--note:#FFFFFF;--note-line:#7FD1BB;--map-idle:#C5CEDA;--map-hot:#1E9C7D;--shadow:none;color-scheme:light}
@@ -726,7 +728,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     <nav class="appnav" aria-label="Page sections">
       <a href="#explore">Explore</a><a href="#answers">Build</a><a href="#roadmap">Roadmap</a><a href="#advice">Advice</a><a href="#about">About</a><a href="teachers.html">Teachers</a>
     </nav>
-    <button class="btn btn-accent btn-sm" type="button" data-go="answers">Start</button>
+    <button class="btn btn-accent btn-sm" type="button" data-go="answers" id="bar-go">Start</button>
   </div>
 </header>
 
@@ -738,9 +740,10 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       <h1>Join the dots from your GCSEs to clean energy jobs</h1>
       <p class="lead">Four quick questions. One personal roadmap from the GCSE topics you study now to the jobs that install, run and repair clean, local energy.</p>
       <div class="hero-actions">
-        <button class="btn btn-accent btn-lg" type="button" data-go="answers">Build my roadmap</button>
+        <button class="btn btn-accent btn-lg" type="button" data-go="answers" id="hero-go">Build my roadmap</button>
         <button class="btn btn-ghost btn-lg" type="button" data-go="example">See an example</button>
       </div>
+      <p class="hero-back" id="hero-back" hidden>Welcome back. Your answers are saved on this device.</p>
       <dl class="facts">
         <div class="fact"><dt>860,000</dt><dd>clean energy jobs expected in the UK by 2030, as the sector doubles in size. <a href="https://www.gov.uk/government/news/clean-energy-jobs-boom-to-bring-thousands-of-new-jobs" target="_blank" rel="noopener">Clean Energy Jobs Plan</a></dd></div>
       </dl>
@@ -2624,8 +2627,17 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     document.body.classList.toggle('has-go-bar', show);
   }
 
+  // When answers are saved on this device, the buttons at the top say so.
+  function updateHero() {
+    var has = hasAnswers(mine);
+    $('#hero-go').textContent = has ? 'Continue your roadmap' : 'Build my roadmap';
+    $('#bar-go').textContent = has ? 'Continue' : 'Start';
+    $('#hero-back').hidden = !has || !returning;
+  }
+  var returning = hasAnswers(mine);   // true only when the answers were already saved before this visit
   buildForm();
   syncForm();
+  updateHero();
   buildExplorer();
   buildStatic();
   // The home picture's movement (fan, sunlight, charging, turbines) stops for reduced motion and pauses off screen.
@@ -2650,6 +2662,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     setView('mine');
     if (mine.y && answeredCount(mine) >= 2) track('own');
     updateGoBar();
+    updateHero();
   });
   $('#reset').addEventListener('click', function () {
     mine = cleanState({});
@@ -2660,6 +2673,8 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     setView('mine');
     showStep(0, false);
     updateGoBar();
+    returning = false;
+    updateHero();
     var first = document.getElementById('year-7');
     if (first) first.focus();
   });
@@ -2687,7 +2702,14 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     b.addEventListener('click', function () {
       var go = b.getAttribute('data-go');
       if (go === 'example') { setView('example'); track('example'); jumpTo('roadmap'); }
-      else if (go === 'answers') { if (view !== 'mine' && hasAnswers(mine)) setView('mine'); jumpTo('answers'); }
+      else if (go === 'answers') {
+        var has = hasAnswers(mine), top = b.id === 'hero-go' || b.id === 'bar-go';
+        if (view !== 'mine' && has) setView('mine');
+        // A returning visitor carries on where they stopped: the roadmap if all four are answered, else the next question.
+        if (has && top && answeredCount(mine) === 4) { jumpTo('roadmap'); return; }
+        if (has && top) showStep(firstUnanswered(), false);
+        jumpTo('answers');
+      }
       else { if (hasAnswers(mine)) setView('mine'); jumpTo('roadmap'); }
     });
   });
@@ -2705,6 +2727,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     setView('mine');
     showStep(firstUnanswered(), false);
     updateGoBar();
+    updateHero();
     jumpTo('roadmap');
   });
   window.addEventListener('hashchange', function () {
