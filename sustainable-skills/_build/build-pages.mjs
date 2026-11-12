@@ -194,12 +194,10 @@ ${list.map((t) => `    <li><b>${esc(t.t)}</b>${badge(t)}<br>${esc(t.use)}</li>`)
   <ul class="kv">
 ${j.routes.map((r) => `    <li><b>${esc(r.k)}:</b> ${esc(r.v)}</li>`).join('\n')}
   </ul>
-${words.length ? `  <details class="fold">
-    <summary>What do these words mean?</summary>
-    <dl class="words">
-${words.map((w) => `      <div><dt>${esc(w.t)}</dt><dd>${esc(w.d)}</dd></div>`).join('\n')}
-    </dl>
-  </details>
+${words.length ? `  <h3>What these words mean</h3>
+  <dl class="words">
+${words.map((w) => `    <div><dt>${esc(w.t)}</dt><dd>${esc(w.d)}</dd></div>`).join('\n')}
+  </dl>
 ` : ''}${home.length ? `
   <h2>Around the home</h2>
   <ul class="kv">
@@ -362,7 +360,7 @@ for (const dir of ['jobs', 'subjects']) {
   for (const f of fs.readdirSync(path.join(ROOT, dir))) if (f.endsWith('.html') && !names.includes(dir + '/' + f)) fs.unlinkSync(path.join(ROOT, dir, f));
 }
 for (const p of pages) {
-  if (p.html.includes('—')) throw new Error('Em dash in ' + p.file);
+  if (p.html.includes(String.fromCharCode(8212))) throw new Error('Long dash in ' + p.file);   // house style: none anywhere
   fs.writeFileSync(path.join(ROOT, p.file), p.html);
 }
 

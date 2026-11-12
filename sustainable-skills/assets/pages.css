@@ -118,7 +118,6 @@ a.tag:hover{border-color:var(--ink);color:var(--ink)}
 .page .kv{list-style:none;padding:0;display:grid;gap:10px}
 .page .kv li{margin:0}
 .kv b,.words dt{color:var(--ink)}
-.fold summary{cursor:pointer;width:max-content;max-width:100%;font-weight:700;color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.2em}
 .words{display:grid;gap:10px;margin-top:10px;max-width:46em;font-size:15.5px}
 .words dt{font-weight:700}
 .words dd{margin:0}
@@ -142,6 +141,4 @@ a.tag:hover{border-color:var(--ink);color:var(--ink)}
 .share-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 @media print{
   .crumbs,.cta,.share-row{display:none}
-  .fold > summary{display:none}
-  .fold .words{display:grid}
 }
