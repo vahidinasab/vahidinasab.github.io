@@ -4,21 +4,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sustainable Local Energy Skills Roadmap</title>
-<meta name="description" content="A free interactive guide for pupils in Years 7 to 11 and their families: a personal roadmap from GCSE topics to jobs in sustainable, local energy.">
+<title>GCSEs to clean energy jobs: free roadmap for Years 7 to 11</title>
+<meta name="description" content="Free for pupils in Years 7 to 11, parents and teachers. Answer four questions to see clean energy jobs that fit you, their pay and the GCSE topics they use.">
 <link rel="canonical" href="https://vahidinasab.github.io/sustainable-skills/">
 <meta name="theme-color" content="#EEF1F3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#011B26" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Vahid Vahidinasab">
-<meta property="og:title" content="Sustainable Local Energy Skills Roadmap">
-<meta property="og:description" content="Four quick questions. One personal roadmap from the GCSE topics you study now to jobs in sustainable, local energy.">
+<meta property="og:site_name" content="Sustainable Local Energy Skills Roadmap">
+<meta property="og:title" content="GCSEs to clean energy jobs: free roadmap for Years 7 to 11">
+<meta property="og:description" content="Free for pupils in Years 7 to 11, parents and teachers. Answer four questions to see clean energy jobs that fit you, their pay and the GCSE topics they use.">
+<meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://vahidinasab.github.io/sustainable-skills/">
 <meta property="og:image" content="https://vahidinasab.github.io/sustainable-skills/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Sustainable Local Energy Skills Roadmap: an illustration of a family home with solar panels, a heat pump and an electric car on charge, marked with dots to explore">
 <meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": [
+  "WebApplication",
+  "LearningResource"
+ ],
+ "@id": "https://vahidinasab.github.io/sustainable-skills/#tool",
+ "name": "Sustainable Local Energy Skills Roadmap",
+ "alternateName": "GCSEs to clean energy jobs: free roadmap for Years 7 to 11",
+ "url": "https://vahidinasab.github.io/sustainable-skills/",
+ "description": "Free for pupils in Years 7 to 11, parents and teachers. Answer four questions to see clean energy jobs that fit you, their pay and the GCSE topics they use.",
+ "image": "https://vahidinasab.github.io/sustainable-skills/og-image.png",
+ "inLanguage": "en-GB",
+ "isAccessibleForFree": true,
+ "applicationCategory": "EducationalApplication",
+ "operatingSystem": "Any",
+ "browserRequirements": "Requires JavaScript",
+ "offers": {
+  "@type": "Offer",
+  "price": "0",
+  "priceCurrency": "GBP"
+ },
+ "learningResourceType": "Interactive careers guide",
+ "educationalLevel": [
+  "Year 7",
+  "Year 8",
+  "Year 9",
+  "Year 10",
+  "Year 11"
+ ],
+ "typicalAgeRange": "11-16",
+ "audience": [
+  {
+   "@type": "EducationalAudience",
+   "educationalRole": "student"
+  },
+  {
+   "@type": "EducationalAudience",
+   "educationalRole": "parent"
+  },
+  {
+   "@type": "EducationalAudience",
+   "educationalRole": "teacher"
+  }
+ ],
+ "teaches": "How the GCSE topics pupils study now lead to jobs in clean, local energy",
+ "about": [
+  "GCSE subjects",
+  "Clean energy jobs",
+  "Apprenticeships",
+  "T Levels",
+  "Careers guidance"
+ ],
+ "spatialCoverage": {
+  "@type": "Country",
+  "name": "England"
+ },
+ "author": {
+  "@type": "Person",
+  "name": "Vahid Vahidinasab",
+  "honorificPrefix": "Professor",
+  "url": "https://www.salford.ac.uk/our-staff/vahid-vahidinasab",
+  "affiliation": {
+   "@type": "CollegeOrUniversity",
+   "name": "University of Salford",
+   "url": "https://www.salford.ac.uk/"
+  }
+ },
+ "copyrightYear": 2026,
+ "copyrightHolder": {
+  "@type": "Person",
+  "name": "Vahid Vahidinasab"
+ }
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%232EB895%22/%3E%3Cpath%20d%3D%22M7%2023%20L13%2016.5%20L18%2019.5%20L24.5%2010%22%20fill%3D%22none%22%20stroke%3D%22%23032A3B%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Ccircle%20cx%3D%2224.5%22%20cy%3D%2210%22%20r%3D%223.2%22%20fill%3D%22%23032A3B%22/%3E%3Ccircle%20cx%3D%227%22%20cy%3D%2223%22%20r%3D%222.4%22%20fill%3D%22%23032A3B%22/%3E%3C/svg%3E">
 <link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/archivo-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -581,6 +658,19 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
 @media (min-width:760px){.how{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (min-width:980px){.how-wrap{padding-top:36px}}
 
+/* Links to the job and subject pages */
+.browse{padding-block:0 40px}
+.browse-in{display:grid;gap:12px}
+.browse h2{font-size:1.2rem}
+.browse-grid{display:grid;gap:12px;align-items:start}
+.browse .more{margin-top:0}
+.browse-list{list-style:none;margin:0;padding:0 16px 4px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,220px),1fr));gap:8px 20px;font-size:15px}
+.browse-all{padding:8px 16px 14px;font-size:15px;font-weight:700}
+.job .ext-page{margin-top:0;padding-top:0;font-weight:600}
+@media (min-width:760px){.browse-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.hero-back{margin-top:-6px;font-size:15px;color:#DCE5EB}
+
 /* Printing the page (Ctrl+P) gives the roadmap on white paper. Download PDF gives the designed version. */
 @media print{
   :root:root:root{--bg:#FFFFFF;--surface:#FFFFFF;--surface-2:#FFFFFF;--sunken:#EEF2F5;--line:#C9D1DA;--line-strong:#9AA6B2;--ink:#032A3B;--text:#1D3542;--muted:#4A5763;--accent:#2EB895;--accent-text:#0C6E57;--accent-tint:#E2F5EF;--green:#17785A;--note:#FFFFFF;--note-line:#7FD1BB;--map-idle:#C5CEDA;--map-hot:#1E9C7D;--shadow:none;color-scheme:light}
@@ -618,7 +708,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
 .job-more > summary,.ex-more > summary,.src-fold > summary{display:none}
 }
 @media print{
-.dash,dialog.drawer,#sec-more,.how{display:none !important}
+.dash,dialog.drawer,#sec-more,.how,.browse,.ext-page{display:none !important}
 .holder[hidden]{display:block !important}
 .holder > * + *{margin-top:16pt}
 .hero{background:none}
@@ -638,7 +728,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     <nav class="appnav" aria-label="Page sections">
       <a href="#explore">Explore</a><a href="#answers">Build</a><a href="#roadmap">Roadmap</a><a href="#advice">Advice</a><a href="#about">About</a><a href="teachers.html">Teachers</a>
     </nav>
-    <button class="btn btn-accent btn-sm" type="button" data-go="answers">Start</button>
+    <button class="btn btn-accent btn-sm" type="button" data-go="answers" id="bar-go">Start</button>
   </div>
 </header>
 
@@ -650,9 +740,10 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       <h1>Join the dots from your GCSEs to clean energy jobs</h1>
       <p class="lead">Four quick questions. One personal roadmap from the GCSE topics you study now to the jobs that install, run and repair clean, local energy.</p>
       <div class="hero-actions">
-        <button class="btn btn-accent btn-lg" type="button" data-go="answers">Build my roadmap</button>
+        <button class="btn btn-accent btn-lg" type="button" data-go="answers" id="hero-go">Build my roadmap</button>
         <button class="btn btn-ghost btn-lg" type="button" data-go="example">See an example</button>
       </div>
+      <p class="hero-back" id="hero-back" hidden>Welcome back. Your answers are saved on this device.</p>
       <dl class="facts">
         <div class="fact"><dt>860,000</dt><dd>clean energy jobs expected in the UK by 2030, as the sector doubles in size. <a href="https://www.gov.uk/government/news/clean-energy-jobs-boom-to-bring-thousands-of-new-jobs" target="_blank" rel="noopener">Clean Energy Jobs Plan</a></dd></div>
       </dl>
@@ -737,9 +828,10 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     </div>
 
     <div class="ex-banner" id="ex-banner" hidden>
-      <p><strong>This is an example.</strong> <span id="ex-banner-t"></span></p>
+      <p><strong id="ex-banner-s">This is an example.</strong> <span id="ex-banner-t"></span></p>
       <div class="row-actions">
         <button type="button" class="btn btn-accent" id="ex-mine">Start my own roadmap</button>
+        <button type="button" class="btn btn-ghost" id="sh-use" hidden>Use these answers as mine</button>
       </div>
     </div>
 
@@ -749,6 +841,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
         <button type="button" class="btn btn-accent" id="save-pdf" data-mode="summary">Download PDF (2 pages)</button>
         <button type="button" class="btn btn-ghost" id="save-email" aria-expanded="false" aria-controls="email-panel">Email it</button>
         <button type="button" class="btn btn-ghost" id="save-copy">Copy text</button>
+        <button type="button" class="btn btn-ghost" id="save-share">Share a link</button>
       </div>
       <p class="keep-more">For teachers: <button type="button" class="linkish" id="save-pdf-full" data-mode="full">download the full version</button>, with every GCSE topic and what the course says.</p>
       <p class="keep-status" id="keep-status" role="status"></p>
@@ -896,6 +989,56 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
   </section>
 </div>
 
+<!-- browse:start (written by _build/build-pages.mjs) -->
+<section class="browse" aria-labelledby="browse-h">
+  <div class="wrap browse-in">
+    <h2 id="browse-h">Browse every job and subject</h2>
+    <div class="browse-grid">
+      <details class="more">
+        <summary>All 19 clean energy jobs</summary>
+        <ul class="browse-list">
+          <li><a href="jobs/electrician.html">Electrician</a></li>
+          <li><a href="jobs/solar-panel-installer.html">Solar panel installer</a></li>
+          <li><a href="jobs/heat-pump-engineer.html">Heat pump engineer</a></li>
+          <li><a href="jobs/electric-vehicle-technician.html">Electric vehicle technician</a></li>
+          <li><a href="jobs/wind-turbine-technician.html">Wind turbine technician</a></li>
+          <li><a href="jobs/electricity-network-worker.html">Electricity network worker</a></li>
+          <li><a href="jobs/domestic-energy-assessor.html">Domestic energy assessor</a></li>
+          <li><a href="jobs/renewable-energy-engineer.html">Renewable energy engineer</a></li>
+          <li><a href="jobs/electronics-engineer.html">Electronics engineer</a></li>
+          <li><a href="jobs/energy-data-scientist.html">Energy data scientist</a></li>
+          <li><a href="jobs/sustainability-practitioner.html">Sustainability practitioner</a></li>
+          <li><a href="jobs/plumber.html">Plumber</a></li>
+          <li><a href="jobs/refrigeration-and-air-conditioning-installer.html">Refrigeration and air-conditioning installer</a></li>
+          <li><a href="jobs/building-services-engineer.html">Building services engineer</a></li>
+          <li><a href="jobs/smart-meter-installer.html">Smart meter installer</a></li>
+          <li><a href="jobs/smart-home-installer.html">Smart home installer</a></li>
+          <li><a href="jobs/cavity-insulation-installer.html">Cavity insulation installer</a></li>
+          <li><a href="jobs/electrical-engineering-technician.html">Electrical engineering technician</a></li>
+          <li><a href="jobs/engineering-maintenance-technician.html">Engineering maintenance technician</a></li>
+        </ul>
+        <p class="browse-all"><a href="jobs/">Compare all the jobs</a></p>
+      </details>
+      <details class="more">
+        <summary>All 9 GCSE subjects</summary>
+        <ul class="browse-list">
+          <li><a href="subjects/science.html">Science</a></li>
+          <li><a href="subjects/maths.html">Maths</a></li>
+          <li><a href="subjects/geography.html">Geography</a></li>
+          <li><a href="subjects/design-and-technology.html">Design and technology</a></li>
+          <li><a href="subjects/computer-science.html">Computer science</a></li>
+          <li><a href="subjects/electronics.html">Electronics</a></li>
+          <li><a href="subjects/engineering.html">Engineering</a></li>
+          <li><a href="subjects/business.html">Business</a></li>
+          <li><a href="subjects/economics.html">Economics</a></li>
+        </ul>
+        <p class="browse-all"><a href="subjects/">See all the subjects</a></p>
+      </details>
+    </div>
+  </div>
+</section>
+<!-- browse:end -->
+
 <section class="advice-band" id="advice" aria-labelledby="advice-band-h">
   <div class="wrap advice-in">
     <div>
@@ -914,7 +1057,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       <h2>About this guide</h2>
       <p>Developed by Professor Vahid Vahidinasab, Chair in Sustainability and Academic Research Lead at the Centre for Sustainable Innovation (CSI), University of Salford. Information checked in October 2026 against Department for Education subject content, GOV.UK and the official careers website for England (formerly the National Careers Service).</p>
       <p><strong>This guide is advisory only and is not personal careers advice.</strong> Schools offer different subjects and exam boards, so check your choices with your school and a careers adviser. Pay figures are the typical yearly pay on each job's official profile, from starter to experienced.</p>
-      <p id="privacy-count" hidden>This page counts visits and how the tool is used, anonymously and without cookies. It keeps only totals by country and UK region, never your answers.<span id="reach-link" hidden> <a href="#reach">Reach so far</a></span></p>
+      <p id="privacy-count" hidden>This page counts visits and how the tool is used, anonymously and without cookies. It keeps only totals, by country, by UK region and by where a link was shared, never your answers.<span id="reach-link" hidden> <a href="#reach">Reach so far</a></span></p>
       <p id="feedback">Spotted a mistake or have an idea? <a id="feedback-link" href="https://www.salford.ac.uk/our-staff/vahid-vahidinasab" target="_blank" rel="noopener">Send feedback</a></p>
       <p>Teaching with this tool? The <a href="teachers.html">teacher pack</a> has a 20-minute activity, classroom slides, a pupil worksheet and a QR poster.</p>
       <p class="foot-links"><a href="privacy.html">Privacy</a> <span aria-hidden="true">·</span> <a href="accessibility.html">Accessibility statement</a></p>
@@ -931,7 +1074,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
         <div style="display:grid;gap:8px;min-width:0">
           <p>Scan to open it on a phone, or show it in class.</p>
           <p class="share-url" id="share-url"></p>
-          <div class="row-actions"><button type="button" class="btn btn-ghost btn-sm" id="copy-link">Copy link</button></div>
+          <div class="row-actions"><button type="button" class="btn btn-ghost btn-sm" id="share-tool" hidden>Share</button><button type="button" class="btn btn-ghost btn-sm" id="copy-link">Copy link</button></div>
           <p class="small" id="copy-link-status" role="status"></p>
         </div>
       </div>
@@ -1021,7 +1164,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     { id: 'geography', name: 'Geography', short: 'Geography', src: 'https://assets.publishing.service.gov.uk/media/5a7d5754e5274a33be64898e/GCSE_geography.pdf', srcLabel: 'Geography GCSE subject content' },
     { id: 'dt', name: 'Design and technology', short: 'D&T', src: 'https://www.gov.uk/government/publications/gcse-design-and-technology', srcLabel: 'Design and technology GCSE subject content' },
     { id: 'computing', name: 'Computer science', short: 'Computer science', src: 'https://www.gov.uk/government/publications/gcse-computer-science/gcse-subject-content-for-computer-science', srcLabel: 'Computer science GCSE subject content' },
-    { id: 'electronics', name: 'Electronics', day: 'designing a circuit on a computer, building and testing a prototype, and working out why it does not work yet.', skills: ['Circuit design', 'Coding', 'Testing and problem solving'], short: 'Electronics', src: 'https://www.gov.uk/government/publications/gcse-electronics', srcLabel: 'Electronics GCSE subject content' },
+    { id: 'electronics', name: 'Electronics', short: 'Electronics', src: 'https://www.gov.uk/government/publications/gcse-electronics', srcLabel: 'Electronics GCSE subject content' },
     { id: 'engineering', name: 'Engineering', short: 'Engineering', src: 'https://www.gov.uk/government/publications/gcse-engineering', srcLabel: 'Engineering GCSE subject content' },
     { id: 'business', name: 'Business', short: 'Business', src: 'https://assets.publishing.service.gov.uk/media/5a75a4a0e5274a4368298d89/Business_GCSE.pdf', srcLabel: 'Business GCSE subject content' },
     { id: 'economics', name: 'Economics', short: 'Economics', src: 'https://assets.publishing.service.gov.uk/media/6287b7c28fa8f55617a90521/GCSE_subject_content_economics_May_2022.pdf', srcLabel: 'Economics GCSE subject content' }
@@ -1105,7 +1248,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       routes: [{ k: 'Qualification', v: 'Level 3 Certificate in Domestic Energy Assessment, then joining an approved accreditation scheme' }, { k: 'Experience', v: 'Work in surveying or construction can shorten the training' }] },
     { id: 'renew', name: 'Renewable energy engineer', day: 'studying wind or sunlight data for a site, using design software, and meeting the team that will build the project.', skills: ['Maths and physics', 'Computer modelling', 'Planning projects'], what: 'Plans and designs wind, solar and other clean energy projects. Might check if a place suits a wind farm, or make solar panels work better.', interests: ['sci', 'planet', 'num'], style: 'class', roles: ['design'], pay: [31000, 61000], url: NCS + 'energy-engineer',
       routes: [{ k: 'Degree', v: 'Energy engineering, environmental engineering, or renewable or sustainable energy' }, { k: 'Entry', v: 'Usually 2 or 3 A levels, including maths and a science' }] },
-    { id: 'electronics', name: 'Electronics engineer', what: 'Designs and tests circuits and electronic systems. In clean energy, that means the electronics inside chargers, batteries and solar power systems.', interests: ['tech', 'sci', 'num'], style: 'both', roles: ['design'], pay: [28000, 60000], url: NCS + 'electronics-engineer',
+    { id: 'electronics', name: 'Electronics engineer', day: 'designing a circuit on a computer, building and testing a prototype, and working out why it does not work yet.', skills: ['Circuit design', 'Coding', 'Testing and problem solving'], what: 'Designs and tests circuits and electronic systems. In clean energy, that means the electronics inside chargers, batteries and solar power systems.', interests: ['tech', 'sci', 'num'], style: 'both', roles: ['design'], pay: [28000, 60000], url: NCS + 'electronics-engineer',
       routes: [{ k: 'Degree', v: 'Electronic engineering, or electronic and electrical engineering' }, { k: 'Degree apprenticeship', v: 'Embedded Electronic Systems Design and Development Engineer (level 6)' }, { k: 'Work', v: 'Start as an electronics engineering technician and train on the job' }] },
     { id: 'data', name: 'Energy data scientist', day: 'tidying a big set of energy data, writing code to find patterns, and making charts to explain what you found.', skills: ['Coding', 'Statistics', 'Explaining results clearly'], alt: 'Official job profile: data scientist', what: 'Uses data and computer models to spot patterns. In energy, this helps predict how much power people will need, and the best time to charge electric cars.', interests: ['num', 'tech'], style: 'both', roles: ['data'], pay: [32000, 83000], url: NCS + 'data-scientist',
       routes: [{ k: 'Degree', v: 'Maths, statistics, data science or computer science' }, { k: 'Apprenticeship', v: 'Data Engineer (level 5)' }, { k: 'Degree apprenticeship', v: 'Data Scientist (level 6)' }] },
@@ -1320,6 +1463,8 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
   function $all(sel) { return Array.prototype.slice.call(document.querySelectorAll(sel)); }
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function money(n) { return '£' + n.toLocaleString('en-GB'); }
+  // File names of the job and subject pages; the same rule as slug() in _build/build-pages.mjs.
+  function slug(name) { return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); }
   function joinList(arr) { if (arr.length <= 1) return arr.join(''); return arr.slice(0, -1).join(', ') + ' and ' + arr[arr.length - 1]; }
   function lower(s) { return s.charAt(0).toLowerCase() + s.slice(1); }
   function reducedMotion() { return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; }
@@ -1359,8 +1504,30 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
   // The form always holds the pupil's own answers ("mine"); the roadmap shows the example or theirs, and says which.
   var EXAMPLE = cleanState({ y: 9, interests: ['make', 'planet'], sci: 'combined', subjects: ['geography', 'dt'], style: 'hands', s3: true });
   var mine = loadMine();
-  var view = hasAnswers(mine) ? 'mine' : 'example';
-  var state = view === 'example' ? EXAMPLE : mine;
+  // A link can reopen a roadmap. The answers travel after the # in the address, which browsers never send to a server.
+  function encodeState(s) {
+    return [s.y || 0, s.interests.join('-') || 0, s.s3 ? (s.sci === 'separate' ? 's' : 'c') : 'n', s.subjects.join('-') || 0, s.style || 0].join('.');
+  }
+  function decodeState(code) {
+    var p = String(code).split('.');
+    if (p.length !== 5) return null;
+    var st = cleanState({ y: Number(p[0]), interests: p[1] === '0' ? [] : p[1].split('-'), sci: p[2] === 's' ? 'separate' : 'combined', subjects: p[3] === '0' ? [] : p[3].split('-'), style: p[4], s3: p[2] !== 'n' });
+    return hasAnswers(st) && encodeState(st) === code ? st : null;   // anything that is not a real set of answers is ignored
+  }
+  function sharedFromAddress() {
+    var m = /(?:^#|&)r=([a-z0-9.\-]+)/.exec(location.hash);
+    var st = m ? decodeState(m[1]) : null;
+    return st && encodeState(st) !== encodeState(mine) ? st : null;   // a link to your own roadmap just opens yours
+  }
+  function roadmapLink(s) { return CONFIG.toolUrl + '?src=share#r=' + encodeState(s); }
+  function clearAddress() {
+    if (!/(?:^#|&)r=/.test(location.hash)) return;
+    try { window.history.replaceState(null, '', location.pathname + location.search); } catch (e) { /* the address stays; nothing else changes */ }
+  }
+  // The roadmap shows the example, a roadmap someone shared ("shared"), or the pupil's own ("mine"), and says which.
+  var shared = sharedFromAddress();
+  var view = shared ? 'shared' : hasAnswers(mine) ? 'mine' : 'example';
+  var state = view === 'shared' ? shared : view === 'example' ? EXAMPLE : mine;
   var focus = null;
   var phoneMq = window.matchMedia ? window.matchMedia('(max-width: 759px)') : null;
   function isPhone() { return !!(phoneMq && phoneMq.matches); }
@@ -1529,8 +1696,9 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     $('#progress-t').textContent = n + ' of 4 answered';
   }
   function setView(v) {
+    if (v !== 'shared') clearAddress();
     view = v;
-    state = v === 'example' ? EXAMPLE : mine;
+    state = v === 'shared' ? shared : v === 'example' ? EXAMPLE : mine;
     render();
   }
 
@@ -1575,23 +1743,26 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     return parts.join(' · ');
   }
   function renderHead() {
-    var ex = view === 'example';
+    var ex = view === 'example', sh = view === 'shared', demo = ex || sh;
     var has = hasAnswers(mine);
-    $('#rm-eyebrow').textContent = ex ? 'Example' : 'Your roadmap';
-    $('#roadmap-h').textContent = ex ? 'Example roadmap' : 'Your local energy skills roadmap';
+    $('#rm-eyebrow').textContent = ex ? 'Example' : sh ? 'Shared with you' : 'Your roadmap';
+    $('#roadmap-h').textContent = ex ? 'Example roadmap' : sh ? 'A roadmap shared with you' : 'Your local energy skills roadmap';
     $('#rm-summary').textContent = summaryText();
     $('#rm-summary').hidden = ex;
-    $('#rm-note').hidden = ex;
+    $('#rm-note').hidden = demo;
     $('#rm-note-t').textContent = has ? 'Built from your answers. It changes as soon as you change an answer.' : 'Answer the four questions and your roadmap will build here as you go.';
-    $('#ex-banner').hidden = !ex;
-    $('#ex-banner-t').textContent = EXAMPLE_WHO + (has ? ' Your own answers are still saved.' : ' Answer the four questions to see your own.');
+    $('#ex-banner').hidden = !demo;
+    $('#ex-banner-s').textContent = sh ? 'Someone shared this roadmap with you.' : 'This is an example.';
+    $('#ex-banner-t').textContent = (sh ? 'It was built from their answers, not yours.' : EXAMPLE_WHO) + (has ? ' Your own answers are still saved.' : ' Answer the four questions to see your own.');
     $('#ex-mine').textContent = has ? 'Back to my roadmap' : 'Start my own roadmap';
-    $('#ans-note').hidden = !ex;
-    $('#ans-note').textContent = 'The roadmap is showing an example right now. ' + (has ? 'Your own answers are kept; change any of them to switch back.' : 'Answer any question and it will switch to yours.');
-    $('#jobs-h').textContent = ex ? 'Jobs that fit this pupil' : 'Jobs that fit you';
-    $('#tl-h').textContent = ex ? 'Timeline for this pupil' : 'Your timeline';
-    $('#keep').hidden = ex || !has;
-    if (!ex && has && !$('#email-panel').hidden) fillEmail();
+    $('#sh-use').hidden = !sh;
+    $('#sh-use').textContent = has ? 'Replace my answers with these' : 'Use these answers as mine';
+    $('#ans-note').hidden = !demo;
+    $('#ans-note').textContent = 'The roadmap is showing ' + (sh ? 'a shared roadmap' : 'an example') + ' right now. ' + (has ? 'Your own answers are kept; change any of them to switch back.' : 'Answer any question and it will switch to yours.');
+    $('#jobs-h').textContent = demo ? 'Jobs that fit this pupil' : 'Jobs that fit you';
+    $('#tl-h').textContent = demo ? 'Timeline for this pupil' : 'Your timeline';
+    $('#keep').hidden = demo || !has;
+    if (!demo && has && !$('#email-panel').hidden) fillEmail();
   }
   function renderMap() {
     var subs = chosenSubjects();
@@ -1673,6 +1844,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       '<p class="label lbl">Ways in</p><ul class="routes">' + j.routes.map(function (x) { return '<li><span class="rk">' + esc(x.k) + ':</span> ' + esc(x.v) + '</li>'; }).join('') + '</ul>' +
       wordsBox(wordsIn(routeText(j))) +
       '<a class="ext" href="' + j.url + '" target="_blank" rel="noopener">Full job profile<span class="vh"> for ' + esc(j.name) + '</span></a>' +
+      '<a class="ext ext-page" href="jobs/' + slug(j.name) + '.html">This job on its own page<span class="vh">: ' + esc(j.name) + '</span></a>' +
       '</article>';
   }
   function renderJobs(ranked) {
@@ -1719,7 +1891,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       var src = '<a href="' + SUBJ[s].src + '" target="_blank" rel="noopener">' + esc(SUBJ[s].srcLabel) + '</a>';
       if (s === 'science' && state.sci === 'separate') src += ' and <a href="' + SEPARATE_SRC.url + '" target="_blank" rel="noopener">' + esc(SEPARATE_SRC.label) + '</a>';
       return '<details class="subj" data-id="' + s + '"' + (open ? ' open' : '') + '><summary><span>' + esc(subjLabel(s)) + '</span><span class="subj-count">' + list.length + ' topics</span></summary>' +
-        '<div class="subj-body"><ul class="tlist">' + list.map(topicRow).join('') + '</ul><p class="src">Source: ' + src + ' (Department for Education)</p></div></details>';
+        '<div class="subj-body"><ul class="tlist">' + list.map(topicRow).join('') + '</ul><p class="src">Source: ' + src + ' (Department for Education)</p><p class="src"><a href="subjects/' + slug(SUBJ[s].name) + '.html">' + esc(SUBJ[s].name) + ' on its own page</a></p></div></details>';
     }).join('');
   }
   function renderNear() {
@@ -1810,7 +1982,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     var next = state.y ? ['Next steps:'].concat(NEXT[state.y].map(function (t) { return '- ' + plain(t); })) : [];
     var dates = timelineItems().filter(function (it) { return !it.cls; }).map(function (it) { return '- ' + it.date + ': ' + it.title; });
     if (dates.length) dates.unshift('Key dates:');
-    var tail = [['Build or update this roadmap online: ' + CONFIG.toolUrl], [ADVISORY]];
+    var tail = [['Build or update this roadmap online: ' + roadmapLink(state)], [ADVISORY]];
     var options = [[head, jobsLinked, next, dates], [head, jobsLinked, next], [head, jobsPlain, next, dates], [head, jobsPlain, next], [head, jobsPlain]];
     for (var i = 0; i < options.length; i++) {
       var body = options[i].concat(tail).filter(function (b) { return b.length; }).map(function (b) { return b.join('\n'); }).join('\n\n');
@@ -2340,12 +2512,20 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
   var LIVE = (function () { try { return location.hostname === new URL(CONFIG.toolUrl).hostname; } catch (e) { return false; } })();
   var stats = { on: !!CONFIG.statsUrl, sent: {} };
   function statsBase() { return CONFIG.statsUrl.replace(/\/+$/, ''); }
-  function track(event) {
+  function track(event, src) {
     if (!stats.on || !LIVE || stats.sent[event]) return;
     stats.sent[event] = true;
-    var url = statsBase() + '/hit', body = JSON.stringify({ event: event });
+    var url = statsBase() + '/hit', body = JSON.stringify(src ? { event: event, src: src } : { event: event });
     try { if (navigator.sendBeacon && navigator.sendBeacon(url, body)) return; } catch (e) { /* fall through */ }
     try { fetch(url, { method: 'POST', body: body, mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain' } }).catch(function () {}); } catch (e) { /* counting is optional */ }
+  }
+  // Where a visit came from. A link can end ?src=newsletter (utm_source works too); only that short label is
+  // counted, as a second message, so the visit count itself is unchanged. Letters, numbers and hyphens, 32 at most.
+  function visitSource() {
+    var m = /[?&](?:src|utm_source)=([^&#]*)/.exec(location.search), v = '';
+    if (!m) return '';
+    try { v = decodeURIComponent(m[1].replace(/\+/g, ' ')); } catch (e) { return ''; }
+    return v.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 32);
   }
   function fmt(n) { return Number(n || 0).toLocaleString('en-GB'); }
   function plural(n, one, many) { return fmt(n) + ' ' + (n === 1 ? one : many); }
@@ -2455,8 +2635,17 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     document.body.classList.toggle('has-go-bar', show);
   }
 
+  // When answers are saved on this device, the buttons at the top say so.
+  function updateHero() {
+    var has = hasAnswers(mine);
+    $('#hero-go').textContent = has ? 'Continue your roadmap' : 'Build my roadmap';
+    $('#bar-go').textContent = has ? 'Continue' : 'Start';
+    $('#hero-back').hidden = !has || !returning;
+  }
+  var returning = hasAnswers(mine);   // true only when the answers were already saved before this visit
   buildForm();
   syncForm();
+  updateHero();
   buildExplorer();
   buildStatic();
   // The home picture's movement (fan, sunlight, charging, turbines) stops for reduced motion and pauses off screen.
@@ -2481,6 +2670,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     setView('mine');
     if (mine.y && answeredCount(mine) >= 2) track('own');
     updateGoBar();
+    updateHero();
   });
   $('#reset').addEventListener('click', function () {
     mine = cleanState({});
@@ -2491,6 +2681,8 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     setView('mine');
     showStep(0, false);
     updateGoBar();
+    returning = false;
+    updateHero();
     var first = document.getElementById('year-7');
     if (first) first.focus();
   });
@@ -2518,13 +2710,41 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     b.addEventListener('click', function () {
       var go = b.getAttribute('data-go');
       if (go === 'example') { setView('example'); track('example'); jumpTo('roadmap'); }
-      else if (go === 'answers') { if (view === 'example' && hasAnswers(mine)) setView('mine'); jumpTo('answers'); }
+      else if (go === 'answers') {
+        var has = hasAnswers(mine), top = b.id === 'hero-go' || b.id === 'bar-go';
+        if (view !== 'mine' && has) setView('mine');
+        // A returning visitor carries on where they stopped: the roadmap if all four are answered, else the next question.
+        if (has && top && answeredCount(mine) === 4) { jumpTo('roadmap'); return; }
+        if (has && top) showStep(firstUnanswered(), false);
+        jumpTo('answers');
+      }
       else { if (hasAnswers(mine)) setView('mine'); jumpTo('roadmap'); }
     });
   });
   $('#ex-mine').addEventListener('click', function () {
     if (hasAnswers(mine)) { setView('mine'); jumpTo('roadmap'); }
     else { showStep(0, false); jumpTo('answers', document.getElementById('year-7')); }
+  });
+  $('#sh-use').addEventListener('click', function () {
+    if (!shared) return;
+    mine = cleanState(JSON.parse(JSON.stringify(shared)));
+    focus = null;
+    syncForm();
+    saveMine();
+    clearSaveUi();
+    setView('mine');
+    showStep(firstUnanswered(), false);
+    updateGoBar();
+    updateHero();
+    jumpTo('roadmap');
+  });
+  window.addEventListener('hashchange', function () {
+    var st = sharedFromAddress();
+    if (!st) return;
+    shared = st;
+    clearSaveUi();
+    setView('shared');
+    jumpTo('roadmap');
   });
   $('#edit-answers').addEventListener('click', function () { showStep(0, false); jumpTo('answers'); });
   $('#wiz-next').addEventListener('click', function () {
@@ -2607,6 +2827,34 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
       setStatus('Select the message text and copy it.');
     });
   });
+  // Share: the phone or computer's own share sheet where there is one, otherwise the link is copied.
+  function shareLink(data, copied, shown) {
+    function copy() { copyText(data.url, function () { copied(); track('share'); }, shown); }
+    if (navigator.share) {
+      navigator.share(data).then(function () { track('share'); }, function (err) { if (!err || err.name !== 'AbortError') copy(); });
+    } else copy();
+  }
+  $('#save-share').addEventListener('click', function () {
+    var link = roadmapLink(mine), ta = $('#copy-fallback');
+    closeEmail();
+    ta.hidden = true;
+    setStatus('');
+    shareLink({ title: 'My local energy skills roadmap', text: 'My local energy skills roadmap', url: link }, function () {
+      setStatus('Link copied. Anyone who opens it sees this roadmap, with your four answers.');
+    }, function () {
+      ta.value = link;
+      ta.hidden = false;
+      ta.focus();
+      ta.select();
+      setStatus('Select the link in the box below and copy it.');
+    });
+  });
+  if (navigator.share) {
+    $('#share-tool').hidden = false;
+    $('#share-tool').addEventListener('click', function () {
+      shareLink({ title: 'Sustainable Local Energy Skills Roadmap', text: 'Join the dots from your GCSEs to clean energy jobs', url: CONFIG.toolUrl + '?src=share' }, function () { $('#copy-link-status').textContent = 'Link copied.'; }, function () { $('#copy-link-status').textContent = CONFIG.toolUrl; });
+    });
+  } else $('#save-share').textContent = 'Copy a link';
   $('#copy-link').addEventListener('click', function () {
     copyText(CONFIG.toolUrl, function () { $('#copy-link-status').textContent = 'Link copied.'; track('share'); }, function () { $('#copy-link-status').textContent = CONFIG.toolUrl; });
   });
@@ -2676,6 +2924,7 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
   render();
   renderPart();
   renderNear();
+  if (view === 'shared') setTimeout(function () { jumpTo('roadmap'); }, 0);
   $('#near-area').addEventListener('change', function () {
     area = NEAR[this.value] ? this.value : '';
     try { if (area) window.localStorage.setItem(AREA_KEY, area); else window.localStorage.removeItem(AREA_KEY); } catch (e) { /* not saved, still shown */ }
@@ -2720,7 +2969,12 @@ dialog.drawer::backdrop{background:rgba(1,20,30,.5)}
     var b = e.target.closest && e.target.closest('[data-open]');
     if (b) openDrawer(b.getAttribute('data-open'), b);
   });
-  if (stats.on) { $('#privacy-count').hidden = false; track('visit'); setTimeout(loadStats, 900); }
+  if (stats.on) {
+    $('#privacy-count').hidden = false;
+    track('visit');
+    if (visitSource()) track('source', visitSource());
+    setTimeout(loadStats, 900);
+  }
 })();
 </script>
 

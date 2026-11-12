@@ -99,3 +99,46 @@ th{color:var(--ink);font-weight:700}
   body{font-size:11pt}
   .foot{background:#FFFFFF;color:#1D3542;border-top:1px solid #C9D1DA}
 }
+
+/* Job and subject pages (written by _build/build-pages.mjs) */
+.crumbs{font-size:14.5px;color:var(--muted)}
+.crumbs a{color:var(--text)}
+.page .tags{list-style:none;display:flex;flex-wrap:wrap;gap:6px;padding:0;max-width:none}
+.page .tags li{margin:0}
+.tag{display:inline-block;padding:4px 11px;border-radius:999px;background:var(--sunken);color:var(--text);font-size:14.5px;font-weight:600;line-height:1.4;text-decoration:none}
+a.tag{border:1px solid var(--line-strong);background:var(--surface);min-height:28px}
+a.tag:hover{border-color:var(--ink);color:var(--ink)}
+.tag-role{background:transparent;border:1px solid var(--line-strong);color:var(--muted)}
+.tag-skill{background:var(--accent-tint);color:var(--ink)}
+.badge{display:inline-block;margin-left:6px;padding:2px 9px;border-radius:999px;background:var(--sunken);color:var(--text);font-family:var(--body);font-size:13px;font-weight:600;vertical-align:2px}
+.card h2{margin-top:0;font-size:1.25rem}
+.pay{font-size:1.1rem}
+.pay strong,.pay-s strong{color:var(--ink);font-variant-numeric:tabular-nums}
+.pay strong{font-family:var(--display);font-weight:800;font-size:1.7rem}
+.page .kv{list-style:none;padding:0;display:grid;gap:10px}
+.page .kv li{margin:0}
+.kv b,.words dt{color:var(--ink)}
+.words{display:grid;gap:10px;margin-top:10px;max-width:46em;font-size:15.5px}
+.words dt{font-weight:700}
+.words dd{margin:0}
+.page .topic-list{list-style:none;padding:0;display:grid;gap:18px;max-width:none}
+.page .topic-list > li{margin:0;padding-top:18px;border-top:1px solid var(--line);display:grid;gap:8px}
+.topic-list h3{margin:0}
+.quote{background:var(--sunken);border-radius:8px;padding:10px 14px;font-size:15px}
+.ql{display:block;font-size:13.5px;font-weight:700;color:var(--muted);margin-bottom:2px}
+.q{display:block}
+.q + .q{margin-top:4px}
+.used{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.used .ql{display:inline;margin:0 4px 0 0}
+.page .cols{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:8px 24px;max-width:none}
+.page .cols li{margin:0}
+.page .tiles{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px;max-width:none}
+.page .tiles > li{margin:0;box-shadow:none}
+.tiles h2{font-size:1.2rem}
+.cta{margin-top:36px !important;padding:24px;border-radius:var(--r-lg);background:var(--band);color:var(--band-text);display:grid;gap:10px;justify-items:start}
+.cta h2{margin:0;color:#FFFFFF}
+.cta :focus-visible{outline-color:#7FE3C8}
+.share-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+@media print{
+  .crumbs,.cta,.share-row{display:none}
+}
