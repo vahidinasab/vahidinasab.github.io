@@ -7,6 +7,14 @@ Static academic profile of Professor Vahid Vahidinasab. GitHub Pages builds `mai
 - `index.html` is the profile, `publications.html` the full publication list, `assets/` the images.
 - `sustainable-skills/` is maintained separately. Never edit anything inside it. Linking to it from the profile is fine (the featured card in `#projects` uses its `og-image.png`).
 
+## Security rules
+
+- Both pages carry a Content-Security-Policy meta tag: they may load only files from this site. Never add scripts, fonts, styles, images or embeds from another domain (no CDNs, no Google Fonts, no hotlinked images, no social media embed widgets). Copy a file into `assets/` instead, and only if its licence allows it.
+- Page scripts live in `assets/site.js` and `assets/publications.js`. No inline `<script>` blocks and no `onclick=` attributes: the policy blocks them. The one exception is the one-line script in the head of `index.html`, allowed by its sha256 value in the policy; if that line changes, recompute the hash.
+- Fonts are served from `assets/fonts/` through `assets/fonts.css`.
+- Every link that opens a new tab has `rel="noopener"`. Use full `https://` addresses to the real destination, not link shorteners.
+- Never write text from outside sources into the page with `innerHTML`.
+
 ## House style
 
 - British English. No em dashes anywhere. En dashes only for ranges such as `2021 – Dec 2024`; where a published title contains a dash, the site uses a comma instead.
