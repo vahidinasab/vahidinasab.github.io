@@ -347,10 +347,11 @@
 
   /* ============ NEWS ============ */
   .n-date{font-family:var(--mono);font-size:.74rem;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
-  .n-src{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;display:inline-flex;align-items:center;gap:.45rem;color:var(--muted)}
-  .n-src::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent);flex:0 0 auto}
-  .n-src.linkedin::before{background:#5AA9F0}
-  .n-src.conversation::before{background:#EDF0F5}
+  /* source tags: one colour per source, also used on the left edge of each list row */
+  .n-src{--src:var(--accent);align-self:flex-start;font-family:var(--mono);font-size:.66rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--src);border:1px solid var(--src);border-radius:100px;padding:.18rem .6rem;line-height:1.4}
+  .n-src.linkedin,.news-item[data-src="linkedin"]{--src:#6DB3F2}
+  .n-src.conversation,.news-item[data-src="conversation"]{--src:#FF8F7D}
+  .news-item{--src:var(--accent)}
   /* latest strip under the hero */
   .latest-band{position:relative;z-index:1;margin-top:-1.5rem;padding-bottom:clamp(2.5rem,6vh,4rem)}
   .latest{border:1px solid var(--line);border-radius:12px;background:var(--bg-2);display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr)) auto;overflow:hidden}
@@ -374,13 +375,13 @@
   .nchip.active{background:var(--accent);color:#0A0D14;border-color:var(--accent);font-weight:600}
   .newsroom{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:1.2rem;align-items:start}
   .newsroom.no-lead,.newsroom.no-feed{grid-template-columns:1fr}
-  .news-item[hidden],.news-feed[hidden]{display:none}
+  .news-item[hidden],.news-feed[hidden]{display:none!important}
   .news-lead{background:var(--surface);border:1px solid rgba(255,180,61,.4);border-radius:14px;padding:2rem;display:flex;flex-direction:column;align-items:flex-start;position:relative;overflow:hidden;transition:transform .22s,border-color .22s}
   .news-lead:hover{transform:translateY(-3px);border-color:var(--accent)}
   .news-lead::after{content:"";position:absolute;inset:0;background:radial-gradient(500px 260px at 85% 0%,var(--glow),transparent 70%);pointer-events:none}
-  .nl-day{font-family:var(--display);font-weight:900;font-size:4.6rem;line-height:.9;background:linear-gradient(180deg,#fff,var(--accent-soft));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .nl-my{font-family:var(--mono);font-size:.78rem;letter-spacing:.16em;color:var(--accent);margin:.5rem 0 1.4rem;text-transform:uppercase}
-  .news-lead h3{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,2.2vw,1.55rem);line-height:1.25;letter-spacing:-.01em;margin:.8rem 0 1.5rem}
+  .nl-date{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:1rem}
+  .nl-date b{color:var(--accent);font-weight:600}
+  .news-lead h3{font-family:var(--display);font-weight:700;font-size:clamp(1.25rem,2.2vw,1.55rem);line-height:1.25;letter-spacing:-.01em;margin:1rem 0 1.5rem}
   .news-feed{border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;gap:1px;background:var(--line)}
   .news-feed .news-item{background:var(--surface);padding:1.1rem 1.3rem;display:grid;grid-template-columns:6.4rem minmax(0,1fr) auto;gap:1rem;align-items:start;transition:background .2s}
   .news-feed .news-item:hover{background:var(--surface-2)}
@@ -389,6 +390,10 @@
   .nf-tt{font-size:.97rem;line-height:1.45;color:var(--text)}
   .nf-by{font-family:var(--mono);font-size:.72rem;color:var(--muted-2);letter-spacing:.02em;line-height:1.5}
   .nf-go{color:var(--accent);font-family:var(--mono);align-self:center}
+  .news-feed .news-item{box-shadow:inset 3px 0 0 var(--src);position:relative}
+  .nf-link::after{content:"";position:absolute;inset:0}
+  .nf-also{position:relative;z-index:1;align-self:flex-start;font-family:var(--mono);font-size:.72rem;color:var(--muted);letter-spacing:.02em;border-bottom:1px solid var(--line-strong);transition:color .2s,border-color .2s}
+  .nf-also:hover{color:var(--accent);border-color:var(--accent)}
   @media(min-width:861px){.news-lead{position:sticky;top:84px}}
   @media(max-width:860px){.newsroom{grid-template-columns:1fr}}
   @media(max-width:520px){.news-feed .news-item{grid-template-columns:1fr auto}.news-feed .n-date{grid-column:1/-1}}
@@ -466,12 +471,10 @@
     .rec-col h3{break-after:avoid}
     .edu-strip{margin-top:1.2rem;padding-top:1rem}
     .proj-feature .pf-links,.latest-band,.news-filters,.news-lead .btn,.nf-go{display:none!important}
-    .hero h1,.stat .num,.nl-day{color:var(--text)!important}
-    .nl-day{background:none!important;font-size:22pt}
     .newsroom{grid-template-columns:1fr;gap:.5rem}
     .news-lead{padding:.7rem .9rem;transform:none!important}
     .news-lead h3{font-size:11pt;margin:.3rem 0 0}
-    .nl-my{margin:.2rem 0 .4rem}
+    .nl-date{margin-bottom:.3rem}
     .news-feed .news-item{padding:.45rem .9rem;break-inside:avoid}
     .contact{text-align:left}
     .contact .wrap{break-inside:avoid}
@@ -565,7 +568,7 @@
       <div class="latest-lab">Latest</div>
       <a class="latest-it" href="https://www.linkedin.com/posts/vahid-vahidinasab_v2x-vehicletogrid-smartcharging-share-7528830762737938432-ApCR/" target="_blank" rel="noopener"><span class="n-date">19 Nov 2026</span><span class="latest-tt">UK-EU V2X Symposium video: speakers from industry, government and research on taking vehicle-to-grid from pilot to scale.</span><span class="n-src linkedin">LinkedIn</span></a>
       <a class="latest-it" href="https://www.salford.ac.uk/news/salford-researcher-launches-free-tool-to-show-teenagers-how-to-access-britains-fastest-growing-green-jobs" target="_blank" rel="noopener"><span class="n-date">12 Nov 2026</span><span class="latest-tt">Salford researcher launches free tool to show teenagers how to access Britain’s fastest-growing green jobs.</span><span class="n-src salford">University of Salford</span></a>
-      <a class="latest-it" href="https://www.salford.ac.uk/news/the-conversation-vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now" target="_blank" rel="noopener"><span class="n-date">03 Nov 2026</span><span class="latest-tt">The Conversation: Vocational GCSEs won’t arrive until 2029, but clean energy skills can be found in the curriculum now.</span><span class="n-src salford">University of Salford</span></a>
+      <a class="latest-it" href="https://theconversation.com/vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now-295008" target="_blank" rel="noopener"><span class="n-date">03 Nov 2026</span><span class="latest-tt">Vocational GCSEs won’t arrive until 2029, but clean energy skills can be found in the curriculum now.</span><span class="n-src conversation">The Conversation</span></a>
       <a class="latest-all" href="#news">All news →</a>
     </div>
   </div>
@@ -1090,15 +1093,14 @@
 
     <div class="newsroom reveal" id="newsroom">
       <a class="news-lead news-item" data-src="linkedin" href="https://www.linkedin.com/posts/vahid-vahidinasab_v2x-vehicletogrid-smartcharging-share-7528830762737938432-ApCR/" target="_blank" rel="noopener">
-        <span class="nl-day">19</span><span class="nl-my">Nov 2026</span>
+        <span class="nl-date"><b>Latest</b> · 19 Nov 2026</span>
         <span class="n-src linkedin">LinkedIn</span>
         <h3>UK-EU V2X Symposium video: speakers from industry, government and research on taking vehicle-to-grid from pilot to scale.</h3>
         <span class="btn btn-primary">Read the post ↗</span>
       </a>
       <div class="news-feed">
         <a class="news-item" data-src="salford" href="https://www.salford.ac.uk/news/salford-researcher-launches-free-tool-to-show-teenagers-how-to-access-britains-fastest-growing-green-jobs" target="_blank" rel="noopener"><span class="n-date">12 Nov 2026</span><span class="nf-main"><span class="n-src salford">University of Salford</span><span class="nf-tt">Salford researcher launches free tool to show teenagers how to access Britain’s fastest-growing green jobs.</span></span><span class="nf-go" aria-hidden="true">↗</span></a>
-        <a class="news-item" data-src="salford" href="https://www.salford.ac.uk/news/the-conversation-vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now" target="_blank" rel="noopener"><span class="n-date">03 Nov 2026</span><span class="nf-main"><span class="n-src salford">University of Salford</span><span class="nf-tt">The Conversation: Vocational GCSEs won’t arrive until 2029, but clean energy skills can be found in the curriculum now.</span></span><span class="nf-go" aria-hidden="true">↗</span></a>
-        <a class="news-item" data-src="conversation" href="https://theconversation.com/vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now-295008" target="_blank" rel="noopener"><span class="n-date">03 Nov 2026</span><span class="nf-main"><span class="n-src conversation">The Conversation</span><span class="nf-tt">Vocational GCSEs won’t arrive until 2029, but clean energy skills can be found in the curriculum now.</span></span><span class="nf-go" aria-hidden="true">↗</span></a>
+        <div class="news-item" data-src="conversation"><span class="n-date">03 Nov 2026</span><span class="nf-main"><span class="n-src conversation">The Conversation</span><a class="nf-tt nf-link" href="https://theconversation.com/vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now-295008" target="_blank" rel="noopener">Vocational GCSEs won’t arrive until 2029, but clean energy skills can be found in the curriculum now.</a><a class="nf-also" href="https://www.salford.ac.uk/news/the-conversation-vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now" target="_blank" rel="noopener">Also on University of Salford news ↗</a></span><span class="nf-go" aria-hidden="true">↗</span></div>
         <a class="news-item" data-src="salford" href="https://www.salford.ac.uk/news/salford-brings-uk-and-europe-together-to-accelerate-the-future-of-energy-sustainability" target="_blank" rel="noopener"><span class="n-date">29 Apr 2026</span><span class="nf-main"><span class="n-src salford">University of Salford</span><span class="nf-tt">Salford brings UK and Europe together to accelerate the future of energy sustainability.</span></span><span class="nf-go" aria-hidden="true">↗</span></a>
         <a class="news-item" data-src="conversation" href="https://theconversation.com/two-way-electric-vehicle-charging-at-scale-could-stop-renewable-energy-being-wasted-heres-how-it-works-272373" target="_blank" rel="noopener"><span class="n-date">24 Dec 2025</span><span class="nf-main"><span class="n-src conversation">The Conversation</span><span class="nf-tt">Two-way electric vehicle charging at scale could stop renewable energy being wasted, here’s how it works.</span></span><span class="nf-go" aria-hidden="true">↗</span></a>
         <a class="news-item" data-src="conversation" href="https://theconversation.com/rising-temperatures-mean-more-air-conditioning-which-means-more-electricity-is-needed-rooftop-solar-is-a-perfect-fit-211313" target="_blank" rel="noopener"><span class="n-date">18 Aug 2023</span><span class="nf-main"><span class="n-src conversation">The Conversation</span><span class="nf-tt">Rising temperatures mean more air conditioning which means more electricity is needed, rooftop solar is a perfect fit.</span><span class="nf-by">With Tom Rogers, Amin Al-Habaibeh and Angelines Donastorg Sosa</span></span><span class="nf-go" aria-hidden="true">↗</span></a>
