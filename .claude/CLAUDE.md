@@ -34,7 +34,7 @@ Static academic profile of Professor Vahid Vahidinasab. GitHub Pages builds `mai
 - Roles: the `#career` timeline, newest first. A current headline role also goes in the hero `.role` lines, the bio paragraph, the meta and `og:description` tags and the JSON-LD `jobTitle`.
 - Awards, editorial roles and memberships: the three lists in `#recognition`.
 - Projects and tools: cards in `#projects`.
-- Articles, talks and media: cards in `#media`, plus an entry in the `public` section of `publications.html`.
+- News, articles, posts and media: the `#news` section, newest first. The newest item is the lead card (`.news-lead`); when adding a newer one, move the old lead into the top of `.news-feed` as a list row. Each item carries `data-src` (`salford`, `conversation` or `linkedin`; a new source also needs a filter button and an `.n-src` dot colour). Then update the strip under the hero (`.latest`) so it shows the three newest items. Use the owner's headline wording. Articles the owner wrote (The Conversation) also get an entry in the `public` section of `publications.html`; news stories about him do not.
 - The selected publications carousel (`#work`) changes only when asked.
 
 ## Citation figures
