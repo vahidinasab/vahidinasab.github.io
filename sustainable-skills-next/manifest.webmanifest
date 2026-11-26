@@ -1,0 +1,23 @@
+{
+  "name": "Sustainable Local Energy Skills Roadmap",
+  "short_name": "Energy Skills",
+  "description": "Free for pupils in Years 7 to 11, parents and teachers. See which clean energy jobs fit you, what they pay and the GCSE topics they use.",
+  "lang": "en-GB",
+  "dir": "ltr",
+  "id": "./",
+  "start_url": "./?src=app",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#032A3B",
+  "theme_color": "#032A3B",
+  "categories": ["education"],
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "My roadmap", "url": "./?src=app#/roadmap" },
+    { "name": "Teacher mode", "url": "./?src=app#/teacher" }
+  ]
+}
