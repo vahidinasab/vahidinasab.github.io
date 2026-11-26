@@ -2,6 +2,10 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
+<!-- Security policy: this page may only load its own files. If you edit the one-line script in the head,
+     its sha256 value below must be updated or the browser will block it. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Publications · Vahid Vahidinasab</title>
 <meta name="description" content="Complete publication record of Professor Vahid Vahidinasab: journal papers, conference papers, books and book chapters in power systems, energy markets and net zero.">
@@ -21,9 +25,8 @@
 <meta property="og:image:alt" content="Vahid Vahidinasab, Professor and Chair in Sustainability, University of Salford">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/ibm-plex-sans-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts.css">
 <style>
   :root{
     --bg:#0A0D14;--bg-2:#0C1018;--surface:#111621;--surface-2:#151C29;
@@ -462,42 +465,6 @@
 
 <footer>© <span id="yr"></span> Vahid Vahidinasab · <a href="index.html" style="color:var(--accent);text-decoration:underline;text-underline-offset:3px">Home</a></footer>
 
-<script>
-(function(){
-  document.getElementById('yr').textContent=new Date().getFullYear();
-  var q=document.getElementById('q'), note=document.getElementById('note'), empty=document.getElementById('empty');
-  var items=[].slice.call(document.querySelectorAll('.pub-item'));
-  var cats=[].slice.call(document.querySelectorAll('.pubcat'));
-  var years=[].slice.call(document.querySelectorAll('.pubyear'));
-  var curFilter='all';
-  function apply(){
-    var term=(q.value||'').trim().toLowerCase();
-    var shown=0;
-    items.forEach(function(it){
-      var okCat = curFilter==='all' || it.closest('.pubcat').getAttribute('data-cat')===curFilter;
-      var okTerm = !term || it.getAttribute('data-blob').indexOf(term)>-1;
-      var show=okCat&&okTerm;
-      it.style.display=show?'':'none';
-      if(show) shown++;
-    });
-    years.forEach(function(y){
-      var any=y.querySelector('.pub-item:not([style*="display: none"])');
-      y.style.display=any?'':'none';
-    });
-    cats.forEach(function(c){
-      var any=c.querySelector('.pub-item:not([style*="display: none"])');
-      c.style.display=any?'':'none';
-    });
-    empty.style.display=shown?'none':'block';
-    note.textContent = (term||curFilter!=='all') ? (shown+' of '+items.length+' shown') : '';
-  }
-  q.addEventListener('input', apply);
-  document.getElementById('filters').addEventListener('click', function(e){
-    var b=e.target.closest('.filt'); if(!b) return;
-    document.querySelectorAll('.filt').forEach(function(x){x.classList.remove('active');x.setAttribute('aria-pressed','false')});
-    b.classList.add('active'); b.setAttribute('aria-pressed','true'); curFilter=b.getAttribute('data-f'); apply();
-  });
-})();
-</script>
+<script src="assets/publications.js"></script>
 </body>
 </html>
