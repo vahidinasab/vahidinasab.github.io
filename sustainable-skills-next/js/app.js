@@ -10,7 +10,7 @@
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
   function ic(name) { return '<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-' + name + '"/></svg>'; }
-  var ui = { part: null, moving: !C.reducedMotion(), email: false, card: 0, last: 'welcome' };
+  var ui = { part: null, moving: !C.reducedMotion(), email: false, card: 0, last: 'welcome', focus: null };
   var route = { name: 'welcome', arg: '', arg2: '' };
   var QUESTIONS = [
     { title: 'Which year are you in?' },
@@ -33,21 +33,76 @@
     return '<a class="row" href="' + href + '"><span class="row-ic">' + ic(icon) + '</span><span class="row-t"><b>' + title + '</b>' + (sub ? '<span>' + sub + '</span>' : '') + '</span>' + ic('next') + '</a>';
   }
   var GUIDE = '<p class="guide"><strong>Use this to explore, then talk to your careers adviser before you choose.</strong> Courses, grades and pay can change, and this roadmap does not know your own situation. Information checked ' + esc(D.checked) + '. <a href="#/advice">Where to get advice</a></p>';
+  // The same picture file is used on every screen, so it is fetched once: the small file on phones, and on
+  // tablets and laptops the file that suits the screen (the large one on sharp screens).
+  var PIC_SIZES = '(max-width: 899px) 100vw, 620px';
+  var PICTURE = '<picture><source media="(prefers-color-scheme: dark) and (max-width: 599px)" srcset="images/home-scene-night-800.jpg">' +
+    '<source media="(prefers-color-scheme: dark)" srcset="images/home-scene-night-800.jpg 800w, images/home-scene-night-1344.jpg 1344w" sizes="' + PIC_SIZES + '">' +
+    '<source media="(max-width: 599px)" srcset="images/home-scene-800.jpg">' +
+    '<img src="images/home-scene-800.jpg" srcset="images/home-scene-800.jpg 800w, images/home-scene-1344.jpg 1344w" sizes="' + PIC_SIZES + '" width="1344" height="756" alt="" decoding="async"></picture>';
   // The home picture. lit: part ids to pick out. still: dots are not buttons. moving: add the moving layer.
   function scene(o) {
     o = o || {};
-    var sizes = o.small ? '(min-width: 900px) 420px, 100vw' : '(min-width: 900px) 620px, 100vw';
     var dots = D.parts.map(function (p) {
       var lit = o.lit && o.lit.indexOf(p.id) !== -1, at = ' data-x="' + p.at[0] + '" data-y="' + p.at[1] + '"';
       if (o.still) return '<span class="dot' + (lit ? ' is-lit' : '') + '"' + at + '></span>';
       return '<button type="button" class="dot' + (lit ? ' is-lit' : '') + '"' + at + ' data-part="' + p.id + '" aria-pressed="' + (ui.part === p.id) + '" aria-label="' + esc(p.name) + '"></button>';
     }).join('');
     return '<div class="scene' + (o.lit ? ' has-lit' : '') + '"' + (o.still ? ' role="img" aria-label="' + esc(o.label || 'The home picture') + '"' : '') + '>' +
-      '<picture><source media="(prefers-color-scheme: dark)" srcset="images/home-scene-night-800.jpg 800w, images/home-scene-night-1344.jpg 1344w" sizes="' + sizes + '"><img src="images/home-scene-800.jpg" srcset="images/home-scene-800.jpg 800w, images/home-scene-1344.jpg 1344w" sizes="' + sizes + '" width="1344" height="756" alt=""></picture>' +
+      PICTURE +
       (o.moving ? '<div class="moving" id="moving" aria-hidden="true"></div>' : '') + dots +
       (o.moving ? '<button type="button" class="pause" data-act="pause" aria-pressed="' + (!ui.moving) + '">' + ic(ui.moving ? 'pause' : 'play') + '<span>' + (ui.moving ? 'Pause' : 'Play') + '</span><span class="vh"> the moving picture</span></button>' : '') + '</div>';
   }
-  function placeDots(root) { $all('.dot[data-x]', root).forEach(function (d) { d.style.left = d.getAttribute('data-x') + '%'; d.style.top = d.getAttribute('data-y') + '%'; }); }
+  function placeDots(root) {
+    $all('.dot[data-x]', root).forEach(function (d) { d.style.left = d.getAttribute('data-x') + '%'; d.style.top = d.getAttribute('data-y') + '%'; });
+    // The dots (and the picture itself) appear when the picture has arrived, never on an empty box.
+    $all('.scene:not(.is-ready)', root).forEach(function (s) {
+      var img = s.querySelector('img'), ready = function () { s.classList.add('is-ready'); };
+      if (!img) return;
+      if (img.complete && img.naturalWidth) ready(); else { img.addEventListener('load', ready); img.addEventListener('error', function () { s.classList.add('is-missing'); }); }
+    });
+  }
+
+  // ---------- Subjects joined to jobs by lines ----------
+  // Each line means the job uses at least one topic from that subject. Tapping a subject or a job traces its lines.
+  function dotMap() {
+    var item = function (type, id, label) { return '<li><button type="button" class="dm-item" data-dm="' + type + '" data-id="' + id + '" aria-pressed="false"><span class="dm-dot" aria-hidden="true"></span><span class="dm-label">' + esc(label) + '</span></button></li>'; };
+    return '<div class="dotmap" id="dotmap"><svg class="dm-lines" id="dm-lines" aria-hidden="true" focusable="false"></svg>' +
+      '<ul class="dm-col dm-left" aria-label="Subjects">' + C.chosenSubjects().map(function (s) { return item('subject', s, C.subjLabel(s)); }).join('') + '</ul>' +
+      '<ul class="dm-col dm-right" aria-label="Jobs that fit">' + now().top.map(function (r) { return item('job', r.job.id, r.job.name); }).join('') + '</ul></div>';
+  }
+  function mapLinks(f) {
+    return C.edges().filter(function (e) { return f.type === 'job' ? e.j === f.id : e.s === f.id; }).map(function (e) { return f.type === 'job' ? C.subjLabel(e.s) : C.JOB[e.j].name; });
+  }
+  function drawMap() {
+    var map = document.getElementById('dotmap'), svg = document.getElementById('dm-lines');
+    if (!map || !svg) return;
+    var box = map.getBoundingClientRect(), top = now().top, subs = C.chosenSubjects(), f = ui.focus;
+    if (!box.width) return;
+    var valid = f && ((f.type === 'job' && top.some(function (r) { return r.job.id === f.id; })) || (f.type === 'subject' && subs.indexOf(f.id) !== -1));
+    if (!valid) f = ui.focus = top.length ? { type: 'job', id: top[0].job.id } : null;
+    svg.setAttribute('viewBox', '0 0 ' + box.width.toFixed(1) + ' ' + box.height.toFixed(1));
+    var pos = {}, items = $all('.dm-item', map);
+    items.forEach(function (b) {
+      var d = b.querySelector('.dm-dot').getBoundingClientRect();
+      pos[b.getAttribute('data-dm') + ':' + b.getAttribute('data-id')] = { l: d.left - box.left, r: d.right - box.left, y: d.top - box.top + d.height / 2 };
+    });
+    var linked = {}, cold = '', hot = '';
+    C.edges().forEach(function (e) {
+      var p1 = pos['subject:' + e.s], p2 = pos['job:' + e.j];
+      if (!p1 || !p2) return;
+      var isHot = !!f && ((f.type === 'job' && f.id === e.j) || (f.type === 'subject' && f.id === e.s));
+      if (isHot) { linked['subject:' + e.s] = true; linked['job:' + e.j] = true; }
+      var x1 = p1.r + 3, x2 = p2.l - 3, mid = (x1 + x2) / 2, w = (isHot ? 2.75 : 1.25) + (e.n > 1 ? 0.75 : 0);
+      var path = '<path' + (isHot ? ' class="hot"' : '') + ' stroke-width="' + w + '" d="M' + x1.toFixed(1) + ' ' + p1.y.toFixed(1) + ' C' + mid.toFixed(1) + ' ' + p1.y.toFixed(1) + ' ' + mid.toFixed(1) + ' ' + p2.y.toFixed(1) + ' ' + x2.toFixed(1) + ' ' + p2.y.toFixed(1) + '"/>';
+      if (isHot) hot += path; else cold += path;
+    });
+    svg.innerHTML = cold + hot;
+    items.forEach(function (b) {
+      var k = b.getAttribute('data-dm') + ':' + b.getAttribute('data-id'), on = !!f && b.getAttribute('data-dm') === f.type && b.getAttribute('data-id') === f.id;
+      b.classList.toggle('is-focus', on); b.classList.toggle('is-dim', !!f && !on && !linked[k]); b.setAttribute('aria-pressed', String(on));
+    });
+  }
 
   // ---------- Content blocks ----------
   function jobCard(r, i, n) {
@@ -60,16 +115,16 @@
     var tl = C.jobTopics(r).map(function (t) { return '<li><b>' + esc(C.topicSubject(t)) + '</b> ' + esc(t.t) + '</li>'; }).join('');
     var where = [];
     D.parts.forEach(function (p) { p.who.forEach(function (w) { if (w[1].indexOf(j.id) === -1) return; var g = where.filter(function (x) { return x.k === w[0]; })[0]; if (!g) where.push(g = { k: w[0], v: [] }); g.v.push(p.name); }); });
-    return '<p class="lead-s">' + esc(j.what) + '</p>' +
+    return '<div class="job-cols' + (where.length ? '' : ' no-aside') + '"><div class="job-a flow"><p class="lead-s">' + esc(j.what) + '</p>' +
       (why ? '<h2 class="label">Why it fits</h2><div class="tags">' + why + '</div>' : '') +
       (j.day ? '<h2 class="label">A day might include</h2><p>' + esc(j.day.charAt(0).toUpperCase() + j.day.slice(1)) + '</p>' : '') +
       (j.skills ? '<h2 class="label">Skills you use</h2><div class="tags">' + j.skills.map(function (s) { return '<span class="tag tag-skill">' + esc(s) + '</span>'; }).join('') + '</div>' : '') +
-      C.storyHtml(j.id) +
-      (where.length ? '<h2 class="label">Around the home</h2>' + scene({ lit: partsOf(j.id).map(function (p) { return p.id; }), still: true, small: true, label: 'The home picture, with dots showing where this job works' }) + '<ul class="plain where">' + where.map(function (g) { return '<li><b>' + esc(g.k) + ':</b> ' + esc(g.v.join(', ')) + '</li>'; }).join('') + '</ul>' : '') +
-      (tl ? '<h2 class="label">GCSE topics it uses</h2><ul class="plain">' + tl + '</ul>' : '') +
+      C.storyHtml(j.id) + '</div>' +
+      (where.length ? '<div class="job-b flow"><h2 class="label">Around the home</h2>' + scene({ lit: partsOf(j.id).map(function (p) { return p.id; }), still: true, small: true, label: 'The home picture, with dots showing where this job works' }) + '<ul class="plain where">' + where.map(function (g) { return '<li><b>' + esc(g.k) + ':</b> ' + esc(g.v.join(', ')) + '</li>'; }).join('') + '</ul></div>' : '') +
+      '<div class="job-c flow">' + (tl ? '<h2 class="label">GCSE topics it uses</h2><ul class="plain">' + tl + '</ul>' : '') +
       '<h2 class="label">Ways in</h2><ul class="plain">' + j.routes.map(function (x) { return '<li><b>' + esc(x.k) + ':</b> ' + esc(x.v) + '</li>'; }).join('') + '</ul>' +
       (words.length ? '<details class="fold"><summary>What do these words mean?</summary>' + wordsHtml(words) + '</details>' : '') +
-      '<p class="links"><a href="' + j.url + '" target="_blank" rel="noopener">Full job profile<span class="vh"> for ' + esc(j.name) + '</span></a>' + (j.alt ? ' <span class="muted small">' + esc(j.alt) + '</span>' : '') + '<a href="jobs/' + C.slug(j.name) + '.html">This job on its own page</a></p>';
+      '<p class="links"><a href="' + j.url + '" target="_blank" rel="noopener">Full job profile<span class="vh"> for ' + esc(j.name) + '</span></a>' + (j.alt ? ' <span class="muted small">' + esc(j.alt) + '</span>' : '') + '<a href="jobs/' + C.slug(j.name) + '.html">This job on its own page</a></p></div></div>';
   }
   function datesList() {
     var items = C.timelineItems();
@@ -176,15 +231,15 @@
         '<div class="h-row"><h2>' + (ex || sh ? 'Jobs that fit this pupil' : 'Jobs that fit you') + '</h2><div class="car-nav"><button type="button" class="round sm" data-act="card" data-arg="-1" aria-label="Previous job">' + ic('back') + '</button><button type="button" class="round sm" data-act="card" data-arg="1" aria-label="Next job">' + ic('next') + '</button></div></div>' +
         (g.state.interests.length ? '' : '<p class="muted small">Pick what you enjoy in question 2 to rank these for you.</p>') +
         '<div class="carousel" id="carousel" tabindex="0" role="group" aria-label="Four jobs. Swipe, or use the arrow keys.">' + top.map(function (r, i) { return jobCard(r, i, top.length); }).join('') + '</div><div class="dots-n" aria-hidden="true">' + top.map(function (r, i) { return '<i' + (i ? '' : ' class="on"') + '></i>'; }).join('') + '</div>' +
+        '<div class="road-grid"><section class="map-card" aria-labelledby="map-h"><h2 id="map-h">How ' + (ex || sh ? 'the' : 'your') + ' subjects connect to jobs</h2><p class="muted small">Each line means the job uses at least one topic from that subject. Tap a subject or a job to trace its lines.</p>' + dotMap() + '<p class="links"><a href="#/links">See these links as a list</a></p></section>' +
         '<div class="rows">' +
         row('jobs', rest + ' more sustainable energy jobs to explore', 'All ' + C.rankJobs().length + ' jobs, with pay', '#/jobs') +
         row('cal', ex || sh ? 'Timeline for this pupil' : 'Your timeline', nextDate ? esc(nextDate.date + ': ' + nextDate.title) : 'Choose your year group to see your dates', '#/dates') +
         row('check', 'What to do next', 'Steps for this school year', '#/next') +
         row('book', 'GCSE topics to look out for', C.chosenSubjects().length + ' subjects', '#/topics') +
-        row('link', 'How your subjects connect to jobs', '', '#/links') +
         row('pin', 'Near you', g.area ? esc(D.nearNames[g.area]) : 'Choose your area', '#/near') +
         row('info', 'Good to know', 'Staying in education until 18, and new courses', '#/gtk') +
-        row('book', 'Words explained', 'What the words in this roadmap mean', '#/words') + '</div>' +
+        row('book', 'Words explained', 'What the words in this roadmap mean', '#/words') + '</div></div>' +
         (ex || sh || !has ? '' : saveBox()) + GUIDE;
       return { t: ex ? 'Example roadmap' : sh ? 'A roadmap shared with you' : 'Your roadmap', tab: 'roadmap', html: '<div class="pad">' + head + seg + '</div><div class="pad flow">' + body + '</div>' + (fam ? '' : '<div class="print-only" id="print-all"></div>') };
     },
@@ -333,6 +388,7 @@
         c.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') moveCard(1); if (e.key === 'ArrowLeft') moveCard(-1); });
       }
       if (ui.email) fillEmail();
+      drawMap();
       // An example counts as explored when it stays on screen for a few seconds.
       clearTimeout(exampleTimer);
       if (now().view === 'example') exampleTimer = setTimeout(function () { if (route.name === 'roadmap' && now().view === 'example') C.track('example'); }, 4000);
@@ -481,8 +537,15 @@
     }
   };
   document.addEventListener('click', function (e) {
-    var t = e.target.closest ? e.target.closest('[data-act],[data-part],[data-send]') : null;
+    var t = e.target.closest ? e.target.closest('[data-act],[data-part],[data-send],[data-dm]') : null;
     if (!t) return;
+    if (t.hasAttribute('data-dm')) {
+      ui.focus = { type: t.getAttribute('data-dm'), id: t.getAttribute('data-id') };
+      drawMap();
+      var names = mapLinks(ui.focus), label = t.querySelector('.dm-label').textContent;
+      announce(names.length ? label + (ui.focus.type === 'job' ? ' uses topics from ' : ' is used by ') + names.join(', ') + '.' : label + ' has no lines to these ' + (ui.focus.type === 'job' ? 'subjects' : 'four jobs') + '.');
+      return;
+    }
     if (t.hasAttribute('data-send')) {
       var key = t.getAttribute('data-send'), text = document.getElementById('email-body').value;
       var lead = key === 'app' ? 'Opening your email app. If nothing opens, pick Gmail or Outlook instead.' : 'Opening ' + C.SENDERS[key].name + ' in a new tab.', also = ' Your roadmap is copied too, in case you need to paste it.';
@@ -538,12 +601,21 @@
   });
   window.addEventListener('afterprint', function () { var box = document.getElementById('print-all'); if (box) box.innerHTML = ''; });
 
+  // The lines are drawn to fit the screen, so they are drawn again when it turns or changes size, and when the fonts arrive.
+  var mapTimer = null;
+  function redrawSoon() { clearTimeout(mapTimer); mapTimer = setTimeout(drawMap, 80); }
+  window.addEventListener('resize', redrawSoon);
+  window.addEventListener('orientationchange', redrawSoon);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawMap, function () {});
+
   // ---------- Start ----------
-  var hero = document.getElementById('hero-dots');
-  if (hero) hero.innerHTML = D.parts.map(function (p) { return '<span class="dot" data-x="' + p.at[0] + '" data-y="' + p.at[1] + '"></span>'; }).join('');
   render();
   if (C.statsOn()) { C.track('visit'); if (C.visitSource()) C.track('source', C.visitSource()); }
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
-    window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () { /* the tool works without it */ }); });
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () { /* the tool works without it */ });
+      // A while after loading, ask the worker to save the PDF maker, teacher pack and job pages for offline use.
+      setTimeout(function () { navigator.serviceWorker.ready.then(function (reg) { if (reg.active) reg.active.postMessage('save-rest'); }).catch(function () {}); }, 12000);
+    });
   }
 })(window.SLES);
