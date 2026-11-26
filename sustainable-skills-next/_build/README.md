@@ -14,6 +14,7 @@ Plain HTML, CSS and JavaScript. No framework and no build step for the app itsel
 | The matching rules, saved answers, share links, the email and copied text, the visit counter | `js/core.js` |
 | The two PDFs (loaded only when someone asks for a PDF) | `js/pdf.js` and `vendor/pdf-lib-1.17.1.min.js` |
 | The page frame, the welcome screen and all the styles | `index.html` |
+| The home picture: one small file for phones, one large file for tablets and laptops, each in a day and a night version | `images/home-scene-*.jpg` |
 | Offline use and "add to home screen" | `sw.js`, `manifest.webmanifest`, `assets/icon-*.png` |
 | Teacher pack, privacy and accessibility pages | `teachers.html`, `slides.html`, `worksheet.html`, `poster.html`, `privacy.html`, `accessibility.html` |
 | Job and subject pages for search engines (written by a script, see below) | `jobs/`, `subjects/`, `sitemap.xml` |
@@ -27,7 +28,7 @@ Plain HTML, CSS and JavaScript. No framework and no build step for the app itsel
 node _build/build-pages.mjs
 ```
 
-This rewrites the job pages, the subject pages, `sitemap.xml` and the "Browse every job and subject" list in `index.html`, all copied from the data files. It needs Node 18 or later and nothing else. Do not edit the pages in `jobs/` or `subjects/` by hand: the next run overwrites them.
+This rewrites the job pages, the subject pages, `sitemap.xml`, and two parts of `index.html`: the "join the dots" picture at the top of the welcome screen (the example roadmap drawn as lines) and the "Browse every job and subject" list. All of it is copied from the data files. It needs Node 18 or later and nothing else. Do not edit the pages in `jobs/` or `subjects/` by hand: the next run overwrites them.
 
 3. Commit the data file together with the pages the script rewrote.
 
@@ -44,7 +45,9 @@ The app, the PDFs, the email, the copied text and the job pages all read the sam
 
 ## Offline copy
 
-`sw.js` saves the tool on the device the first time it opens. A page is fetched fresh whenever there is a connection, and the other files refresh in the background, so a change you publish appears by the next visit. There is no version number to bump.
+`sw.js` saves the tool on the device the first time it opens. A page is fetched fresh whenever there is a connection, and the other files refresh in the background once per visit, so a change you publish appears by the next visit. There is no version number to bump.
+
+The PDF maker, the teacher pack and the job and subject pages are saved a little later, one file at a time, so that saving them never slows down what the person is looking at.
 
 If you add a new file the app needs on first load, add it to the `CORE` list at the top of `sw.js`.
 

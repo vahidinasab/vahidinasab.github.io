@@ -1,5 +1,5 @@
-// Writes the job pages, the GCSE subject pages, their two index pages, the sitemap and the
-// "Browse" lists on the welcome screen, from the data files in data/.
+// Writes the job pages, the GCSE subject pages, their two index pages, the sitemap, and the
+// "join the dots" picture and "Browse" lists on the welcome screen, from the data files in data/.
 //
 //   node _build/build-pages.mjs            (run from the sustainable-skills folder)
 //
@@ -390,7 +390,35 @@ ${SUBJECTS.map((s) => `              <li><a href="subjects/${subjFile(s)}">${esc
 <!-- browse:end -->`;
 const a = index.indexOf('<!-- browse:start'), b = index.indexOf('<!-- browse:end -->');
 if (a < 0 || b < a) throw new Error('index.html has no browse:start and browse:end markers');
-const next = index.slice(0, a) + browse + index.slice(b + '<!-- browse:end -->'.length);
+let next = index.slice(0, a) + browse + index.slice(b + '<!-- browse:end -->'.length);
+
+// The "join the dots" picture at the top of the welcome screen, between its two markers. It is the example
+// roadmap drawn as lines: the example pupil's subjects, their four jobs, and a line wherever a job uses at least
+// one topic from a subject. The app's own matching code (js/core.js) works it out, so it always agrees with the app.
+const appBox = { window: { location: { hash: '', search: '', pathname: '/', hostname: '', href: '' }, navigator: {} } };
+appBox.location = appBox.window.location; appBox.navigator = appBox.window.navigator;
+vm.createContext(appBox);
+for (const f of ['data/guide.js', 'data/subjects.js', 'data/jobs.js', 'data/home.js', 'js/core.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), appBox, { filename: f });
+const CORE = appBox.window.SLES.core;
+if (CORE.get().view !== 'example') throw new Error('Could not work out the example roadmap for the welcome picture');
+const heroSubs = CORE.chosenSubjects(), heroJobs = CORE.get().top.map((r) => r.job), heroEdges = CORE.edges();
+const H = 1200, yOf = (i, n) => ((i + 0.5) / n) * H, hotJob = heroJobs[0].id;
+const line = (e) => { const y1 = yOf(heroSubs.indexOf(e.s), heroSubs.length).toFixed(0), y2 = yOf(heroJobs.findIndex((j) => j.id === e.j), heroJobs.length).toFixed(0); return `<path${e.j === hotJob ? ' class="hot"' : ''} d="M0 ${y1} C50 ${y1} 50 ${y2} 100 ${y2}"/>`; };
+const hotSubs = heroEdges.filter((e) => e.j === hotJob).map((e) => e.s);
+const list = (a) => a.length > 1 ? a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1] : a[0];
+const hero = `<!-- hero:start (written by _build/build-pages.mjs from the example roadmap) -->
+        <div class="hero-map" role="img" aria-label="An example of joining the dots. Lines join the GCSE subjects ${esc(list(heroSubs.map((s) => CORE.subjLabel(s))))} to the jobs ${esc(list(heroJobs.map((j) => j.name)))}.">
+          <p class="hm-head"><span>GCSE subjects</span><span>Clean energy jobs</span></p>
+          <div class="hm-grid">
+            <ul class="hm-col hm-left">${heroSubs.map((s) => `<li${hotSubs.includes(s) ? ' class="is-on"' : ''}><span>${esc(CORE.subjLabel(s))}</span></li>`).join('')}</ul>
+            <span class="hm-mid"><svg class="hm-lines" viewBox="0 0 100 ${H}" preserveAspectRatio="none" focusable="false">${heroEdges.filter((e) => e.j !== hotJob).map(line).join('')}${heroEdges.filter((e) => e.j === hotJob).map(line).join('')}</svg></span>
+            <ul class="hm-col hm-right">${heroJobs.map((j) => `<li${j.id === hotJob ? ' class="is-on"' : ''}><span>${esc(j.name)}</span></li>`).join('')}</ul>
+          </div>
+        </div>
+<!-- hero:end -->`;
+const ha = next.indexOf('<!-- hero:start'), hb = next.indexOf('<!-- hero:end -->');
+if (ha < 0 || hb < ha) throw new Error('index.html has no hero:start and hero:end markers');
+next = next.slice(0, ha) + hero + next.slice(hb + '<!-- hero:end -->'.length);
 if (next !== index) fs.writeFileSync(path.join(ROOT, 'index.html'), next);
 
-console.log(`Wrote ${JOBS.length} job pages, ${SUBJECTS.length} subject pages, 2 index pages, sitemap.xml (${locs.length} addresses) and the browse lists in index.html.`);
+console.log(`Wrote ${JOBS.length} job pages, ${SUBJECTS.length} subject pages, 2 index pages, sitemap.xml (${locs.length} addresses) and the welcome picture and browse lists in index.html.`);
