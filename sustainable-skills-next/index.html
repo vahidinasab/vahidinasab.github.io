@@ -387,6 +387,14 @@ html.immersive-on{scroll-padding-top:1rem;scroll-padding-bottom:9rem}
 .art-go{font-size:.9375rem;font-weight:700;color:var(--ink);text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:2px;text-underline-offset:.2em}
 .flow > .art{height:auto}
 
+/* ---------- The designed email: its preview and the two steps ---------- */
+.email-preview{max-height:24rem;overflow:auto;border:1.5px solid var(--line-2);border-radius:var(--r-s);background:#EEF1F3}
+.email-preview img{max-width:100%;height:auto}
+.email-steps{list-style:none;margin:0;padding:0;display:grid;gap:.9rem;counter-reset:step}
+.email-steps > li{display:grid;gap:.5rem;justify-items:start;counter-increment:step}
+.email-steps > li::before{content:"Step " counter(step);font-size:.8125rem;font-weight:700;color:var(--muted)}
+.email-steps .send-grid{width:100%}
+
 /* ---------- Search, and the choice of light or dark ---------- */
 .search-box{position:relative} .search-box .ic{position:absolute;left:.9rem;top:50%;margin-top:-.75rem;color:var(--muted);pointer-events:none}
 .search-q{min-height:3.25rem;padding-left:2.9rem;font-size:1.0625rem;-webkit-appearance:none;appearance:none}

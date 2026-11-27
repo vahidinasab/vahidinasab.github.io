@@ -94,7 +94,7 @@ ${ld(jsonld)}
   <div class="wrap bar-in">
     <a class="uos" href="https://www.salford.ac.uk/" target="_blank" rel="noopener" aria-label="University of Salford (opens in a new tab)"><img class="logo-light" src="../assets/uos-logo.png" width="221" height="108" alt=""><img class="logo-dark" src="../assets/uos-logo-white.png" width="222" height="108" alt=""></a>
     <span class="rule" aria-hidden="true"></span>
-    <a class="brand" href="../">${TOOL}</a>
+    <a class="brand" href="../"><img src="../assets/logo.svg" width="28" height="28" alt="">${TOOL}</a>
     <a class="btn" href="../">Open the roadmap</a>
   </div>
 </header>

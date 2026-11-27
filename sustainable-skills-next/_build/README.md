@@ -16,6 +16,7 @@ Plain HTML, CSS and JavaScript. No framework and no build step for the app itsel
 | The page frame, the welcome screen and all the styles | `index.html` |
 | The roadmap's logo, and the app icons made from it | `assets/logo.svg`, `assets/icon-*.png` |
 | The QR code picture, in the brand colours with the logo at its centre (written by a script, see below) | `assets/qr.svg` |
+| The banner at the top of the designed email | `assets/email-banner.png` |
 | The home picture: one small file for phones, one large file for tablets and laptops, each in a day and a night version | `images/home-scene-*.jpg` |
 | Offline use and "add to home screen" | `sw.js`, `manifest.webmanifest`, `assets/icon-*.png` |
 | Teacher pack, privacy and accessibility pages | `teachers.html`, `slides.html`, `worksheet.html`, `poster.html`, `privacy.html`, `accessibility.html` |
@@ -58,6 +59,10 @@ PY
 ## The QR code
 
 `node _build/build-pages.mjs` also writes `assets/qr.svg` from `D.qr` in `data/guide.js`, with `assets/logo.svg` at its centre. The app, the teacher pack and the PDFs all use it. It only needs remaking if the tool's public address changes: `_build/make-qr.mjs` explains how.
+
+## The designed email
+
+"Email it" shows a designed email: the banner, the four jobs, next steps, key dates, and links to the tool, the author's page and the University. A link can only carry plain words into an email, so the person copies the designed email and pastes it into a new message. The plain version still opens ready to send if they skip that step. Both are built from the same data, in `js/app.js` (`emailHtml`) and `js/core.js` (`emailBody`).
 
 ## Search
 
