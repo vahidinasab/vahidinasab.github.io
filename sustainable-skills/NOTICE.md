@@ -11,8 +11,9 @@ All other rights in the tool, including its code, text, illustrations, job and c
 ## Code and third-party parts
 
 - The repository's `LICENSE` file (Apache License 2.0) covers only the code of the profile pages, as the repository's README explains. It does not apply to this tool.
-- Fonts in `fonts/` (Archivo, IBM Plex Sans and IBM Plex Mono) are used under the SIL Open Font License 1.1. Their licence files are in the same folder.
+- Fonts in `fonts/` (Archivo and IBM Plex Sans) are used under the SIL Open Font License 1.1. Their licence files are in the same folder.
 - `vendor/pdf-lib-1.17.1.min.js` is pdf-lib, used under the MIT licence (`vendor/LICENSE-pdf-lib.md`).
 - Curriculum quotations come from the Department for Education's GCSE subject content, and job information comes from the official careers website for England. These are Crown copyright and are reused under the Open Government Licence v3.0.
 - The home picture (`images/home-scene-*.jpg` and `og-image.png`) is an original illustration made for this tool. Its source is `art/home-energy-scene.svg`, and it is covered by the same permissions as the rest of the tool.
+- The roadmap's own logo (`assets/logo.svg`), its icons and the design of its QR code (`assets/qr.svg`) were made for this tool, and are covered by the same permissions as the rest of the tool.
 - The University of Salford name and logo belong to the University of Salford and are not covered by the permissions above.

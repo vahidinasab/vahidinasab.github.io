@@ -1,10 +1,10 @@
-// Writes the job pages, the GCSE subject pages, their two index pages, the sitemap and the
-// "Browse every job and subject" block on the main page, from the data inside index.html.
+// Writes the job pages, the GCSE subject pages, their two index pages, the sitemap, and the
+// "join the dots" picture and "Browse" lists on the welcome screen, from the data files in data/.
 //
 //   node _build/build-pages.mjs            (run from the sustainable-skills folder)
 //
-// Nothing here adds facts: every pay figure, route, topic and quotation is copied from the lists
-// in index.html (JOBS, SUBJECTS, TOPICS, WORDS, PARTS). Run it again after changing those lists.
+// Nothing here adds facts: every pay figure, route, topic and quotation is copied from the data
+// files (data/jobs.js, data/subjects.js, data/home.js, data/guide.js). Run it again after changing them.
 // It needs Node 18 or later and nothing else. GitHub Pages does not publish this folder.
 import fs from 'node:fs';
 import path from 'node:path';
@@ -16,20 +16,18 @@ const BASE = 'https://vahidinasab.github.io/sustainable-skills/';
 const TOOL = 'Sustainable Local Energy Skills Roadmap';
 const TODAY = process.env.BUILD_DATE || new Date().toISOString().slice(0, 10);
 // Where a visit to the roadmap came from is counted through ?src= (see track() in index.html).
-const START_FROM_JOB = '../?src=job-page#answers';
-const START_FROM_SUBJECT = '../?src=subject-page#answers';
+const START_FROM_JOB = '../?src=job-page#/q';
+const START_FROM_SUBJECT = '../?src=subject-page#/q';
 
-// ---------- Read the data from index.html ----------
-const index = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-const from = index.indexOf('  var CONFIG = {');
-const to = index.indexOf('  var SUBJ = {};');
-if (from < 0 || to < from) throw new Error('Could not find the data lists in index.html');
-const sandbox = { window: { localStorage: { getItem: () => null } }, location: { search: '' } };
+// ---------- Read the data files ----------
+const sandbox = { window: {} };
+sandbox.window.SLES = undefined;
 vm.createContext(sandbox);
-vm.runInContext(index.slice(from, to) + '\nthis.DATA = { JOBS: JOBS, SUBJECTS: SUBJECTS, TOPICS: TOPICS, INTERESTS: INTERESTS, ROLES: ROLES, WORDS: WORDS, PARTS: PARTS, SEPARATE_SRC: SEPARATE_SRC };', sandbox);
-const { JOBS, SUBJECTS, TOPICS, INTERESTS, ROLES, WORDS, PARTS, SEPARATE_SRC } = sandbox.DATA;
-const checked = (index.match(/Information checked (\w+ \d{4})/) || [])[1];
-if (!checked) throw new Error('Could not find "Information checked ..." in index.html');
+for (const f of ['guide.js', 'subjects.js', 'jobs.js', 'home.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, 'data', f), 'utf8'), sandbox, { filename: f });
+const DATA = sandbox.window.SLES.data;
+const { jobs: JOBS, subjects: SUBJECTS, topics: TOPICS, interests: INTERESTS, roles: ROLES, words: WORDS, parts: PARTS, separateSrc: SEPARATE_SRC, checked } = DATA;
+if (!JOBS || !SUBJECTS || !TOPICS || !checked) throw new Error('Could not read the data files in data/');
+const index = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const ICON = (index.match(/<link rel="icon" href="[^"]+">/) || [''])[0];
 
 // ---------- Helpers ----------
@@ -64,7 +62,7 @@ const AUDIENCE = [
 function page({ file, title, desc, image, imageAlt, jsonld, body, share }) {
   const url = BASE + file.replace(/index\.html$/, '');
   return `<!doctype html>
-<!-- ${TOOL}. © 2026 Vahid Vahidinasab. Written by _build/build-pages.mjs from the data in index.html: change the data there, not this file. -->
+<!-- ${TOOL}. © 2026 Vahid Vahidinasab. Written by _build/build-pages.mjs from the data files: change the data there, not this file. -->
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
@@ -84,7 +82,8 @@ function page({ file, title, desc, image, imageAlt, jsonld, body, share }) {
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#011B26" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#032A3B" media="(prefers-color-scheme: dark)">
+<script>try{var t=localStorage.getItem('gcse-clean-energy-roadmap-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 ${ICON}
 <link rel="stylesheet" href="../assets/pages.css">
 ${ld(jsonld)}
@@ -93,9 +92,7 @@ ${ld(jsonld)}
 <a class="skip" href="#main">Skip to the content</a>
 <header class="bar">
   <div class="wrap bar-in">
-    <a class="uos" href="https://www.salford.ac.uk/" target="_blank" rel="noopener" aria-label="University of Salford (opens in a new tab)"><img class="logo-light" src="../assets/uos-logo.png" width="221" height="108" alt=""><img class="logo-dark" src="../assets/uos-logo-white.png" width="222" height="108" alt=""></a>
-    <span class="rule" aria-hidden="true"></span>
-    <a class="brand" href="../">${TOOL}</a>
+    <a class="brand" href="../"><img src="../assets/logo.svg" width="28" height="28" alt="">${TOOL}</a>
     <a class="btn" href="../">Open the roadmap</a>
   </div>
 </header>
@@ -373,33 +370,76 @@ const locs = STATIC.concat(names.map((n) => n.replace(/index\.html$/, ''))).map(
 fs.writeFileSync(sitemapPath, '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
   locs.map((u) => `  <url><loc>${u}</loc><lastmod>${process.env.BUILD_DATE || oldDates[u] || TODAY}</lastmod></url>\n`).join('') + '</urlset>\n');
 
-// The list of links on the main page, between its two markers.
+// The lists of links on the welcome screen, between its two markers.
 const browse = `<!-- browse:start (written by _build/build-pages.mjs) -->
-<section class="browse" aria-labelledby="browse-h">
-  <div class="wrap browse-in">
-    <h2 id="browse-h">Browse every job and subject</h2>
-    <div class="browse-grid">
-      <details class="more">
-        <summary>All ${JOBS.length} clean energy jobs</summary>
-        <ul class="browse-list">
-${JOBS.map((j) => `          <li><a href="jobs/${jobFile(j)}">${esc(j.name)}</a></li>`).join('\n')}
-        </ul>
-        <p class="browse-all"><a href="jobs/">Compare all the jobs</a></p>
-      </details>
-      <details class="more">
-        <summary>All ${SUBJECTS.length} GCSE subjects</summary>
-        <ul class="browse-list">
-${SUBJECTS.map((s) => `          <li><a href="subjects/${subjFile(s)}">${esc(s.name)}</a></li>`).join('\n')}
-        </ul>
-        <p class="browse-all"><a href="subjects/">See all the subjects</a></p>
-      </details>
-    </div>
-  </div>
-</section>
+          <details class="browse">
+            <summary>All ${JOBS.length} clean energy jobs</summary>
+            <ul>
+${JOBS.map((j) => `              <li><a href="jobs/${jobFile(j)}">${esc(j.name)}</a></li>`).join('\n')}
+              <li><a href="jobs/">Compare all the jobs</a></li>
+            </ul>
+          </details>
+          <details class="browse">
+            <summary>All ${SUBJECTS.length} GCSE subjects</summary>
+            <ul>
+${SUBJECTS.map((s) => `              <li><a href="subjects/${subjFile(s)}">${esc(s.name)}</a></li>`).join('\n')}
+              <li><a href="subjects/">See all the subjects</a></li>
+            </ul>
+          </details>
 <!-- browse:end -->`;
 const a = index.indexOf('<!-- browse:start'), b = index.indexOf('<!-- browse:end -->');
 if (a < 0 || b < a) throw new Error('index.html has no browse:start and browse:end markers');
-const next = index.slice(0, a) + browse + index.slice(b + '<!-- browse:end -->'.length);
+let next = index.slice(0, a) + browse + index.slice(b + '<!-- browse:end -->'.length);
+
+// The "join the dots" picture at the top of the welcome screen, between its two markers. It is the example
+// roadmap drawn as lines: the example pupil's subjects, their four jobs, and a line wherever a job uses at least
+// one topic from a subject. The app's own matching code (js/core.js) works it out, so it always agrees with the app.
+const appBox = { window: { location: { hash: '', search: '', pathname: '/', hostname: '', href: '' }, navigator: {} } };
+appBox.location = appBox.window.location; appBox.navigator = appBox.window.navigator;
+vm.createContext(appBox);
+for (const f of ['data/guide.js', 'data/subjects.js', 'data/jobs.js', 'data/home.js', 'js/core.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, f), 'utf8'), appBox, { filename: f });
+const CORE = appBox.window.SLES.core;
+if (CORE.get().view !== 'example') throw new Error('Could not work out the example roadmap for the welcome picture');
+const heroSubs = CORE.chosenSubjects(), heroJobs = CORE.get().top.map((r) => r.job), heroEdges = CORE.edges();
+const H = 1200, yOf = (i, n) => ((i + 0.5) / n) * H, hotJob = heroJobs[0].id;
+const line = (e) => { const y1 = yOf(heroSubs.indexOf(e.s), heroSubs.length).toFixed(0), y2 = yOf(heroJobs.findIndex((j) => j.id === e.j), heroJobs.length).toFixed(0); return `<path${e.j === hotJob ? ' class="hot"' : ''} d="M0 ${y1} C50 ${y1} 50 ${y2} 100 ${y2}"/>`; };
+const hotSubs = heroEdges.filter((e) => e.j === hotJob).map((e) => e.s);
+const list = (a) => a.length > 1 ? a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1] : a[0];
+const hero = `<!-- hero:start (written by _build/build-pages.mjs from the example roadmap) -->
+        <div class="hero-map" role="img" aria-label="An example of joining the dots. Lines join the GCSE subjects ${esc(list(heroSubs.map((s) => CORE.subjLabel(s))))} to the jobs ${esc(list(heroJobs.map((j) => j.name)))}.">
+          <p class="hm-head"><span>GCSE subjects</span><span>Clean energy jobs</span></p>
+          <div class="hm-grid">
+            <ul class="hm-col hm-left">${heroSubs.map((s) => `<li${hotSubs.includes(s) ? ' class="is-on"' : ''}><span>${esc(CORE.subjLabel(s))}</span></li>`).join('')}</ul>
+            <span class="hm-mid"><svg class="hm-lines" viewBox="0 0 100 ${H}" preserveAspectRatio="none" focusable="false">${heroEdges.filter((e) => e.j !== hotJob).map(line).join('')}${heroEdges.filter((e) => e.j === hotJob).map(line).join('')}</svg></span>
+            <ul class="hm-col hm-right">${heroJobs.map((j) => `<li${j.id === hotJob ? ' class="is-on"' : ''}><span>${esc(j.name)}</span></li>`).join('')}</ul>
+          </div>
+        </div>
+<!-- hero:end -->`;
+const ha = next.indexOf('<!-- hero:start'), hb = next.indexOf('<!-- hero:end -->');
+if (ha < 0 || hb < ha) throw new Error('index.html has no hero:start and hero:end markers');
+next = next.slice(0, ha) + hero + next.slice(hb + '<!-- hero:end -->'.length);
 if (next !== index) fs.writeFileSync(path.join(ROOT, 'index.html'), next);
 
-console.log(`Wrote ${JOBS.length} job pages, ${SUBJECTS.length} subject pages, 2 index pages, sitemap.xml (${locs.length} addresses) and the browse list in index.html.`);
+// ---------- The QR code picture (assets/qr.svg) ----------
+// Drawn from D.qr in data/guide.js in the brand colours, with the app's logo (assets/logo.svg) at its centre.
+// The code is error-correction level H, so the logo can cover the middle and it still scans.
+{
+  const NAVY = '#032A3B', RED = '#D71A20', rows = DATA.qr.split(','), n = rows.length, quiet = 4, size = n + 2 * quiet;
+  const bits = rows.map((h) => BigInt('0x' + h).toString(2).padStart(n, '0'));
+  const hole = 11, h0 = (n - hole) / 2;                      // modules cleared in the middle for the logo
+  const inEye = (r, c) => (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
+  const inHole = (r, c) => r >= h0 && r < h0 + hole && c >= h0 && c < h0 + hole;
+  let d = '';
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+    if (bits[r][c] !== '1' || inEye(r, c) || inHole(r, c)) continue;
+    let e = c; while (e < n && bits[r][e] === '1' && !inEye(r, e) && !inHole(r, e)) e++;
+    d += `M${c + quiet} ${r + quiet}h${e - c}v1h-${e - c}z`; c = e - 1;
+  }
+  const eye = (r, c) => `<rect x="${c + quiet}" y="${r + quiet}" width="7" height="7" rx="2" fill="${NAVY}"/><rect x="${c + quiet + 1}" y="${r + quiet + 1}" width="5" height="5" rx="1.2" fill="#FFFFFF"/><rect x="${c + quiet + 2}" y="${r + quiet + 2}" width="3" height="3" rx=".9" fill="${RED}"/>`;
+  const logo = fs.readFileSync(path.join(ROOT, 'assets', 'logo.svg'), 'utf8').replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}"><rect width="${size}" height="${size}" rx="3" fill="#FFFFFF"/><path d="${d}" fill="${NAVY}"/>${eye(0, 0)}${eye(0, n - 7)}${eye(n - 7, 0)}` +
+    `<rect x="${h0 + quiet}" y="${h0 + quiet}" width="${hole}" height="${hole}" rx="2.4" fill="#FFFFFF"/><svg x="${h0 + quiet + 1}" y="${h0 + quiet + 1}" width="${hole - 2}" height="${hole - 2}" viewBox="0 0 64 64">${logo}</svg></svg>\n`;
+  fs.writeFileSync(path.join(ROOT, 'assets', 'qr.svg'), svg);
+}
+
+console.log(`Wrote ${JOBS.length} job pages, ${SUBJECTS.length} subject pages, 2 index pages, sitemap.xml (${locs.length} addresses) the QR code picture, and the welcome picture and browse lists in index.html.`);

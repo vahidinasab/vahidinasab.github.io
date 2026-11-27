@@ -2,7 +2,7 @@
 //
 //   node _build/build-previews.mjs         (run from the sustainable-skills folder)
 //
-// The job name, what the job does and the pay come from JOBS in index.html, word for word.
+// The job name, what the job does and the pay come from data/jobs.js, word for word.
 // It needs Playwright with Chromium on your computer (npm install playwright); the site itself does not.
 // Run build-pages.mjs afterwards so each job page points at its picture.
 import fs from 'node:fs';
@@ -16,11 +16,10 @@ const { chromium } = require('playwright');
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const file = (p) => pathToFileURL(path.join(ROOT, p)).href;
 
-const index = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-const sandbox = { window: { localStorage: { getItem: () => null } }, location: { search: '' } };
+const sandbox = { window: {} };
 vm.createContext(sandbox);
-vm.runInContext(index.slice(index.indexOf('  var CONFIG = {'), index.indexOf('  var SUBJ = {};')) + '\nthis.DATA = { JOBS: JOBS, ROLES: ROLES };', sandbox);
-const { JOBS, ROLES } = sandbox.DATA;
+for (const f of ['guide.js', 'subjects.js', 'jobs.js', 'home.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, 'data', f), 'utf8'), sandbox, { filename: f });
+const { jobs: JOBS, roles: ROLES } = sandbox.window.SLES.data;
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const money = (n) => '£' + n.toLocaleString('en-GB');
 const slug = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
@@ -37,8 +36,8 @@ body{width:1200px;height:630px;display:grid;grid-template-columns:690px 510px;ba
 .top img{height:58px;width:auto}
 .rule{width:1px;height:42px;background:rgba(255,255,255,.4)}
 .tool{font-family:"Archivo",Arial,sans-serif;font-weight:800;font-size:21px;line-height:1.15}
-.eyebrow{margin-top:14px;display:flex;align-items:center;gap:12px;font-size:21px;font-weight:700;color:#86E6CC}
-.eyebrow::before{content:"";width:30px;height:4px;border-radius:2px;background:#2EB895}
+.eyebrow{margin-top:14px;display:flex;align-items:center;gap:12px;font-size:21px;font-weight:700;color:#D8D2C4}
+.eyebrow::before{content:"";flex:none;width:9px;height:24px;margin:0 16px 0 5px;background:#D71A20;transform:skewX(-24deg);box-shadow:15px 0 0 #D71A20}
 h1{font-family:"Archivo",Arial,sans-serif;font-weight:800;font-size:${j.name.length > 34 ? 46 : j.name.length > 24 ? 54 : 66}px;line-height:1.04;letter-spacing:-.02em}
 .what{font-size:22px;line-height:1.4;color:#E2EAF0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .pay{margin-top:auto;font-size:23px;color:#DCE5EB}
