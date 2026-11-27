@@ -425,7 +425,7 @@
     $all('#nav a').forEach(function (a) { if (a.getAttribute('data-tab') === tab) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     document.getElementById('bar-back').hidden = !back; if (back) document.getElementById('bar-back').setAttribute('href', back);
     document.getElementById('bar-logo').hidden = !!back;
-    document.getElementById('bar-t').textContent = v && back ? v.t : 'Local Energy Skills';
+    document.getElementById('bar-t').textContent = v && back ? v.t : 'Sustainable Local Energy Skills';
     document.title = v ? v.t + ' | ' + TOOL : HOME_TITLE;
     placeDots(document);
     if (A[r.name]) A[r.name](r.arg);
