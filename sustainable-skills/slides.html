@@ -17,12 +17,12 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%232EB895%22/%3E%3Cpath%20d%3D%22M7%2023%20L13%2016.5%20L18%2019.5%20L24.5%2010%22%20fill%3D%22none%22%20stroke%3D%22%23032A3B%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Ccircle%20cx%3D%2224.5%22%20cy%3D%2210%22%20r%3D%223.2%22%20fill%3D%22%23032A3B%22/%3E%3Ccircle%20cx%3D%227%22%20cy%3D%2223%22%20r%3D%222.4%22%20fill%3D%22%23032A3B%22/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2064%2064%22%3E%3Crect%20width=%2264%22%20height=%2264%22%20rx=%2214%22%20fill=%22%23032A3B%22/%3E%3Cpath%20d=%22M12%2047%2024%2036%2034%2043%2046%2022%22%20fill=%22none%22%20stroke=%22%23FFFFFF%22%20stroke-width=%224.5%22%20stroke-linecap=%22round%22%20stroke-linejoin=%22round%22/%3E%3Ccircle%20cx=%2212%22%20cy=%2247%22%20r=%225%22%20fill=%22%23FFFFFF%22/%3E%3Ccircle%20cx=%2224%22%20cy=%2236%22%20r=%225%22%20fill=%22%23FFFFFF%22/%3E%3Ccircle%20cx=%2234%22%20cy=%2243%22%20r=%225%22%20fill=%22%23FFFFFF%22/%3E%3Ccircle%20cx=%2246%22%20cy=%2221%22%20r=%2211.5%22%20fill=%22%23D71A20%22%20stroke=%22%23FFFFFF%22%20stroke-width=%223%22/%3E%3Cpath%20d=%22M48.2%2012.5%2040.6%2022.6h4.6l-1.6%207%207.8-10.4h-4.7z%22%20fill=%22%23FFFFFF%22/%3E%3C/svg%3E">
 <style>
 @font-face{font-family:"Archivo";font-weight:800;font-display:swap;src:url(fonts/archivo-latin-800-normal.woff2) format("woff2")}
 @font-face{font-family:"IBM Plex Sans";font-weight:400;font-display:swap;src:url(fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"IBM Plex Sans";font-weight:700;font-display:swap;src:url(fonts/ibm-plex-sans-latin-700-normal.woff2) format("woff2")}
-:root{--ink:#032A3B;--text:#1D3542;--muted:#56626F;--accent:#2EB895;--accent-text:#0C6E57;--tint:#E2F5EF;--line:#DCE2EA;--band:#032A3B;--band-2:#02202D;color-scheme:light}
+:root{--ink:#032A3B;--text:#1D3542;--muted:#56626F;--accent:#D71A20;--accent-text:#D71A20;--tint:#ECE9E1;--line:#DCE2EA;--band:#032A3B;--band-2:#02202D;color-scheme:light}
 *,*::before,*::after{box-sizing:border-box}
 [hidden]{display:none !important}
 html,body{height:100%}
@@ -34,8 +34,8 @@ body{margin:0;background:var(--band-2);color:var(--text);font-family:"IBM Plex S
 .slide h1{font-size:2.7em}
 .slide h2{font-size:1.9em}
 .slide p,.slide ul{margin:0}
-.kicker{display:flex;align-items:center;gap:.5em;color:var(--accent-text);font-weight:700;font-size:.8em}
-.kicker::before{content:"";width:1.4em;height:.18em;border-radius:2px;background:var(--accent)}
+.kicker{display:flex;align-items:center;gap:.95em;color:var(--ink);font-weight:700;font-size:.8em}
+.kicker::before{content:"";flex:none;width:.34em;height:.85em;margin-left:.2em;background:var(--accent);transform:skewX(-24deg);box-shadow:.55em 0 0 var(--accent)}
 .big{font-family:"Archivo",Arial,sans-serif;font-weight:800;font-size:4.6em;line-height:1;color:var(--ink)}
 .src{font-size:.55em;color:var(--muted)}
 .logo{position:absolute;top:5%;right:5%;height:12%;width:auto}
@@ -54,13 +54,31 @@ td:first-child{font-weight:700;color:var(--ink)}
 .url{font-weight:700;color:var(--ink);font-size:.9em;word-break:break-all}
 .ticks{list-style:none;padding:0;display:grid;gap:.55em}
 .ticks li{position:relative;padding-left:1.4em}
-.ticks li::before{content:"";position:absolute;left:.15em;top:.45em;width:.5em;height:.5em;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.ticks li::before{content:"";position:absolute;left:.3em;top:.3em;width:.3em;height:.85em;background:var(--accent);transform:skewX(-24deg)}
 .controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;padding:10px 16px 14px;color:#EDF0F5;font-size:15px}
 .controls button,.controls a{min-height:42px;padding:8px 16px;border-radius:10px;border:1.5px solid #1C4657;background:transparent;color:#EDF0F5;font:inherit;font-weight:700;text-decoration:none;cursor:pointer;display:inline-flex;align-items:center}
 .controls button:hover,.controls a:hover{border-color:#EDF0F5}
-.controls :focus-visible{outline:2.5px solid var(--accent);outline-offset:2px}
+.controls :focus-visible{outline:2.5px solid #FFFFFF;outline-offset:2px}
 .count{min-width:5.5em;text-align:center}
 :fullscreen .controls{display:none}
+/* On a phone held upright a slide grows to fit its words, so nothing is cut off. */
+@media screen and (max-width:640px) and (orientation:portrait){.slide{aspect-ratio:auto;min-height:56.25vw;overflow:visible}.stage{place-items:start center;overflow-y:auto}}
+/* The University of Salford slide style: a navy title slide with a red wedge, then white slides with the logo,
+   a red rule and a numbered corner. */
+.slide{padding-bottom:9%;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.s-logo{position:absolute;top:5%;right:5%;height:11%;width:auto}
+.s-foot{position:absolute;left:5.2%;right:0;bottom:4.2%;display:flex;align-items:center;gap:.7em;font-size:.5em;font-weight:700;color:var(--muted)}
+.s-foot img{height:2.3em;width:2.3em;display:block}
+.s-foot i{flex:1;height:.12em;min-width:2em;background:var(--accent)}
+.s-foot b{display:grid;place-items:center;min-width:3.6em;height:2.5em;padding:0 .9em 0 1.4em;background:var(--ink);color:#FFFFFF;clip-path:polygon(30% 0,100% 0,100% 100%,0 100%)}
+.slide.title{background:#032A3B;color:#EDF0F5;padding-right:44%;padding-bottom:4.2%}
+.slide.title h1,.slide.title .kicker{color:#FFFFFF}
+.slide.title .kicker::before{background:#D8D2C4;box-shadow:.55em 0 0 #D8D2C4}
+.slide.title::before{content:"";position:absolute;top:-2%;bottom:-2%;left:61%;width:25%;background:#D71A20;transform:skewX(-30deg)}
+.slide.title::after{content:"";position:absolute;bottom:-2%;left:66%;width:8.5%;height:27%;background:#D8D2C4;transform:skewX(-30deg);border-radius:.4em .4em 0 0}
+.slide.title .s-logo{height:17%;z-index:1;border-radius:22%;box-shadow:0 0 0 .12em #FFFFFF}
+.qr{width:13em;height:13em}
+
 @media print{
   @page{size:A4 landscape;margin:0}
   body{display:block;background:#FFFFFF}
@@ -72,8 +90,8 @@ td:first-child{font-weight:700;color:var(--ink)}
 </head>
 <body>
 <main class="stage" id="stage" aria-live="polite">
-  <section class="slide" aria-label="Slide 1 of 7">
-    <img class="logo" src="assets/uos-logo.png" alt="University of Salford">
+  <section class="slide title" aria-label="Slide 1 of 7">
+    <img class="s-logo" src="assets/logo.svg" alt="Sustainable Local Energy Skills Roadmap">
     <p class="kicker">Sustainable Local Energy Skills Roadmap</p>
     <h1>Join the dots from your GCSEs to clean energy jobs</h1>
     <p>Find the jobs that fit you, and the school topics they use.</p>
@@ -84,6 +102,7 @@ td:first-child{font-weight:700;color:var(--ink)}
     <p class="big">860,000</p>
     <h2>clean energy jobs expected in the UK by 2030, as the sector doubles in size</h2>
     <p class="src">Source: Clean Energy Jobs Plan, UK government, October 2025</p>
+    <div class="s-foot" aria-hidden="true"><img src="assets/logo.svg" alt=""><span>Sustainable Local Energy Skills Roadmap</span><i></i><b>2</b></div>
   </section>
 
   <section class="slide" aria-label="Slide 3 of 7" hidden>
@@ -100,6 +119,7 @@ td:first-child{font-weight:700;color:var(--ink)}
         <li><b>Power grid:</b> electricity network worker</li>
       </ul>
     </div>
+    <div class="s-foot" aria-hidden="true"><img src="assets/logo.svg" alt=""><span>Sustainable Local Energy Skills Roadmap</span><i></i><b>3</b></div>
   </section>
 
   <section class="slide" aria-label="Slide 4 of 7" hidden>
@@ -115,19 +135,22 @@ td:first-child{font-weight:700;color:var(--ink)}
         <tr><td>Computer science</td><td>Cyber security</td><td>Energy data scientist</td></tr>
       </tbody>
     </table>
+    <div class="s-foot" aria-hidden="true"><img src="assets/logo.svg" alt=""><span>Sustainable Local Energy Skills Roadmap</span><i></i><b>4</b></div>
   </section>
 
   <section class="slide" aria-label="Slide 5 of 7" hidden>
     <p class="kicker">Your turn</p>
     <div class="qr-row">
-      <svg class="qr" id="qr" viewBox="0 0 41 41" role="img" aria-label="QR code that opens the Sustainable Local Energy Skills Roadmap"></svg>
+      <img class="qr" id="qr" src="assets/qr.svg" width="196" height="196" alt="QR code that opens the Sustainable Local Energy Skills Roadmap">
       <div style="display:grid;gap:.6em">
         <h2>Build your roadmap</h2>
         <p>Scan the code, or go to:</p>
         <p class="url">vahidinasab.github.io/sustainable-skills</p>
         <p>Four quick questions. About five minutes. No login.</p>
+        <p>It works on a phone, a tablet or a laptop.</p>
       </div>
     </div>
+    <div class="s-foot" aria-hidden="true"><img src="assets/logo.svg" alt=""><span>Sustainable Local Energy Skills Roadmap</span><i></i><b>5</b></div>
   </section>
 
   <section class="slide" aria-label="Slide 6 of 7" hidden>
@@ -139,6 +162,7 @@ td:first-child{font-weight:700;color:var(--ink)}
       <li>What would a day in that job be like?</li>
       <li>What would you ask a careers adviser?</li>
     </ul>
+    <div class="s-foot" aria-hidden="true"><img src="assets/logo.svg" alt=""><span>Sustainable Local Energy Skills Roadmap</span><i></i><b>6</b></div>
   </section>
 
   <section class="slide" aria-label="Slide 7 of 7" hidden>
@@ -146,11 +170,13 @@ td:first-child{font-weight:700;color:var(--ink)}
     <h2>Keep your roadmap going</h2>
     <ul class="ticks">
       <li>Download your PDF or email it home</li>
+      <li>Add it to your home screen: it then opens with no connection</li>
       <li>Read one job profile with your family</li>
       <li>Talk to your school's careers adviser</li>
       <li>Look out for open days, clubs and work experience</li>
     </ul>
     <p class="src">This roadmap is a guide, not personal careers advice.</p>
+    <div class="s-foot" aria-hidden="true"><img src="assets/logo.svg" alt=""><span>Sustainable Local Energy Skills Roadmap</span><i></i><b>7</b></div>
   </section>
 </main>
 
@@ -188,14 +214,6 @@ td:first-child{font-weight:700;color:var(--ink)}
     else if (e.key === 'End') show(slides.length - 1);
     else if (e.key === 'f' || e.key === 'F') document.getElementById('full').click();
   });
-  // QR code for the tool (same code as the roadmap page)
-  var hex = '1fcc0727f,104c35941,175353c5d,17530455d,1755f925d,105ac6841,1fd55557f,001e53f00,17c5ca77c,1f8fdb26f,015af8c16,1e92af95f,0ef0537b8,0d0ea424f,0279f14c6,0d2924bec,1bdca85b1,0a24962ef,1ed824df6,08a8d293e,0b5f446ba,1992f9e45,12f3468be,138917c5e,1c630a7f0,0011cbd17,1fc169356,10598cf1f,1754701f8,175a64b93,1758b116c,104723c9c,1fdeaa5a2', d = '';
-  hex.split(',').forEach(function (h, r) {
-    var bits = parseInt(h, 16).toString(2);
-    while (bits.length < 33) bits = '0' + bits;
-    for (var c = 0; c < bits.length; c++) if (bits.charAt(c) === '1') d += 'M' + (c + 4) + ' ' + (r + 4) + 'h1v1h-1z';
-  });
-  document.getElementById('qr').innerHTML = '<rect width="41" height="41" fill="#FFFFFF"/><path d="' + d + '" fill="#032A3B"/>';
   // Printing shows every slide, one per page
   window.addEventListener('beforeprint', function () { slides.forEach(function (s) { s.hidden = false; }); });
   window.addEventListener('afterprint', function () { show(i); });

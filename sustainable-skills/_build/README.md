@@ -1,16 +1,95 @@
-# Building the job and subject pages
+# Sustainable Local Energy Skills Roadmap: how it is put together
 
-The job pages (`jobs/`), the GCSE subject pages (`subjects/`), `sitemap.xml` and the "Browse every job and subject" list on the main page are written by a script from the data inside `index.html`. They are ordinary files, so GitHub Pages serves them with no build step. GitHub Pages does not publish this `_build` folder.
+Plain HTML, CSS and JavaScript. No framework and no build step for the app itself: GitHub Pages serves the files as they are. GitHub Pages does not publish this `_build` folder.
 
-## After changing a job, a subject or a topic in `index.html`
+## Where things live
 
-From the `sustainable-skills` folder:
+| What | File |
+| --- | --- |
+| The 19 jobs: pay, ways in, official profile links | `data/jobs.js` |
+| The 9 GCSE subjects and the topics, with the Department for Education wording | `data/subjects.js` |
+| The home picture: its 9 parts and where each dot sits | `data/home.js` |
+| Everything else: settings, the four questions, key dates, next steps, Near you, Good to know, Words explained, sources, teacher mode, and the "information checked" date | `data/guide.js` |
+| The screens (welcome, questions, roadmap, job, home, Near you, More, teacher mode) | `js/app.js` |
+| The matching rules, saved answers, share links, the email and copied text, the visit counter | `js/core.js` |
+| The two PDFs (loaded only when someone asks for a PDF) | `js/pdf.js` and `vendor/pdf-lib-1.17.1.min.js` |
+| The page frame, the welcome screen and all the styles | `index.html` |
+| The roadmap's logo, and the app icons made from it | `assets/logo.svg`, `assets/icon-*.png` |
+| The QR code picture, in the brand colours with the logo at its centre (written by a script, see below) | `assets/qr.svg` |
+| The banner at the top of the designed email | `assets/email-banner.png` |
+| The home picture: one small file for phones, one large file for tablets and laptops, each in a day and a night version | `images/home-scene-*.jpg` |
+| Offline use and "add to home screen" | `sw.js`, `manifest.webmanifest`, `assets/icon-*.png` |
+| Teacher pack, privacy and accessibility pages | `teachers.html`, `slides.html`, `worksheet.html`, `poster.html`, `privacy.html`, `accessibility.html` |
+| Job and subject pages for search engines (written by a script, see below) | `jobs/`, `subjects/`, `sitemap.xml` |
+
+## Updating a fact
+
+1. Change it in the data file. Each file starts with a short note on its fields.
+2. From this tool's folder, run:
 
 ```bash
 node _build/build-pages.mjs
 ```
 
-It needs Node 18 or later and nothing else. It copies every fact from `index.html`, so do not edit the pages in `jobs/` or `subjects/` by hand: the next run would overwrite them. Commit `index.html` together with the pages it rewrote.
+This rewrites the job pages, the subject pages, `sitemap.xml`, and two parts of `index.html`: the "join the dots" picture at the top of the welcome screen (the example roadmap drawn as lines) and the "Browse every job and subject" list. All of it is copied from the data files. It needs Node 18 or later and nothing else. Do not edit the pages in `jobs/` or `subjects/` by hand: the next run overwrites them.
+
+3. Commit the data file together with the pages the script rewrote.
+
+When you re-check the facts, change `D.checked` near the top of `data/guide.js` (for example `"October 2026"`). The screens, the PDFs and the job pages all read it from there.
+
+The app, the PDFs, the email, the copied text and the job pages all read the same data files, so a fact is changed once.
+
+## Colours, and light or dark
+
+The colours are the University of Salford brand: navy `#032A3B`, Salford red `#D71A20` and stone `#D8D2C4`. On dark grounds coral `#F3665C` stands in for red, so small marks still show clearly. They are set once, as named values at the top of the styles in `index.html`, and again in `assets/pages.css` for the job, subject, privacy and teacher pages.
+
+The page follows the device's light or dark setting. A person can pick Light or Dark instead, with the button in the top bar or under More, Appearance. The choice is kept on their device and the other pages follow it.
+
+One line of script near the top of `index.html` applies a saved choice before the page is drawn. The security line above it allows that one line by its `sha256` value. If you ever change the line, work out the new value and put it in the security line:
+
+```bash
+python3 - <<'PY'
+import re, hashlib, base64
+s = open('index.html', encoding='utf-8').read()
+line = re.search(r'<script>(try\{var t=localStorage.*?)</script>', s).group(1)
+print('sha256-' + base64.b64encode(hashlib.sha256(line.encode()).digest()).decode())
+PY
+```
+
+## The QR code
+
+`node _build/build-pages.mjs` also writes `assets/qr.svg` from `D.qr` in `data/guide.js`, with `assets/logo.svg` at its centre. The app, the teacher pack and the PDFs all use it. It only needs remaking if the tool's public address changes: `_build/make-qr.mjs` explains how.
+
+## The designed email
+
+"Email it" shows a designed email: the banner, the four jobs, next steps, key dates, and links to the tool, the author's page and the University. A link can only carry plain words into an email, so the person copies the designed email and pastes it into a new message. The plain version still opens ready to send if they skip that step. Both are built from the same data, in `js/app.js` (`emailHtml`) and `js/core.js` (`emailBody`).
+
+## Search
+
+Search reads the data files, so new jobs, topics and words are found without any extra step.
+
+## Things to keep as they are
+
+- `D.config.toolUrl` and `D.config.statsUrl` in `data/guide.js`: the public address and the visit counter. The counter only runs when the page is open at the public address, so previews and local copies count nothing.
+- The saved-answer keys and the `#r=` share-link format in `js/core.js`. Changing them would lose people's saved answers and break links already shared.
+- The security line near the top of `index.html` (`Content-Security-Policy`). It lets the page load only its own files, plus the counter. Do not add scripts, fonts or pictures from other websites.
+- The styles sit inside `index.html` on purpose, so the first screen appears after one request on a slow connection.
+
+## Offline copy
+
+`sw.js` saves the tool on the device the first time it opens. A page is fetched fresh whenever there is a connection, and the other files refresh in the background once per visit, so a change you publish appears by the next visit. There is no version number to bump.
+
+The PDF maker, the teacher pack and the job and subject pages are saved a little later, one file at a time, so that saving them never slows down what the person is looking at.
+
+If you add a new file the app needs on first load, add it to the `CORE` list at the top of `sw.js`.
+
+## Previewing on your computer
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open `http://localhost:8000/` in a browser. Offline use and "add to home screen" only work on `localhost` or on the published `https` address.
 
 ## Preview pictures for the job pages
 
@@ -18,4 +97,11 @@ It needs Node 18 or later and nothing else. It copies every fact from `index.htm
 node _build/build-previews.mjs
 ```
 
-This draws one picture per job (`jobs/img/`, 1200 x 630) for link previews. It needs Playwright with Chromium (`npm install playwright`), which is only used on your computer. Run `build-pages.mjs` again afterwards so each job page points at its picture.
+This draws one picture per job (`jobs/img/`, 1200 x 630) for link previews. It needs Playwright with Chromium (`npm install playwright`), used only on your computer. Run `build-pages.mjs` again afterwards so each job page points at its picture.
+
+## Before publishing a change
+
+- Answer the four questions on a phone-sized window and a laptop-sized one, in light and dark mode.
+- Download both PDFs, and try Copy text, Email it and Share a link.
+- Open an old share link, for example `?src=share#r=9.make-planet.c.geography-dt.hands`, and check it shows a roadmap.
+- British English, plain words, no em dashes.
