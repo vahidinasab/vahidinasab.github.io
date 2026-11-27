@@ -82,7 +82,8 @@ function page({ file, title, desc, image, imageAlt, jsonld, body, share }) {
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#011B26" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#032A3B" media="(prefers-color-scheme: dark)">
+<script>try{var t=localStorage.getItem('gcse-clean-energy-roadmap-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 ${ICON}
 <link rel="stylesheet" href="../assets/pages.css">
 ${ld(jsonld)}
@@ -421,4 +422,26 @@ if (ha < 0 || hb < ha) throw new Error('index.html has no hero:start and hero:en
 next = next.slice(0, ha) + hero + next.slice(hb + '<!-- hero:end -->'.length);
 if (next !== index) fs.writeFileSync(path.join(ROOT, 'index.html'), next);
 
-console.log(`Wrote ${JOBS.length} job pages, ${SUBJECTS.length} subject pages, 2 index pages, sitemap.xml (${locs.length} addresses) and the welcome picture and browse lists in index.html.`);
+// ---------- The QR code picture (assets/qr.svg) ----------
+// Drawn from D.qr in data/guide.js in the brand colours, with the app's logo (assets/logo.svg) at its centre.
+// The code is error-correction level H, so the logo can cover the middle and it still scans.
+{
+  const NAVY = '#032A3B', RED = '#D71A20', rows = DATA.qr.split(','), n = rows.length, quiet = 4, size = n + 2 * quiet;
+  const bits = rows.map((h) => BigInt('0x' + h).toString(2).padStart(n, '0'));
+  const hole = 11, h0 = (n - hole) / 2;                      // modules cleared in the middle for the logo
+  const inEye = (r, c) => (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7);
+  const inHole = (r, c) => r >= h0 && r < h0 + hole && c >= h0 && c < h0 + hole;
+  let d = '';
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) {
+    if (bits[r][c] !== '1' || inEye(r, c) || inHole(r, c)) continue;
+    let e = c; while (e < n && bits[r][e] === '1' && !inEye(r, e) && !inHole(r, e)) e++;
+    d += `M${c + quiet} ${r + quiet}h${e - c}v1h-${e - c}z`; c = e - 1;
+  }
+  const eye = (r, c) => `<rect x="${c + quiet}" y="${r + quiet}" width="7" height="7" rx="2" fill="${NAVY}"/><rect x="${c + quiet + 1}" y="${r + quiet + 1}" width="5" height="5" rx="1.2" fill="#FFFFFF"/><rect x="${c + quiet + 2}" y="${r + quiet + 2}" width="3" height="3" rx=".9" fill="${RED}"/>`;
+  const logo = fs.readFileSync(path.join(ROOT, 'assets', 'logo.svg'), 'utf8').replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}"><rect width="${size}" height="${size}" rx="3" fill="#FFFFFF"/><path d="${d}" fill="${NAVY}"/>${eye(0, 0)}${eye(0, n - 7)}${eye(n - 7, 0)}` +
+    `<rect x="${h0 + quiet}" y="${h0 + quiet}" width="${hole}" height="${hole}" rx="2.4" fill="#FFFFFF"/><svg x="${h0 + quiet + 1}" y="${h0 + quiet + 1}" width="${hole - 2}" height="${hole - 2}" viewBox="0 0 64 64">${logo}</svg></svg>\n`;
+  fs.writeFileSync(path.join(ROOT, 'assets', 'qr.svg'), svg);
+}
+
+console.log(`Wrote ${JOBS.length} job pages, ${SUBJECTS.length} subject pages, 2 index pages, sitemap.xml (${locs.length} addresses) the QR code picture, and the welcome picture and browse lists in index.html.`);

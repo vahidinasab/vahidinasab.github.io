@@ -36,8 +36,8 @@ body{width:1200px;height:630px;display:grid;grid-template-columns:690px 510px;ba
 .top img{height:58px;width:auto}
 .rule{width:1px;height:42px;background:rgba(255,255,255,.4)}
 .tool{font-family:"Archivo",Arial,sans-serif;font-weight:800;font-size:21px;line-height:1.15}
-.eyebrow{margin-top:14px;display:flex;align-items:center;gap:12px;font-size:21px;font-weight:700;color:#86E6CC}
-.eyebrow::before{content:"";width:30px;height:4px;border-radius:2px;background:#2EB895}
+.eyebrow{margin-top:14px;display:flex;align-items:center;gap:12px;font-size:21px;font-weight:700;color:#D8D2C4}
+.eyebrow::before{content:"";flex:none;width:9px;height:24px;margin:0 16px 0 5px;background:#D71A20;transform:skewX(-24deg);box-shadow:15px 0 0 #D71A20}
 h1{font-family:"Archivo",Arial,sans-serif;font-weight:800;font-size:${j.name.length > 34 ? 46 : j.name.length > 24 ? 54 : 66}px;line-height:1.04;letter-spacing:-.02em}
 .what{font-size:22px;line-height:1.4;color:#E2EAF0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .pay{margin-top:auto;font-size:23px;color:#DCE5EB}

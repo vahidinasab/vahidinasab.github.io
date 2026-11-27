@@ -16,6 +16,7 @@
     reachShowFrom: 500,   // Reach so far appears once the visit total reaches this number
     paperDoi: '',   // for example '10.1016/j.example.2027.000000' once the paper is published
     articleUrl: 'https://theconversation.com/vocational-gcses-wont-arrive-until-2029-but-clean-energy-skills-can-be-found-in-the-curriculum-now-295008',  // The Conversation article
+    articleTitle: 'Vocational GCSEs won\u2019t arrive until 2029, but clean energy skills can be found in the curriculum now',   // its headline, shown on the welcome screen and in About
     feedbackUrl: '',   // a feedback form (for example a Microsoft Form); used for Send feedback when set
     contactEmail: ''   // otherwise an email address for Send feedback; with neither, it links to the staff profile
   };
@@ -23,8 +24,9 @@
   // The month the facts were last checked. It is shown on the page, in the PDFs and on the job and subject pages.
   D.checked = "October 2026";
 
-  // QR code for toolUrl (33 by 33 modules, error correction M), one hex string per row.
-  D.qr = '1fcc0727f,104c35941,175353c5d,17530455d,1755f925d,105ac6841,1fd55557f,001e53f00,17c5ca77c,1f8fdb26f,015af8c16,1e92af95f,0ef0537b8,0d0ea424f,0279f14c6,0d2924bec,1bdca85b1,0a24962ef,1ed824df6,08a8d293e,0b5f446ba,1992f9e45,12f3468be,138917c5e,1c630a7f0,0011cbd17,1fc169356,10598cf1f,1754701f8,175a64b93,1758b116c,104723c9c,1fdeaa5a2';
+  // QR code for toolUrl (41 by 41 modules, error correction H), one hex string per row. Level H lets the code
+  // still scan with the app's logo over its centre. If the address ever changes, see _build/make-qr.mjs.
+  D.qr = '1fdb5b7977f,1056c50f541,175f76c805d,174d494645d,174fa1e935d,105f043f841,1fd5555557f,001c3a36500,075277949e7,00a51d51ff7,13e9341a550,11bb5453778,017eda17a8f,161c6462191,1c734f1fe88,10b0a632759,1c51bd1faad,172210d1f73,1bce516785c,04a832d3fdb,16e2130c30d,1b30381d7df,0dca9ab25a0,0fbdf175018,04ee2230a26,032c6bb96fb,05710757160,04088e3e3d9,0efc790cb4f,1ea4ca2fcb3,146d11bc1fe,15b050354d9,14731fe89f5,001196d051b,1fceab67758,104295ab318,1758cdf25ff,175e7e80aad,1756694a5f2,1041333c51a,1fccb3cea7c';
 
   // ---------- The four questions ----------
   // "short" is used in the one-line summary, where the full labels would run together.

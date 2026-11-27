@@ -24,7 +24,7 @@
       function buildPdf(L, mode, level) {
         level = level || 0;
         function rgb(r, g, b) { return L.rgb(r / 255, g / 255, b / 255); }
-        var C = { ink: rgb(3, 42, 59), text: rgb(29, 53, 66), muted: rgb(86, 98, 111), amber: rgb(46, 184, 149), amberDark: rgb(12, 110, 87), green: rgb(23, 120, 90), card: rgb(242, 245, 248), cardLine: rgb(220, 226, 234), note: rgb(233, 246, 242), noteLine: rgb(127, 209, 187), white: rgb(255, 255, 255) };
+        var C = { ink: rgb(3, 42, 59), text: rgb(29, 53, 66), muted: rgb(86, 98, 111), amber: rgb(215, 26, 32), amberDark: rgb(215, 26, 32), green: rgb(215, 26, 32), red: rgb(215, 26, 32), card: rgb(242, 245, 248), cardLine: rgb(220, 226, 234), note: rgb(246, 243, 236), noteLine: rgb(216, 210, 196), white: rgb(255, 255, 255) };   // University of Salford navy, red and stone (the older names are kept so the layout code reads the same)
         var W = 595.28, H = 841.89, M = 50, CW = W - 2 * M, LIMIT = H - 62;
         var DOT = ' · '; // a separator that never starts a line
         var doc, F = {}, OK = {}, page = null, y = 0, pages = [];
@@ -183,20 +183,33 @@
             return { text: c.textContent.replace(/\s+/g, ' ').trim(), links: links };
           });
         }
-        function qrPath() {
-          var d = '';
-          qrRows().forEach(function (bits, r) {
+        // The QR code in the brand colours with the app's logo in the middle. The code is error-correction level H,
+        // so it still scans with its centre covered (the same picture as assets/qr.svg).
+        function drawQr(qx, top, QR) {
+          var rows = qrRows(), n = rows.length, u = QR / n, hole = 11, h0 = (n - hole) / 2, d = '';
+          var skip = function (r, c) { return (r < 7 && c < 7) || (r < 7 && c >= n - 7) || (r >= n - 7 && c < 7) || (r >= h0 && r < h0 + hole && c >= h0 && c < h0 + hole); };
+          rows.forEach(function (bits, r) {
             var c = 0;
-            while (c < bits.length) {
-              if (bits.charAt(c) !== '1') { c++; continue; }
+            while (c < n) {
+              if (bits.charAt(c) !== '1' || skip(r, c)) { c++; continue; }
               var s = c;
-              while (c < bits.length && bits.charAt(c) === '1') c++;
+              while (c < n && bits.charAt(c) === '1' && !skip(r, c)) c++;
               d += 'M ' + s + ' ' + r + ' L ' + c + ' ' + r + ' L ' + c + ' ' + (r + 1) + ' L ' + s + ' ' + (r + 1) + ' Z ';
             }
           });
-          return d;
+          shape(d, qx, top, C.ink, null, u);
+          [[0, 0], [0, n - 7], [n - 7, 0]].forEach(function (e) {
+            var ex = qx + e[1] * u, ey = top + e[0] * u;
+            box(ex, ey, 7 * u, 7 * u, 2 * u, C.ink); box(ex + u, ey + u, 5 * u, 5 * u, 1.2 * u, C.white); box(ex + 2 * u, ey + 2 * u, 3 * u, 3 * u, 0.9 * u, C.red);
+          });
+          var hx = qx + h0 * u, hy = top + h0 * u, s = (hole - 2) * u / 64, lx = hx + u, ly = hy + u;
+          box(hx, hy, hole * u, hole * u, 2.4 * u, C.white);
+          box(lx, ly, 64 * s, 64 * s, 14 * s, C.ink);
+          [[12, 47, 24, 36], [24, 36, 34, 43], [34, 43, 46, 22]].forEach(function (g) { page.drawLine({ start: { x: lx + g[0] * s, y: H - (ly + g[1] * s) }, end: { x: lx + g[2] * s, y: H - (ly + g[3] * s) }, thickness: 4.5 * s, color: C.white }); });
+          [[12, 47], [24, 36], [34, 43]].forEach(function (c) { page.drawCircle({ x: lx + c[0] * s, y: H - (ly + c[1] * s), size: 5 * s, color: C.white }); });
+          page.drawCircle({ x: lx + 46 * s, y: H - (ly + 21 * s), size: 11.5 * s, color: C.red, borderColor: C.white, borderWidth: 3 * s });
+          shape('M 48.2 12.5 L 40.6 22.6 L 45.2 22.6 L 43.6 29.6 L 51.4 19.2 L 46.7 19.2 Z', lx, ly, C.white, null, s);
         }
-
         return L.PDFDocument.create().then(function (d) {
           doc = d;
           var logo = logoBytes;
@@ -286,7 +299,7 @@
             var bx = M + leftW + 10, qx = bx + PAD;
             box(bx, top, rightW, bh, 7, C.card, C.cardLine);
             box(qx - 3, top + PAD - 3, QR + 6, QR + 6, 4, C.white, C.cardLine);
-            shape(qrPath(), qx, top + PAD, C.ink, null, QR / 33);
+            drawQr(qx, top + PAD, QR);
             addLink(qx, H - (top + PAD + QR), qx + QR, H - (top + PAD), CONFIG.toolUrl);
             y = top + PAD + QR + 5;
             draw([row('Scan to open it online', { size: 7.5, color: C.muted, width: QR + 4 })], qx);
@@ -450,7 +463,7 @@
           var otop = y;
           box(M, otop, CW, oh, 7, C.card, C.cardLine);
           box(qx - 4, otop + PAD - 4, QR + 8, QR + 8, 4, C.white, C.cardLine);
-          shape(qrPath(), qx, otop + PAD, C.ink, null, QR / 33);
+          drawQr(qx, otop + PAD, QR);
           addLink(qx, H - (otop + PAD + QR), qx + QR, H - (otop + PAD), CONFIG.toolUrl);
           y = otop + PAD;
           draw(online, M + PAD * 2 + QR);
