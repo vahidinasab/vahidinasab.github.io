@@ -56,8 +56,9 @@ a:hover{text-decoration-thickness:3px}
 .logo-light,.logo-dark{height:38px;width:auto}
 .logo-light{display:var(--show-light)} .logo-dark{display:var(--show-dark)}
 .rule{flex:none;width:1px;height:28px;background:var(--line-strong)}
-.brand{min-width:0;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:800;font-size:16.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand{display:flex;align-items:center;gap:9px;min-width:0;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:800;font-size:16.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bar .btn{margin-left:auto;flex:none}
+.brand img{flex:none;width:28px;height:28px}
 @media (max-width:620px){.brand{display:none}.rule{display:none}}
 
 /* Buttons */
@@ -85,7 +86,7 @@ a:hover{text-decoration-thickness:3px}
 .note > * + *{margin-top:8px}
 .short{list-style:none;padding:0 !important;display:grid;gap:10px}
 .short li{position:relative;padding-left:1.6em;margin:0 !important}
-.short li::before{content:"";position:absolute;left:.2em;top:.6em;width:9px;height:9px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.short li::before{content:"";position:absolute;left:.45em;top:.35em;width:6px;height:15px;background:var(--accent);transform:skewX(-24deg)}
 .muted{color:var(--muted)}
 .small{font-size:14.5px}
 table{border-collapse:collapse;width:100%;max-width:46em;font-size:15.5px}

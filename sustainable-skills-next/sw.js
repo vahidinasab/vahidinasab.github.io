@@ -12,7 +12,7 @@ var CACHE = 'sles-roadmap-1';
 var CORE = ['./', 'manifest.webmanifest', 'data/guide.js', 'data/subjects.js', 'data/jobs.js', 'data/home.js', 'js/core.js', 'js/app.js',
   'fonts/archivo-latin-800-normal.woff2', 'fonts/ibm-plex-sans-latin-400-normal.woff2', 'fonts/ibm-plex-sans-latin-600-normal.woff2', 'fonts/ibm-plex-sans-latin-700-normal.woff2',
   'images/home-scene-800.jpg', 'images/home-scene-night-800.jpg', 'images/home-moving.svg', 'assets/uos-logo.png', 'assets/uos-logo-white.png', 'assets/icon-192.png', 'assets/logo.svg', 'assets/qr.svg'];
-var LATER = ['js/pdf.js', 'vendor/pdf-lib-1.17.1.min.js', 'assets/pages.css', 'teachers.html', 'slides.html', 'worksheet.html', 'poster.html', 'privacy.html', 'accessibility.html', 'jobs/', 'subjects/'];
+var LATER = ['js/pdf.js', 'vendor/pdf-lib-1.17.1.min.js', 'assets/pages.css', 'assets/email-banner.png', 'teachers.html', 'slides.html', 'worksheet.html', 'poster.html', 'privacy.html', 'accessibility.html', 'jobs/', 'subjects/'];
 var SCOPE = new URL(self.registration.scope).pathname;
 
 function put(cache, url) { return fetch(url, { cache: 'no-cache' }).then(function (r) { if (r.ok) return cache.put(url, r); }).catch(function () { /* try again another time */ }); }

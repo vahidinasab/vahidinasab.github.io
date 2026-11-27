@@ -181,20 +181,21 @@
     lead: "A free, 20-minute activity that helps pupils in Years 7 to 11 see how the GCSE topics they study now lead to jobs in clean, local energy.",
     outcome: "By the end, pupils can: name at least two jobs in clean, local energy; link one topic from a GCSE subject they study to one of those jobs; and describe one way into that job.",
     steps: [
-      { mins: 5, title: "Starter", text: "Show slides 1 to 3. On the board, open the roadmap and tap two or three parts of the home picture, such as the heat pump and the solar panels. Ask: which school subjects turn up here? Who installs it?" },
+      { mins: 5, title: "Starter", text: "Show slides 1 to 3. On the board, open The home in the roadmap and tap two or three parts of the picture, such as the heat pump and the solar panels. Ask: which school subjects turn up here? Who installs it?" },
       { mins: 10, title: "Build a roadmap", text: "Show slide 5. Pupils scan the QR code, answer the four questions and read their four jobs. They fill in the worksheet: one job, one GCSE topic it uses, one way in, and one question for a careers adviser." },
       { mins: 5, title: "Share", text: "Use slide 6. In pairs: which job surprised you? Which of your subjects linked to the most jobs? Finish with slide 7: pupils download their PDF or email it home." }
     ],
     before: [
       "Open the roadmap on a school device to check it loads on your network. If it does not, ask your IT team to allow vahidinasab.github.io.",
       "Pupils need a phone, tablet, Chromebook or computer, one each or one between two. No login, app or email address is needed.",
-      "Print a worksheet for each pupil, and open the slides on the board."
+      "Print a worksheet for each pupil, and open the slides on the board.",
+      "If your Wi-Fi is unreliable, open the roadmap once on each device before the lesson. After that first visit it opens without a connection."
     ],
     adapt: [
       "Years 7 and 8: spend longer on the home picture and on \"A day might include\" in each job card.",
       "Year 9: link it to options. Ask which subjects can include an energy project, such as the D&T design project.",
       "Years 10 and 11: focus on \"Ways in\", the timeline and application deadlines. Pupils can open \"What do these words mean?\" for T Levels, apprenticeships and levels.",
-      "Subject lessons: science, maths, geography, D&T and computing teachers can open \"GCSE topics to look out for\" to show where their topic is used in real jobs."
+      "Subject lessons: science, maths, geography, D&T and computing teachers can open \"GCSE topics to look out for\", or use Search, to show where their topic is used in real jobs."
     ]
   };
 })(window.SLES = window.SLES || { data: {} });

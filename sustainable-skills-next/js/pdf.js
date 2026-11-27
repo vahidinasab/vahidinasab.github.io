@@ -202,9 +202,14 @@
             var ex = qx + e[1] * u, ey = top + e[0] * u;
             box(ex, ey, 7 * u, 7 * u, 2 * u, C.ink); box(ex + u, ey + u, 5 * u, 5 * u, 1.2 * u, C.white); box(ex + 2 * u, ey + 2 * u, 3 * u, 3 * u, 0.9 * u, C.red);
           });
-          var hx = qx + h0 * u, hy = top + h0 * u, s = (hole - 2) * u / 64, lx = hx + u, ly = hy + u;
+          var hx = qx + h0 * u, hy = top + h0 * u;
           box(hx, hy, hole * u, hole * u, 2.4 * u, C.white);
-          box(lx, ly, 64 * s, 64 * s, 14 * s, C.ink);
+          drawLogo(hx + u, hy + u, (hole - 2) * u);
+        }
+        // The roadmap's logo (the same drawing as assets/logo.svg): dots joined along a rising line to a red node.
+        function drawLogo(lx, ly, size) {
+          var s = size / 64;
+          box(lx, ly, size, size, 14 * s, C.ink);
           [[12, 47, 24, 36], [24, 36, 34, 43], [34, 43, 46, 22]].forEach(function (g) { page.drawLine({ start: { x: lx + g[0] * s, y: H - (ly + g[1] * s) }, end: { x: lx + g[2] * s, y: H - (ly + g[3] * s) }, thickness: 4.5 * s, color: C.white }); });
           [[12, 47], [24, 36], [34, 43]].forEach(function (c) { page.drawCircle({ x: lx + c[0] * s, y: H - (ly + c[1] * s), size: 5 * s, color: C.white }); });
           page.drawCircle({ x: lx + 46 * s, y: H - (ly + 21 * s), size: 11.5 * s, color: C.red, borderColor: C.white, borderWidth: 3 * s });
@@ -224,8 +229,9 @@
           function summaryPages(logoImg) {
             newPage();
             if (logoImg) { var lw = 84, lh = lw * logoImg.height / logoImg.width; page.drawImage(logoImg, { x: W - M - lw, y: H - y - lh, width: lw, height: lh }); }
-            slash(M, y, 6, 16, C.amber);
-            slash(M + 11, y, 6, 16, C.amber);
+            drawLogo(M, y - 4, 24);   // the logo and the slashes sit in the same space the slashes had, so pages break where they did
+            slash(M + 33, y, 6, 16, C.amber);
+            slash(M + 44, y, 6, 16, C.amber);
             y += 26;
             para([{ t: 'My local energy skills roadmap', f: F.bold, c: C.ink }], { size: 20, lh: 1.2, after: 3, width: CW - 100 });
             para(summaryText().split(' · ').join(DOT), { size: 10, after: 4 });
@@ -304,7 +310,7 @@
             y = top + PAD + QR + 5;
             draw([row('Scan to open it online', { size: 7.5, color: C.muted, width: QR + 4 })], qx);
             y = top + bh + 8;
-            para('Made with the Sustainable Local Energy Skills Roadmap by Professor Vahid Vahidinasab, University of Salford. A guide, not personal careers advice. The full version, with every GCSE topic, is on the website.', { size: 7.5, color: C.muted });
+            para([{ t: 'Made with the Sustainable Local Energy Skills Roadmap by Professor Vahid Vahidinasab, University of Salford. A guide, not personal careers advice. The full version, with every GCSE topic, is on the website.' }].concat(CONFIG.articleUrl ? [{ t: 'The article behind this tool is in' }, { t: 'The Conversation', u: CONFIG.articleUrl }] : []), { size: 7.5, color: C.muted });
           }
 
           if (mode === 'summary') summaryPages(fonts[3]);
@@ -312,8 +318,9 @@
           // Title and what this is
           newPage();
           if (fonts[3]) { var lw = 96, lh = lw * fonts[3].height / fonts[3].width; page.drawImage(fonts[3], { x: W - M - lw, y: H - y - lh, width: lw, height: lh }); }
-          slash(M, y, 7, 18, C.amber);
-          slash(M + 12, y, 7, 18, C.amber);
+          drawLogo(M, y - 5, 28);
+          slash(M + 38, y, 7, 18, C.amber);
+          slash(M + 50, y, 7, 18, C.amber);
           y += 30;
           para([{ t: 'My local energy skills roadmap', f: F.bold, c: C.ink }], { size: 24, lh: 1.2, after: 6 });
           para(summaryText().split(' · ').join(DOT), { size: 11, after: 5 });
@@ -485,7 +492,7 @@
 
           // Footer on every page
           pages.forEach(function (p, i) {
-            p.drawLine({ start: { x: M, y: 46 }, end: { x: W - M, y: 46 }, thickness: 0.75, color: C.cardLine });
+            p.drawLine({ start: { x: M, y: 46 }, end: { x: W - M, y: 46 }, thickness: 0.75, color: C.red });
             p.drawText(safe('Sustainable Local Energy Skills Roadmap · ' + shortUrl(CONFIG.toolUrl) + ' · A guide, not advice'), { x: M, y: 32, size: 7, font: F.reg, color: C.muted });
             var pn = 'Page ' + (i + 1) + ' of ' + pages.length;
             p.drawText(pn, { x: W - M - textW(F.reg, pn, 7), y: 32, size: 7, font: F.reg, color: C.muted });
