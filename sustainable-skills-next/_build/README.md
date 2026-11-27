@@ -14,6 +14,8 @@ Plain HTML, CSS and JavaScript. No framework and no build step for the app itsel
 | The matching rules, saved answers, share links, the email and copied text, the visit counter | `js/core.js` |
 | The two PDFs (loaded only when someone asks for a PDF) | `js/pdf.js` and `vendor/pdf-lib-1.17.1.min.js` |
 | The page frame, the welcome screen and all the styles | `index.html` |
+| The roadmap's logo, and the app icons made from it | `assets/logo.svg`, `assets/icon-*.png` |
+| The QR code picture, in the brand colours with the logo at its centre (written by a script, see below) | `assets/qr.svg` |
 | The home picture: one small file for phones, one large file for tablets and laptops, each in a day and a night version | `images/home-scene-*.jpg` |
 | Offline use and "add to home screen" | `sw.js`, `manifest.webmanifest`, `assets/icon-*.png` |
 | Teacher pack, privacy and accessibility pages | `teachers.html`, `slides.html`, `worksheet.html`, `poster.html`, `privacy.html`, `accessibility.html` |
@@ -35,6 +37,31 @@ This rewrites the job pages, the subject pages, `sitemap.xml`, and two parts of 
 When you re-check the facts, change `D.checked` near the top of `data/guide.js` (for example `"October 2026"`). The screens, the PDFs and the job pages all read it from there.
 
 The app, the PDFs, the email, the copied text and the job pages all read the same data files, so a fact is changed once.
+
+## Colours, and light or dark
+
+The colours are the University of Salford brand: navy `#032A3B`, Salford red `#D71A20` and stone `#D8D2C4`. On dark grounds coral `#F3665C` stands in for red, so small marks still show clearly. They are set once, as named values at the top of the styles in `index.html`, and again in `assets/pages.css` for the job, subject, privacy and teacher pages.
+
+The page follows the device's light or dark setting. A person can pick Light or Dark instead, with the button in the top bar or under More, Appearance. The choice is kept on their device and the other pages follow it.
+
+One line of script near the top of `index.html` applies a saved choice before the page is drawn. The security line above it allows that one line by its `sha256` value. If you ever change the line, work out the new value and put it in the security line:
+
+```bash
+python3 - <<'PY'
+import re, hashlib, base64
+s = open('index.html', encoding='utf-8').read()
+line = re.search(r'<script>(try\{var t=localStorage.*?)</script>', s).group(1)
+print('sha256-' + base64.b64encode(hashlib.sha256(line.encode()).digest()).decode())
+PY
+```
+
+## The QR code
+
+`node _build/build-pages.mjs` also writes `assets/qr.svg` from `D.qr` in `data/guide.js`, with `assets/logo.svg` at its centre. The app, the teacher pack and the PDFs all use it. It only needs remaking if the tool's public address changes: `_build/make-qr.mjs` explains how.
+
+## Search
+
+Search reads the data files, so new jobs, topics and words are found without any extra step.
 
 ## Things to keep as they are
 

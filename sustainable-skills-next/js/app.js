@@ -10,7 +10,7 @@
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
   function ic(name) { return '<svg class="ic" aria-hidden="true" focusable="false"><use href="#i-' + name + '"/></svg>'; }
-  var ui = { part: null, moving: !C.reducedMotion(), email: false, card: 0, last: 'welcome', focus: null };
+  var ui = { part: null, moving: !C.reducedMotion(), email: false, card: 0, last: 'welcome', focus: null, q: '' };
   var route = { name: 'welcome', arg: '', arg2: '' };
   var QUESTIONS = [
     { title: 'Which year are you in?' },
@@ -36,10 +36,10 @@
   // The same picture file is used on every screen, so it is fetched once: the small file on phones, and on
   // tablets and laptops the file that suits the screen (the large one on sharp screens).
   var PIC_SIZES = '(max-width: 899px) 100vw, 620px';
-  var PICTURE = '<picture><source media="(prefers-color-scheme: dark) and (max-width: 599px)" srcset="images/home-scene-night-800.jpg">' +
-    '<source media="(prefers-color-scheme: dark)" srcset="images/home-scene-night-800.jpg 800w, images/home-scene-night-1344.jpg 1344w" sizes="' + PIC_SIZES + '">' +
-    '<source media="(max-width: 599px)" srcset="images/home-scene-800.jpg">' +
-    '<img src="images/home-scene-800.jpg" srcset="images/home-scene-800.jpg 800w, images/home-scene-1344.jpg 1344w" sizes="' + PIC_SIZES + '" width="1344" height="756" alt="" decoding="async"></picture>';
+  function picture() {
+    var n = isDark() ? '-night' : '';   // a day and a night version of each file
+    return '<picture><source media="(max-width: 599px)" srcset="images/home-scene' + n + '-800.jpg"><img src="images/home-scene' + n + '-800.jpg" srcset="images/home-scene' + n + '-800.jpg 800w, images/home-scene' + n + '-1344.jpg 1344w" sizes="' + PIC_SIZES + '" width="1344" height="756" alt="" decoding="async"></picture>';
+  }
   // The home picture. lit: part ids to pick out. still: dots are not buttons. moving: add the moving layer.
   function scene(o) {
     o = o || {};
@@ -49,7 +49,7 @@
       return '<button type="button" class="dot' + (lit ? ' is-lit' : '') + '"' + at + ' data-part="' + p.id + '" aria-pressed="' + (ui.part === p.id) + '" aria-label="' + esc(p.name) + '"></button>';
     }).join('');
     return '<div class="scene' + (o.lit ? ' has-lit' : '') + '"' + (o.still ? ' role="img" aria-label="' + esc(o.label || 'The home picture') + '"' : '') + '>' +
-      PICTURE +
+      picture() +
       (o.moving ? '<div class="moving" id="moving" aria-hidden="true"></div>' : '') + dots +
       (o.moving ? '<button type="button" class="pause" data-act="pause" aria-pressed="' + (!ui.moving) + '">' + ic(ui.moving ? 'pause' : 'play') + '<span>' + (ui.moving ? 'Pause' : 'Play') + '</span><span class="vh"> the moving picture</span></button>' : '') + '</div>';
   }
@@ -61,6 +61,75 @@
       if (!img) return;
       if (img.complete && img.naturalWidth) ready(); else { img.addEventListener('load', ready); img.addEventListener('error', function () { s.classList.add('is-missing'); }); }
     });
+  }
+
+  // ---------- Light or dark ----------
+  // The page follows the device unless the person picks light or dark. The choice is kept on this device only
+  // (the one-line script at the top of index.html applies it before the page is drawn).
+  var THEME_KEY = 'gcse-clean-energy-roadmap-theme', THEME_NAMES = { system: 'Same as this device', light: 'Light', dark: 'Dark' };
+  var mqDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  function themeChoice() { var c = document.documentElement.getAttribute('data-theme'); return c === 'light' || c === 'dark' ? c : 'system'; }
+  function isDark() { var c = themeChoice(); return c === 'system' ? !!(mqDark && mqDark.matches) : c === 'dark'; }
+  function showTheme() {
+    var c = themeChoice(), use = document.getElementById('bar-theme-ic'), lab = document.getElementById('bar-theme-t');
+    if (use) use.setAttribute('href', c === 'light' ? '#i-sun' : c === 'dark' ? '#i-moon' : '#i-auto');
+    if (lab) lab.textContent = 'Appearance: ' + THEME_NAMES[c].toLowerCase() + '. Change';
+    $all('meta[name="theme-color"]').forEach(function (m) { var dark = c === 'system' ? /dark/.test(m.getAttribute('media') || '') : c === 'dark'; m.setAttribute('content', dark ? '#032A3B' : '#FFFFFF'); });
+    $all('input[name="theme"]').forEach(function (r) { r.checked = r.value === c; });
+  }
+  function setTheme(c) {
+    if (c === 'system') document.documentElement.removeAttribute('data-theme'); else document.documentElement.setAttribute('data-theme', c);
+    try { if (c === 'system') localStorage.removeItem(THEME_KEY); else localStorage.setItem(THEME_KEY, c); } catch (e) { /* it still applies until the page is closed */ }
+    showTheme();
+    if ($all('.scene', view).length) render(true);   // the home picture has a day and a night version
+    announce('Appearance: ' + THEME_NAMES[c].toLowerCase() + '.');
+  }
+  if (mqDark) { var onScheme = function () { if (themeChoice() === 'system' && $all('.scene', view).length) render(true); }; if (mqDark.addEventListener) mqDark.addEventListener('change', onScheme); else if (mqDark.addListener) mqDark.addListener(onScheme); }
+
+  // ---------- Search ----------
+  // Looks through the jobs, GCSE topics and subjects, the parts of the home, the words explained and the screens.
+  var searchItems = null, GROUPS = ['Jobs', 'GCSE topics', 'GCSE subjects', 'The home', 'Words explained', 'Screens'];
+  function searchIndex() {
+    if (searchItems) return searchItems;
+    var items = [], add = function (g, title, body, o) { o = o || {}; items.push({ g: g, t: title, sub: o.sub || '', href: o.href || '', jobs: o.jobs || null, k: (title + ' ' + (body || '') + ' ' + (o.sub || '')).toLowerCase() }); };
+    D.jobs.forEach(function (j) { add('Jobs', j.name, [j.what, j.day, (j.skills || []).join(' '), j.alt, j.routes.map(function (r) { return r.k + ' ' + r.v; }).join(' ')].join(' '), { href: '#/job/' + j.id, sub: pay(j) + ' a year' }); });
+    D.topics.forEach(function (x) { add('GCSE topics', x.t, [x.q, C.SUBJ[x.s].name].join(' '), { sub: C.SUBJ[x.s].name + ': ' + x.use, jobs: x.jobs }); });
+    D.subjects.forEach(function (s) { var n = D.topics.filter(function (x) { return x.s === s.id; }).length; add('GCSE subjects', s.name, s.short, { href: 'subjects/' + C.slug(s.name) + '.html', sub: n + (n === 1 ? ' topic' : ' topics') + ' that clean energy jobs use' }); });
+    D.parts.forEach(function (x) { add('The home', x.name, x.what + ' ' + (x.short || ''), { href: '#/home/' + x.id, sub: 'A part of the home picture' }); });
+    D.words.forEach(function (w) { add('Words explained', w.t, '', { sub: w.d }); });
+    [['Your timeline', 'key dates options deadlines when', '#/dates', 'Key dates for your year group'], ['What to do next', 'steps parents carers', '#/next', 'Steps for this school year'], ['Near you', 'local area colleges greater manchester scotland wales northern ireland england', '#/near', 'Courses and help where you live'],
+      ['Good to know', 'education until 18 new courses v levels vocational', '#/gtk', 'Staying in education until 18, and new courses'], ['Official careers advice', 'careers adviser help advice', '#/advice', 'Free services in each UK nation'], ['Teacher mode', 'classroom activity lesson slides worksheet poster teachers', '#/teacher', 'Run the 20-minute activity'],
+      ['For families', 'parents carers pay ways in', '#/families', 'Pay, ways in and what to ask the school'], ['All the jobs', 'jobs list pay compare', '#/jobs', 'Every job, with pay'], ['Share this tool', 'qr code link', '#/share', 'QR code and link'], ['About this guide and sources', 'sources research article', '#/about', ''],
+      ['Privacy', 'privacy data cookies', 'privacy.html', ''], ['Accessibility statement', 'accessibility', 'accessibility.html', '']].forEach(function (s) { add('Screens', s[0], s[1], { href: s[2], sub: s[3] }); });
+    return (searchItems = items);
+  }
+  function marked(text, words) {
+    // The text is escaped piece by piece, so nothing from the search box is ever written into the page as HTML.
+    var re = new RegExp('(' + words.map(function (w) { return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }).join('|') + ')', 'ig');
+    return String(text).split(re).map(function (part, i) { return i % 2 ? '<mark>' + esc(part) + '</mark>' : esc(part); }).join('');
+  }
+  function searchHtml(q) {
+    var words = String(q || '').toLowerCase().split(/\s+/).filter(Boolean);
+    if (String(q || '').trim().length < 2) return { n: -1, html: '<p class="muted">Type two or more letters. Try solar, maths or apprenticeship.</p>' };
+    var hits = searchIndex().filter(function (it) { return words.every(function (w) { return it.k.indexOf(w) !== -1; }); });
+    if (!hits.length) return { n: 0, html: '<div class="note"><p><strong>Nothing found for \u201c' + esc(q.trim()) + '\u201d.</strong> Try a shorter word, or look through <a href="#/jobs">all the jobs</a> and the <a href="#/words">words explained</a>.</p></div>' };
+    var rank = function (it) { var tl = it.t.toLowerCase(); return tl.indexOf(words[0]) === 0 ? 0 : words.every(function (w) { return tl.indexOf(w) !== -1; }) ? 1 : 2; };
+    var html = GROUPS.map(function (g) {
+      var list = hits.filter(function (it) { return it.g === g; }).sort(function (a, b) { return rank(a) - rank(b); }), more = Math.max(0, list.length - 8);
+      if (!list.length) return '';
+      return '<section class="s-group"><h2>' + g + ' <span class="count">' + list.length + '</span></h2><div class="rows">' + list.slice(0, 8).map(function (it) {
+        var body = '<span class="row-t"><b>' + marked(it.t, words) + '</b>' + (it.sub ? '<span>' + marked(it.sub, words) + '</span>' : '') + '</span>';
+        if (it.href) return '<a class="row" href="' + it.href + '">' + body + ic('next') + '</a>';
+        return '<div class="row s-note">' + body + (it.jobs ? '<div class="tags">' + it.jobs.map(function (id) { return '<a class="tag tag-link" href="#/job/' + id + '">' + esc(C.JOB[id].name) + '</a>'; }).join('') + '</div>' : '') + '</div>';
+      }).join('') + '</div>' + (more ? '<p class="muted small">And ' + more + ' more. Keep typing to narrow it down.</p>' : '') + '</section>';
+    }).join('');
+    return { n: hits.length, html: html };
+  }
+  // The article this tool grew out of (title and address are in data/guide.js).
+  function articleCard() {
+    var c = D.config;
+    if (!c.articleUrl || !c.articleTitle) return '';
+    return '<a class="art" href="' + esc(c.articleUrl) + '" target="_blank" rel="noopener">' + ic('news') + '<span class="art-k">The article behind this tool</span><b>' + esc(c.articleTitle) + '</b><span class="art-go">Read it in The Conversation<span class="vh"> (opens in a new tab)</span></span></a>';
   }
 
   // ---------- Subjects joined to jobs by lines ----------
@@ -167,11 +236,8 @@
       '<h2>Free official advice</h2><p>' + esc(D.adviceIntro) + '</p>' + adviceCards() +
       '<div class="rows">' + row('book', 'Words explained', 'Apprenticeship, T Level and more', '#/words') + row('info', 'Good to know', 'Staying in education until 18, and new courses', '#/gtk') + '</div>';
   }
-  function qrSvg() {
-    var d = '';
-    C.qrRows().forEach(function (bits, r) { for (var c = 0; c < bits.length; c++) if (bits.charAt(c) === '1') d += 'M' + (c + 4) + ' ' + (r + 4) + 'h1v1h-1z'; });
-    return '<svg class="qr" viewBox="0 0 41 41" role="img" aria-label="QR code that opens the ' + TOOL + '"><rect width="41" height="41" fill="#FFFFFF"/><path d="' + d + '" fill="#032A3B"/></svg>';
-  }
+  // The QR code is one picture (assets/qr.svg), written by _build/build-pages.mjs from D.qr with the logo at its centre.
+  function qrSvg() { return '<img class="qr" src="assets/qr.svg" width="245" height="245" alt="QR code that opens the ' + TOOL + '">'; }
   function partPanel() {
     var p = C.PART[ui.part];
     if (!p) return '<p class="muted">Tap a dot or a button to see where it turns up in your lessons, and who installs it.</p>';
@@ -246,7 +312,7 @@
     families: function () { return V.roadmap('', true); },
     job: function (id) {
       var r = ranked(id) || now().top[0], j = r.job;
-      var back = ['home', 'jobs', 'topics', 'families'].indexOf(ui.last) !== -1 ? '#/' + ui.last : '#/roadmap';
+      var back = ['home', 'jobs', 'topics', 'families', 'search'].indexOf(ui.last) !== -1 ? '#/' + ui.last : '#/roadmap';
       return { t: j.name, tab: 'roadmap', back: back, html: '<div class="job-hero"><div class="tags">' + roleTags(j) + '</div><h1 tabindex="-1">' + esc(j.name) + '</h1><p class="jh-pay"><b>' + pay(j) + '</b> a year</p><p class="jh-note">From starting pay to experienced</p></div><div class="pad flow">' + jobBody(r) + '<button type="button" class="btn btn-line" data-act="sharejob" data-arg="' + j.id + '">' + ic(navigator.share ? 'share' : 'link') + (navigator.share ? 'Share this job' : 'Copy a link to this job') + '</button><p class="status" id="job-status" role="status"></p>' + GUIDE + '</div>' };
     },
     jobs: function () {
@@ -276,10 +342,16 @@
     gtk: function () { return page('Good to know', '<ul class="ticks">' + D.goodToKnow.map(function (t) { return '<li>' + t + '</li>'; }).join('') + '</ul>'); },
     words: function () { return page('Words explained', '<p class="muted small">What the words in this roadmap mean.</p>' + wordsHtml(D.words)); },
     advice: function () { return page('Talk your choices through with an adviser', '<p>' + esc(D.adviceIntro) + '</p>' + adviceCards(), '#/more', 'Official careers advice', 'more'); },
+    search: function () {
+      var out = searchHtml(ui.q);
+      return { t: 'Search', tab: '', html: '<div class="pad flow"><h1 tabindex="-1">Search</h1><div class="search-box" role="search"><label class="vh" for="search-q">Search jobs, GCSE topics and words</label>' + ic('search') + '<input class="field search-q" id="search-q" type="search" placeholder="Search jobs, topics and words" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" value="' + esc(ui.q) + '"></div><p class="status" id="search-n" role="status">' + (out.n > 0 ? out.n + (out.n === 1 ? ' result' : ' results') : '') + '</p><div class="flow" id="search-out">' + out.html + '</div></div>' };
+    },
     more: function () {
-      return { t: 'More', tab: 'more', html: '<div class="pad flow"><h1 tabindex="-1">More</h1><div class="rows">' + row('board', 'Teacher mode', 'Run the 20-minute activity', '#/teacher') + row('family', 'For families', 'Pay, ways in and what to ask the school', '#/families') + row('people', 'Official careers advice', 'Free services in each UK nation', '#/advice') + '</div>' +
+      var c = themeChoice();
+      return { t: 'More', tab: 'more', html: '<div class="pad flow"><h1 tabindex="-1">More</h1><div class="rows">' + row('search', 'Search', 'Jobs, GCSE topics and words', '#/search') + row('board', 'Teacher mode', 'Run the 20-minute activity', '#/teacher') + row('family', 'For families', 'Pay, ways in and what to ask the school', '#/families') + row('people', 'Official careers advice', 'Free services in each UK nation', '#/advice') + '</div>' +
         '<div class="rows">' + row('qr', 'Share this tool', 'QR code and link', '#/share') + '<button type="button" class="row" id="install-row" data-act="install"' + (canInstall() ? '' : ' hidden') + '><span class="row-ic">' + ic('down') + '</span><span class="row-t"><b>Add to your home screen</b><span>Opens like an app, and works offline</span></span></button><button type="button" class="row" data-act="reset"><span class="row-ic">' + ic('close') + '</span><span class="row-t"><b>Start again</b><span>Clears your answers from this device</span></span></button></div>' +
         '<p class="status" id="more-status" role="status"></p>' +
+        '<h2 id="theme-h">Appearance</h2><div class="choices three" role="radiogroup" aria-labelledby="theme-h">' + ['system', 'light', 'dark'].map(function (v) { return '<label class="choice"><input type="radio" name="theme" value="' + v + '"' + (c === v ? ' checked' : '') + '><span class="c-body">' + ic(v === 'light' ? 'sun' : v === 'dark' ? 'moon' : 'auto') + THEME_NAMES[v] + '</span></label>'; }).join('') + '</div>' +
         '<div class="rows">' + row('info', 'About this guide and sources', '', '#/about') + '<a class="row" href="privacy.html"><span class="row-t"><b>Privacy</b></span>' + ic('next') + '</a><a class="row" href="accessibility.html"><span class="row-t"><b>Accessibility statement</b></span>' + ic('next') + '</a></div></div>' };
     },
     share: function () {
@@ -292,7 +364,7 @@
       else fb = '<a href="' + C.PROFILE_URL + '" target="_blank" rel="noopener">Contact the author</a>';
       if (cfg.articleUrl) research += '<li><a href="' + esc(cfg.articleUrl) + '" target="_blank" rel="noopener">Read the article in The Conversation</a></li>';
       if (C.paperUrl()) research += '<li><a href="' + C.paperUrl() + '" target="_blank" rel="noopener">Read the paper: doi.org/' + esc(cfg.paperDoi.replace(/^https?:\/\/(dx\.)?doi\.org\//, '')) + '</a></li>';
-      return page('About this guide', D.about.map(function (p) { return '<p>' + p.replace('{checked}', esc(D.checked)) + '</p>'; }).join('') +
+      return page('About this guide', articleCard() + D.about.map(function (p) { return '<p>' + p.replace('{checked}', esc(D.checked)) + '</p>'; }).join('') +
         (C.statsOn() ? '<p>This page counts visits and how the tool is used, anonymously and without cookies. It keeps only totals, by country, by UK region and by where a link was shared, never your answers.</p>' : '') +
         '<p>Spotted a mistake or have an idea? ' + fb + '</p><p>Teaching with this tool? The <a href="teachers.html">teacher pack</a> has a 20-minute activity, classroom slides, a pupil worksheet and a QR poster.</p>' +
         (research ? '<h2>The research behind it</h2><ul class="plain">' + research + '</ul>' : '') +
@@ -358,7 +430,7 @@
     if (keep === true) window.scrollTo(0, y);
     else {
       window.scrollTo(0, 0);
-      var h = $('h1', v ? view : welcome);
+      var h = r.name === 'search' ? document.getElementById('search-q') : $('h1', v ? view : welcome);   // on Search, the box is ready to type in
       if (h && started) { try { h.focus({ preventScroll: true }); } catch (e) { h.focus(); } }
     }
     started = true;
@@ -395,6 +467,7 @@
     },
     families: function () { A.roadmap(); },
     home: function () { loadMoving(); },
+    search: function () { var q = document.getElementById('search-q'); if (q && q.value) { try { q.setSelectionRange(q.value.length, q.value.length); } catch (e) { /* not every browser allows this on a search box */ } } },
     about: function () { loadStats(); }
   };
   function moveCard(d) { var c = document.getElementById('carousel'); if (c) c.scrollBy({ left: d * (c.scrollWidth / c.children.length), behavior: C.reducedMotion() ? 'auto' : 'smooth' }); }
@@ -490,6 +563,7 @@
 
   // ---------- Taps ----------
   var ACT = {
+    theme: function () { var order = ['system', 'light', 'dark'], next = order[(order.indexOf(themeChoice()) + 1) % 3]; setTheme(next); toast('Appearance: ' + THEME_NAMES[next].toLowerCase()); },
     example: function () { C.setView('example'); C.track('example'); go('#/roadmap'); return true; },
     mine: function () { if (C.hasAnswers(now().mine)) C.setView('mine'); go('#/roadmap'); return true; },
     useshared: function () { C.useShared(); returning = false; announce('These answers are now yours.'); go('#/roadmap'); },
@@ -568,6 +642,7 @@
   document.addEventListener('change', function (e) {
     var el = e.target, n = el.name;
     if (n === 'area') { C.setArea(el.value); document.getElementById('near-list').innerHTML = nearList(); return; }
+    if (n === 'theme') { setTheme(el.value); return; }
     if (['year', 'interest', 'sci', 'subject', 'style'].indexOf(n) === -1) return;
     var checked = function (name) { return $all('input[name="' + name + '"]:checked', view).map(function (x) { return x.value; }); };
     var patch = {};
@@ -601,6 +676,13 @@
   });
   window.addEventListener('afterprint', function () { var box = document.getElementById('print-all'); if (box) box.innerHTML = ''; });
 
+  document.addEventListener('input', function (e) {
+    if (e.target.id !== 'search-q') return;
+    ui.q = e.target.value;
+    var out = searchHtml(ui.q);
+    document.getElementById('search-out').innerHTML = out.html;
+    document.getElementById('search-n').textContent = out.n > 0 ? out.n + (out.n === 1 ? ' result' : ' results') : '';
+  });
   // The lines are drawn to fit the screen, so they are drawn again when it turns or changes size, and when the fonts arrive.
   var mapTimer = null;
   function redrawSoon() { clearTimeout(mapTimer); mapTimer = setTimeout(drawMap, 80); }
@@ -609,6 +691,8 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(drawMap, function () {});
 
   // ---------- Start ----------
+  document.getElementById('w-article').innerHTML = articleCard();
+  showTheme();
   render();
   if (C.statsOn()) { C.track('visit'); if (C.visitSource()) C.track('source', C.visitSource()); }
   if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {

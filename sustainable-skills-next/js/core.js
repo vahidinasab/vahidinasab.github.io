@@ -300,10 +300,12 @@
     return Math.max.apply(null, Object.keys(SENDERS).map(function (k) { return SENDERS[k].link(body).length; }));
   }
   function qrRows() {
-    return QR_HEX.split(',').map(function (h) {
-      var bits = parseInt(h, 16).toString(2);
-      while (bits.length < 33) bits = '0' + bits;
-      return bits;
+    // One string of 0s and 1s per row. Each hex digit is four modules; the code is as wide as it is tall.
+    var rows = QR_HEX.split(','), n = rows.length;
+    return rows.map(function (h) {
+      var bits = '';
+      for (var i = 0; i < h.length; i++) { var b = parseInt(h.charAt(i), 16).toString(2); while (b.length < 4) b = '0' + b; bits += b; }
+      return bits.slice(bits.length - n);
     });
   }
 
