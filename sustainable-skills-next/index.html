@@ -390,10 +390,8 @@ html.immersive-on{scroll-padding-top:1rem;scroll-padding-bottom:9rem}
 /* ---------- The designed email: its preview and the two steps ---------- */
 .email-preview{max-height:24rem;overflow:auto;border:1.5px solid var(--line-2);border-radius:var(--r-s);background:#EEF1F3}
 .email-preview img{max-width:100%;height:auto}
-.email-steps{list-style:none;margin:0;padding:0;display:grid;gap:.9rem;counter-reset:step}
-.email-steps > li{display:grid;gap:.5rem;justify-items:start;counter-increment:step}
-.email-steps > li::before{content:"Step " counter(step);font-size:.8125rem;font-weight:700;color:var(--muted)}
-.email-steps .send-grid{width:100%}
+.email-copy{position:fixed;left:-200vw;top:0;width:640px}
+.email-hint{padding:.75rem .9rem;border-left:4px solid var(--accent);border-radius:var(--r-s);background:var(--tint);color:var(--ink);font-weight:600} .email-hint:empty{display:none}
 
 /* ---------- Search, and the choice of light or dark ---------- */
 .search-box{position:relative} .search-box .ic{position:absolute;left:.9rem;top:50%;margin-top:-.75rem;color:var(--muted);pointer-events:none}

@@ -263,9 +263,10 @@
       '<p class="muted small">For teachers: <button type="button" class="link inline" data-act="pdf" data-mode="full">download the full version</button>, with every GCSE topic and what the course says.</p>' +
       '<p class="status" id="save-status" role="status"></p>' +
       '<div class="email-panel" id="email-panel"' + (ui.email ? '' : ' hidden') + '><p class="label">A designed email, with your four jobs</p><div class="email-preview" id="email-preview" tabindex="0" role="group" aria-label="Preview of the designed email"></div>' +
-      '<ol class="email-steps"><li><button type="button" class="btn" data-act="emailrich">' + ic('copy') + 'Copy the designed email</button></li><li><p id="email-h">Open a new email and paste it into the message. Which email do you use?</p><div class="send-grid" role="group" aria-labelledby="email-h">' +
-      [['gmail', 'Gmail'], ['outlook', 'Hotmail or Outlook.com'], ['school', 'School or work Outlook'], ['app', 'Email app']].map(function (x) { return '<a class="btn btn-line btn-s" data-send="' + x[0] + '" href="#"' + (x[0] === 'app' ? '' : ' target="_blank" rel="noopener"') + '>' + x[1] + '</a>'; }).join('') + '</div></li></ol>' +
-      '<p class="small">A link can only carry plain words into an email, so the designed email is copied and then pasted. If you skip step 1, a plain version opens instead, ready to send to yourself, a parent or a teacher. For the full version, attach the PDF.</p>' +
+      '<p id="email-h"><strong>Which email do you use?</strong> Choose one. The designed email is copied for you and a new message opens. Then press and hold in the message, or right-click, and choose Paste.</p><div class="send-grid" role="group" aria-labelledby="email-h">' +
+      [['gmail', 'Gmail'], ['outlook', 'Hotmail or Outlook.com'], ['school', 'School or work Outlook'], ['app', 'Email app']].map(function (x) { return '<a class="btn btn-line btn-s" data-send="' + x[0] + '" href="#"' + (x[0] === 'app' ? '' : ' target="_blank" rel="noopener"') + '>' + x[1] + '</a>'; }).join('') + '</div>' +
+      '<p class="email-hint" id="email-status" role="status"></p>' +
+      '<p class="small"><button type="button" class="link inline" data-act="emailrich">Copy the designed email</button> on its own, to paste anywhere. A web page cannot put a designed email into your message for you, so pasting is the one step left. If copying is not allowed on your device, a plain version opens instead, ready to send. For the full version, attach the PDF.</p>' +
       '<details class="fold"><summary>See the plain message or copy it</summary><label for="email-subject">Subject</label><input class="field" id="email-subject" readonly><label for="email-body">Message</label><textarea class="field" id="email-body" readonly rows="10"></textarea><button type="button" class="btn btn-line btn-s" data-act="emailcopy">Copy message</button></details></div>' +
       '<textarea class="field" id="copy-fallback" readonly hidden rows="6" aria-label="Your roadmap as text"></textarea></section>';
   }
@@ -545,9 +546,23 @@
       TABLE + 'style="margin:18px 0 14px"><tr><td style="background:' + RED + ';border-radius:8px"><a href="' + esc(C.roadmapLink(st)) + '" style="display:inline-block;padding:13px 22px;' + FONT + 'font-size:16px;font-weight:bold;color:#FFFFFF;text-decoration:none">Build or update this roadmap online</a></td></tr></table>' +
       P(advice, 'font-size:13px;color:' + MUTED + ';') + '</td></tr>' +
       '<tr><td style="padding:16px 24px 20px;background:#F6F3EC;border-top:3px solid ' + RED + '">' + TABLE + 'width="100%"><tr>' +
-      '<td width="112" valign="middle"><a href="' + UOS + '"><img src="' + esc(base) + 'assets/uos-logo.png" width="104" alt="University of Salford" style="display:block;width:104px;height:auto;border:0"></a></td>' +
+      '<td width="64" valign="middle"><a href="' + esc(tool) + '"><img src="' + esc(base) + 'assets/icon-192.png" width="56" height="56" alt="Sustainable Local Energy Skills Roadmap" style="display:block;width:56px;height:56px;border:0"></a></td>' +
       '<td valign="middle" style="padding-left:14px">' + P('From the ' + A(tool, 'Sustainable Local Energy Skills Roadmap') + ' by ' + A(C.PROFILE_URL, 'Professor Vahid Vahidinasab') + ', ' + A(UOS, 'University of Salford') + '. Information checked ' + esc(D.checked) + '.', 'margin:0;font-size:13px;') + '</td>' +
       '</tr></table></td></tr></table></td></tr></table>';
+  }
+  // Copies the preview as formatted text in the same tap (this way works without waiting, so a new message can open at once).
+  function copyPreview() {
+    // Copied from a full-width copy kept off screen, so the email is 600 pixels wide even when made on a phone.
+    var node = document.createElement('div');
+    node.className = 'email-copy'; node.setAttribute('aria-hidden', 'true'); node.innerHTML = emailHtml();
+    document.body.appendChild(node);
+    try {
+      var sel = window.getSelection(), range = document.createRange();
+      range.selectNodeContents(node); sel.removeAllRanges(); sel.addRange(range);
+      var done = document.execCommand('copy');
+      sel.removeAllRanges();
+      return !!done;
+    } catch (e) { return false; } finally { document.body.removeChild(node); }
   }
   // Copies formatted text. Where the browser cannot take formatted text directly, the preview itself is selected and copied.
   function copyRich(html, text, node, ok, fail) {
@@ -581,6 +596,7 @@
     if (preview) preview.innerHTML = emailHtml();
     ui.rich = false;
     setSendLinks();
+    var tip = document.getElementById('email-status'); if (tip) tip.textContent = '';
     // On phones and tablets the email app is usually the easiest way, so it goes first.
     var grid = $('.send-grid'), app = $('[data-send="app"]');
     if (grid && app && window.matchMedia && window.matchMedia('(pointer: coarse)').matches) grid.insertBefore(app, grid.firstChild);
@@ -642,7 +658,7 @@
     email: function (b) { hideFallback(); setStatus(''); ui.email = !ui.email; document.getElementById('email-panel').hidden = !ui.email; b.setAttribute('aria-expanded', String(ui.email)); if (ui.email) fillEmail(); },
     emailrich: function () {
       copyRich(emailHtml(), C.emailBody(), document.getElementById('email-preview'),
-        function () { ui.rich = true; setSendLinks(); setStatus('Designed email copied. Now open a new email below and paste it into the message.'); C.track('copy'); },
+        function () { var tip = document.getElementById('email-status'); if (tip) tip.textContent = 'Designed email copied. Open a new message, press and hold in it, or right-click, and choose Paste.'; C.track('copy'); },
         function () { setStatus('Your browser did not allow copying. Select the preview, copy it, then paste it into a new email.'); });
     },
     emailcopy: function () {
@@ -691,7 +707,10 @@
     if (t.hasAttribute('data-send')) {
       var key = t.getAttribute('data-send'), text = document.getElementById('email-body').value;
       var lead = key === 'app' ? 'Opening your email app. If nothing opens, pick Gmail or Outlook instead.' : 'Opening ' + C.SENDERS[key].name + ' in a new tab.', also = ' Your roadmap is copied too, in case you need to paste it.';
-      if (ui.rich) setStatus(lead + ' Paste into the message to add your designed roadmap.');
+      var tip = document.getElementById('email-status');
+      ui.rich = copyPreview();
+      setSendLinks();   // the link opens an empty message once the designed email is on the clipboard
+      if (ui.rich) { if (tip) tip.textContent = 'Designed email copied. ' + lead + ' Now press and hold in the message, or right-click, and choose Paste.'; setStatus(''); }
       else if (copyNow(text)) setStatus(lead + also); else { setStatus(lead); copyText(text, function () { setStatus(lead + also); }, function () {}); }
       C.track('email');
       return;

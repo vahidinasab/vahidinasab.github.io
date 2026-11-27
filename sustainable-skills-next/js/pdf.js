@@ -228,10 +228,9 @@
           // "level" tightens the layout (1: timeline without details, 2: no word list) if a roadmap would run to a third page.
           function summaryPages(logoImg) {
             newPage();
-            if (logoImg) { var lw = 84, lh = lw * logoImg.height / logoImg.width; page.drawImage(logoImg, { x: W - M - lw, y: H - y - lh, width: lw, height: lh }); }
-            drawLogo(M, y - 4, 24);   // the logo and the slashes sit in the same space the slashes had, so pages break where they did
-            slash(M + 33, y, 6, 16, C.amber);
-            slash(M + 44, y, 6, 16, C.amber);
+            drawLogo(W - M - 40, y - 4, 40);   // the roadmap's own logo, top right
+            slash(M, y, 6, 16, C.amber);
+            slash(M + 11, y, 6, 16, C.amber);
             y += 26;
             para([{ t: 'My local energy skills roadmap', f: F.bold, c: C.ink }], { size: 20, lh: 1.2, after: 3, width: CW - 100 });
             para(summaryText().split(' · ').join(DOT), { size: 10, after: 4 });
@@ -317,10 +316,9 @@
           else {
           // Title and what this is
           newPage();
-          if (fonts[3]) { var lw = 96, lh = lw * fonts[3].height / fonts[3].width; page.drawImage(fonts[3], { x: W - M - lw, y: H - y - lh, width: lw, height: lh }); }
-          drawLogo(M, y - 5, 28);
-          slash(M + 38, y, 7, 18, C.amber);
-          slash(M + 50, y, 7, 18, C.amber);
+          drawLogo(W - M - 46, y - 5, 46);
+          slash(M, y, 7, 18, C.amber);
+          slash(M + 12, y, 7, 18, C.amber);
           y += 30;
           para([{ t: 'My local energy skills roadmap', f: F.bold, c: C.ink }], { size: 24, lh: 1.2, after: 6 });
           para(summaryText().split(' · ').join(DOT), { size: 11, after: 5 });
