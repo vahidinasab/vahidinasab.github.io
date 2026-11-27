@@ -13,7 +13,7 @@
   var logoBytes = null;
   function loadLogo() {
     if (logoBytes) return Promise.resolve();
-    return fetch('assets/uos-logo.png').then(function (r) { return r.ok ? r.arrayBuffer() : null; }).then(function (b) { logoBytes = b ? new Uint8Array(b) : null; }, function () { logoBytes = null; });
+    return Promise.resolve();   // the PDFs carry the roadmap's own logo, which is drawn, so no picture file is fetched
   }
   // build(pdfLib, 'summary' or 'full') gives the PDF's bytes; name(mode) gives its file name.
   S.pdf = {
