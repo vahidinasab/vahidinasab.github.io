@@ -59,7 +59,7 @@ a:hover{text-decoration-thickness:3px}
 .brand{display:flex;align-items:center;gap:9px;min-width:0;color:var(--ink);text-decoration:none;font-family:var(--display);font-weight:800;font-size:16.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bar .btn{margin-left:auto;flex:none}
 .brand img{flex:none;width:28px;height:28px}
-@media (max-width:620px){.brand{display:none}.rule{display:none}}
+@media (max-width:620px){.brand{font-size:0;gap:0}}
 
 /* Buttons */
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border-radius:var(--r-md);border:1.5px solid transparent;font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;color:var(--accent-ink);background:var(--accent);cursor:pointer}
